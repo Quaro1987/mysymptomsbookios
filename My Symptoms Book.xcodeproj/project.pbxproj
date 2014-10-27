@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		FAEC5FEE19FEA5D8004B456D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FED19FEA5D8004B456D /* main.m */; };
 		FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF019FEA5D8004B456D /* AppDelegate.m */; };
-		FAEC5FF419FEA5D8004B456D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* ViewController.m */; };
+		FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* InitialViewController.m */; };
 		FAEC5FF719FEA5D8004B456D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEC5FF519FEA5D8004B456D /* Main.storyboard */; };
 		FAEC5FF919FEA5D8004B456D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEC5FF819FEA5D8004B456D /* Images.xcassets */; };
 		FAEC5FFC19FEA5D8004B456D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEC5FFA19FEA5D8004B456D /* LaunchScreen.xib */; };
 		FAEC600819FEA5D8004B456D /* My_Symptoms_BookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC600719FEA5D8004B456D /* My_Symptoms_BookTests.m */; };
+		FAEC601219FEA5F1004B456D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEC601119FEA5F1004B456D /* libsqlite3.dylib */; };
+		FAEC601419FEA612004B456D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEC601319FEA612004B456D /* Security.framework */; };
+		FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC601619FEB19A004B456D /* LogInViewController.m */; };
+		FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC601919FEB1A9004B456D /* RegisterViewController.m */; };
+		FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC601C19FEEF3D004B456D /* DataAndNetFunctions.m */; };
+		FAEC602019FEF8AE004B456D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC601F19FEF8AE004B456D /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +38,24 @@
 		FAEC5FED19FEA5D8004B456D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAEC5FEF19FEA5D8004B456D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAEC5FF019FEA5D8004B456D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FAEC5FF219FEA5D8004B456D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FAEC5FF319FEA5D8004B456D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FAEC5FF219FEA5D8004B456D /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		FAEC5FF319FEA5D8004B456D /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		FAEC5FF619FEA5D8004B456D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAEC5FF819FEA5D8004B456D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAEC5FFB19FEA5D8004B456D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FAEC600119FEA5D8004B456D /* My Symptoms BookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Symptoms BookTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEC600619FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEC600719FEA5D8004B456D /* My_Symptoms_BookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Symptoms_BookTests.m; sourceTree = "<group>"; };
+		FAEC601119FEA5F1004B456D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FAEC601319FEA612004B456D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FAEC601519FEB19A004B456D /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		FAEC601619FEB19A004B456D /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		FAEC601819FEB1A9004B456D /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		FAEC601919FEB1A9004B456D /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		FAEC601B19FEEF3D004B456D /* DataAndNetFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAndNetFunctions.h; sourceTree = "<group>"; };
+		FAEC601C19FEEF3D004B456D /* DataAndNetFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAndNetFunctions.m; sourceTree = "<group>"; };
+		FAEC601E19FEF8AE004B456D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		FAEC601F19FEF8AE004B456D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEC601419FEA612004B456D /* Security.framework in Frameworks */,
+				FAEC601219FEA5F1004B456D /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +81,8 @@
 		FAEC5FDF19FEA5D7004B456D = {
 			isa = PBXGroup;
 			children = (
+				FAEC601319FEA612004B456D /* Security.framework */,
+				FAEC601119FEA5F1004B456D /* libsqlite3.dylib */,
 				FAEC5FEA19FEA5D8004B456D /* My Symptoms Book */,
 				FAEC600419FEA5D8004B456D /* My Symptoms BookTests */,
 				FAEC5FE919FEA5D8004B456D /* Products */,
@@ -83,12 +103,20 @@
 			children = (
 				FAEC5FEF19FEA5D8004B456D /* AppDelegate.h */,
 				FAEC5FF019FEA5D8004B456D /* AppDelegate.m */,
-				FAEC5FF219FEA5D8004B456D /* ViewController.h */,
-				FAEC5FF319FEA5D8004B456D /* ViewController.m */,
+				FAEC5FF219FEA5D8004B456D /* InitialViewController.h */,
+				FAEC5FF319FEA5D8004B456D /* InitialViewController.m */,
 				FAEC5FF519FEA5D8004B456D /* Main.storyboard */,
 				FAEC5FF819FEA5D8004B456D /* Images.xcassets */,
 				FAEC5FFA19FEA5D8004B456D /* LaunchScreen.xib */,
 				FAEC5FEB19FEA5D8004B456D /* Supporting Files */,
+				FAEC601519FEB19A004B456D /* LogInViewController.h */,
+				FAEC601619FEB19A004B456D /* LogInViewController.m */,
+				FAEC601819FEB1A9004B456D /* RegisterViewController.h */,
+				FAEC601919FEB1A9004B456D /* RegisterViewController.m */,
+				FAEC601B19FEEF3D004B456D /* DataAndNetFunctions.h */,
+				FAEC601C19FEEF3D004B456D /* DataAndNetFunctions.m */,
+				FAEC601E19FEF8AE004B456D /* User.h */,
+				FAEC601F19FEF8AE004B456D /* User.m */,
 			);
 			path = "My Symptoms Book";
 			sourceTree = "<group>";
@@ -219,7 +247,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAEC5FF419FEA5D8004B456D /* ViewController.m in Sources */,
+				FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */,
+				FAEC602019FEF8AE004B456D /* User.m in Sources */,
+				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
+				FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */,
+				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
 				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
 			);

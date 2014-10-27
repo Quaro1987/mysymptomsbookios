@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RegisterViewController.h
 //  My Symptoms Book
 //
 //  Created by Giannis Pas on 10/27/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RegisterViewController : UIViewController
 
 @end
-
