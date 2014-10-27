@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAEC5FEE19FEA5D8004B456D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FED19FEA5D8004B456D /* main.m */; };
+		FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF019FEA5D8004B456D /* AppDelegate.m */; };
+		FAEC5FF419FEA5D8004B456D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* ViewController.m */; };
+		FAEC5FF719FEA5D8004B456D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEC5FF519FEA5D8004B456D /* Main.storyboard */; };
+		FAEC5FF919FEA5D8004B456D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEC5FF819FEA5D8004B456D /* Images.xcassets */; };
+		FAEC5FFC19FEA5D8004B456D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEC5FFA19FEA5D8004B456D /* LaunchScreen.xib */; };
+		FAEC600819FEA5D8004B456D /* My_Symptoms_BookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC600719FEA5D8004B456D /* My_Symptoms_BookTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAEC600219FEA5D8004B456D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEC5FE019FEA5D7004B456D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAEC5FE719FEA5D7004B456D;
+			remoteInfo = "My Symptoms Book";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Symptoms Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEC5FEC19FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEC5FED19FEA5D8004B456D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FAEC5FEF19FEA5D8004B456D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FAEC5FF019FEA5D8004B456D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FAEC5FF219FEA5D8004B456D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FAEC5FF319FEA5D8004B456D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FAEC5FF619FEA5D8004B456D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAEC5FF819FEA5D8004B456D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FAEC5FFB19FEA5D8004B456D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FAEC600119FEA5D8004B456D /* My Symptoms BookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Symptoms BookTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEC600619FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEC600719FEA5D8004B456D /* My_Symptoms_BookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Symptoms_BookTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAEC5FE519FEA5D7004B456D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEC5FFE19FEA5D8004B456D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAEC5FDF19FEA5D7004B456D = {
+			isa = PBXGroup;
+			children = (
+				FAEC5FEA19FEA5D8004B456D /* My Symptoms Book */,
+				FAEC600419FEA5D8004B456D /* My Symptoms BookTests */,
+				FAEC5FE919FEA5D8004B456D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAEC5FE919FEA5D8004B456D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */,
+				FAEC600119FEA5D8004B456D /* My Symptoms BookTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAEC5FEA19FEA5D8004B456D /* My Symptoms Book */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC5FEF19FEA5D8004B456D /* AppDelegate.h */,
+				FAEC5FF019FEA5D8004B456D /* AppDelegate.m */,
+				FAEC5FF219FEA5D8004B456D /* ViewController.h */,
+				FAEC5FF319FEA5D8004B456D /* ViewController.m */,
+				FAEC5FF519FEA5D8004B456D /* Main.storyboard */,
+				FAEC5FF819FEA5D8004B456D /* Images.xcassets */,
+				FAEC5FFA19FEA5D8004B456D /* LaunchScreen.xib */,
+				FAEC5FEB19FEA5D8004B456D /* Supporting Files */,
+			);
+			path = "My Symptoms Book";
+			sourceTree = "<group>";
+		};
+		FAEC5FEB19FEA5D8004B456D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC5FEC19FEA5D8004B456D /* Info.plist */,
+				FAEC5FED19FEA5D8004B456D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAEC600419FEA5D8004B456D /* My Symptoms BookTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC600719FEA5D8004B456D /* My_Symptoms_BookTests.m */,
+				FAEC600519FEA5D8004B456D /* Supporting Files */,
+			);
+			path = "My Symptoms BookTests";
+			sourceTree = "<group>";
+		};
+		FAEC600519FEA5D8004B456D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC600619FEA5D8004B456D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAEC5FE719FEA5D7004B456D /* My Symptoms Book */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEC600B19FEA5D8004B456D /* Build configuration list for PBXNativeTarget "My Symptoms Book" */;
+			buildPhases = (
+				FAEC5FE419FEA5D7004B456D /* Sources */,
+				FAEC5FE519FEA5D7004B456D /* Frameworks */,
+				FAEC5FE619FEA5D7004B456D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "My Symptoms Book";
+			productName = "My Symptoms Book";
+			productReference = FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAEC600019FEA5D8004B456D /* My Symptoms BookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEC600E19FEA5D8004B456D /* Build configuration list for PBXNativeTarget "My Symptoms BookTests" */;
+			buildPhases = (
+				FAEC5FFD19FEA5D8004B456D /* Sources */,
+				FAEC5FFE19FEA5D8004B456D /* Frameworks */,
+				FAEC5FFF19FEA5D8004B456D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAEC600319FEA5D8004B456D /* PBXTargetDependency */,
+			);
+			name = "My Symptoms BookTests";
+			productName = "My Symptoms BookTests";
+			productReference = FAEC600119FEA5D8004B456D /* My Symptoms BookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAEC5FE019FEA5D7004B456D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Ioannis Pasmatzis";
+				TargetAttributes = {
+					FAEC5FE719FEA5D7004B456D = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					FAEC600019FEA5D8004B456D = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = FAEC5FE719FEA5D7004B456D;
+					};
+				};
+			};
+			buildConfigurationList = FAEC5FE319FEA5D7004B456D /* Build configuration list for PBXProject "My Symptoms Book" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAEC5FDF19FEA5D7004B456D;
+			productRefGroup = FAEC5FE919FEA5D8004B456D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAEC5FE719FEA5D7004B456D /* My Symptoms Book */,
+				FAEC600019FEA5D8004B456D /* My Symptoms BookTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAEC5FE619FEA5D7004B456D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEC5FF719FEA5D8004B456D /* Main.storyboard in Resources */,
+				FAEC5FFC19FEA5D8004B456D /* LaunchScreen.xib in Resources */,
+				FAEC5FF919FEA5D8004B456D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEC5FFF19FEA5D8004B456D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAEC5FE419FEA5D7004B456D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEC5FF419FEA5D8004B456D /* ViewController.m in Sources */,
+				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
+				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEC5FFD19FEA5D8004B456D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEC600819FEA5D8004B456D /* My_Symptoms_BookTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAEC600319FEA5D8004B456D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAEC5FE719FEA5D7004B456D /* My Symptoms Book */;
+			targetProxy = FAEC600219FEA5D8004B456D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAEC5FF519FEA5D8004B456D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAEC5FF619FEA5D8004B456D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAEC5FFA19FEA5D8004B456D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAEC5FFB19FEA5D8004B456D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAEC600919FEA5D8004B456D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FAEC600A19FEA5D8004B456D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAEC600C19FEA5D8004B456D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "My Symptoms Book/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FAEC600D19FEA5D8004B456D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "My Symptoms Book/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FAEC600F19FEA5D8004B456D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "My Symptoms BookTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Symptoms Book.app/My Symptoms Book";
+			};
+			name = Debug;
+		};
+		FAEC601019FEA5D8004B456D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "My Symptoms BookTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Symptoms Book.app/My Symptoms Book";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAEC5FE319FEA5D7004B456D /* Build configuration list for PBXProject "My Symptoms Book" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEC600919FEA5D8004B456D /* Debug */,
+				FAEC600A19FEA5D8004B456D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAEC600B19FEA5D8004B456D /* Build configuration list for PBXNativeTarget "My Symptoms Book" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEC600C19FEA5D8004B456D /* Debug */,
+				FAEC600D19FEA5D8004B456D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FAEC600E19FEA5D8004B456D /* Build configuration list for PBXNativeTarget "My Symptoms BookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEC600F19FEA5D8004B456D /* Debug */,
+				FAEC601019FEA5D8004B456D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAEC5FE019FEA5D7004B456D /* Project object */;
+}
