@@ -23,7 +23,8 @@
 
 //encoding/decoding methods
 -(void)encodeWithCoder:(NSCoder *)encoder;
-
 -(id)initWithCoder:(NSCoder *)decoder;
+
+//save / get object from nsuserdefaults
 
 @end

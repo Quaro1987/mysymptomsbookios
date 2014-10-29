@@ -43,7 +43,7 @@
         <!--Title-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="InitialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="initialView" id="vXZ-lx-hvc" customClass="InitialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -102,7 +102,9 @@
                             <constraint firstItem="ur1-c9-CZP" firstAttribute="top" secondItem="l1x-Yr-Ftp" secondAttribute="bottom" constant="36" id="zKM-K3-q4Q"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Rm9-8C-e5d"/>
+                    <navigationItem key="navigationItem" title="Title" id="Rm9-8C-e5d">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="J9Y-ee-gwx"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="navigationBar" destination="Rm9-8C-e5d" id="7vU-XH-mMT"/>
@@ -154,7 +156,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="T6h-K0-Ldj" eventType="touchUpInside" id="M8f-HJ-9fv"/>
-                                    <segue destination="LPL-d2-49J" kind="show" id="TyT-pn-kB9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m2-Rs-Vyu">
@@ -213,6 +214,7 @@
                     <connections>
                         <outlet property="passwordField" destination="WNT-Ea-VQk" id="kCp-5g-zbT"/>
                         <outlet property="usernameField" destination="LwE-u9-2pN" id="73U-8Z-Q0m"/>
+                        <segue destination="LPL-d2-49J" kind="show" id="t0v-gV-MPB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVK-gB-V7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,7 +224,7 @@
         <!--Title-->
         <scene sceneID="jUt-al-sqe">
             <objects>
-                <viewController id="LPL-d2-49J" customClass="NormalUserMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="normalUserMainView" id="LPL-d2-49J" customClass="NormalUserMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOE-2G-iG0"/>
                         <viewControllerLayoutGuide type="bottom" id="RnF-Fk-oGF"/>
@@ -230,13 +232,56 @@
                     <view key="view" contentMode="scaleToFill" id="Cio-lb-Uq5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AuX-GM-Cji">
+                                <rect key="frame" x="138" y="123" width="99" height="30"/>
+                                <state key="normal" title="Add Symptom">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSymptomPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="4y6-pQ-iWy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-3i-OwW">
+                                <rect key="frame" x="103" y="196" width="168" height="30"/>
+                                <state key="normal" title="Check Symptom History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkSymptomsHistoryPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="sNX-KH-vUD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgy-zE-fez">
+                                <rect key="frame" x="130" y="271" width="114" height="30"/>
+                                <state key="normal" title="Manage Doctors">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="manageDoctorsPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="bq6-IB-UjW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-tZ-gpG">
+                                <rect key="frame" x="159" y="333" width="56" height="30"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="qcG-05-IUi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="tUX-I7-ovl"/>
+                    <navigationItem key="navigationItem" title="Title" id="HGH-I4-Mcd">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="LOb-VR-ioF"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="HGH-I4-Mcd" id="YX9-g1-hdV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lF-FF-haq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021" y="1179"/>
+            <point key="canvasLocation" x="1026.5" y="1212.5"/>
         </scene>
         <!--Doctor User Main View Controller-->
         <scene sceneID="dT8-jO-hxe">

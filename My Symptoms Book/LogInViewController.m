@@ -9,7 +9,8 @@
 #import "LogInViewController.h"
 #import "DataAndNetFunctions.h"
 #import "User.h"
-
+#import "NormalUserMainViewController.h"
+#import "SSKeychain.h"
 @interface LogInViewController ()
 
 @end
@@ -60,7 +61,15 @@
             User *currentUser = userLogInEffort;
             //save user data in a file
             [dataNetController saveUserData:currentUser];
-            [[dataNetController alertStatus:@"Welcome to My Symptoms Book" andAlertTitle:currentUser.username] show];
+            //save user's password in keychain
+            [SSKeychain setPassword:_passwordField.text forService:@"MySymptomsBook" account:_usernameField.text];
+            //change view to the normal user's main view
+            NormalUserMainViewController *newViewController =
+            [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+            newViewController.currentUser = currentUser;
+            [self.navigationController pushViewController:newViewController animated:YES];
+            
+            
         }
     }
 }

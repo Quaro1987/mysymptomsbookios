@@ -1,0 +1,3 @@
+[submodule "My Symptoms Book/External/SSKeychain"]
+	path = My Symptoms Book/External/SSKeychain
+	url = https://github.com/soffes/sskeychain

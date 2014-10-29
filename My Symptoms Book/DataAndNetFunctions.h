@@ -19,4 +19,8 @@
 -(UIAlertView *)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
 
 -(void)saveUserData:(User *) loggedUser;
+
+-(User *)getSavedUser;
+
+-(void)logoutUser:(User *) currentUser;
 @end

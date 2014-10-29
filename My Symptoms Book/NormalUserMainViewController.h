@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface NormalUserMainViewController : UIViewController
+
+//properties
+@property (nonatomic, strong) User *currentUser;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
+
+//button outlets
+- (IBAction)addSymptomPressed:(id)sender;
+
+- (IBAction)checkSymptomsHistoryPressed:(UIButton *)sender;
+
+- (IBAction)manageDoctorsPressed:(UIButton *)sender;
+
+- (IBAction)logoutPressed:(UIButton *)sender;
+
 
 @end

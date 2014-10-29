@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */; };
 		FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */; };
-		FA7246731A00706000421B83 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246701A00706000421B83 /* SSKeychain.m */; };
-		FA7246741A00706000421B83 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246721A00706000421B83 /* SSKeychainQuery.m */; };
+		FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246B91A00783200421B83 /* SSKeychain.m */; };
+		FA7246BD1A00783200421B83 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246BB1A00783200421B83 /* SSKeychainQuery.m */; };
 		FAEC5FEE19FEA5D8004B456D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FED19FEA5D8004B456D /* main.m */; };
 		FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF019FEA5D8004B456D /* AppDelegate.m */; };
 		FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* InitialViewController.m */; };
@@ -41,10 +41,10 @@
 		FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalUserMainViewController.m; sourceTree = "<group>"; };
 		FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorUserMainViewController.h; sourceTree = "<group>"; };
 		FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorUserMainViewController.m; sourceTree = "<group>"; };
-		FA72466F1A00706000421B83 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		FA7246701A00706000421B83 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		FA7246711A00706000421B83 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
-		FA7246721A00706000421B83 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		FA7246B81A00783200421B83 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		FA7246B91A00783200421B83 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		FA7246BA1A00783200421B83 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		FA7246BB1A00783200421B83 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Symptoms Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEC5FEC19FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEC5FED19FEA5D8004B456D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA7246B71A00783200421B83 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				FA7246B81A00783200421B83 /* SSKeychain.h */,
+				FA7246B91A00783200421B83 /* SSKeychain.m */,
+				FA7246BA1A00783200421B83 /* SSKeychainQuery.h */,
+				FA7246BB1A00783200421B83 /* SSKeychainQuery.m */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
 		FAEC5FDF19FEA5D7004B456D = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +124,7 @@
 		FAEC5FEA19FEA5D8004B456D /* My Symptoms Book */ = {
 			isa = PBXGroup;
 			children = (
+				FA7246B71A00783200421B83 /* SSKeychain */,
 				FAEC5FEF19FEA5D8004B456D /* AppDelegate.h */,
 				FAEC5FF019FEA5D8004B456D /* AppDelegate.m */,
 				FAEC5FF219FEA5D8004B456D /* InitialViewController.h */,
@@ -140,10 +152,6 @@
 		FAEC5FEB19FEA5D8004B456D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA72466F1A00706000421B83 /* SSKeychain.h */,
-				FA7246701A00706000421B83 /* SSKeychain.m */,
-				FA7246711A00706000421B83 /* SSKeychainQuery.h */,
-				FA7246721A00706000421B83 /* SSKeychainQuery.m */,
 				FAEC5FEC19FEA5D8004B456D /* Info.plist */,
 				FAEC5FED19FEA5D8004B456D /* main.m */,
 			);
@@ -268,7 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */,
-				FA7246741A00706000421B83 /* SSKeychainQuery.m in Sources */,
+				FA7246BD1A00783200421B83 /* SSKeychainQuery.m in Sources */,
 				FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */,
 				FAEC602019FEF8AE004B456D /* User.m in Sources */,
 				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
@@ -277,7 +285,7 @@
 				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,
 				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
-				FA7246731A00706000421B83 /* SSKeychain.m in Sources */,
+				FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

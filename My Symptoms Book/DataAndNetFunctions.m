@@ -11,6 +11,8 @@
 
 #import "DataAndNetFunctions.h"
 #import "User.h"
+#import "SSKeychain.h"
+
 
 //website to get data
 #define webServer @"http://mysymptomsbook.hol.es/index.php?r=user/user/"
@@ -88,10 +90,12 @@
         NSNumber *userStatus = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"status"]];
             
         User *user = [[User alloc] initWithId:userID andUserName:tempUserame andUserType:tempUserType andEmail:tempEmail andStatus:userStatus];
+        
         return user;
     }
 }
 
+//alert message
 -(UIAlertView *)alertStatus:(NSString *)alertBody andAlertTitle:(NSString *)alertTitle
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
@@ -101,6 +105,7 @@
                                                otherButtonTitles:nil, nil];
     return alertView;
 }
+
 //store user object in NSUserDefaults
 -(void)saveUserData:(User *) loggedUser
 {
@@ -113,4 +118,26 @@
     [defaults synchronize];
 }
 
+//get stored user from NSUserDefaults
+-(User *)getSavedUser
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //get the saved user's encoded data
+    NSData *encodedUserData = [defaults objectForKey:@"user"];
+    //crate user object
+    User *currentUser = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedUserData];
+    
+    return currentUser;
+}
+
+//logout user
+-(void)logoutUser:(User *) currentUser
+{
+    //delete password from keychain
+    [SSKeychain deletePasswordForService:@"MySymptomsBook" account:currentUser.username];
+    
+    //delete user object form nsuser defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"user"];
+}
 @end

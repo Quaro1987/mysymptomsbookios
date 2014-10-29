@@ -9,7 +9,9 @@
 #import "InitialViewController.h"
 #import "LogInViewController.h"
 #import "RegisterViewController.h"
-
+#import "DataAndNetFunctions.h"
+#import "NormalUserMainViewController.h"
+#import "User.h"
 @interface InitialViewController ()
 
 @end
@@ -17,11 +19,35 @@
 @implementation InitialViewController
 
 - (void)viewDidLoad {
+    
+    //check if a user is saved
+    DataAndNetFunctions *dataController =[[DataAndNetFunctions alloc] init];
+    User *currentUser = [dataController getSavedUser];
+    //if there exists a logged user take him to the appropriate first view page
+    if(currentUser!=nil)
+    {
+        //create window story board objects to change the rootview controller
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //log user details
+        NSLog(@"User exists %@ %@ %@ %@ %@", currentUser.username, currentUser.email, currentUser.userID.stringValue, currentUser.userType.stringValue, currentUser.status.stringValue);
+        
+        //check user type, if 0 take him to normal user main view
+        if([currentUser.userType.stringValue isEqualToString:@"0"])
+        {
+            NSLog(@"This user is a normal type user");
+            NormalUserMainViewController *destinationController = [storyBoard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+            destinationController.currentUser = currentUser;
+            
+            [self.navigationController pushViewController:destinationController animated:NO];
+        }
+    }
+    
     //set title to my symptoms book when the inital view loads
     self.navigationBar.title = @"My Symptoms Book";
-    
+    [self.navigationItem setHidesBackButton:YES animated:YES];
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
