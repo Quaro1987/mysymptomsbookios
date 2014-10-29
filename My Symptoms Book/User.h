@@ -8,16 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface User : NSObject <NSCoding>
 
 //properties
-@property (nonatomic, strong) NSString *userID;
+@property (nonatomic, strong) NSNumber *userID;
 @property (nonatomic, strong) NSString *username;
-@property (nonatomic, strong) NSString *userType;
-
+@property (nonatomic, strong) NSNumber *userType;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSNumber *status;
 
 //init method
--(id)initWithId: (NSString *) usrID andUserName: (NSString *) usrName
-    andUserType: (NSString *) usrType;
+-(id)initWithId: (NSNumber *) usrID andUserName: (NSString *) usrName
+    andUserType: (NSNumber *) usrType andEmail: (NSString *) usrEmail andStatus: (NSNumber *) usrStatus;
+
+//encoding/decoding methods
+-(void)encodeWithCoder:(NSCoder *)encoder;
+
+-(id)initWithCoder:(NSCoder *)decoder;
 
 @end

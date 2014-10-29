@@ -57,22 +57,37 @@
     //creaet NS dictionary and store result
     NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
     
-    //copy the id of the returned user in an nsinteger. If it's 0 no such user exists/wrong
-    //password
-    NSInteger userID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
-    NSLog(@"%d",userID);
     
+    //init number formatter
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    //set so the formatter doesn't reutrn decimals
+    [numberFormatter setGeneratesDecimalNumbers:FALSE];
+    
+    //copy the id of the returned user in an nsnumber. If it's 0 no such user exists/wrong
+    //password
+    //NSNumber *userID = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"id"]];
+    //NSLog(@"%@",userID);
+    
+    NSInteger usID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
     //check if log in was a success or failure
-    if(userID==0)
+    if(usID==0)
     {
         //if fail, send error fail message
-        NSString *fail = @"FAIL";
+        NSString *fail = @"NOUSER";
         return fail;
     }
     else
     {
         //if success, log in user
-        User *user = [[User alloc] initWithId:[jsonReponseData objectForKey:@"id"] andUserName:[jsonReponseData objectForKey:@"username"] andUserType:[jsonReponseData objectForKey:@"userType"]];
+        //create temp attributes
+        NSString *tempUserame = [jsonReponseData objectForKey:@"username"];
+        NSString *tempEmail = [jsonReponseData objectForKey:@"email"];
+        NSNumber *tempUserType = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"userType"]];
+        NSNumber *userID = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"id"]];
+        NSNumber *userStatus = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"status"]];
+            
+        User *user = [[User alloc] initWithId:userID andUserName:tempUserame andUserType:tempUserType andEmail:tempEmail andStatus:userStatus];
         return user;
     }
 }
@@ -86,6 +101,16 @@
                                                otherButtonTitles:nil, nil];
     return alertView;
 }
-
+//store user object in NSUserDefaults
+-(void)saveUserData:(User *) loggedUser
+{
+    //encode object
+    NSData *encodedUserObject = [NSKeyedArchiver archivedDataWithRootObject:loggedUser];
+    //init NSUserDefautls object
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //add object to nsuserdefaults and synchronize
+    [defaults setObject:encodedUserObject forKey:@"user"];
+    [defaults synchronize];
+}
 
 @end

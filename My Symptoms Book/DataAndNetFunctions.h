@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+@class User;
+
 @interface DataAndNetFunctions : NSObject
 
 //functions
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password;
 
 -(UIAlertView *)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
+
+-(void)saveUserData:(User *) loggedUser;
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */; };
+		FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */; };
+		FA7246731A00706000421B83 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246701A00706000421B83 /* SSKeychain.m */; };
+		FA7246741A00706000421B83 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246721A00706000421B83 /* SSKeychainQuery.m */; };
 		FAEC5FEE19FEA5D8004B456D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FED19FEA5D8004B456D /* main.m */; };
 		FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF019FEA5D8004B456D /* AppDelegate.m */; };
 		FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* InitialViewController.m */; };
@@ -33,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA72466919FFDAD800421B83 /* NormalUserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalUserMainViewController.h; sourceTree = "<group>"; };
+		FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalUserMainViewController.m; sourceTree = "<group>"; };
+		FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorUserMainViewController.h; sourceTree = "<group>"; };
+		FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorUserMainViewController.m; sourceTree = "<group>"; };
+		FA72466F1A00706000421B83 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		FA7246701A00706000421B83 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		FA7246711A00706000421B83 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		FA7246721A00706000421B83 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Symptoms Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEC5FEC19FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEC5FED19FEA5D8004B456D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -117,6 +129,10 @@
 				FAEC601C19FEEF3D004B456D /* DataAndNetFunctions.m */,
 				FAEC601E19FEF8AE004B456D /* User.h */,
 				FAEC601F19FEF8AE004B456D /* User.m */,
+				FA72466919FFDAD800421B83 /* NormalUserMainViewController.h */,
+				FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */,
+				FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */,
+				FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */,
 			);
 			path = "My Symptoms Book";
 			sourceTree = "<group>";
@@ -124,6 +140,10 @@
 		FAEC5FEB19FEA5D8004B456D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA72466F1A00706000421B83 /* SSKeychain.h */,
+				FA7246701A00706000421B83 /* SSKeychain.m */,
+				FA7246711A00706000421B83 /* SSKeychainQuery.h */,
+				FA7246721A00706000421B83 /* SSKeychainQuery.m */,
 				FAEC5FEC19FEA5D8004B456D /* Info.plist */,
 				FAEC5FED19FEA5D8004B456D /* main.m */,
 			);
@@ -248,12 +268,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */,
+				FA7246741A00706000421B83 /* SSKeychainQuery.m in Sources */,
+				FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */,
 				FAEC602019FEF8AE004B456D /* User.m in Sources */,
 				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
 				FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */,
 				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
+				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,
 				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
+				FA7246731A00706000421B83 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +468,7 @@
 				FAEC600D19FEA5D8004B456D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAEC600E19FEA5D8004B456D /* Build configuration list for PBXNativeTarget "My Symptoms BookTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +477,7 @@
 				FAEC601019FEA5D8004B456D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
