@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "DataAndNetFunctions.h"
 @interface AppDelegate ()
 
 @end
@@ -18,6 +18,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //if the app has been launched for the first time, create a plist file with all the symptom category properties
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    //copy path file into string
+    NSString *symptomCategoriesPlistPath = [dataController getSymptomCategoriesFilePath];
+    
+    //check if a file exists at path. if it doesn't, execute the code inside the if statement.
+    if(![[NSFileManager defaultManager] fileExistsAtPath:symptomCategoriesPlistPath])
+    {
+        //populate array with symptom categories
+        NSArray *categoryArray = @[@"Blood, immune system", @"Circulatory", @"Digestive", @"Ear, Hearing"
+                                   , @"Eye", @"Female genital", @"General", @"Male genital"
+                                   , @"Metabolic, endocrine", @"Musculoskeletal", @"Neurological", @"Psychological", @"Respiratory", @"Skin",
+                                   @"Social problems", @"Urological", @"Women's health, pregnancy"];
+        //write categoryArray to symptomCategoris.plist file
+        [categoryArray writeToFile:symptomCategoriesPlistPath atomically:YES];
+    }
+    
+    //check if database exists, otherwise populate it with symptoms
+    if(![[NSFileManager defaultManager] fileExistsAtPath:[dataController getMySymptomsBookDatabasePath]])
+    {
+        [dataController populateSymptomsDatabaseOnFirstLoad];
+    }
+    
     //set navigaton bar color properties
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x6399cd)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];;

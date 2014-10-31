@@ -23,4 +23,10 @@
 -(User *)getSavedUser;
 
 -(void)logoutUser:(User *) currentUser;
+
+-(NSString *)getSymptomCategoriesFilePath;
+
+-(void)populateSymptomsDatabaseOnFirstLoad;
+
+-(NSString *)getMySymptomsBookDatabasePath;
 @end
