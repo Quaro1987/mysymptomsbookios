@@ -17,7 +17,7 @@
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 //button outlets
-- (IBAction)addSymptomPressed:(id)sender;
+
 
 - (IBAction)checkSymptomsHistoryPressed:(UIButton *)sender;
 

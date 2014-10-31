@@ -11,7 +11,7 @@
 #import "DataAndNetFunctions.h"
 #import "SSKeychain.h"
 #import "InitialViewController.h"
-
+#import "SymptomCategoryTableViewController.h"
 
 @interface NormalUserMainViewController ()
 
@@ -39,27 +39,18 @@
 
 
 #pragma mark - Navigation
-/*
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([[segue identifier] isEqualToString:@"logoutSegue"])
+    //if add symptom selected go to symptom category pick table view controller
+    if([[segue identifier] isEqualToString:@"addSymptomSegue"])
     {
-        
-        
-        InitialViewController *destinationController = [segue destinationViewController];
+        SymptomCategoryTableViewController *destinationController = [segue destinationViewController];
     }
 }
-*/
 
 
-- (IBAction)addSymptomPressed:(id)sender {
-}
 
-- (IBAction)checkSymptomsHistoryPressed:(UIButton *)sender {
-}
-
-- (IBAction)manageDoctorsPressed:(UIButton *)sender {
-}
 //if the user selects to log out, delete his details and take him to the initial page
 - (IBAction)logoutPressed:(UIButton *)sender
 {
