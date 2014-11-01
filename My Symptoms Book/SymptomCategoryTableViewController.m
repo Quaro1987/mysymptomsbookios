@@ -8,6 +8,8 @@
 
 #import "SymptomCategoryTableViewController.h"
 #import "DataAndNetFunctions.h"
+#import "SymptomSelectTableViewController.h"
+
 @interface SymptomCategoryTableViewController ()
 
 @end
@@ -15,6 +17,8 @@
 @implementation SymptomCategoryTableViewController
 
 - (void)viewDidLoad {
+    _navigationBar.title = @"Pick a Symptom Category";
+    
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -87,15 +91,25 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //when a symptom category cell is selected, change views
+    if([[segue identifier] isEqualToString:@"showSymptomsSegue"])
+    {
+        //get selected table cell
+        UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        
+        //create destination controller
+        SymptomSelectTableViewController *destinationController = [segue destinationViewController];
+        
+        //copy selection
+        destinationController.selectedCategory = selectedCell.textLabel.text;
+    }
 }
-*/
+
 
 #pragma mark functions
 

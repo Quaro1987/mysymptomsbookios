@@ -171,8 +171,7 @@
 //function to populate the sql database with symptoms
 -(void)populateSymptomsDatabaseOnFirstLoad
 {
-    NSInteger resultValue;
-    
+
     //get the path of the symptomsList.rtf file
     NSString *symptomsListFile = @"symptomsList";
     NSString *symptomsListPath = [[NSBundle mainBundle] pathForResource:symptomsListFile ofType:@"txt"];

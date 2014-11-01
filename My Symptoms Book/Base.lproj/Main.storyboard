@@ -283,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="1026.5" y="1212.5"/>
         </scene>
-        <!--Symptom Category Table View Controller-->
+        <!--Title-->
         <scene sceneID="8yu-Ty-HTz">
             <objects>
                 <tableViewController id="tg3-f5-Qza" customClass="SymptomCategoryTableViewController" sceneMemberID="viewController">
@@ -297,6 +297,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WWr-cU-0Ad" id="xlb-cb-0LH">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jzp-hA-Mtz" kind="show" identifier="showSymptomsSegue" id="mkb-4o-IG1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -304,11 +307,103 @@
                             <outlet property="delegate" destination="tg3-f5-Qza" id="9Un-HA-QKD"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="dKw-4T-zx7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="dKw-4T-zx7" id="hpj-Bz-Hqn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4Z-v3-gqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1579.5" y="1212.5"/>
+        </scene>
+        <!--select symptom-->
+        <scene sceneID="NUL-lH-iIU">
+            <objects>
+                <tableViewController id="jzp-hA-Mtz" customClass="SymptomSelectTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9jD-QS-KZp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="KGy-Nq-Ftu">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="jzp-hA-Mtz" id="BpG-3o-smB"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomCell" textLabel="mfW-h3-GyC" detailTextLabel="QMF-Ad-9L7" style="IBUITableViewCellStyleSubtitle" id="kn8-66-07S">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kn8-66-07S" id="Th8-gm-oL2">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mfW-h3-GyC">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMF-Ad-9L7">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WyK-mC-G5y" kind="show" id="0GF-bG-0IK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jzp-hA-Mtz" id="gGz-xG-5C8"/>
+                            <outlet property="delegate" destination="jzp-hA-Mtz" id="ifZ-9n-74G"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="select symptom" id="N0V-jh-0YW"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="N0V-jh-0YW" id="0SP-84-fwo"/>
+                        <outlet property="searchDisplayController" destination="di7-4P-iKe" id="BKp-7r-att"/>
+                        <outlet property="symptomSearchBar" destination="KGy-Nq-Ftu" id="eMn-a5-iYT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MT8-1g-vqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="di7-4P-iKe">
+                    <connections>
+                        <outlet property="delegate" destination="jzp-hA-Mtz" id="oMS-Z8-qHC"/>
+                        <outlet property="searchBar" destination="KGy-Nq-Ftu" id="5Qn-8c-TfM"/>
+                        <outlet property="searchContentsController" destination="jzp-hA-Mtz" id="Kdz-YM-1bS"/>
+                        <outlet property="searchResultsDataSource" destination="jzp-hA-Mtz" id="hV2-wa-FxU"/>
+                        <outlet property="searchResultsDelegate" destination="jzp-hA-Mtz" id="fwO-wm-JHH"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2126.5" y="1207.5"/>
+        </scene>
+        <!--Symptom View Controller-->
+        <scene sceneID="Ybe-TP-w9N">
+            <objects>
+                <viewController id="WyK-mC-G5y" customClass="SymptomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P2L-W4-LHy"/>
+                        <viewControllerLayoutGuide type="bottom" id="YKc-WY-12R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Yf-pt-scJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="9Yf-pt-scJ" id="fxc-ZG-2lb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDM-G2-WWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2699.5" y="1207.5"/>
         </scene>
         <!--Doctor User Main View Controller-->
         <scene sceneID="dT8-jO-hxe">

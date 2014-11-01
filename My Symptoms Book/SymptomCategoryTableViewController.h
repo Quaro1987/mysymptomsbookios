@@ -12,4 +12,5 @@
 
 -(NSArray *)getSymptomsCategoryArray;
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @end
