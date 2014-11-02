@@ -10,6 +10,7 @@
 #import "FMDB.h"
 #import "DataAndNetFunctions.h"
 #import "Symptom.h"
+#import "SymptomViewController.h"
 
 @interface SymptomSelectTableViewController ()
 
@@ -117,16 +118,32 @@
     return YES;
 }
 */
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Perform segue to candy detail
+    [self performSegueWithIdentifier:@"viewSymptomSegue" sender:tableView];
+}
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"viewSymptomSegue"])
+    {
+        SymptomViewController *destinationController = [segue destinationViewController];
+        
+        //check if it's the filtered or the normal table view and get the symptom object of the view
+        if(sender == self.searchDisplayController.searchResultsTableView)
+        {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            destinationController.thisSymptom = [filteredSymptomsArray objectAtIndex:[indexPath row]];
+        }
+        else
+        {
+            destinationController.thisSymptom = [queryResultSymptomsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        }
+    }
 }
-*/
+
 
 #pragma mark my functions
 

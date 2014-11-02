@@ -15,13 +15,14 @@
 
 @property (nonatomic, strong) NSString *selectedCategory;
 
+
 @property (nonatomic, strong) NSMutableArray *filteredSymptomsArray;
 @property (nonatomic, strong) NSMutableArray *queryResultSymptomsArray;
 
 //functions
 -(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCategory;
 
--(void)filterSymptomsForText:(NSString *) searchText andScope:(NSString *) scope;
+-(void)filterSymptomsForText:(NSString *) searchText;
 
 -(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString;
 
