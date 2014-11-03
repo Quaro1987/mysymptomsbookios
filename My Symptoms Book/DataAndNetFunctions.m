@@ -13,10 +13,14 @@
 #import "User.h"
 #import "SSKeychain.h"
 #import "FMDB.h"
+#import "Reachability.h"
+#import "Symptomhistory.h"
 
 //website to get data
 #define webServer @"http://mysymptomsbook.hol.es/index.php?r=user/user/"
 @implementation DataAndNetFunctions
+
+
 
 //funciton to log in the user and return an error or success message
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password
@@ -143,6 +147,142 @@
     [defaults removeObjectForKey:@"user"];
 }
 
+#pragma mark add symptom functions
+
+//add symptoms function
+-(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) dateSymptomFirstSeen
+{
+    if([self internetAccess])
+    {
+        //create post data string
+        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomCode=%@&symptomTitle=%@&dateSymptomFirstSeen=%@", username, password, symptomCode, symptomTitle, dateSymptomFirstSeen];
+        
+        //log post data
+        NSLog(@"Postdata: %@",postMessage);
+        
+        //create server url and append addSymptomIOS function
+        NSURL *url = [[NSURL alloc] initWithString:[webServer stringByAppendingString:@"addSymptomIOS"]];
+        
+        //turn post string into nsdata
+        NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        //post data legnth
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        //url request
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        
+        //set up request properties
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        //error attribute
+        NSError *error = [[NSError alloc] init];
+        
+        //response
+        NSURLResponse *response;
+        
+        //make post request to server
+        NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        return @"SUCCESS";
+    }
+    else
+    {
+        //open the database
+        
+        //return the path of the database file
+        NSString *dataBasePath = [self getMySymptomsBookDatabasePath];
+        
+        //create database
+        FMDatabase *database = [FMDatabase databaseWithPath:dataBasePath];
+        
+        //open db
+        if(![database open])
+        {
+            return @"FAIL";
+        }
+        
+        //copy today's date into a string
+        NSDate *selectedDate = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        //set date format
+        [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [dateFormatter setDateFormat:@"yyyy/MM/d"];
+        //turnd ate into string
+        NSString *dateToday = [dateFormatter stringFromDate:selectedDate];
+        
+        
+        //insert added symptom data into database
+        [database executeUpdate:@"INSERT INTO tbl_tempSymptomhistory VALUES (?, ?, ?, ?, ?)" withArgumentsInArray:@[symptomCode, symptomTitle, dateSymptomFirstSeen, dateToday, username]];
+        
+        //close database once complete
+        [database close];
+        
+        //init NSUserDefautls object
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        //create string object that stores the information if a symptom was added while the app was offline
+        NSString *offlineSymptomsAddedString = @"YES";
+        //add object to nsuserdefaults and synchronize
+        [defaults setObject:offlineSymptomsAddedString forKey:@"offlineSymptomsAdded"];
+        [defaults synchronize];
+        
+        return @"SAVED";
+    }
+    
+    
+}
+
+//return the string stored in nsuerdefaults to notify the app if the user has saved symptoms while offline
+-(NSString *)getInfoOnSavedSymptomsWhileOffline
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *reply = [defaults objectForKey:@"offlineSymptomsAdded"];
+    
+    return reply;
+}
+
+//post to server all symptoms while the user was offline
+-(NSString *)batchPostSavedSymptoms
+{
+    //get the user
+    User *currentUser = [self getSavedUser];
+    //get the users password
+    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    NSMutableArray *savedSymptoms = [self getSavedSymptomsForUser:currentUser.username];
+    
+    int successes = 0;
+    //loop through all saved symptoms for the user and post them to server
+    for(int i=0;i<[savedSymptoms count];i++)
+    {
+        Symptomhistory *thisSymptomHistory = [savedSymptoms objectAtIndex:i];
+        NSString *result = [self addSymptomForUser:currentUser.username withPassword:password theSymptom:thisSymptomHistory.symptomTitle withSymptomCode:thisSymptomHistory.symptomCode andDateFirstSeen:thisSymptomHistory.dateSymptomFirstSeen];
+        //if save succesfull increase by 1 successes int
+        if([result isEqualToString:@"SUCCESS"])
+        {
+            successes++;
+        }
+    }
+    
+    //check if all the symptoms have been posted to the server. if they have, empty the table from the user's saved symptoms
+    if(successes==[savedSymptoms count])
+    {
+        [self clearDatabaseOfSavedSymptomsForUser:currentUser.username];
+        return @"Symptoms sent to server";
+        
+    }
+    else
+    {
+        return @"Not all symptoms saved";
+    }
+}
+
 #pragma mark database/file manipulation functions
 
 //function to get the path of the file with all the symptom categories
@@ -203,6 +343,13 @@
         return;
     }
     
+    //create temporary symptoms history table
+    NSString *createTempSymptomsHistoryTableQuery = @"CREATE TABLE IF NOT EXISTS tbl_tempSymptomhistory (symptomCode varchar(15) NOT NULL ,title varchar(255) NOT NULL,dateSymptomFirstSeen varchar(255) NOT NULL, dateSymptomAdded varchar(255) NOT NULL, username varchar(255) NOT NULL);";
+    if(![database executeUpdate:createTempSymptomsHistoryTableQuery])
+    {
+        return;
+    }
+    
     //insert symptoms into table
     NSString *symptomsInsertQuery = @"INSERT INTO tbl_symptoms (symptomCode, title, shortTitle, inclusions, exclusions, symptomCategory) VALUES ";
     
@@ -222,7 +369,74 @@
     [database close];
 }
 
+//get saved symptoms array
+-(NSMutableArray *)getSavedSymptomsForUser:(NSString *)userName
+{
+    //open database
+    FMDatabase *dataBase = [FMDatabase databaseWithPath:[self getMySymptomsBookDatabasePath]];
+    
+    //if database doesn't open, end function and return null
+    if(![dataBase open])
+    {
+        return NULL;
+    }
+    
+    //query string
+    NSString *querySavedSymptoms = [NSString stringWithFormat:@"SELECT * FROM tbl_tempSymptomhistory WHERE username = \"%@\"", userName];
+    
+    //get saved symptoms
+    FMResultSet *savedSymptoms = [dataBase executeQuery:querySavedSymptoms];
+    
+    NSMutableArray *savedSymptomsArray = [[NSMutableArray alloc] init];
+    
+    while([savedSymptoms next])
+    {
+        NSString *tempCode = [savedSymptoms objectForColumnName:@"symptomCode"];
+        NSString *tempTitle = [savedSymptoms objectForColumnName:@"title"];
+        NSString *tempDateSeen = [savedSymptoms objectForColumnName:@"dateSymptomFirstSeen"];
+        NSString *tempDateAdded = [savedSymptoms objectForColumnName:@"dateSymptomAdded"];
+        NSString *tempUsername = [savedSymptoms objectForColumnName:@"username"];
+        
+        Symptomhistory *symHistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempCode andSymptomTitle:tempTitle andDateSymptomFirstSeen:tempDateSeen andDateSymptomAdded:tempDateAdded];
+        
+        [savedSymptomsArray addObject:symHistoryObject];
+    }
+    
+    return savedSymptomsArray;
+}
 
+//clear all the user's symptoms
+-(void)clearDatabaseOfSavedSymptomsForUser:(NSString *)username
+{
+    //open database
+    FMDatabase *database = [FMDatabase databaseWithPath:[self getMySymptomsBookDatabasePath]];
+    
+    //if database doesn't open, end function and return null
+    if(![database open])
+    {
+        return;
+    }
+    
+    //delete symptoms string
+    NSString *deleteQueryString = [NSString stringWithFormat:@"DELETE FROM tbl_tempSymptomhistory WHERE username = \"%@\"", username];
+    [database executeUpdate:deleteQueryString];
+}
+
+#pragma mark network functions
+
+//check if there is internet access
+-(BOOL)internetAccess
+{
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+         NSLog(@"There is no internet connection");
+        return NO;
+    } else {
+        NSLog(@"There IS internet connection");
+        return YES;
+    }
+}
 
 
 

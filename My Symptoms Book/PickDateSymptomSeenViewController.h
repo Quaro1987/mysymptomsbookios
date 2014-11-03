@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class Symptom;
+@class Symptom, User;
 
 @interface PickDateSymptomSeenViewController : UIViewController
 
 @property (nonatomic, strong) Symptom *selectedSymptom;
+@property (nonatomic, strong) User *currentUser;
+@property (nonatomic, strong) NSString *password;
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 //functions
 - (IBAction)saveSymptomButtonPressed:(id)sender;
+-(NSString *)getInputedDate;
 
 @end

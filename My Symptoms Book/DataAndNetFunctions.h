@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class User;
+@class User, Reachability;
 
 @interface DataAndNetFunctions : NSObject
 
@@ -18,15 +18,31 @@
 
 -(UIAlertView *)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
 
+//log in user functions
 -(void)saveUserData:(User *) loggedUser;
 
 -(User *)getSavedUser;
 
 -(void)logoutUser:(User *) currentUser;
 
+//data functions
 -(NSString *)getSymptomCategoriesFilePath;
 
 -(void)populateSymptomsDatabaseOnFirstLoad;
 
 -(NSString *)getMySymptomsBookDatabasePath;
+
+-(NSMutableArray *)getSavedSymptomsForUser:(NSString *)userName;
+
+-(void)clearDatabaseOfSavedSymptomsForUser:(NSString *)username;
+
+//add symptom functions
+-(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) dateSymptomFirstSeen;
+
+-(NSString *)batchPostSavedSymptoms;
+
+//network functions
+-(BOOL)internetAccess;
+
+-(NSString *)getInfoOnSavedSymptomsWhileOffline;
 @end

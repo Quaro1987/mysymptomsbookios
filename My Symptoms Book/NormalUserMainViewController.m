@@ -27,6 +27,13 @@
     //hide back button
     [self.navigationItem setHidesBackButton:YES animated:YES];
     
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    if([dataController internetAccess])
+    {
+        NSString *result = [dataController batchPostSavedSymptoms];
+        NSLog(result);
+    }
+    
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
@@ -65,5 +72,10 @@
     //change controller view
     InitialViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"initialView"];
     [self.navigationController pushViewController:destinationController animated:NO];
+}
+
+-(void)sendSavedSymptomhistoryToServer
+{
+    
 }
 @end

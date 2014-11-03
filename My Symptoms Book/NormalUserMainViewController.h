@@ -25,5 +25,6 @@
 
 - (IBAction)logoutPressed:(UIButton *)sender;
 
-
+//functions
+-(void)sendSavedSymptomhistoryToServer;
 @end

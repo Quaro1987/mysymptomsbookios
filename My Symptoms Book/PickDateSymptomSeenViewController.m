@@ -9,6 +9,8 @@
 #import "PickDateSymptomSeenViewController.h"
 #import "Symptom.h"
 #import "DataAndNetFunctions.h"
+#import "User.h"
+#import "SSKeychain.h"
 
 @interface PickDateSymptomSeenViewController ()
 
@@ -16,7 +18,7 @@
 
 @implementation PickDateSymptomSeenViewController
 
-@synthesize datePicker;
+@synthesize datePicker, currentUser, password, selectedSymptom;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,5 +42,29 @@
 */
 
 - (IBAction)saveSymptomButtonPressed:(id)sender {
+    DataAndNetFunctions *dataNetController = [[DataAndNetFunctions alloc]init];
+    
+    //get the current user
+    currentUser = [dataNetController getSavedUser];
+    //get the curent user's password
+    password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    
+    //add symptom
+    [dataNetController addSymptomForUser:currentUser.username withPassword:password theSymptom:selectedSymptom.symptomTitle withSymptomCode:selectedSymptom.symptomCode andDateFirstSeen:[self getInputedDate]];
+    
+    
+}
+
+//return the inputed date in the appropriate format
+-(NSString *)getInputedDate
+{
+    NSDate *selectedDate = [datePicker date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //set date format
+    [dateFormatter setDateFormat:@"yyyy/MM/d"];
+    //turnd ate into string
+    NSString *inputedDateString = [dateFormatter stringFromDate:selectedDate];
+    
+    return inputedDateString;
 }
 @end
