@@ -50,16 +50,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
+    // Return the number of rows in the section for the normal or filtered array
+    
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
         return [filteredSymptomsArray count];
     }
     else
     {
-        //get the symptoms of this cell
         return [queryResultSymptomsArray count];
     }
-    // Return the number of rows in the section.
     
 }
 

@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) NSString *selectedCategory;
 
-
 @property (nonatomic, strong) NSMutableArray *filteredSymptomsArray;
 @property (nonatomic, strong) NSMutableArray *queryResultSymptomsArray;
 

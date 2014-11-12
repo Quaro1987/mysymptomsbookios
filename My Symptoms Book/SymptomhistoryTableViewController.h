@@ -10,12 +10,21 @@
 
 @class User;
 
-@interface SymptomhistoryTableViewController : UITableViewController
+@interface SymptomhistoryTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+
 
 //properties
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *symptomHistorySearchBar;
+
 @property (nonatomic, strong) User *currentUser;
+
 @property (nonatomic, strong) NSMutableArray *userSymptomhistoryArray;
+@property (nonatomic, strong) NSMutableArray *filteredSymptomhistoryArray;
 //functions
+
+-(void)filterSymptomhistoryForText:(NSString *) searchText;
+
+-(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString;
 
 @end

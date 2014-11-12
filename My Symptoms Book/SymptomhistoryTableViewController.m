@@ -17,7 +17,7 @@
 
 @implementation SymptomhistoryTableViewController
 
-@synthesize userSymptomhistoryArray, currentUser;
+@synthesize userSymptomhistoryArray, currentUser, filteredSymptomhistoryArray, symptomHistorySearchBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +27,13 @@
     //get the users password
     NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
     
-   userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:currentUser.username andWithPassword:password];
+    //populate array with user's symptom history
+    userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:currentUser.username andWithPassword:password];
+    
+    //set the filtered array's capacity
+    filteredSymptomhistoryArray = [NSMutableArray arrayWithCapacity:[userSymptomhistoryArray count]];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,17 +49,37 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [userSymptomhistoryArray count];
+    // Return the number of rows in the section for the normal or filtered array
+    
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return [filteredSymptomhistoryArray count];
+    }
+    else
+    {
+        return [userSymptomhistoryArray count];
+    }
+
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"symptomHistory" forIndexPath:indexPath];
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"symptomHistoryCell" forIndexPath:indexPath];
     
     Symptomhistory *aSymptomhistoryObejct;
-    //get the symptomhistory at this location
-    aSymptomhistoryObejct = [userSymptomhistoryArray objectAtIndex:indexPath.row];
+    
+    //check if the table is the full results array or the filtered one and display the appropriate entries
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        aSymptomhistoryObejct = [filteredSymptomhistoryArray objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        //get the symptoms of this cell
+        aSymptomhistoryObejct = [userSymptomhistoryArray objectAtIndex:indexPath.row];
+    }
+    
     
     cell.textLabel.text = aSymptomhistoryObejct.symptomTitle;
     cell.detailTextLabel.text = aSymptomhistoryObejct.dateSymptomAdded;
@@ -105,5 +131,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark filtering functions
+
+-(void)filterSymptomhistoryForText:(NSString *) searchText
+{
+    //empty the filtered array
+    [filteredSymptomhistoryArray removeAllObjects];
+    
+    //filter array for symptomhistory with title equal to the search text
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.symptomTitle contains[c] $searchString)"];
+    
+    //populate filtered array
+    filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[userSymptomhistoryArray filteredArrayUsingPredicate:[predicate predicateWithSubstitutionVariables:@{@"searchString":searchText}]]];
+    
+}
+
+-(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    // Tells the table data source to reload when text changes
+    [self filterSymptomhistoryForText:searchString];
+    //return yes to update search table view
+    return YES;
+}
 
 @end

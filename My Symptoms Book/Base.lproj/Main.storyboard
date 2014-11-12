@@ -291,8 +291,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="nHb-2b-kw1">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Cog-pi-U14" id="Qgg-cG-WrS"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomHistory" textLabel="lnb-Oe-iRg" detailTextLabel="Gqw-30-VN5" style="IBUITableViewCellStyleSubtitle" id="95M-kB-fXZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomHistoryCell" textLabel="lnb-Oe-iRg" detailTextLabel="Gqw-30-VN5" style="IBUITableViewCellStyleSubtitle" id="95M-kB-fXZ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="95M-kB-fXZ" id="kxY-kV-9ph">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -321,9 +329,20 @@
                     <navigationItem key="navigationItem" title="Your Symptom History" id="5A8-CT-mLq"/>
                     <connections>
                         <outlet property="navigationBar" destination="5A8-CT-mLq" id="5gu-LX-RhH"/>
+                        <outlet property="searchDisplayController" destination="518-bH-yU2" id="ovc-TM-qyE"/>
+                        <outlet property="symptomHistorySearchBar" destination="nHb-2b-kw1" id="BWe-jb-vhI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaQ-an-MzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="518-bH-yU2">
+                    <connections>
+                        <outlet property="delegate" destination="Cog-pi-U14" id="Ls3-cc-o96"/>
+                        <outlet property="searchBar" destination="nHb-2b-kw1" id="XSX-Yq-tlU"/>
+                        <outlet property="searchContentsController" destination="Cog-pi-U14" id="g51-fH-bVJ"/>
+                        <outlet property="searchResultsDataSource" destination="Cog-pi-U14" id="50C-2n-h5I"/>
+                        <outlet property="searchResultsDelegate" destination="Cog-pi-U14" id="x8z-v6-Mbv"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1026.5" y="2091.5"/>
         </scene>
