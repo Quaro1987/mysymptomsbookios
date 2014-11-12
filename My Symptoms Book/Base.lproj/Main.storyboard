@@ -249,6 +249,7 @@
                                 </state>
                                 <connections>
                                     <action selector="checkSymptomsHistoryPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="sNX-KH-vUD"/>
+                                    <segue destination="Cog-pi-U14" kind="show" id="uC7-2c-CwQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgy-zE-fez">
@@ -282,6 +283,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lF-FF-haq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026.5" y="1212.5"/>
+        </scene>
+        <!--Your Symptom History-->
+        <scene sceneID="4jh-36-bsH">
+            <objects>
+                <tableViewController id="Cog-pi-U14" customClass="SymptomhistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="W9d-xh-NHf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomHistory" textLabel="lnb-Oe-iRg" detailTextLabel="Gqw-30-VN5" style="IBUITableViewCellStyleSubtitle" id="95M-kB-fXZ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="95M-kB-fXZ" id="kxY-kV-9ph">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lnb-Oe-iRg">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gqw-30-VN5">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Cog-pi-U14" id="gRZ-RD-34v"/>
+                            <outlet property="delegate" destination="Cog-pi-U14" id="ivI-Dp-jYE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Symptom History" id="5A8-CT-mLq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GaQ-an-MzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026.5" y="2091.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="8yu-Ty-HTz">
@@ -447,7 +489,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2Z-HP-pwM">
-                                <rect key="frame" x="138" y="537" width="99" height="30"/>
+                                <rect key="frame" x="60" y="132" width="99" height="30"/>
                                 <state key="normal" title="Add Symptom">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -493,7 +535,7 @@
                                 <locale key="locale" localeIdentifier="el"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-10-hVy">
-                                <rect key="frame" x="135" y="473" width="105" height="30"/>
+                                <rect key="frame" x="135" y="388" width="105" height="30"/>
                                 <state key="normal" title="Save Symptom">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

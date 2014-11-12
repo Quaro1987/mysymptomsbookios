@@ -39,6 +39,7 @@
 
 - (IBAction)loginButtonPressed:(id)sender {
     DataAndNetFunctions *dataNetController = [[DataAndNetFunctions alloc] init];
+    User *currentUser = [[User alloc] init];
     //check if the user has inputed a username and password
     if([_usernameField.text isEqualToString:@""]||[_passwordField.text isEqualToString:@""])
     {
@@ -46,7 +47,7 @@
     }
     else //if user has inputed a username and password atempt to log in
     {
-        id userLogInEffort = [dataNetController loginUserWithUsername:_usernameField.text andPassword:_passwordField.text];
+        id userLogInEffort = [currentUser loginUserWithUsername:_usernameField.text andPassword:_passwordField.text];
         if([userLogInEffort isKindOfClass:[NSString class]])
         {
             NSString *errorMessage = [NSString stringWithFormat:@"%@",userLogInEffort];
@@ -58,9 +59,9 @@
         }
         else
         {
-            User *currentUser = userLogInEffort;
+            currentUser = userLogInEffort;
             //save user data in a file
-            [dataNetController saveUserData:currentUser];
+            [currentUser saveUserData:currentUser];
             //save user's password in keychain
             [SSKeychain setPassword:_passwordField.text forService:@"MySymptomsBook" account:_usernameField.text];
             //change view to the normal user's main view

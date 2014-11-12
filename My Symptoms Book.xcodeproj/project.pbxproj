@@ -17,6 +17,7 @@
 		FA7246BD1A00783200421B83 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246BB1A00783200421B83 /* SSKeychainQuery.m */; };
 		FA7447891A0674DC005D2BFD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */; };
 		FA74478C1A070155005D2BFD /* Symptomhistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74478B1A070155005D2BFD /* Symptomhistory.m */; };
+		FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */; };
 		FAC1C9861A03036800398F0C /* symptomsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC1C9851A03036800398F0C /* symptomsList.txt */; };
 		FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */; };
 		FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */; };
@@ -66,6 +67,8 @@
 		FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FA74478A1A070155005D2BFD /* Symptomhistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symptomhistory.h; sourceTree = "<group>"; };
 		FA74478B1A070155005D2BFD /* Symptomhistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Symptomhistory.m; sourceTree = "<group>"; };
+		FA7704921A125FA0005E19CA /* SymptomhistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryTableViewController.h; sourceTree = "<group>"; };
+		FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomhistoryTableViewController.m; sourceTree = "<group>"; };
 		FAC1C9851A03036800398F0C /* symptomsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symptomsList.txt; sourceTree = "<group>"; };
 		FAC1C9881A032DDC00398F0C /* SymptomCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomCategoryTableViewController.h; sourceTree = "<group>"; };
 		FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomCategoryTableViewController.m; sourceTree = "<group>"; };
@@ -147,8 +150,6 @@
 				FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */,
 				FAC1C98B1A03341300398F0C /* SymptomSelectTableViewController.h */,
 				FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */,
-				FA74478A1A070155005D2BFD /* Symptomhistory.h */,
-				FA74478B1A070155005D2BFD /* Symptomhistory.m */,
 			);
 			name = "Add Symptom";
 			sourceTree = "<group>";
@@ -164,9 +165,21 @@
 			path = SSKeychain;
 			sourceTree = "<group>";
 		};
+		FA7704911A125F32005E19CA /* Symptom History */ = {
+			isa = PBXGroup;
+			children = (
+				FA7704921A125FA0005E19CA /* SymptomhistoryTableViewController.h */,
+				FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */,
+			);
+			name = "Symptom History";
+			sourceTree = "<group>";
+		};
 		FAC1C9871A032D9400398F0C /* Normal User Functions */ = {
 			isa = PBXGroup;
 			children = (
+				FA7704911A125F32005E19CA /* Symptom History */,
+				FA74478A1A070155005D2BFD /* Symptomhistory.h */,
+				FA74478B1A070155005D2BFD /* Symptomhistory.m */,
 				FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */,
 				FA72466919FFDAD800421B83 /* NormalUserMainViewController.h */,
 				FA54EB411A05D6E400A41602 /* Add Symptom */,
@@ -398,6 +411,7 @@
 				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
 				FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */,
 				FA74478C1A070155005D2BFD /* Symptomhistory.m in Sources */,
+				FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */,
 				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
 				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,
 				FA71604B1A045B430042179D /* SymptomViewController.m in Sources */,

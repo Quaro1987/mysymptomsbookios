@@ -12,6 +12,7 @@
 #import "SSKeychain.h"
 #import "InitialViewController.h"
 #import "SymptomCategoryTableViewController.h"
+#import "Symptomhistory.h"
 
 @interface NormalUserMainViewController ()
 
@@ -30,7 +31,8 @@
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     if([dataController internetAccess])
     {
-        NSString *result = [dataController batchPostSavedSymptoms];
+        Symptomhistory *symptomHistory = [[Symptomhistory alloc] init];
+        NSString *result = [symptomHistory batchPostSavedSymptoms];
         NSLog(result);
     }
     
@@ -62,9 +64,9 @@
 - (IBAction)logoutPressed:(UIButton *)sender
 {
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    
+    User *currentUser = [[User alloc] init];
     //log out user function
-    [dataController logoutUser:currentUser];
+    [currentUser logoutUser:currentUser];
     
     //notify user
     [[dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"] show];

@@ -22,7 +22,7 @@
     
     //check if a user is saved
     DataAndNetFunctions *dataController =[[DataAndNetFunctions alloc] init];
-    User *currentUser = [dataController getSavedUser];
+    User *currentUser = [[User alloc] initWithSavedUser];
     //if there exists a logged user take him to the appropriate first view page
     if(currentUser!=nil)
     {

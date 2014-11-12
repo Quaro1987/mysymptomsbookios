@@ -25,6 +25,15 @@
 -(void)encodeWithCoder:(NSCoder *)encoder;
 -(id)initWithCoder:(NSCoder *)decoder;
 
-//save / get object from nsuserdefaults
+//save / init user from nsuserdefaults
+-(id)initWithSavedUser;
+
+-(void)saveUserData:(User *) loggedUser;
+
+//log in user functions
+
+-(void)logoutUser:(User *) currentUser;
+
+-(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password;
 
 @end

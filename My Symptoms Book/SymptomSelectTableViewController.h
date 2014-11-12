@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *queryResultSymptomsArray;
 
 //functions
--(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCategory;
+
 
 -(void)filterSymptomsForText:(NSString *) searchText;
 

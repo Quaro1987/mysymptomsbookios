@@ -22,5 +22,5 @@
 -(id)initWithSymptomCode: (NSString *) symCode andSymptomTitle: (NSString *) symTitle andSymptomInclusions: (NSString *) symInclusions andSymptomExclusions: (NSString *)
 symExclusions andSymptomCategory: (NSString *) symCategory;
 
-
+-(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCategory;
 @end

@@ -11,6 +11,7 @@
 #import "DataAndNetFunctions.h"
 #import "User.h"
 #import "SSKeychain.h"
+#import "Symptomhistory.h"
 
 @interface PickDateSymptomSeenViewController ()
 
@@ -42,15 +43,15 @@
 */
 
 - (IBAction)saveSymptomButtonPressed:(id)sender {
-    DataAndNetFunctions *dataNetController = [[DataAndNetFunctions alloc]init];
+    Symptomhistory *symptomHistory = [[Symptomhistory alloc]init];
     
     //get the current user
-    currentUser = [dataNetController getSavedUser];
+    User *currentUser = [[User alloc] initWithSavedUser];
     //get the curent user's password
     password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
     
     //add symptom
-    [dataNetController addSymptomForUser:currentUser.username withPassword:password theSymptom:selectedSymptom.symptomTitle withSymptomCode:selectedSymptom.symptomCode andDateFirstSeen:[self getInputedDate]];
+    [symptomHistory addSymptomForUser:currentUser.username withPassword:password theSymptom:selectedSymptom.symptomTitle withSymptomCode:selectedSymptom.symptomCode andDateFirstSeen:[self getInputedDate]];
     
     
 }
