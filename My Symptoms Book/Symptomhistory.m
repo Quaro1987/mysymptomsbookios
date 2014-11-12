@@ -18,7 +18,7 @@
 
 @implementation Symptomhistory
 
-@synthesize symptomTitle,symptomCode,symptomUsername,dateSymptomFirstSeen,dateSymptomAdded, symptomFlag, userSymptomhistory;
+@synthesize symptomTitle,symptomCode,symptomUsername,dateSymptomFirstSeen,dateSymptomAdded, symptomFlag;
 
 #pragma mark init functions
 
@@ -256,17 +256,18 @@
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
-    
+   
     //if the phone has internet access
     if([dataAndNetController internetAccess])
     {
         //creatue url
         NSString *stringUrl = [webServer stringByAppendingString:@"userSymptomHistoryIOS"];
+        NSLog(stringUrl);
         NSURL *url = [[NSURL alloc] initWithString:stringUrl];
         
         //create post data
         NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", username, password];
-        NSLog(@"Get symptomhistory data for: ", postMessage);
+        NSLog(@"Get symptomhistory data for: %@", postMessage);
         NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
         //get post length
@@ -293,11 +294,14 @@
         NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
         //pass symptom history objects into an array
-        NSArray *userSymptomhistoryObjectsArray = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
         
+        
+        //create array that will keep the usert's personal symptom history
+        NSMutableArray *userPersonalSymptomHistory = [[NSMutableArray alloc] init];
         
         //loop through results, and add them to userSymptomHistoryArray
-        for (NSDictionary *symptomhistoryObject in userSymptomhistoryObjectsArray)
+        for (NSDictionary *symptomhistoryObject in jsonReponseData)
         {
             NSString *tempUsername = username;
             NSString *tempSymptomCode = [symptomhistoryObject objectForKey:@"symptomCode"];
@@ -305,20 +309,24 @@
             NSString *tempDateSymptomAdded = [symptomhistoryObject objectForKey:@"dateSearched"];
             NSString *tempDateSymptomFirstSeen = [symptomhistoryObject objectForKey:@"dateSymptomFirstSeen"];
             NSString *tempSymptomFlag = [symptomhistoryObject objectForKey:@"symptomFlag"];
-            //create object
+            
+            //create symptom history object
             Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag];
-            //add object o array
-            [userSymptomhistory addObject:symptomhistoryObject];
+            
+            //add object to array
+            [userPersonalSymptomHistory addObject:symptomhistoryObject];
         }
         
+        
         //return user symptom history
-        return userSymptomhistory;
+        return userPersonalSymptomHistory;
     }
     else //if there is no internet access
     {
+        NSMutableArray *userPersonalSymptomHistory = [[NSMutableArray alloc] init];
         //get the symptoms the user has saved on his device and hasn't synced them yet
-        userSymptomhistory = [self getSavedSymptomsForUser:username];
-        return userSymptomhistory;
+        userPersonalSymptomHistory = [self getSavedSymptomsForUser:username];
+        return userPersonalSymptomHistory;
     }
     
 }

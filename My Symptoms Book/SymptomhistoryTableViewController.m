@@ -23,11 +23,11 @@
     [super viewDidLoad];
     
     //get the user's symptom history
-    Symptomhistory *symptomHistoryObject;
+    Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
     //get the users password
     NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
     
-    userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:currentUser.username andWithPassword:password];
+   userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:currentUser.username andWithPassword:password];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -13,6 +13,7 @@
 #import "InitialViewController.h"
 #import "SymptomCategoryTableViewController.h"
 #import "Symptomhistory.h"
+#import "SymptomhistoryTableViewController.h"
 
 @interface NormalUserMainViewController ()
 
@@ -55,6 +56,11 @@
     if([[segue identifier] isEqualToString:@"addSymptomSegue"])
     {
         SymptomCategoryTableViewController *destinationController = [segue destinationViewController];
+    }
+    else if([[segue identifier] isEqualToString:@"userSymptomHistorySegue"])
+    {
+        SymptomhistoryTableViewController *destinationController = [segue destinationViewController];
+        destinationController.currentUser = currentUser;
     }
 }
 

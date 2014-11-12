@@ -19,7 +19,7 @@
 //button outlets
 
 
-- (IBAction)checkSymptomsHistoryPressed:(UIButton *)sender;
+
 
 - (IBAction)manageDoctorsPressed:(UIButton *)sender;
 

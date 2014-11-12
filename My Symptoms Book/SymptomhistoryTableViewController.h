@@ -13,6 +13,7 @@
 @interface SymptomhistoryTableViewController : UITableViewController
 
 //properties
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (nonatomic, strong) User *currentUser;
 @property (nonatomic, strong) NSMutableArray *userSymptomhistoryArray;
 //functions

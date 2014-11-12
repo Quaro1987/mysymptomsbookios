@@ -242,16 +242,6 @@
                                     <segue destination="tg3-f5-Qza" kind="show" identifier="addSymptomSegue" id="fXY-5H-bOn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-3i-OwW">
-                                <rect key="frame" x="103" y="196" width="168" height="30"/>
-                                <state key="normal" title="Check Symptom History">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkSymptomsHistoryPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="sNX-KH-vUD"/>
-                                    <segue destination="Cog-pi-U14" kind="show" id="uC7-2c-CwQ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgy-zE-fez">
                                 <rect key="frame" x="130" y="271" width="114" height="30"/>
                                 <state key="normal" title="Manage Doctors">
@@ -268,6 +258,15 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutPressed:" destination="LPL-d2-49J" eventType="touchUpInside" id="qcG-05-IUi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-3i-OwW">
+                                <rect key="frame" x="110" y="195" width="154" height="30"/>
+                                <state key="normal" title="Your Symptom History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Cog-pi-U14" kind="show" identifier="userSymptomHistorySegue" id="uC7-2c-CwQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,6 +319,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Symptom History" id="5A8-CT-mLq"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="5A8-CT-mLq" id="5gu-LX-RhH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaQ-an-MzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
