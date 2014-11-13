@@ -150,59 +150,48 @@
     {
         if([scope isEqualToString:@"Today"])
         {
-            //get today's date and format it into the correct format
-            
-            
+            //get today's date
             NSTimeInterval secondsPast = -86400;
-            
-            NSDate * twoDaysPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
-            
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            //set date format
-            [dateFormatter setDateStyle:NSDateFormatterFullStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-            [dateFormatter setDateFormat:@"yyyy/MM/d"];
-            
-            NSString *dateThing = [dateFormatter stringFromDate:twoDaysPast];
-            NSDate *twoDate = [dateFormatter dateFromString:dateThing];
+            NSDate * oneDayPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
             
             //create predicate for symptom history added today
-            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", twoDaysPast];
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", oneDayPast];
             
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }
         else if([scope isEqualToString:@"This Week"])
         {
-            //get today's date and format it into the correct format
+            //get past week's date
+            NSTimeInterval secondsPast = -604800;
+            NSDate *sevenDaysPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
             
             
-            NSTimeInterval secondsPast = 604800;
-            
-            NSDate * twoDaysPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
-            
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            //set date format
-            [dateFormatter setDateStyle:NSDateFormatterFullStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-            [dateFormatter setDateFormat:@"yyyy/MM/d"];
-            
-            NSString *dateThing = [dateFormatter stringFromDate:twoDaysPast];
-            NSDate *twoDate = [dateFormatter dateFromString:dateThing];
-            
-            //create predicate for symptom history added today
-            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", twoDate];
+            //create predicate for symptom history added 1 week ago
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", sevenDaysPast];
             
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }
-
+        else if([scope isEqualToString:@"This Month"])
+        {
+            //get past week's date
+            NSTimeInterval secondsPast = -(2.63e+6);
+            NSDate *oneMonthPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
+            
+            
+            //create predicate for symptom history added 1 week ago
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", oneMonthPast];
+            
+            //filter temp array with scope
+            filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
+        }
     }
 }
 
 -(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    // Tells the table data source to reload when text changes
+    // Tells the table data source to reload when text changes with the selected scope
     
     [self filterSymptomhistoryForText:searchString
                                andScope:[[self.searchDisplayController.searchBar scopeButtonTitles]
