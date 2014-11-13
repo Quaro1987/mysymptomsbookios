@@ -23,7 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *filteredSymptomhistoryArray;
 //functions
 
--(void)filterSymptomhistoryForText:(NSString *) searchText;
+-(void)filterSymptomhistoryForText:(NSString *) searchText andScope:(NSString *) scope;
 
 -(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString;
 

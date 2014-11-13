@@ -291,10 +291,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="nHb-2b-kw1">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="nHb-2b-kw1">
+                            <rect key="frame" x="0.0" y="64" width="375" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>All</string>
+                                <string>Today</string>
+                                <string>This Week</string>
+                                <string>This Month</string>
+                            </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="Cog-pi-U14" id="Qgg-cG-WrS"/>
                             </connections>
@@ -330,7 +336,7 @@
                     <connections>
                         <outlet property="navigationBar" destination="5A8-CT-mLq" id="5gu-LX-RhH"/>
                         <outlet property="searchDisplayController" destination="518-bH-yU2" id="ovc-TM-qyE"/>
-                        <outlet property="symptomHistorySearchBar" destination="nHb-2b-kw1" id="BWe-jb-vhI"/>
+                        <outlet property="symptomHistorySearchBar" destination="nHb-2b-kw1" id="S1r-9I-bPz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaQ-an-MzY" userLabel="First Responder" sceneMemberID="firstResponder"/>

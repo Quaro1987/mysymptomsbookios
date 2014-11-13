@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSString *dateSymptomFirstSeen;
 @property (nonatomic, strong) NSString *dateSymptomAdded;
 @property (nonatomic, strong) NSString *symptomFlag;
-
+@property (nonatomic, strong) NSDate *datedAddedInNSDateFormat;
 
 //init functions
 -(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded andSymptomFlag: (NSString *) flag;

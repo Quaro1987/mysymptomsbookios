@@ -18,7 +18,7 @@
 
 @implementation Symptomhistory
 
-@synthesize symptomTitle,symptomCode,symptomUsername,dateSymptomFirstSeen,dateSymptomAdded, symptomFlag;
+@synthesize symptomTitle,symptomCode,symptomUsername,dateSymptomFirstSeen,dateSymptomAdded, symptomFlag, datedAddedInNSDateFormat;
 
 #pragma mark init functions
 
@@ -32,6 +32,11 @@
     self.symptomCode = code;
     self.dateSymptomAdded = dateAdded;
     self.dateSymptomFirstSeen = dateSeen;
+    
+    //set date formatter and convert datesymptomadded string into nsdate object
+    NSDateFormatter *symHistoryDateFormatter = [[NSDateFormatter alloc] init];
+    [symHistoryDateFormatter setDateFormat:@"yyyy/MM/d"];
+    self.datedAddedInNSDateFormat = [symHistoryDateFormatter dateFromString:dateAdded];
     
     return self;
 }
@@ -49,6 +54,11 @@
     self.dateSymptomAdded = dateAdded;
     self.dateSymptomFirstSeen = dateSeen;
     self.symptomFlag = flag;
+    
+    //set date formatter and convert datesymptomadded string into nsdate object
+    NSDateFormatter *symHistoryDateFormatter = [[NSDateFormatter alloc] init];
+    [symHistoryDateFormatter setDateFormat:@"yyyy/MM/d"];
+    self.datedAddedInNSDateFormat = [symHistoryDateFormatter dateFromString:dateAdded];
     
     return self;
 }
@@ -312,7 +322,7 @@
             
             //create symptom history object
             Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag];
-            
+           
             //add object to array
             [userPersonalSymptomHistory addObject:symptomhistoryObject];
         }

@@ -24,6 +24,7 @@
     
     //get the user's symptom history
     Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
+    
     //get the users password
     NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
     
@@ -134,7 +135,7 @@
 
 #pragma mark filtering functions
 
--(void)filterSymptomhistoryForText:(NSString *) searchText
+-(void)filterSymptomhistoryForText:(NSString *) searchText andScope:(NSString *) scope
 {
     //empty the filtered array
     [filteredSymptomhistoryArray removeAllObjects];
@@ -144,13 +145,69 @@
     
     //populate filtered array
     filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[userSymptomhistoryArray filteredArrayUsingPredicate:[predicate predicateWithSubstitutionVariables:@{@"searchString":searchText}]]];
-    
+
+    if(![scope isEqualToString:@"All"])
+    {
+        if([scope isEqualToString:@"Today"])
+        {
+            //get today's date and format it into the correct format
+            
+            
+            NSTimeInterval secondsPast = -86400;
+            
+            NSDate * twoDaysPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            //set date format
+            [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+            [dateFormatter setDateFormat:@"yyyy/MM/d"];
+            
+            NSString *dateThing = [dateFormatter stringFromDate:twoDaysPast];
+            NSDate *twoDate = [dateFormatter dateFromString:dateThing];
+            
+            //create predicate for symptom history added today
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", twoDaysPast];
+            
+            //filter temp array with scope
+            filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
+        }
+        else if([scope isEqualToString:@"This Week"])
+        {
+            //get today's date and format it into the correct format
+            
+            
+            NSTimeInterval secondsPast = 604800;
+            
+            NSDate * twoDaysPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            //set date format
+            [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+            [dateFormatter setDateFormat:@"yyyy/MM/d"];
+            
+            NSString *dateThing = [dateFormatter stringFromDate:twoDaysPast];
+            NSDate *twoDate = [dateFormatter dateFromString:dateThing];
+            
+            //create predicate for symptom history added today
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", twoDate];
+            
+            //filter temp array with scope
+            filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
+        }
+
+    }
 }
 
 -(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     // Tells the table data source to reload when text changes
-    [self filterSymptomhistoryForText:searchString];
+    
+    [self filterSymptomhistoryForText:searchString
+                               andScope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
     //return yes to update search table view
     return YES;
 }
