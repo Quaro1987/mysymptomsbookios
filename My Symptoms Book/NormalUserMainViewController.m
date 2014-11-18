@@ -21,7 +21,7 @@
 
 @implementation NormalUserMainViewController
 
-@synthesize currentUser;
+@synthesize currentUser, userSymptomhistoryActivityIndicator;
 
 - (void)viewDidLoad {
     
@@ -59,12 +59,28 @@
     }
     else if([[segue identifier] isEqualToString:@"userSymptomHistorySegue"])
     {
+        
         SymptomhistoryTableViewController *destinationController = [segue destinationViewController];
         destinationController.currentUser = currentUser;
+        
     }
 }
 
+//functions for when the user presses the symptom history button
+- (IBAction)symptomHistoryPressed:(UIButton *)sender {
+    //start animating the activity indicator while the app fetches the data from the server
+    [userSymptomhistoryActivityIndicator startAnimating];
+    //stop the indicator from animating once the segue has been performed with a 2 second delay
+    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.userSymptomhistoryActivityIndicator afterDelay:2.0];
+}
 
+//stop loading animation and perform segue
+- (void)stopLoadingAnimationOfActivityIndicatorAndPerformSegue: (UIActivityIndicatorView *)spinner {
+    //stop loading animation
+    [spinner stopAnimating];
+    //perform usersymptomhistorysegue
+    [self performSegueWithIdentifier:@"userSymptomHistorySegue" sender:nil];
+}
 
 //if the user selects to log out, delete his details and take him to the initial page
 - (IBAction)logoutPressed:(UIButton *)sender
@@ -82,8 +98,5 @@
     [self.navigationController pushViewController:destinationController animated:NO];
 }
 
--(void)sendSavedSymptomhistoryToServer
-{
-    
-}
+
 @end

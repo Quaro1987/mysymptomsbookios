@@ -10,6 +10,7 @@
 
 @class User;
 
+
 @interface SymptomhistoryTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 
@@ -21,6 +22,8 @@
 
 @property (nonatomic, strong) NSMutableArray *userSymptomhistoryArray;
 @property (nonatomic, strong) NSMutableArray *filteredSymptomhistoryArray;
+
+
 //functions
 
 -(void)filterSymptomhistoryForText:(NSString *) searchText andScope:(NSString *) scope;

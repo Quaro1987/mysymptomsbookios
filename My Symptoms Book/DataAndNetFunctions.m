@@ -137,7 +137,10 @@
     }
 }
 
-
+-(NSString *)serverUrlString
+{
+    return webServer;
+}
 
 
 @end

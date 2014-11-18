@@ -16,6 +16,9 @@
 @property (nonatomic, strong) NSNumber *userType;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSNumber *status;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+//@property (nonatomic, strong) NS
 
 //init method
 -(id)initWithId: (NSNumber *) usrID andUserName: (NSString *) usrName

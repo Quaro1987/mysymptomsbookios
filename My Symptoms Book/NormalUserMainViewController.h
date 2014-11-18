@@ -8,23 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class User;
 
 @interface NormalUserMainViewController : UIViewController
 
 //properties
+
 @property (nonatomic, strong) User *currentUser;
+
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *userSymptomhistoryActivityIndicator;
 
 //button outlets
 
-
-
-
 - (IBAction)manageDoctorsPressed:(UIButton *)sender;
+
+- (IBAction)symptomHistoryPressed:(UIButton *)sender;
 
 - (IBAction)logoutPressed:(UIButton *)sender;
 
 //functions
--(void)sendSavedSymptomhistoryToServer;
+
+- (void)stopLoadingAnimationOfActivityIndicatorAndPerformSegue: (UIActivityIndicatorView *)spinner;
 @end

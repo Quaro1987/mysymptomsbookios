@@ -121,12 +121,13 @@
     return YES;
 }
 */
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Perform segue to candy detail
-    [self performSegueWithIdentifier:@"viewSymptomSegue" sender:tableView];
-}
 
 #pragma mark - Navigation
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Perform segue to symptom detail
+    [self performSegueWithIdentifier:@"viewSymptomSegue" sender:tableView];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

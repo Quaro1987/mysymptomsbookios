@@ -14,7 +14,7 @@
 
 @implementation User
 
-@synthesize userID, username, userType, status, email;
+@synthesize userID, username, userType, status, email, firstName, lastName;
 
 //init function
 -(id)initWithId:(NSNumber *)usrID andUserName:(NSString *)usrName andUserType:(NSNumber *)usrType andEmail: (NSString *) usrEmail andStatus: (NSNumber *) usrStatus;
@@ -29,6 +29,8 @@
         userType = usrType;
         status = usrStatus;
         email = usrEmail;
+        firstName = @"fn";
+        lastName = @"ln";
     }
     
     return self;

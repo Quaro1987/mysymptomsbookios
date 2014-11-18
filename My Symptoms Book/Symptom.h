@@ -23,4 +23,6 @@
 symExclusions andSymptomCategory: (NSString *) symCategory;
 
 -(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCategory;
+
+-(id)getSymptomWithSymptomCode:(NSString *)sympCode;
 @end

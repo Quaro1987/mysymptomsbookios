@@ -28,5 +28,6 @@
 //network functions
 -(BOOL)internetAccess;
 
+-(NSString *)serverUrlString;
 
 @end

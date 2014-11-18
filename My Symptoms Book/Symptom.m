@@ -75,4 +75,42 @@
     return symptomsWithSelectedCategoryArray;
 }
 
+//return the symptom with the same symptom code as the inputed string
+-(id)getSymptomWithSymptomCode:(NSString *)sympCode
+{
+    //create datacontroller
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    
+    //get database
+    FMDatabase *database = [FMDatabase databaseWithPath:[dataController getMySymptomsBookDatabasePath]];
+    
+    //if database doesn't open, end function and reutnr null
+    if(![database open])
+    {
+        return NULL;
+    }
+    
+    //query for symptoms
+    NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM tbl_symptoms WHERE symptomCode = \"%@\";", sympCode];
+    
+    FMResultSet *symptomsResult = [database executeQuery: queryString];
+    
+    Symptom *thisSymptom;
+    //loop through results, create symptom object for each, and push into array
+    while([symptomsResult next])
+    {
+        //copy string values for row into temporary strings
+        NSString *tempSymCode = [symptomsResult stringForColumn:@"symptomCode"];
+        NSString *tempSymTitle = [symptomsResult stringForColumn:@"title"];
+        NSString *tempSymInclusions = [symptomsResult stringForColumn:@"inclusions"];
+        NSString *tempSymExclusions = [symptomsResult stringForColumn:@"exclusions"];
+        NSString *tempSymCategory = [symptomsResult stringForColumn:@"symptomCategory"];
+        //init symptoms object
+        thisSymptom = [[Symptom alloc] initWithSymptomCode:tempSymCode andSymptomTitle:tempSymTitle andSymptomInclusions:tempSymInclusions andSymptomExclusions:tempSymExclusions andSymptomCategory:tempSymCategory];
+    }
+    
+    //return the symptom with symptom code == symCode
+    return thisSymptom;
+}
+
 @end
