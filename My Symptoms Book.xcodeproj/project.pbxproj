@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49E6AECE1D2802EE88E69BA7 /* libPods-My Symptoms Book.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3863D88E3A8EB276AAD42D /* libPods-My Symptoms Book.a */; };
 		FA3AC9E21A1BAFAD00115557 /* FindDoctorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3AC9E11A1BAFAD00115557 /* FindDoctorTableViewController.m */; };
+		FA3AC9E51A1BF08E00115557 /* AddDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3AC9E41A1BF08E00115557 /* AddDoctorViewController.m */; };
 		FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */; };
 		FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */; };
 		FA7160481A043DEF0042179D /* Symptom.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7160471A043DEF0042179D /* Symptom.m */; };
@@ -56,6 +57,8 @@
 		DEED959EF4EF5D9FC6BA728D /* Pods-My Symptoms Book.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Symptoms Book.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Symptoms Book/Pods-My Symptoms Book.debug.xcconfig"; sourceTree = "<group>"; };
 		FA3AC9E01A1BAFAD00115557 /* FindDoctorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindDoctorTableViewController.h; sourceTree = "<group>"; };
 		FA3AC9E11A1BAFAD00115557 /* FindDoctorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindDoctorTableViewController.m; sourceTree = "<group>"; };
+		FA3AC9E31A1BF08E00115557 /* AddDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorViewController.h; sourceTree = "<group>"; };
+		FA3AC9E41A1BF08E00115557 /* AddDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorViewController.m; sourceTree = "<group>"; };
 		FA54EB3E1A05D68C00A41602 /* PickDateSymptomSeenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDateSymptomSeenViewController.h; sourceTree = "<group>"; };
 		FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDateSymptomSeenViewController.m; sourceTree = "<group>"; };
 		FA6525721A154BE900F85F6C /* SymptomhistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryViewController.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 			children = (
 				FA3AC9E01A1BAFAD00115557 /* FindDoctorTableViewController.h */,
 				FA3AC9E11A1BAFAD00115557 /* FindDoctorTableViewController.m */,
+				FA3AC9E31A1BF08E00115557 /* AddDoctorViewController.h */,
+				FA3AC9E41A1BF08E00115557 /* AddDoctorViewController.m */,
 			);
 			name = "Find Doctor";
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 				FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */,
 				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
+				FA3AC9E51A1BF08E00115557 /* AddDoctorViewController.m in Sources */,
 				FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

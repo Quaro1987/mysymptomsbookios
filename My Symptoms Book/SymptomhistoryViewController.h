@@ -29,4 +29,9 @@
 //button function
 
 - (IBAction)findDoctorPressed:(id)sender;
+
+//other functions
+
+- (void)stopLoadingAnimationOfActivityIndicatorAndPerformSegue: (UIActivityIndicatorView *)spinner;
+
 @end

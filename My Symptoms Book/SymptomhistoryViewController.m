@@ -18,13 +18,14 @@
 
 @implementation SymptomhistoryViewController
 
-@synthesize dateSymptomAddedLabel, dateSymptomFirstSeenLabel, characterizationLabel, symptomButton, selectedSymptomhistoryEntry;
+@synthesize dateSymptomAddedLabel, dateSymptomFirstSeenLabel, characterizationLabel, symptomButton, selectedSymptomhistoryEntry,
+findingDoctorViewLoadingIndicator;
 
 - (void)viewDidLoad {
     
     dateSymptomAddedLabel.text = selectedSymptomhistoryEntry.dateSymptomAdded;
     dateSymptomFirstSeenLabel.text = selectedSymptomhistoryEntry.dateSymptomFirstSeen;
-    //fix this
+#warning finish implementing this
     if([selectedSymptomhistoryEntry.symptomFlag isEqual:(id) [NSNull null]] || selectedSymptomhistoryEntry.symptomFlag.length == 0)
     {
         characterizationLabel.text = @"No Characterization";
@@ -63,8 +64,19 @@
     
 }
 
-
-
+//function for when the user presses the find doctor button
 - (IBAction)findDoctorPressed:(id)sender {
+    //start animating the activity indicator while the app fetches the data from the server
+    [findingDoctorViewLoadingIndicator startAnimating];
+    //stop the indicator from animating once the segue has been performed with a 2 second delay
+    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.findingDoctorViewLoadingIndicator afterDelay:2.0];
+}
+
+//stop loading animation and perform segue
+- (void)stopLoadingAnimationOfActivityIndicatorAndPerformSegue: (UIActivityIndicatorView *)spinner {
+    //stop loading animation
+    [spinner stopAnimating];
+    //perform findDoctorSegue
+    [self performSegueWithIdentifier:@"findDoctorSegue" sender:nil];
 }
 @end

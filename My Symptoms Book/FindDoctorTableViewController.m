@@ -10,6 +10,7 @@
 #import "SSKeychain.h"
 #import "User.h"
 #import "DoctorUser.h"
+#import "Symptomhistory.h"
 
 @interface FindDoctorTableViewController ()
 
@@ -17,10 +18,24 @@
 
 @implementation FindDoctorTableViewController
 
+@synthesize doctorsArray, currentUser, thisSymptomhistoryRecord, navigationBar;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString
+    //get saved user
+    User *currentUser = [[User alloc] initWithSavedUser];
+    //get the users password
+    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+
+    //change title
+    NSString *titleString = @"Find Doctor for ";
+    titleString = [titleString stringByAppendingString:thisSymptomhistoryRecord.symptomTitle];
+    navigationBar.title = titleString;
+    
+    //populate array with doctors for this symptom
+    DoctorUser *aDoctor = [[DoctorUser alloc] init];
+    doctorsArray = [aDoctor getDoctorsForUser:currentUser.username andPassword:password forSymptomWithSymptomCode:thisSymptomhistoryRecord.symptomCode];
 
 }
 
@@ -32,26 +47,32 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [doctorsArray count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"doctorCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    //get the doctor
+    DoctorUser *theDoctor = [doctorsArray objectAtIndex:indexPath.row];
+    NSString *doctorFullName = [[NSString alloc] initWithString:theDoctor.lastName];
+    doctorFullName = [doctorFullName stringByAppendingString:@" "];
+    doctorFullName = [doctorFullName stringByAppendingString:theDoctor.firstName];
+    //configue cell labels
+    cell.textLabel.text = doctorFullName;
+    cell.detailTextLabel.text = theDoctor.doctorSpecialty;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
