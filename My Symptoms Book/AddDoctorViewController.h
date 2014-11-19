@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class DoctorUser;
+@class DoctorUser, Symptomhistory;
 
 @interface AddDoctorViewController : UIViewController
 
 @property (nonatomic, strong) DoctorUser *selectedDoctor;
+@property (nonatomic, strong) Symptomhistory *thisSymptomhistoryEntry;
 
 @property (strong, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;

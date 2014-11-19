@@ -11,6 +11,7 @@
 #import "User.h"
 #import "DoctorUser.h"
 #import "Symptomhistory.h"
+#import "AddDoctorViewController.h"
 
 @interface FindDoctorTableViewController ()
 
@@ -108,14 +109,25 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //perform segue
+    [self performSegueWithIdentifier:@"doctorSegue" sender:tableView];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"doctorSegue"])
+    {
+        AddDoctorViewController *destinationController = [segue destinationViewController];
+        destinationController.selectedDoctor = [doctorsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        destinationController.thisSymptomhistoryEntry = thisSymptomhistoryRecord;
+    }
+    
 }
-*/
+
 
 @end

@@ -557,7 +557,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Iqd-g7-mjG" kind="show" id="xXa-GI-UXa"/>
+                                    <segue destination="Iqd-g7-mjG" kind="show" identifier="doctorSegue" id="xXa-GI-UXa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -577,7 +577,7 @@
             </objects>
             <point key="canvasLocation" x="2294" y="2771"/>
         </scene>
-        <!--Title-->
+        <!--Doctor-->
         <scene sceneID="HeO-lr-S3y">
             <objects>
                 <viewController id="Iqd-g7-mjG" customClass="AddDoctorViewController" sceneMemberID="viewController">
@@ -637,7 +637,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="vz0-yY-6aj"/>
+                    <navigationItem key="navigationItem" title="Doctor" id="vz0-yY-6aj"/>
                     <connections>
                         <outlet property="doctorSpecialtyLabel" destination="vvJ-bH-8E3" id="bLS-r4-shO"/>
                         <outlet property="firstNameLabel" destination="vPp-ys-CZZ" id="raQ-EB-YY0"/>

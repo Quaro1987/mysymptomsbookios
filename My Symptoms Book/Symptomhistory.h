@@ -12,6 +12,7 @@
 
 @interface Symptomhistory : NSObject
 
+@property (nonatomic, assign) int symptomHistoryID;
 @property (nonatomic, strong) NSString *symptomUsername;
 @property (nonatomic, strong) NSString *symptomCode;
 @property (nonatomic, strong) NSString *symptomTitle;
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) NSDate *datedAddedInNSDateFormat;
 
 //init functions
--(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded andSymptomFlag: (NSString *) flag;
+-(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded andSymptomFlag: (NSString *) flag andSymptomHistoryID: (int) symHistoryID;
 
 -(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded;
 

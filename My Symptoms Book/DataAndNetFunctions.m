@@ -32,7 +32,17 @@
     return alertView;
 }
 
-
+//return number formatter to change strings into ints
+-(NSNumberFormatter *)getNumberFormatter
+{
+    //init number formatter
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    //set so the formatter doesn't reutrn decimals
+    [numberFormatter setGeneratesDecimalNumbers:FALSE];
+    
+    return numberFormatter;
+}
 
 #pragma mark database/file manipulation functions
 

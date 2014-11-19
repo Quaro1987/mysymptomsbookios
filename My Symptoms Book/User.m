@@ -8,9 +8,8 @@
 
 #import "User.h"
 #import "SSKeychain.h"
+#import "DataAndNetFunctions.h"
 
-//website to get data
-#define webServer @"http://mysymptomsbook.hol.es/index.php?r=user/user/"
 
 @implementation User
 
@@ -122,7 +121,9 @@
     NSLog(@"Postdata: %@",postMessage);
     
     //create url post request will be made to
-    NSURL *url =[[NSURL alloc] initWithString:[webServer stringByAppendingString:@"loginIOS"]];
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    NSString *serverString = [dataAndNetController serverUrlString];
+    NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"loginIOS"]];
     
     //turn post string into data object
     NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -155,11 +156,8 @@
     
     
     //init number formatter
-    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    //set so the formatter doesn't reutrn decimals
-    [numberFormatter setGeneratesDecimalNumbers:FALSE];
-    
+    NSNumberFormatter *numberFormatter = [dataAndNetController getNumberFormatter];
+        
     //copy the id of the returned user in an nsnumber. If it's 0 no such user exists/wrong
     //password
        

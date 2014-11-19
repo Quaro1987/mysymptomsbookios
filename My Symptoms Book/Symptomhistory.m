@@ -13,9 +13,6 @@
 #import "User.h"
 #import "SSKeychain.h"
 
-//website to get data
-#define webServer @"http://mysymptomsbook.hol.es/index.php?r=user/user/"
-
 @implementation Symptomhistory
 
 @synthesize symptomTitle,symptomCode,symptomUsername,dateSymptomFirstSeen,dateSymptomAdded, symptomFlag, datedAddedInNSDateFormat;
@@ -44,10 +41,11 @@
 //init with flat
 
 //init without flag
--(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded andSymptomFlag: (NSString *) flag
+-(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded andSymptomFlag: (NSString *) flag andSymptomHistoryID:(int)symHistoryID
 {
     self = [super init];
     
+    self.symptomHistoryID = symHistoryID;
     self.symptomUsername = userName;
     self.symptomTitle = title;
     self.symptomCode = code;
@@ -79,7 +77,8 @@
         NSLog(@"Postdata: %@",postMessage);
         
         //create server url and append addSymptomIOS function
-        NSURL *url = [[NSURL alloc] initWithString:[webServer stringByAppendingString:@"addSymptomIOS"]];
+        NSString *serverString = [dataAndNetController serverUrlString];
+        NSURL *url = [[NSURL alloc] initWithString:[serverString stringByAppendingString:@"addSymptomIOS"]];
         
         //turn post string into nsdata
         NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -233,7 +232,7 @@
         NSString *tempDateAdded = [savedSymptoms objectForColumnName:@"dateSymptomAdded"];
         NSString *tempUsername = [savedSymptoms objectForColumnName:@"username"];
         
-        Symptomhistory *symHistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempCode andSymptomTitle:tempTitle andDateSymptomFirstSeen:tempDateSeen andDateSymptomAdded:tempDateAdded andSymptomFlag:NULL];
+        Symptomhistory *symHistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempCode andSymptomTitle:tempTitle andDateSymptomFirstSeen:tempDateSeen andDateSymptomAdded:tempDateAdded andSymptomFlag:NULL andSymptomHistoryID:NULL];
         
         [savedSymptomsArray addObject:symHistoryObject];
     }
@@ -271,7 +270,8 @@
     if([dataAndNetController internetAccess])
     {
         //creatue url
-        NSString *stringUrl = [webServer stringByAppendingString:@"userSymptomHistoryIOS"];
+        NSString *serverString = [dataAndNetController serverUrlString];
+        NSString *stringUrl = [serverString stringByAppendingString:@"userSymptomHistoryIOS"];
         NSLog(stringUrl);
         NSURL *url = [[NSURL alloc] initWithString:stringUrl];
         
@@ -310,9 +310,12 @@
         //create array that will keep the usert's personal symptom history
         NSMutableArray *userPersonalSymptomHistory = [[NSMutableArray alloc] init];
         
+        
         //loop through results, and add them to userSymptomHistoryArray
         for (NSDictionary *symptomhistoryObject in jsonReponseData)
         {
+            NSInteger tempID = [(NSNumber *) [symptomhistoryObject objectForKey:@"id"] integerValue];
+            int tempIDint = tempID;
             NSString *tempUsername = username;
             NSString *tempSymptomCode = [symptomhistoryObject objectForKey:@"symptomCode"];
             NSString *tempSymptomTitle = [symptomhistoryObject objectForKey:@"symptomTitle"];
@@ -321,13 +324,12 @@
             NSString *tempSymptomFlag = [symptomhistoryObject objectForKey:@"symptomFlag"];
             
             //create symptom history object
-            Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag];
+            Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag andSymptomHistoryID:tempIDint];
            
             //add object to array
             [userPersonalSymptomHistory addObject:symptomhistoryObject];
         }
-        
-        
+                
         //return user symptom history
         return userPersonalSymptomHistory;
     }

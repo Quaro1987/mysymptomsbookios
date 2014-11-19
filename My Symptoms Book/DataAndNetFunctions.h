@@ -30,4 +30,6 @@
 
 -(NSString *)serverUrlString;
 
+-(NSNumberFormatter *) getNumberFormatter;
+
 @end
