@@ -21,6 +21,8 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *userSymptomhistoryActivityIndicator;
 
+@property (strong, nonatomic) NSString *segueToPerform;
+
 //button outlets
 
 - (IBAction)manageDoctorsPressed:(UIButton *)sender;
@@ -32,4 +34,5 @@
 //functions
 
 - (void)stopLoadingAnimationOfActivityIndicatorAndPerformSegue: (UIActivityIndicatorView *)spinner;
+
 @end

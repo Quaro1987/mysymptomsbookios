@@ -14,6 +14,7 @@
 #import "SymptomCategoryTableViewController.h"
 #import "Symptomhistory.h"
 #import "SymptomhistoryTableViewController.h"
+#import "ManageRelationsTableViewController.h"
 
 @interface NormalUserMainViewController ()
 
@@ -21,7 +22,7 @@
 
 @implementation NormalUserMainViewController
 
-@synthesize currentUser, userSymptomhistoryActivityIndicator;
+@synthesize currentUser, userSymptomhistoryActivityIndicator, segueToPerform;
 
 - (void)viewDidLoad {
     
@@ -62,12 +63,25 @@
         
         SymptomhistoryTableViewController *destinationController = [segue destinationViewController];
         destinationController.currentUser = currentUser;
-        
+    }
+    else if ([[segue identifier] isEqualToString:@"manageDoctorsSegue"])
+    {
+        ManageRelationsTableViewController *destinationController = [segue destinationViewController];
     }
 }
 
 //functions for when the user presses the symptom history button
 - (IBAction)symptomHistoryPressed:(UIButton *)sender {
+    self.segueToPerform = @"userSymptomHistorySegue";
+    //start animating the activity indicator while the app fetches the data from the server
+    [userSymptomhistoryActivityIndicator startAnimating];
+    //stop the indicator from animating once the segue has been performed with a 2 second delay
+    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.userSymptomhistoryActivityIndicator afterDelay:2.0];
+}
+
+-(IBAction)manageDoctorsPressed:(UIButton *)sender
+{
+    self.segueToPerform = @"manageDoctorsSegue";
     //start animating the activity indicator while the app fetches the data from the server
     [userSymptomhistoryActivityIndicator startAnimating];
     //stop the indicator from animating once the segue has been performed with a 2 second delay
@@ -79,7 +93,7 @@
     //stop loading animation
     [spinner stopAnimating];
     //perform usersymptomhistorysegue
-    [self performSegueWithIdentifier:@"userSymptomHistorySegue" sender:nil];
+    [self performSegueWithIdentifier:self.segueToPerform sender:nil];
 }
 
 //if the user selects to log out, delete his details and take him to the initial page

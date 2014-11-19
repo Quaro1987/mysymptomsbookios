@@ -49,8 +49,17 @@
     NSLog(stringUrl);
     NSURL *url = [[NSURL alloc] initWithString:stringUrl];
     
+    NSString *postMessage = [[NSString alloc] init];
     //create post data
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomCode=%@", username, password, symptomCode];
+    if([symptomCode isEqualToString:@"GET DOCTORS"])
+    {
+        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", username, password, symptomCode];
+    }
+    else
+    {
+        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", username, password, symptomCode];
+    }
+    
     NSLog(@"Get symptomhistory data for: %@", postMessage);
     NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     

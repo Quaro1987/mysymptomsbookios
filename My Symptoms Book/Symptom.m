@@ -36,7 +36,7 @@
 }
 
 //get the symptoms with the selected category
--(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCategory
+-(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCat
 {
     //create datacontroller
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
@@ -51,7 +51,7 @@
     }
     
     //query for symptoms
-    NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM tbl_symptoms WHERE symptomCategory = \"%@\" ORDER by title ASC;", symptomCategory];
+    NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM tbl_symptoms WHERE symptomCategory = \"%@\" ORDER by title ASC;", symptomCat];
     FMResultSet *symptomsResult = [database executeQuery: queryString];
     //init symptoms array
     NSMutableArray *symptomsWithSelectedCategoryArray = [[NSMutableArray alloc] init];

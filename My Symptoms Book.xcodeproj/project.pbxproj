@@ -11,6 +11,8 @@
 		FA3AC9E21A1BAFAD00115557 /* FindDoctorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3AC9E11A1BAFAD00115557 /* FindDoctorTableViewController.m */; };
 		FA3AC9E51A1BF08E00115557 /* AddDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3AC9E41A1BF08E00115557 /* AddDoctorViewController.m */; };
 		FA3F14981A1CAB3400F643FF /* DoctorRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F14971A1CAB3400F643FF /* DoctorRequest.m */; };
+		FA3F149C1A1CFC9A00F643FF /* ManageRelationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */; };
+		FA3F149F1A1D46FF00F643FF /* UserDoctorRelationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */; };
 		FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */; };
 		FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */; };
 		FA7160481A043DEF0042179D /* Symptom.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7160471A043DEF0042179D /* Symptom.m */; };
@@ -62,6 +64,10 @@
 		FA3AC9E41A1BF08E00115557 /* AddDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorViewController.m; sourceTree = "<group>"; };
 		FA3F14961A1CAB3400F643FF /* DoctorRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorRequest.h; sourceTree = "<group>"; };
 		FA3F14971A1CAB3400F643FF /* DoctorRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorRequest.m; sourceTree = "<group>"; };
+		FA3F149A1A1CFC9A00F643FF /* ManageRelationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageRelationsTableViewController.h; sourceTree = "<group>"; };
+		FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageRelationsTableViewController.m; sourceTree = "<group>"; };
+		FA3F149D1A1D46FF00F643FF /* UserDoctorRelationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDoctorRelationViewController.h; sourceTree = "<group>"; };
+		FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDoctorRelationViewController.m; sourceTree = "<group>"; };
 		FA54EB3E1A05D68C00A41602 /* PickDateSymptomSeenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDateSymptomSeenViewController.h; sourceTree = "<group>"; };
 		FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDateSymptomSeenViewController.m; sourceTree = "<group>"; };
 		FA6525721A154BE900F85F6C /* SymptomhistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryViewController.h; sourceTree = "<group>"; };
@@ -168,6 +174,17 @@
 			name = "Find Doctor";
 			sourceTree = "<group>";
 		};
+		FA3F14991A1CFC6E00F643FF /* Manage Doctor Relations */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F149A1A1CFC9A00F643FF /* ManageRelationsTableViewController.h */,
+				FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */,
+				FA3F149D1A1D46FF00F643FF /* UserDoctorRelationViewController.h */,
+				FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */,
+			);
+			name = "Manage Doctor Relations";
+			sourceTree = "<group>";
+		};
 		FA54EB411A05D6E400A41602 /* Add Symptom */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +260,7 @@
 		FAC1C9871A032D9400398F0C /* Normal User Functions */ = {
 			isa = PBXGroup;
 			children = (
+				FA3F14991A1CFC6E00F643FF /* Manage Doctor Relations */,
 				FA694EF41A1CAA4B009EA045 /* Normal User Models */,
 				FA7704911A125F32005E19CA /* Symptom History */,
 				FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */,
@@ -471,6 +489,7 @@
 				FA7160481A043DEF0042179D /* Symptom.m in Sources */,
 				FA3F14981A1CAB3400F643FF /* DoctorRequest.m in Sources */,
 				FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */,
+				FA3F149F1A1D46FF00F643FF /* UserDoctorRelationViewController.m in Sources */,
 				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
 				FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */,
 				FA8D536F1A1924A700CFA9B8 /* CheckSymptomViewController.m in Sources */,
@@ -484,6 +503,7 @@
 				FA71604B1A045B430042179D /* SymptomViewController.m in Sources */,
 				FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */,
 				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
+				FA3F149C1A1CFC9A00F643FF /* ManageRelationsTableViewController.m in Sources */,
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
 				FA3AC9E51A1BF08E00115557 /* AddDoctorViewController.m in Sources */,
 				FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */,

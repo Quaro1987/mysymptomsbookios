@@ -55,7 +55,6 @@
     //send doctor request
     DoctorRequest *doctorRequestToSend = [[DoctorRequest alloc] init];
     NSString *reply = [doctorRequestToSend sendDoctorRequestForUser:currentUser.username withPassword:password ToDoctor:selectedDoctor.userID forSymptomhistoryWithID: thisSymptomhistoryEntry.symptomHistoryID];
-    
     NSLog(reply);
 }
 @end

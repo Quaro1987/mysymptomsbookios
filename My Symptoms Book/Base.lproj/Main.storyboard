@@ -221,7 +221,116 @@
             </objects>
             <point key="canvasLocation" x="1021" y="417"/>
         </scene>
-        <!--Title-->
+        <!--Doctor Details-->
+        <scene sceneID="nsv-g1-NHF">
+            <objects>
+                <viewController id="ZZU-28-JTp" customClass="UserDoctorRelationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TU1-og-Lh2"/>
+                        <viewControllerLayoutGuide type="bottom" id="qFv-xI-dpm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZZ6-6L-bIp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqN-vr-1aH">
+                                <rect key="frame" x="73" y="110" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lName" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNC-vG-6qB">
+                                <rect key="frame" x="180" y="110" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZl-Hc-2ze">
+                                <rect key="frame" x="73" y="166" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Specialty:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3F-gW-o5V">
+                                <rect key="frame" x="73" y="222" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fName" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMg-Qc-X7o">
+                                <rect key="frame" x="170" y="166" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="specialty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2K-fa-zei">
+                                <rect key="frame" x="162" y="222" width="139" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4C-ol-yKx">
+                                <rect key="frame" x="134" y="302" width="107" height="30"/>
+                                <state key="normal" title="Remove Doctor">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeDoctorPressed:" destination="ZZU-28-JTp" eventType="touchUpInside" id="Aan-Va-tcH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Doctor Details" id="2zN-dy-CpS"/>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="EMg-Qc-X7o" id="MpO-Fr-n43"/>
+                        <outlet property="lastNameLabel" destination="cNC-vG-6qB" id="nZZ-ua-u9D"/>
+                        <outlet property="specialtyLabel" destination="C2K-fa-zei" id="GEM-xP-wZX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6U-bL-kPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12.5" y="1212.5"/>
+        </scene>
+        <!--Your Doctors-->
+        <scene sceneID="iQI-3L-d3h">
+            <objects>
+                <tableViewController id="EC9-rJ-zMY" customClass="ManageRelationsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pkU-GD-bLv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="doctorCell" textLabel="mrX-Zb-ymt" style="IBUITableViewCellStyleDefault" id="5SS-n7-IuN">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5SS-n7-IuN" id="c4z-uF-N0y">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mrX-Zb-ymt">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ZZU-28-JTp" kind="show" identifier="removeDoctorDetailsSegue" id="Qlg-5g-zcQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EC9-rJ-zMY" id="syf-tR-yjD"/>
+                            <outlet property="delegate" destination="EC9-rJ-zMY" id="YZ9-74-wCR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Doctors" id="EWR-Qh-VUN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3H-pu-g71" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436.5" y="1212.5"/>
+        </scene>
+        <!--normal user main menu-->
         <scene sceneID="jUt-al-sqe">
             <objects>
                 <viewController storyboardIdentifier="normalUserMainView" id="LPL-d2-49J" customClass="NormalUserMainViewController" sceneMemberID="viewController">
@@ -275,13 +384,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="HGH-I4-Mcd">
+                    <navigationItem key="navigationItem" title="normal user main menu" id="HGH-I4-Mcd">
                         <barButtonItem key="backBarButtonItem" title="Back" id="LOb-VR-ioF"/>
                     </navigationItem>
                     <connections>
                         <outlet property="navigationBar" destination="HGH-I4-Mcd" id="YX9-g1-hdV"/>
                         <outlet property="userSymptomhistoryActivityIndicator" destination="KqF-9D-yni" id="QhV-6r-RaS"/>
                         <segue destination="Cog-pi-U14" kind="show" identifier="userSymptomHistorySegue" id="soV-of-uMa"/>
+                        <segue destination="EC9-rJ-zMY" kind="show" identifier="manageDoctorsSegue" id="4Xp-gi-Pyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lF-FF-haq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -646,7 +756,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVl-ck-r2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2863.5" y="2770.5"/>
+            <point key="canvasLocation" x="2879.5" y="2770.5"/>
         </scene>
         <!--symptom category-->
         <scene sceneID="8yu-Ty-HTz">

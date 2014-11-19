@@ -78,4 +78,51 @@
     return @"SUCCESS";
 }
 
+//function to delete doctorrequest relation between users
+-(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *)userID
+{
+    //create post data string
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&relationID=%@", username, password, userID];
+    //log message
+    NSLog(@"Postdata: %@",postMessage);
+    
+    //create url post request will be made to
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    NSString *serverString = [dataAndNetController serverUrlString];
+    NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"removeContactIOS"]];
+    
+    //turn post string into data object
+    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    //post data legnth
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    //url request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    //set up request properties
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //set up NSerror
+    NSError *error = [[NSError alloc] init];
+    
+    // create url response
+    NSURLResponse *response;
+    
+    //send post request to server
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //creaet NS dictionary and store result
+    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
+    
+
+    
+    return @"SUCCESS";
+}
+
 @end
