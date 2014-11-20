@@ -164,7 +164,7 @@
     filteredSymptomsArray = [NSMutableArray arrayWithArray:[queryResultSymptomsArray filteredArrayUsingPredicate:[predicate predicateWithSubstitutionVariables:@{@"searchString":searchText} ]]];
 }
 
-#pragma mark UISearchController Delegate Methods
+
 -(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     // Tells the table data source to reload when text changes

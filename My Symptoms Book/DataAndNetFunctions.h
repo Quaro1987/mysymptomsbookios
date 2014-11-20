@@ -24,7 +24,7 @@
 
 -(NSString *)getMySymptomsBookDatabasePath;
 
-
+-(NSString *)getUserPassword;
 //network functions
 -(BOOL)internetAccess;
 

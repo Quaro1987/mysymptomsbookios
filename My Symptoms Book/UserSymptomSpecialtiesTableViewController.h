@@ -8,12 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@class User;
+@class User, Symptom;
 
-@interface UserSymptomSpecialtiesTableViewController : UITableViewController
+@interface UserSymptomSpecialtiesTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 //properties
 @property (nonatomic, strong) NSMutableArray *userSymptomSpecialtiesArray;
-
+@property (nonatomic, strong) NSMutableArray *filteredUserSymptomSpecialtiesArray;
 @property (nonatomic, strong) User *currentUser;
+@property (nonatomic, assign) Symptom *symptomSpecialtyForDelete;
+
+@property (strong, nonatomic) IBOutlet UISearchBar *symptomSearchBar;
+
+//filtering functions
+-(void)filterSymptomsForText:(NSString *)searchText;
+
+-(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString;
+
+//delete specialty functions
+
+-(UIAlertView *)alertStatus:(NSString *)alertBody andAlertTitle:(NSString *)alertTitle;
+
+-(void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+
 @end

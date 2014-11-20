@@ -130,6 +130,16 @@
     [database close];
 }
 
+//gets saved user's password
+-(NSString *)getUserPassword
+{
+    //get current user
+    User *currentUser = [[User alloc] initWithSavedUser];
+    //copy his password into a string
+    NSString *passwordString = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    //return password
+    return passwordString;
+}
 
 #pragma mark network functions
 

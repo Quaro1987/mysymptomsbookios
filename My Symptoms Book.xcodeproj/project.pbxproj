@@ -16,6 +16,7 @@
 		FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */; };
 		FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */; };
 		FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */; };
+		FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */; };
 		FA7160481A043DEF0042179D /* Symptom.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7160471A043DEF0042179D /* Symptom.m */; };
 		FA71604B1A045B430042179D /* SymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA71604A1A045B430042179D /* SymptomViewController.m */; };
 		FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */; };
@@ -75,6 +76,8 @@
 		FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomhistoryViewController.m; sourceTree = "<group>"; };
 		FA6C97161A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSymptomSpecialtiesTableViewController.h; sourceTree = "<group>"; };
 		FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSymptomSpecialtiesTableViewController.m; sourceTree = "<group>"; };
+		FA6DED711A1E89ED00B16DEB /* DoctorSymptomSpecialty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorSymptomSpecialty.h; sourceTree = "<group>"; };
+		FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorSymptomSpecialty.m; sourceTree = "<group>"; };
 		FA7160461A043DEF0042179D /* Symptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symptom.h; sourceTree = "<group>"; };
 		FA7160471A043DEF0042179D /* Symptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Symptom.m; sourceTree = "<group>"; };
 		FA7160491A045B430042179D /* SymptomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomViewController.h; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 		FA6C97141A1DF6EE00F05F73 /* Doctor User Functions */ = {
 			isa = PBXGroup;
 			children = (
+				FA6DED701A1E89C600B16DEB /* Doctor Models */,
 				FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */,
 				FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */,
 				FA6C97151A1E089900F05F73 /* Specialties Functions */,
@@ -257,6 +261,15 @@
 				FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */,
 			);
 			name = "Specialties Functions";
+			sourceTree = "<group>";
+		};
+		FA6DED701A1E89C600B16DEB /* Doctor Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA6DED711A1E89ED00B16DEB /* DoctorSymptomSpecialty.h */,
+				FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */,
+			);
+			name = "Doctor Models";
 			sourceTree = "<group>";
 		};
 		FA7246B71A00783200421B83 /* SSKeychain */ = {
@@ -519,6 +532,7 @@
 				FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */,
 				FA8D53721A192DE800CFA9B8 /* DoctorUser.m in Sources */,
 				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
+				FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */,
 				FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */,
 				FA3AC9E21A1BAFAD00115557 /* FindDoctorTableViewController.m in Sources */,
 				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,

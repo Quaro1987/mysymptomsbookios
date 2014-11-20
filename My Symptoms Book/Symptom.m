@@ -128,7 +128,7 @@
     NSURL *url = [[NSURL alloc] initWithString:stringUrl];
     
     //get user password
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:docUser.username];
+    NSString *password = [dataAndNetController getUserPassword];
     
     //create post data
     NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", docUser.username, password];

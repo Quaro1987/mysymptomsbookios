@@ -997,8 +997,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="jd3-Z1-XGs">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Njo-JI-LWy" id="nrX-BD-g6U"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomSpecialtyCell" textLabel="BEB-dK-Mpy" detailTextLabel="IWW-vT-lhg" style="IBUITableViewCellStyleSubtitle" id="ihN-7V-gxV">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="symptomSpecialtyCell" textLabel="BEB-dK-Mpy" detailTextLabel="IWW-vT-lhg" style="IBUITableViewCellStyleSubtitle" id="ihN-7V-gxV">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ihN-7V-gxV" id="ccF-k7-aWP">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1026,9 +1034,23 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Symptom Specialties" id="qP7-CP-6l4">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Nfi-6x-B30"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="4z8-O9-8s9"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="7um-u2-0KI" id="uIK-2X-G8k"/>
+                        <outlet property="symptomSearchBar" destination="jd3-Z1-XGs" id="UZx-Zj-7Hh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96i-qD-glt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7um-u2-0KI">
+                    <connections>
+                        <outlet property="delegate" destination="Njo-JI-LWy" id="jqI-rx-d6O"/>
+                        <outlet property="searchBar" destination="jd3-Z1-XGs" id="T2f-xN-3Pi"/>
+                        <outlet property="searchContentsController" destination="Njo-JI-LWy" id="K2I-2c-b3C"/>
+                        <outlet property="searchResultsDataSource" destination="Njo-JI-LWy" id="QWg-Gr-MNH"/>
+                        <outlet property="searchResultsDelegate" destination="Njo-JI-LWy" id="miG-NT-DTF"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1634" y="-431"/>
         </scene>
