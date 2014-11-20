@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     
+    
     self.navigationBar.title = @"My Symptoms Book";
     //hide back button
     [self.navigationItem setHidesBackButton:YES animated:YES];
@@ -100,9 +101,8 @@
 - (IBAction)logoutPressed:(UIButton *)sender
 {
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    User *currentUser = [[User alloc] init];
     //log out user function
-    [currentUser logoutUser:currentUser];
+    [currentUser logoutUser];
     
     //notify user
     [[dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"] show];

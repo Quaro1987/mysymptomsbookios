@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class User;
+
 @interface Symptom : NSObject
 
 //properties
@@ -25,4 +27,6 @@ symExclusions andSymptomCategory: (NSString *) symCategory;
 -(NSMutableArray *)getSymptomsWithCategory:(NSString *)symptomCat;
 
 -(id)getSymptomWithSymptomCode:(NSString *)sympCode;
+
+-(NSMutableArray *)getSymptomSpecialtiesForDoctorUser:(User *)docUser;
 @end

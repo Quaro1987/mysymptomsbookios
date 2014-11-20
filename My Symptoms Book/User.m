@@ -101,10 +101,10 @@
 #pragma mark log in/out functions
 
 //logout user
--(void)logoutUser:(User *) currentUser
+-(void)logoutUser
 {
     //delete password from keychain
-    [SSKeychain deletePasswordForService:@"MySymptomsBook" account:currentUser.username];
+    [SSKeychain deletePasswordForService:@"MySymptomsBook" account:self.username];
     
     //delete user object form nsuser defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

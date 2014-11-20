@@ -42,6 +42,14 @@
             
             [self.navigationController pushViewController:destinationController animated:NO];
         }
+        else
+        {
+            NSLog(@"This user is a Doctor type user");
+            NormalUserMainViewController *destinationController = [storyBoard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+            destinationController.currentUser = currentUser;
+            
+            [self.navigationController pushViewController:destinationController animated:NO];
+        }
     }
     
     //set title to my symptoms book when the inital view loads

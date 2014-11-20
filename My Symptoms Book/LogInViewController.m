@@ -11,6 +11,8 @@
 #import "User.h"
 #import "NormalUserMainViewController.h"
 #import "SSKeychain.h"
+#import "DoctorUserMainViewController.h"
+
 @interface LogInViewController ()
 
 @end
@@ -64,13 +66,23 @@
             [currentUser saveUserData:currentUser];
             //save user's password in keychain
             [SSKeychain setPassword:_passwordField.text forService:@"MySymptomsBook" account:_usernameField.text];
-            //change view to the normal user's main view
-            NormalUserMainViewController *newViewController =
-            [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
-            newViewController.currentUser = currentUser;
-            [self.navigationController pushViewController:newViewController animated:YES];
             
-            
+            if([currentUser.userType integerValue] == 0)
+            {
+                //change view to the normal user's main view
+                NormalUserMainViewController *newViewController =
+                [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+                newViewController.currentUser = currentUser;
+                [self.navigationController pushViewController:newViewController animated:YES];
+            }
+            else
+            {
+                //change view to the doctor user's main view
+                DoctorUserMainViewController *newViewController =
+                [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+                newViewController.currentUser = currentUser;
+                [self.navigationController pushViewController:newViewController animated:YES];
+            }
         }
     }
 }

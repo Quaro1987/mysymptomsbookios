@@ -215,6 +215,7 @@
                         <outlet property="passwordField" destination="WNT-Ea-VQk" id="kCp-5g-zbT"/>
                         <outlet property="usernameField" destination="LwE-u9-2pN" id="73U-8Z-Q0m"/>
                         <segue destination="LPL-d2-49J" kind="show" id="t0v-gV-MPB"/>
+                        <segue destination="DY0-0C-NWo" kind="show" id="LGF-LS-0u5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVK-gB-V7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -988,23 +989,115 @@
             </objects>
             <point key="canvasLocation" x="3327.5" y="1198.5"/>
         </scene>
-        <!--Doctor User Main View Controller-->
+        <!--Your Symptom Specialties-->
+        <scene sceneID="rNf-Iw-Gp8">
+            <objects>
+                <tableViewController id="Njo-JI-LWy" customClass="UserSymptomSpecialtiesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xSz-Pr-fOw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomSpecialtyCell" textLabel="BEB-dK-Mpy" detailTextLabel="IWW-vT-lhg" style="IBUITableViewCellStyleSubtitle" id="ihN-7V-gxV">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ihN-7V-gxV" id="ccF-k7-aWP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BEB-dK-Mpy">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IWW-vT-lhg">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Njo-JI-LWy" id="QLv-0V-1lb"/>
+                            <outlet property="delegate" destination="Njo-JI-LWy" id="4P3-7M-Kap"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Symptom Specialties" id="qP7-CP-6l4">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Nfi-6x-B30"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96i-qD-glt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1634" y="-431"/>
+        </scene>
+        <!--doctor user main menu-->
         <scene sceneID="dT8-jO-hxe">
             <objects>
-                <viewController id="DY0-0C-NWo" customClass="DoctorUserMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="doctorUserMainView" id="DY0-0C-NWo" customClass="DoctorUserMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fu7-bA-xpn"/>
                         <viewControllerLayoutGuide type="bottom" id="xGM-2w-mAJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="867-LV-gOM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAg-ZA-qFB">
+                                <rect key="frame" x="107" y="170" width="160" height="30"/>
+                                <state key="normal" title="Manage User Relations">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvp-cN-QC1">
+                                <rect key="frame" x="107" y="229" width="161" height="30"/>
+                                <state key="normal" title="Manage User Requests">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCk-Ot-cjN">
+                                <rect key="frame" x="85" y="291" width="205" height="30"/>
+                                <state key="normal" title="Manage Symptom Specialties">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="manageSymptomSpecialtiesPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="755-2G-05i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQq-ak-RDf">
+                                <rect key="frame" x="159" y="347" width="56" height="30"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="PcD-2K-GdP"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-S2-6Qq">
+                                <rect key="frame" x="177" y="267" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-6w-zKL">
+                                <rect key="frame" x="74" y="109" width="227" height="30"/>
+                                <state key="normal" title="Manage Users' Symptom History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="doctor user main menu" id="opl-1H-qiM">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="axO-JS-ZMB"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="m4i-S2-6Qq" id="t4U-4s-bvB"/>
+                        <outlet property="navigationBar" destination="opl-1H-qiM" id="L2n-Lc-iBy"/>
+                        <segue destination="Njo-JI-LWy" kind="show" identifier="manageSpecialtiesSegue" id="nUV-0D-lfX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TU-Gf-5TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752" y="417"/>
+            <point key="canvasLocation" x="1646.5" y="416.5"/>
         </scene>
     </scenes>
 </document>

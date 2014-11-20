@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface DoctorUserMainViewController : UIViewController
+
+//properties
+@property (nonatomic, strong) User *currentUser;
+
+@property (nonatomic, strong) NSString *segueToPerform;
+
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+
+//functions
+
+//butons pressed
+- (IBAction)logOutPressed:(id)sender;
+
+- (IBAction)manageSymptomSpecialtiesPressed:(id)sender;
 
 @end

@@ -35,7 +35,7 @@
 
 //log in user functions
 
--(void)logoutUser:(User *) currentUser;
+-(void)logoutUser;
 
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password;
 

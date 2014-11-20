@@ -9,6 +9,8 @@
 #import "Symptom.h"
 #import "DataAndNetFunctions.h"
 #import "FMDB.h"
+#import "SSKeychain.h"
+#import "User.h"
 
 @implementation Symptom
 
@@ -111,6 +113,82 @@
     
     //return the symptom with symptom code == symCode
     return thisSymptom;
+}
+
+//return the symptoms that the current doctor user has a specialty in
+-(NSMutableArray *)getSymptomSpecialtiesForDoctorUser:(User *)docUser
+{
+    //init dataAndNetController
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    //creatue url
+    NSString *serverString = [dataAndNetController serverUrlString];
+    NSString *stringUrl = [serverString stringByAppendingString:@"getDoctorSymptomSpecialtiesIOS"];
+    NSLog(stringUrl);
+    NSURL *url = [[NSURL alloc] initWithString:stringUrl];
+    
+    //get user password
+    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:docUser.username];
+    
+    //create post data
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", docUser.username, password];
+    NSLog(@"Get Doctor Symptom Specialties data for: %@", postMessage);
+    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    //get post length
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    //create request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    //set up request attributes
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Legnth"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //error attribute
+    NSError *error = [[NSError alloc] init];
+    
+    //create response
+    NSURLResponse *response;
+    
+    //json data
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //pass symptom history objects into an array
+    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    
+    
+    //create array that will keep the usert's personal symptom history
+    NSMutableArray *doctorSymptomSpecialtiesArray = [[NSMutableArray alloc] init];
+    
+    
+    //loop through results, and add them to userSymptomHistoryArray
+    for (NSDictionary *symptomSpecialtyObject in jsonReponseData)
+    {
+        //copy symptom code
+        NSString *thisSymptomCode = [symptomSpecialtyObject objectForKey:@"symptomCode"];
+        //find the symptom with this symptom code
+        Symptom *thisSymptom = [[Symptom alloc] init];
+        thisSymptom = [thisSymptom getSymptomWithSymptomCode:thisSymptomCode];
+        //add symptom to array
+        [doctorSymptomSpecialtiesArray addObject:thisSymptom];
+    }
+
+    //sort array
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"symptomTitle"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [doctorSymptomSpecialtiesArray sortedArrayUsingDescriptors:sortDescriptors];
+    
+    doctorSymptomSpecialtiesArray = [NSMutableArray arrayWithArray:sortedArray];
+    
+    return doctorSymptomSpecialtiesArray;
 }
 
 @end
