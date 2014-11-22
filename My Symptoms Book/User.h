@@ -18,11 +18,12 @@
 @property (nonatomic, strong) NSNumber *status;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
-//@property (nonatomic, strong) NS
+
 
 //init method
 -(id)initWithId: (NSNumber *) usrID andUserName: (NSString *) usrName
-    andUserType: (NSNumber *) usrType andEmail: (NSString *) usrEmail andStatus: (NSNumber *) usrStatus;
+    andUserType: (NSNumber *) usrType andEmail: (NSString *) usrEmail
+      andStatus: (NSNumber *) usrStatus andFirstName: (NSString *)fName andLastName:(NSString *)lname;
 
 //encoding/decoding methods
 -(void)encodeWithCoder:(NSCoder *)encoder;
@@ -39,4 +40,5 @@
 
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password;
 
+-(NSMutableArray *)getUsersDoctorHasRelationsWith;
 @end

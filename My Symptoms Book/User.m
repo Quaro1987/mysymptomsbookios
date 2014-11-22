@@ -16,7 +16,8 @@
 @synthesize userID, username, userType, status, email, firstName, lastName;
 
 //init function
--(id)initWithId:(NSNumber *)usrID andUserName:(NSString *)usrName andUserType:(NSNumber *)usrType andEmail: (NSString *) usrEmail andStatus: (NSNumber *) usrStatus;
+-(id)initWithId:(NSNumber *)usrID andUserName:(NSString *)usrName andUserType:(NSNumber *)usrType andEmail: (NSString *) usrEmail andStatus: (NSNumber *) usrStatus
+ andFirstName: (NSString *)fName andLastName:(NSString *)lname;
 {
     self = [super init];
     
@@ -28,8 +29,8 @@
         userType = usrType;
         status = usrStatus;
         email = usrEmail;
-        firstName = @"fn";
-        lastName = @"ln";
+        firstName = fName;
+        lastName = lname;
     }
     
     return self;
@@ -47,6 +48,8 @@
     [encoder encodeObject:self.userType forKey:@"userType"];
     [encoder encodeObject:self.status forKey:@"status"];
     [encoder encodeObject:self.email forKey:@"email"];
+    [encoder encodeObject:self.firstName forKey:@"firstName"];
+    [encoder encodeObject:self.lastName forKey:@"lastName"];
 }
 
 -(id)initWithCoder:(NSCoder *)decoder
@@ -61,6 +64,8 @@
         self.userType = [decoder decodeObjectForKey:@"userType"];
         self.status = [decoder decodeObjectForKey:@"status"];
         self.email = [decoder decodeObjectForKey:@"email"];
+        self.firstName = [decoder decodeObjectForKey:@"firstName"];
+        self.lastName = [decoder decodeObjectForKey:@"lastName"];
     }
     
     return self;
@@ -125,22 +130,8 @@
     NSString *serverString = [dataAndNetController serverUrlString];
     NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"loginIOS"]];
     
-    //turn post string into data object
-    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //post data legnth
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
     //url request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    
-    //set up request properties
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
     
     //set up NSerror
     NSError *error = [[NSError alloc] init];
@@ -179,11 +170,71 @@
         NSNumber *userID = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"id"]];
         NSNumber *userStatus = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"status"]];
         
-        User *user = [[User alloc] initWithId:userID andUserName:tempUserame andUserType:tempUserType andEmail:tempEmail andStatus:userStatus];
+        User *user = [[User alloc] initWithId:userID andUserName:tempUserame andUserType:tempUserType andEmail:tempEmail andStatus:userStatus andFirstName:NULL andLastName:NULL];
         
         return user;
     }
 }
 
+-(NSMutableArray *)getUsersDoctorHasRelationsWith
+{
+    //init dataAndNetController
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    NSString *serverString = [dataAndNetController serverUrlString];
+    //creatue url
+    NSString *stringUrl = [serverString stringByAppendingString:@"getDoctorRelationsIOS"];
+    
+    NSURL *url = [[NSURL alloc] initWithString:stringUrl];
+    
+    //get curent user username and password
+    User *currentUser = [[User alloc]initWithSavedUser];
+    
+    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    
+    //build post message
+    NSString *postMessage = [[NSString alloc] init];
+    postMessage = [NSString stringWithFormat:@"username=%@&password=%@", currentUser.username, password];
+    
+    //create request
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
+    
+    //error attribute
+    NSError *error = [[NSError alloc] init];
+    
+    //create response
+    NSURLResponse *response;
+    
+    //json data
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //pass doctor user objects into an array
+    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    
+    //create array that will keep the doctor patient users objects
+    NSMutableArray *patientsArray = [[NSMutableArray alloc] init];
+    
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    //set so the formatter doesn't reutrn decimals
+    [numberFormatter setGeneratesDecimalNumbers:FALSE];
+    
+    for (NSDictionary *userObject in jsonReponseData)
+    {
+        NSString *tempFirstName = [userObject valueForKeyPath:@"jsonDataSource.relations.profile.firstname"];
+        NSString *tempLastName = [userObject valueForKeyPath:@"jsonDataSource.relations.profile.lastname"];
+        NSString *tempUsername = [userObject valueForKeyPath:@"jsonDataSource.attributes.username"];
+        NSString *tempEmail = [userObject valueForKeyPath:@"jsonDataSource.attributes.email"];
+        NSNumber *tempUserID = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.id"]];
+        NSNumber *tempUserStatus = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.status"]];
+        NSNumber *tempUserType = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.userType"]];
+        //create temp doctor user
+        User *aPatient = [[User alloc] initWithId:tempUserID andUserName:tempUsername andUserType:tempUserType andEmail:tempEmail andStatus:tempUserStatus andFirstName:tempFirstName andLastName:tempLastName];
+        //add doctor to aray
+        [patientsArray addObject:aPatient];
+    }
+    
+    return patientsArray;
+}
 
 @end

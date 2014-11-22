@@ -762,7 +762,7 @@
         <!--symptom category-->
         <scene sceneID="8yu-Ty-HTz">
             <objects>
-                <tableViewController id="tg3-f5-Qza" customClass="SymptomCategoryTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="addSymptomCategorySelect" id="tg3-f5-Qza" customClass="SymptomCategoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="o6h-nC-WSc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1034,7 +1034,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Symptom Specialties" id="qP7-CP-6l4">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Nfi-6x-B30"/>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="4z8-O9-8s9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="4z8-O9-8s9">
+                            <connections>
+                                <segue destination="woz-1X-po8" kind="show" identifier="addSpecialtySegue" id="8mN-SE-e2H"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="7um-u2-0KI" id="uIK-2X-G8k"/>
@@ -1054,6 +1058,192 @@
             </objects>
             <point key="canvasLocation" x="1634" y="-431"/>
         </scene>
+        <!--specialty category select-->
+        <scene sceneID="pW3-0P-UIN">
+            <objects>
+                <tableViewController id="woz-1X-po8" customClass="SymptomCategoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fGG-zn-Dwd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomCategoryCell" id="ZKY-oG-YEg">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZKY-oG-YEg" id="ekX-AW-5wd">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="hbj-Tt-yKb" kind="show" identifier="showSymptomsSegue" id="aE2-qJ-JIp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="woz-1X-po8" id="uM0-Kc-JUG"/>
+                            <outlet property="delegate" destination="woz-1X-po8" id="66o-Cf-amQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="specialty category select" id="A6V-ny-5H3">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="XUU-y6-n03"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="A6V-ny-5H3" id="39x-KX-KZE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pf3-OI-aW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146.5" y="-431.5"/>
+        </scene>
+        <!--symptom select-->
+        <scene sceneID="hgQ-2T-Jyc">
+            <objects>
+                <tableViewController id="hbj-Tt-yKb" customClass="SymptomSelectTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0MC-ar-0IR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="qAd-6Q-Nvv">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="hbj-Tt-yKb" id="r9O-YN-hvf"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomCell" textLabel="eys-mH-ahc" detailTextLabel="Iy9-Nk-z5v" style="IBUITableViewCellStyleSubtitle" id="QDf-pt-xXi">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDf-pt-xXi" id="Ue4-Jg-tFM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eys-mH-ahc">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Iy9-Nk-z5v">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hbj-Tt-yKb" id="kUo-bc-bYR"/>
+                            <outlet property="delegate" destination="hbj-Tt-yKb" id="Jjw-Jk-Ovg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="symptom select" id="Mgu-By-oAe">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="kWw-bI-vjT"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="Mgu-By-oAe" id="hjO-DF-IRT"/>
+                        <outlet property="searchDisplayController" destination="p7A-bo-Zsd" id="sHT-5Y-6u5"/>
+                        <outlet property="symptomSearchBar" destination="qAd-6Q-Nvv" id="PwG-oq-DQL"/>
+                        <segue destination="cIY-pR-MTQ" kind="show" identifier="viewSymptomSegue" id="Lm7-Td-nA8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V7Y-q2-UoT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="p7A-bo-Zsd">
+                    <connections>
+                        <outlet property="delegate" destination="hbj-Tt-yKb" id="egO-u9-tTv"/>
+                        <outlet property="searchBar" destination="qAd-6Q-Nvv" id="PU0-6N-grD"/>
+                        <outlet property="searchContentsController" destination="hbj-Tt-yKb" id="16d-wJ-gid"/>
+                        <outlet property="searchResultsDataSource" destination="hbj-Tt-yKb" id="RAe-tc-55m"/>
+                        <outlet property="searchResultsDelegate" destination="hbj-Tt-yKb" id="UQD-kb-Zo1"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2679.5" y="-431.5"/>
+        </scene>
+        <!--Add Symptom Specialty-->
+        <scene sceneID="K4d-v7-NLe">
+            <objects>
+                <viewController id="cIY-pR-MTQ" customClass="SymptomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="993-Y6-kNu"/>
+                        <viewControllerLayoutGuide type="bottom" id="VhI-6O-H1d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ayu-Cy-SDk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symptom Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUo-di-zrU">
+                                <rect key="frame" x="36" y="79" width="116" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ICPC2 Code:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHE-uu-0LB">
+                                <rect key="frame" x="36" y="146" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inclusions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="re2-xf-Ibb">
+                                <rect key="frame" x="36" y="217" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exclusions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51U-vV-ffw">
+                                <rect key="frame" x="36" y="323" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="symptomTitleLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGl-bW-6uF">
+                                <rect key="frame" x="168" y="79" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="symptomCodeLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVp-VJ-qdg">
+                                <rect key="frame" x="208" y="146" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="inclusions label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwc-sL-l13">
+                                <rect key="frame" x="36" y="246" width="290" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exclusions label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0q-Zg-hAo">
+                                <rect key="frame" x="36" y="352" width="290" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4v-9i-5gd">
+                                <rect key="frame" x="139" y="405" width="96" height="30"/>
+                                <state key="normal" title="Add Specialty">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSpecialtyPressed:" destination="cIY-pR-MTQ" eventType="touchUpInside" id="rGw-PW-OuP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Symptom Specialty" id="gnD-2v-Fgh"/>
+                    <connections>
+                        <outlet property="codeLabel" destination="CVp-VJ-qdg" id="3oT-ku-S8F"/>
+                        <outlet property="exclusionsLabel" destination="t0q-Zg-hAo" id="ly0-58-Gel"/>
+                        <outlet property="inclusionsLabel" destination="Cwc-sL-l13" id="jxq-VG-D88"/>
+                        <outlet property="navigationBar" destination="gnD-2v-Fgh" id="X7m-UG-afR"/>
+                        <outlet property="titleLabel" destination="QGl-bW-6uF" id="IQm-Bu-aNB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JLB-m4-Jfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3195.5" y="-431.5"/>
+        </scene>
         <!--doctor user main menu-->
         <scene sceneID="dT8-jO-hxe">
             <objects>
@@ -1071,6 +1261,10 @@
                                 <state key="normal" title="Manage User Relations">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="manageUserRelationsPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="xUv-YI-uaH"/>
+                                    <segue destination="Rbr-h9-VsM" kind="show" identifier="manageUserRelationsSegue" id="f2i-fJ-IC7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvp-cN-QC1">
                                 <rect key="frame" x="107" y="229" width="161" height="30"/>
@@ -1120,6 +1314,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TU-Gf-5TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1646.5" y="416.5"/>
+        </scene>
+        <!--Your Patient Relations-->
+        <scene sceneID="wPe-hX-avo">
+            <objects>
+                <tableViewController id="Rbr-h9-VsM" customClass="ManagePatientRelationsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MQf-Wk-Jrw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientRequestCell" id="QUc-gO-cqp">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QUc-gO-cqp" id="F1i-9D-2a5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientRelationCell" id="Y7Y-k1-wzT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y7Y-k1-wzT" id="Mec-ue-5bR">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rbr-h9-VsM" id="B5N-so-Lwd"/>
+                            <outlet property="delegate" destination="Rbr-h9-VsM" id="0eV-6G-VOm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Patient Relations" id="jqV-3y-eSb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t2Z-Kl-hGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2319.5" y="416.5"/>
         </scene>
     </scenes>
 </document>

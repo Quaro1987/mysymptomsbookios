@@ -132,22 +132,9 @@
     
     //create post data
     NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", docUser.username, password];
-    NSLog(@"Get Doctor Symptom Specialties data for: %@", postMessage);
-    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //get post length
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
+        
     //create request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    
-    //set up request attributes
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Legnth"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
     
     //error attribute
     NSError *error = [[NSError alloc] init];

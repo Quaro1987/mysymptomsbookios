@@ -80,5 +80,14 @@
     [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
 }
 
+- (IBAction)manageUserRelationsPressed:(id)sender {
+    self.segueToPerform = @"manageUserRelationsSegue";
+    //start animating the activity indicator while the app fetches the data from the server
+    [loadingIndicator startAnimating];
+    //stop the indicator from animating once the segue has been performed with a 2 second delay
+    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
+
+}
+
 
 @end

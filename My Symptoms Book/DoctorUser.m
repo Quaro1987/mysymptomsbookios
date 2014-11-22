@@ -36,7 +36,7 @@
 }
 
 //function to get the doctor users
--(NSMutableArray *)getDoctorsForUser:(NSString *)username andPassword:(NSString *)password forSymptomWithSymptomCode:(NSString *)symptomCode
+-(NSMutableArray *)getDoctorsForUser:(NSString *)userName andPassword:(NSString *)password forSymptomWithSymptomCode:(NSString *)symptomCode
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
@@ -53,29 +53,15 @@
     //create post data
     if([symptomCode isEqualToString:@"GET DOCTORS"])
     {
-        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", username, password, symptomCode];
+        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", userName, password, symptomCode];
     }
     else
     {
-        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", username, password, symptomCode];
+        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", userName, password, symptomCode];
     }
     
-    NSLog(@"Get symptomhistory data for: %@", postMessage);
-    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //get post length
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
     //create request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    
-    //set up request attributes
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Legnth"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
     
     //error attribute
     NSError *error = [[NSError alloc] init];

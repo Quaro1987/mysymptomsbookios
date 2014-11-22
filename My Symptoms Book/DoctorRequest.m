@@ -45,22 +45,8 @@
     NSString *serverString = [dataAndNetController serverUrlString];
     NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"sendDoctorRequestIOS"]];
     
-    //turn post string into data object
-    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //post data legnth
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
     //url request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    
-    //set up request properties
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
     
     //set up NSerror
     NSError *error = [[NSError alloc] init];
@@ -91,22 +77,8 @@
     NSString *serverString = [dataAndNetController serverUrlString];
     NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"removeContactIOS"]];
     
-    //turn post string into data object
-    NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //post data legnth
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
     //url request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    
-    //set up request properties
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
     
     //set up NSerror
     NSError *error = [[NSError alloc] init];

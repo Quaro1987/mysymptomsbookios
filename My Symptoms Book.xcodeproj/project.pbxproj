@@ -31,6 +31,8 @@
 		FAC1C9861A03036800398F0C /* symptomsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC1C9851A03036800398F0C /* symptomsList.txt */; };
 		FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */; };
 		FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */; };
+		FACA254C1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */; };
+		FACA25541A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */; };
 		FAEC5FEE19FEA5D8004B456D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FED19FEA5D8004B456D /* main.m */; };
 		FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF019FEA5D8004B456D /* AppDelegate.m */; };
 		FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* InitialViewController.m */; };
@@ -104,6 +106,10 @@
 		FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomCategoryTableViewController.m; sourceTree = "<group>"; };
 		FAC1C98B1A03341300398F0C /* SymptomSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomSelectTableViewController.h; sourceTree = "<group>"; };
 		FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomSelectTableViewController.m; sourceTree = "<group>"; };
+		FACA254A1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomSpecialtyCategoryTableViewController.h; sourceTree = "<group>"; };
+		FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomSpecialtyCategoryTableViewController.m; sourceTree = "<group>"; };
+		FACA25521A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagePatientRelationsTableViewController.h; sourceTree = "<group>"; };
+		FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagePatientRelationsTableViewController.m; sourceTree = "<group>"; };
 		FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Symptoms Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEC5FEC19FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEC5FED19FEA5D8004B456D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,12 +202,6 @@
 			children = (
 				FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */,
 				FA54EB3E1A05D68C00A41602 /* PickDateSymptomSeenViewController.h */,
-				FA71604A1A045B430042179D /* SymptomViewController.m */,
-				FA7160491A045B430042179D /* SymptomViewController.h */,
-				FAC1C9881A032DDC00398F0C /* SymptomCategoryTableViewController.h */,
-				FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */,
-				FAC1C98B1A03341300398F0C /* SymptomSelectTableViewController.h */,
-				FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */,
 			);
 			name = "Add Symptom";
 			sourceTree = "<group>";
@@ -246,6 +246,7 @@
 		FA6C97141A1DF6EE00F05F73 /* Doctor User Functions */ = {
 			isa = PBXGroup;
 			children = (
+				FACA25511A1FD2D600E8BEE5 /* Manage Patient Relations */,
 				FA6DED701A1E89C600B16DEB /* Doctor Models */,
 				FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */,
 				FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */,
@@ -259,6 +260,8 @@
 			children = (
 				FA6C97161A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.h */,
 				FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */,
+				FACA254A1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.h */,
+				FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */,
 			);
 			name = "Specialties Functions";
 			sourceTree = "<group>";
@@ -310,6 +313,28 @@
 			name = "Normal User Functions";
 			sourceTree = "<group>";
 		};
+		FACA25501A1F74BC00E8BEE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAC1C9881A032DDC00398F0C /* SymptomCategoryTableViewController.h */,
+				FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */,
+				FAC1C98B1A03341300398F0C /* SymptomSelectTableViewController.h */,
+				FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */,
+				FA71604A1A045B430042179D /* SymptomViewController.m */,
+				FA7160491A045B430042179D /* SymptomViewController.h */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FACA25511A1FD2D600E8BEE5 /* Manage Patient Relations */ = {
+			isa = PBXGroup;
+			children = (
+				FACA25521A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.h */,
+				FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */,
+			);
+			name = "Manage Patient Relations";
+			sourceTree = "<group>";
+		};
 		FAEC5FDF19FEA5D7004B456D = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +367,7 @@
 				FAEC5FF519FEA5D8004B456D /* Main.storyboard */,
 				FAEC5FF819FEA5D8004B456D /* Images.xcassets */,
 				FAEC5FFA19FEA5D8004B456D /* LaunchScreen.xib */,
+				FACA25501A1F74BC00E8BEE5 /* Controllers */,
 				FAEC5FEB19FEA5D8004B456D /* Supporting Files */,
 				FA6C97131A1DF6A600F05F73 /* not logged in functions */,
 				FAC1C9871A032D9400398F0C /* Normal User Functions */,
@@ -521,6 +547,7 @@
 				FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */,
 				FAEC602019FEF8AE004B456D /* User.m in Sources */,
 				FA7160481A043DEF0042179D /* Symptom.m in Sources */,
+				FACA25541A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m in Sources */,
 				FA3F14981A1CAB3400F643FF /* DoctorRequest.m in Sources */,
 				FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */,
 				FA3F149F1A1D46FF00F643FF /* UserDoctorRelationViewController.m in Sources */,
@@ -534,6 +561,7 @@
 				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
 				FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */,
 				FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */,
+				FACA254C1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m in Sources */,
 				FA3AC9E21A1BAFAD00115557 /* FindDoctorTableViewController.m in Sources */,
 				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,
 				FA71604B1A045B430042179D /* SymptomViewController.m in Sources */,

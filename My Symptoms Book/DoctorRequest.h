@@ -26,4 +26,6 @@
 
 -(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *) userID;
 
+//-(NSMutableArray *)getDoctorRequestsForDoctor;
+
 @end

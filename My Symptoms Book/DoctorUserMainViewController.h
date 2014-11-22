@@ -28,4 +28,5 @@
 
 - (IBAction)manageSymptomSpecialtiesPressed:(id)sender;
 
+- (IBAction)manageUserRelationsPressed:(id)sender;
 @end

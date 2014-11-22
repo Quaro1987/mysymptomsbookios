@@ -32,4 +32,6 @@
 
 -(NSNumberFormatter *) getNumberFormatter;
 
+-(NSMutableURLRequest *) getURLRequestForURL:(NSURL *)requestURL andPostMessage:(NSString *)requestPostMessage;
+
 @end

@@ -13,4 +13,5 @@
 //functions
 -(NSString *)deleteDoctorSymptomSpecialtyWithSymptomCode:(NSString *) symptomCode;
 
+-(NSString *)addDoctorSymptomSpecialtyWithSymptomCode:(NSString *) symptomCode;
 @end

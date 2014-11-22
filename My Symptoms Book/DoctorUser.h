@@ -20,5 +20,5 @@
 
 
 //functions
--(NSMutableArray *)getDoctorsForUser:(NSString *) username andPassword:(NSString *) password forSymptomWithSymptomCode:(NSString *) symptomCode;
+-(NSMutableArray *)getDoctorsForUser:(NSString *) userName andPassword:(NSString *) password forSymptomWithSymptomCode:(NSString *) symptomCode;
 @end

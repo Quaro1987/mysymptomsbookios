@@ -36,7 +36,7 @@
 -(NSString *)getInfoOnSavedSymptomsWhileOffline;
 
 //add symptom functions
--(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) dateSymptomFirstSeen;
+-(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen;
 
 //get the user's symptom history
 -(NSMutableArray *)getSymptomhistoryForUser: (NSString *) username andWithPassword: (NSString *) password;

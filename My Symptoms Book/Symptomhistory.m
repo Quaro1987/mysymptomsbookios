@@ -63,7 +63,7 @@
 }
 
 //add symptoms function
--(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) dateSymptomFirstSeen
+-(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
@@ -72,7 +72,7 @@
     if([dataAndNetController internetAccess])
     {
         //create post data string
-        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomCode=%@&symptomTitle=%@&dateSymptomFirstSeen=%@", username, password, symptomCode, symptomTitle, dateSymptomFirstSeen];
+        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomCode=%@&symptomTitle=%@&dateSymptomFirstSeen=%@", username, password, symptomCode, symptomTitle, theDateSymptomFirstSeen];
         
         //log post data
         NSLog(@"Postdata: %@",postMessage);
@@ -80,23 +80,9 @@
         //create server url and append addSymptomIOS function
         NSString *serverString = [dataAndNetController serverUrlString];
         NSURL *url = [[NSURL alloc] initWithString:[serverString stringByAppendingString:@"addSymptomIOS"]];
-        
-        //turn post string into nsdata
-        NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        
-        //post data legnth
-        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-        
+
         //url request
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        
-        //set up request properties
-        [request setURL:url];
-        [request setHTTPMethod:@"POST"];
-        [request setHTTPBody:postData];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
         
         //error attribute
         NSError *error = [[NSError alloc] init];
@@ -278,22 +264,9 @@
         
         //create post data
         NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", username, password];
-        NSLog(@"Get symptomhistory data for: %@", postMessage);
-        NSData *postData = [postMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        
-        //get post length
-        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         //create request
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        
-        //set up request attributes
-        [request setURL:url];
-        [request setHTTPMethod:@"POST"];
-        [request setHTTPBody:postData];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Legnth"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
         
         //error attribute
         NSError *error = [[NSError alloc] init];

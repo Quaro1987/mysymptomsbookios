@@ -21,4 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *inclusionsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *exclusionsLabel;
 
+
+- (IBAction)addSpecialtyPressed:(id)sender;
+
 @end

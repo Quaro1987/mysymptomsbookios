@@ -9,6 +9,8 @@
 #import "SymptomViewController.h"
 #import "Symptom.h"
 #import "PickDateSymptomSeenViewController.h"
+#import "DoctorSymptomSpecialty.h"
+
 @interface SymptomViewController ()
 
 @end
@@ -46,5 +48,10 @@
     }
 }
 
-
+//funciton to call when doctor wants to add a specialty for this symptom
+- (IBAction)addSpecialtyPressed:(id)sender {
+    DoctorSymptomSpecialty *addSpecialty = [[DoctorSymptomSpecialty alloc] init];
+    //add symptom specialty
+    [addSpecialty addDoctorSymptomSpecialtyWithSymptomCode:thisSymptom.symptomCode];
+}
 @end

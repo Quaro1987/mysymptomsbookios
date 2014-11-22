@@ -157,10 +157,32 @@
     }
 }
 
+//return server string
 -(NSString *)serverUrlString
 {
     return webServer;
 }
 
+//return server request
+-(NSMutableURLRequest *)getURLRequestForURL:(NSURL *)requestURL andPostMessage:(NSString *)requestPostMessage
+{
+    //turn post string into data object
+    NSData *postData = [requestPostMessage dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    //post data legnth
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    //url request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    //set up request properties
+    [request setURL:requestURL];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //return request
+    return request;
+}
 
 @end
