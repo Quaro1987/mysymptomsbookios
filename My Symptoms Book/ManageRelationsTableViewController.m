@@ -112,10 +112,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([[segue identifier] isEqualToString:@"removeDoctorDetailsSegue"])
+    if([[segue identifier] isEqualToString:@"userRelationSegue"])
     {
         UserDoctorRelationViewController *destinationController = [segue destinationViewController];
-        destinationController.thisDoctor = [userDoctorsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        destinationController.thisUser = [userDoctorsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

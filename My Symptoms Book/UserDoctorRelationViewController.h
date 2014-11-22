@@ -17,9 +17,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *specialtyLabel;
 
-@property (strong, nonatomic) DoctorUser *thisDoctor;
+@property (strong, nonatomic) DoctorUser *thisUser;
 //functions
-- (IBAction)removeDoctorPressed:(id)sender;
+- (IBAction)removeUserRelationPressed:(id)sender;
 
 
 @end

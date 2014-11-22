@@ -18,14 +18,14 @@
 
 @implementation UserDoctorRelationViewController
 
-@synthesize thisDoctor, firstNameLabel, lastNameLabel, specialtyLabel;
+@synthesize thisUser, firstNameLabel, lastNameLabel, specialtyLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // set up labels
-    firstNameLabel.text = thisDoctor.firstName;
-    lastNameLabel.text = thisDoctor.lastName;
-    specialtyLabel.text = thisDoctor.doctorSpecialty;
+    firstNameLabel.text = thisUser.firstName;
+    lastNameLabel.text = thisUser.lastName;
+    specialtyLabel.text = thisUser.doctorSpecialty;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,14 +45,14 @@
 }
 */
 
-- (IBAction)removeDoctorPressed:(id)sender {
+- (IBAction)removeUserRelationPressed:(id)sender {
     DoctorRequest *docRequest = [[DoctorRequest alloc] init];
     
     //get current user name and password
-    User *currentUser = [thisDoctor initWithSavedUser];
+    User *currentUser = [thisUser initWithSavedUser];
     NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
     //delete user relation
-    NSString *queryResultString = [docRequest deleteRelationForUser:currentUser.username withPassword:password withUserWithUserID:thisDoctor.userID];
+    NSString *queryResultString = [docRequest deleteRelationForUser:currentUser.username withPassword:password withUserWithUserID:thisUser.userID];
     
     NSLog(queryResultString);
 }

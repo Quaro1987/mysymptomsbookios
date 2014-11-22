@@ -35,6 +35,15 @@
     return self;
 }
 
+//cast user into doctor user
+-(id)typeCastUser:(User *)aUser
+{
+    //create doctor user for inputed user
+    DoctorUser *thisUser = [[DoctorUser alloc] initWithId:aUser.userID andUserName:aUser.username andUserType:aUser.userType andEmail:aUser.email andStatus:aUser.status andFirstName:aUser.firstName andLastName:aUser.lastName andDoctorSpecialty:@"Patient" andAboutDoctor:@"Patient User"];
+
+    return thisUser;
+}
+
 //function to get the doctor users
 -(NSMutableArray *)getDoctorsForUser:(NSString *)userName andPassword:(NSString *)password forSymptomWithSymptomCode:(NSString *)symptomCode
 {

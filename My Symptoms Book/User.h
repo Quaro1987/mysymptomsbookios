@@ -40,5 +40,7 @@
 
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password;
 
--(NSMutableArray *)getUsersDoctorHasRelationsWith;
+//user requests data
+-(NSMutableArray *)getUsersDoctorHasRelationOfType:(NSString *)relationType;
+
 @end

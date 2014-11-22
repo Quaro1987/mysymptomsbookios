@@ -21,4 +21,8 @@
 
 //functions
 -(NSMutableArray *)getDoctorsForUser:(NSString *) userName andPassword:(NSString *) password forSymptomWithSymptomCode:(NSString *) symptomCode;
+
+//cast user into doctor user
+-(id)typeCastUser:(User *)aUser;
+
 @end

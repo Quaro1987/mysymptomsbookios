@@ -176,8 +176,10 @@
     }
 }
 
--(NSMutableArray *)getUsersDoctorHasRelationsWith
+-(NSMutableArray *)getUsersDoctorHasRelationOfType:(NSString *)relationType
 {
+    /* relationType can be one of 2 strings, @"relations" or @"requests" */
+    
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     
@@ -194,7 +196,7 @@
     
     //build post message
     NSString *postMessage = [[NSString alloc] init];
-    postMessage = [NSString stringWithFormat:@"username=%@&password=%@", currentUser.username, password];
+    postMessage = [NSString stringWithFormat:@"username=%@&password=%@&request=%@", currentUser.username, password, relationType];
     
     //create request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -228,9 +230,9 @@
         NSNumber *tempUserID = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.id"]];
         NSNumber *tempUserStatus = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.status"]];
         NSNumber *tempUserType = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.userType"]];
-        //create temp doctor user
+        //create temp user
         User *aPatient = [[User alloc] initWithId:tempUserID andUserName:tempUsername andUserType:tempUserType andEmail:tempEmail andStatus:tempUserStatus andFirstName:tempFirstName andLastName:tempLastName];
-        //add doctor to aray
+        //add use to aray
         [patientsArray addObject:aPatient];
     }
     

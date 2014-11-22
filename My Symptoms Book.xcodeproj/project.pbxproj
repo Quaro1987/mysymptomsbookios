@@ -28,6 +28,7 @@
 		FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */; };
 		FA8D536F1A1924A700CFA9B8 /* CheckSymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D536E1A1924A700CFA9B8 /* CheckSymptomViewController.m */; };
 		FA8D53721A192DE800CFA9B8 /* DoctorUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D53711A192DE800CFA9B8 /* DoctorUser.m */; };
+		FAB9DA8B1A20E5BD00BF78FC /* UserRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB9DA8A1A20E5BD00BF78FC /* UserRequestViewController.m */; };
 		FAC1C9861A03036800398F0C /* symptomsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC1C9851A03036800398F0C /* symptomsList.txt */; };
 		FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */; };
 		FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */; };
@@ -101,6 +102,8 @@
 		FA8D536E1A1924A700CFA9B8 /* CheckSymptomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckSymptomViewController.m; sourceTree = "<group>"; };
 		FA8D53701A192DE800CFA9B8 /* DoctorUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorUser.h; sourceTree = "<group>"; };
 		FA8D53711A192DE800CFA9B8 /* DoctorUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorUser.m; sourceTree = "<group>"; };
+		FAB9DA891A20E5BD00BF78FC /* UserRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRequestViewController.h; sourceTree = "<group>"; };
+		FAB9DA8A1A20E5BD00BF78FC /* UserRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRequestViewController.m; sourceTree = "<group>"; };
 		FAC1C9851A03036800398F0C /* symptomsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symptomsList.txt; sourceTree = "<group>"; };
 		FAC1C9881A032DDC00398F0C /* SymptomCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomCategoryTableViewController.h; sourceTree = "<group>"; };
 		FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomCategoryTableViewController.m; sourceTree = "<group>"; };
@@ -191,8 +194,6 @@
 			children = (
 				FA3F149A1A1CFC9A00F643FF /* ManageRelationsTableViewController.h */,
 				FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */,
-				FA3F149D1A1D46FF00F643FF /* UserDoctorRelationViewController.h */,
-				FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */,
 			);
 			name = "Manage Doctor Relations";
 			sourceTree = "<group>";
@@ -322,6 +323,8 @@
 				FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */,
 				FA71604A1A045B430042179D /* SymptomViewController.m */,
 				FA7160491A045B430042179D /* SymptomViewController.h */,
+				FA3F149D1A1D46FF00F643FF /* UserDoctorRelationViewController.h */,
+				FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -331,6 +334,8 @@
 			children = (
 				FACA25521A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.h */,
 				FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */,
+				FAB9DA891A20E5BD00BF78FC /* UserRequestViewController.h */,
+				FAB9DA8A1A20E5BD00BF78FC /* UserRequestViewController.m */,
 			);
 			name = "Manage Patient Relations";
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB9DA8B1A20E5BD00BF78FC /* UserRequestViewController.m in Sources */,
 				FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */,
 				FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */,
 				FA7246BD1A00783200421B83 /* SSKeychainQuery.m in Sources */,

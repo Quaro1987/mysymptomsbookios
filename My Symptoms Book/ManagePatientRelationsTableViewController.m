@@ -8,6 +8,8 @@
 
 #import "ManagePatientRelationsTableViewController.h"
 #import "User.h"
+#import "UserDoctorRelationViewController.h"
+#import "DoctorUser.h"
 
 @interface ManagePatientRelationsTableViewController ()
 
@@ -20,9 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //populate patient relations array
+    //populate patient relations and requests arrays
     User *aUser = [[User alloc] init];
-    patientRelationsArray = [aUser getUsersDoctorHasRelationsWith];
+    patientRelationsArray = [aUser getUsersDoctorHasRelationOfType:@"relations"];
+    patientRequestsArray = [aUser getUsersDoctorHasRelationOfType:@"requests"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -48,7 +51,7 @@
     // Return the number of rows in the section.
     if(section==0)
     {
-        return 0;
+        return [patientRequestsArray count];
     }
     else
     {
@@ -78,6 +81,18 @@
     if(indexPath.section==0)
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"patientRequestCell" forIndexPath:indexPath];
+        
+        //this cell's user
+        User *thisUser = [patientRequestsArray objectAtIndex:indexPath.row];
+        
+        // get full name of user
+        NSString *userFullName = [[NSString alloc] initWithString:thisUser.lastName];
+        userFullName = [userFullName stringByAppendingString:@" "];
+        userFullName = [userFullName stringByAppendingString:thisUser.firstName];
+        //configue cell labels
+        cell.textLabel.text = userFullName;
+
+        
         return cell;
     }
     else
@@ -87,7 +102,7 @@
         //this cell's patient user
         User *aPatient = [patientRelationsArray objectAtIndex:indexPath.row];
         
-        // get full name of doctor
+        // get full name of patient
         NSString *patientFullName = [[NSString alloc] initWithString:aPatient.lastName];
         patientFullName = [patientFullName stringByAppendingString:@" "];
         patientFullName = [patientFullName stringByAppendingString:aPatient.firstName];
@@ -133,14 +148,30 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"userRelationSegue"])
+    {
+        //set destination view controller and copy patient user
+        UserDoctorRelationViewController *destinationController = [segue destinationViewController];
+        
+        //get selected user
+        User *selectedUser = [patientRelationsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        //type cast selected user into a doctor user
+        DoctorUser *selectedUserTypeCasted = [[DoctorUser alloc] init];
+        selectedUserTypeCasted = [selectedUserTypeCasted typeCastUser:selectedUser];
+        
+        //set the destinations controller's thisUser property
+        destinationController.thisUser = selectedUserTypeCasted;
+    }
+    else if([[segue identifier] isEqualToString:@"patientRequestSegue"])
+    {
+        
+    }
 }
-*/
+
 
 @end
