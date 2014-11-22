@@ -24,8 +24,8 @@
 
 -(NSString *)sendDoctorRequestForUser: (NSString *) usrName withPassword: (NSString *) pssWord ToDoctor: (NSNumber *) docID forSymptomhistoryWithID: (int) symHisID;
 
--(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *) userID;
+-(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *) usrID;
 
-//-(NSMutableArray *)getDoctorRequestsForDoctor;
+-(NSString *)replyToRequestFromUserWithID:(NSNumber *) usrID withReply:(NSString *)reply;
 
 @end

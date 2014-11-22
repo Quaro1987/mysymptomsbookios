@@ -41,4 +41,7 @@
 //get the user's symptom history
 -(NSMutableArray *)getSymptomhistoryForUser: (NSString *) username andWithPassword: (NSString *) password;
 
+//get specific symptom history from server for doctor
+-(id)getSymptomhistoryTheDoctorWasAddedForByUserWithID:(NSNumber *)usrID;
+
 @end

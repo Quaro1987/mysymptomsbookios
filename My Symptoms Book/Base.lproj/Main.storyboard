@@ -1265,12 +1265,6 @@
                                     <action selector="manageUserRelationsPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="xUv-YI-uaH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvp-cN-QC1">
-                                <rect key="frame" x="107" y="229" width="161" height="30"/>
-                                <state key="normal" title="Manage User Requests">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCk-Ot-cjN">
                                 <rect key="frame" x="85" y="291" width="205" height="30"/>
                                 <state key="normal" title="Manage Symptom Specialties">
@@ -1418,7 +1412,7 @@
         <!--User Request-->
         <scene sceneID="gr4-nB-SmH">
             <objects>
-                <viewController id="MYW-4P-bwV" sceneMemberID="viewController">
+                <viewController id="MYW-4P-bwV" customClass="UserRequestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n4S-V5-cdN"/>
                         <viewControllerLayoutGuide type="bottom" id="x8t-Kl-Zc3"/>
@@ -1433,10 +1427,59 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNj-1o-UWL">
+                                <rect key="frame" x="63" y="167" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1X-xy-Mwn">
+                                <rect key="frame" x="63" y="228" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmD-mP-eNZ">
+                                <rect key="frame" x="63" y="298" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFb-wH-fpa">
+                                <rect key="frame" x="63" y="367" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2G-6w-c1v">
+                                <rect key="frame" x="202" y="113" width="49" height="30"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="relationAcceptPressed:" destination="MYW-4P-bwV" eventType="touchUpInside" id="0zK-RO-TK9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FB-HF-HvW">
+                                <rect key="frame" x="202" y="243" width="44" height="30"/>
+                                <state key="normal" title="Reject">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="relationRejectPressed:" destination="MYW-4P-bwV" eventType="touchUpInside" id="tJj-to-X0r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="User Request" id="Ilf-fV-pmg"/>
+                    <connections>
+                        <outlet property="dateAddedLabel" destination="NFb-wH-fpa" id="UTg-q0-RXc"/>
+                        <outlet property="dateSeenLabel" destination="QmD-mP-eNZ" id="0bb-Vm-UiJ"/>
+                        <outlet property="firstNameLabel" destination="zNj-1o-UWL" id="Bnn-YD-s6r"/>
+                        <outlet property="lastNameLabel" destination="Abq-ET-uSM" id="eEr-V3-aap"/>
+                        <outlet property="symptomTitleLabel" destination="I1X-xy-Mwn" id="m0g-IW-ePk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJa-6w-smf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,7 @@
 #import "User.h"
 #import "UserDoctorRelationViewController.h"
 #import "DoctorUser.h"
+#import "UserRequestViewController.h"
 
 @interface ManagePatientRelationsTableViewController ()
 
@@ -169,7 +170,11 @@
     }
     else if([[segue identifier] isEqualToString:@"patientRequestSegue"])
     {
+        UserRequestViewController *destinationController = [segue destinationViewController];
         
+        //copy selected user
+        User *selectedUser = [patientRequestsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        destinationController.patientUser = selectedUser;
     }
 }
 

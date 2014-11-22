@@ -317,4 +317,53 @@
     
 }
 
+//get specific symptom history from server for doctor
+-(id)getSymptomhistoryTheDoctorWasAddedForByUserWithID:(NSNumber *)usrID
+{
+    //init dataAndNetController
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    //get logged in user's username and password
+    NSString *username = [[User alloc] initWithSavedUser].username;
+    NSString *password = [dataAndNetController getUserPassword];
+    
+    //creatue url
+    NSString *serverString = [dataAndNetController serverUrlString];
+    NSString *stringUrl = [serverString stringByAppendingString:@"getSymptomHistoryUserAddedDoctorForIOS"];
+    
+    NSURL *url = [[NSURL alloc] initWithString:stringUrl];
+    
+    //create post data
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@", username, password, usrID];
+    
+    //create request
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
+    
+    //error attribute
+    NSError *error = [[NSError alloc] init];
+    
+    //create response
+    NSURLResponse *response;
+    
+    //json data
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //pass symptom history object into an NSDictionary
+    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    
+    //copy returned attributes
+    NSInteger tempID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
+    int tempIDint = tempID;
+    NSString *tempUsername = username;
+    NSString *tempSymptomCode = [jsonReponseData objectForKey:@"symptomCode"];
+    NSString *tempSymptomTitle = [jsonReponseData objectForKey:@"symptomTitle"];
+    NSString *tempDateSymptomAdded = [jsonReponseData objectForKey:@"dateSearched"];
+    NSString *tempDateSymptomFirstSeen = [jsonReponseData objectForKey:@"dateSymptomFirstSeen"];
+    NSString *tempSymptomFlag = [jsonReponseData objectForKey:@"symptomFlag"];
+    //create symptom history object
+    Symptomhistory *thisSymptomHistory = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag andSymptomHistoryID:tempIDint];
+    
+    return thisSymptomHistory;
+}
+
 @end

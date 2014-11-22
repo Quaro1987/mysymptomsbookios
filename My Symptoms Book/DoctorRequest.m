@@ -8,7 +8,7 @@
 
 #import "DoctorRequest.h"
 #import "DataAndNetFunctions.h"
-
+#import "User.h"
 @implementation DoctorRequest
 
 @synthesize doctorRequestID, userID, doctorID, doctorAccepted, symptomHistoryID, newSymptomAdded;
@@ -65,10 +65,10 @@
 }
 
 //function to delete doctorrequest relation between users
--(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *)userID
+-(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *)usrID
 {
     //create post data string
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&relationID=%@", username, password, userID];
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&relationID=%@", username, password, usrID];
     //log message
     NSLog(@"Postdata: %@",postMessage);
     
@@ -93,6 +93,40 @@
     NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
     
 
+    
+    return @"SUCCESS";
+}
+
+//reply to request function
+-(NSString *)replyToRequestFromUserWithID:(NSNumber *) usrID withReply:(NSString *)reply
+{
+    //create url post request will be made to
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    NSString *serverString = [dataAndNetController serverUrlString];
+    NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"replyToRequestIOS"]];
+    
+    //get user and password
+    User *currentUser = [[User alloc] initWithSavedUser];
+    NSString *password = [dataAndNetController getUserPassword];
+    
+    //create post data string
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@&reply=%@", currentUser.username, password, usrID, reply];
+    //log message
+
+    //url request
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
+    
+    //set up NSerror
+    NSError *error = [[NSError alloc] init];
+    
+    // create url response
+    NSURLResponse *response;
+    
+    //send post request to server
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //creaet NS dictionary and store result
+    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
     
     return @"SUCCESS";
 }

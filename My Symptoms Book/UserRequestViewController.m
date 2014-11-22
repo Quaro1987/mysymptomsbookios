@@ -7,6 +7,9 @@
 //
 
 #import "UserRequestViewController.h"
+#import "User.h"
+#import "Symptomhistory.h"
+#import "DoctorRequest.h"
 
 @interface UserRequestViewController ()
 
@@ -14,9 +17,21 @@
 
 @implementation UserRequestViewController
 
+@synthesize patientUser, patientUsersSymptomHistoryEntry, lastNameLabel, firstNameLabel, symptomTitleLabel, dateAddedLabel, dateSeenLabel;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //get the symptom history entry for this user
+    Symptomhistory *aSymptomHistoryObject = [[Symptomhistory alloc] init];
+    patientUsersSymptomHistoryEntry = [aSymptomHistoryObject getSymptomhistoryTheDoctorWasAddedForByUserWithID:patientUser.userID];
+    
+    lastNameLabel.text = patientUser.lastName;
+    firstNameLabel.text = patientUser.firstName;
+    symptomTitleLabel.text = patientUsersSymptomHistoryEntry.symptomTitle;
+    dateSeenLabel.text = patientUsersSymptomHistoryEntry.dateSymptomFirstSeen;
+    dateAddedLabel.text = patientUsersSymptomHistoryEntry.dateSymptomAdded;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +49,13 @@
 }
 */
 
+- (IBAction)relationAcceptPressed:(id)sender {
+    DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
+    [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"ACCEPT"];
+}
+
+- (IBAction)relationRejectPressed:(id)sender {
+    DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
+    [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"REJECT"];
+}
 @end

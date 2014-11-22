@@ -16,4 +16,15 @@
 @property (nonatomic, strong) User *patientUser;
 @property (nonatomic, strong) Symptomhistory *patientUsersSymptomHistoryEntry;
 
+@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *symptomTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateSeenLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateAddedLabel;
+
+//button functions
+- (IBAction)relationAcceptPressed:(id)sender;
+- (IBAction)relationRejectPressed:(id)sender;
+
+
 @end
