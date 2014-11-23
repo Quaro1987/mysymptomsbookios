@@ -20,6 +20,7 @@
 		FA7160481A043DEF0042179D /* Symptom.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7160471A043DEF0042179D /* Symptom.m */; };
 		FA71604B1A045B430042179D /* SymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA71604A1A045B430042179D /* SymptomViewController.m */; };
 		FA721B211A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA721B201A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.m */; };
+		FA721B241A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA721B231A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m */; };
 		FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */; };
 		FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */; };
 		FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246B91A00783200421B83 /* SSKeychain.m */; };
@@ -88,6 +89,8 @@
 		FA71604A1A045B430042179D /* SymptomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomViewController.m; sourceTree = "<group>"; };
 		FA721B1F1A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagePatientSymptomHistoryTableViewController.h; sourceTree = "<group>"; };
 		FA721B201A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagePatientSymptomHistoryTableViewController.m; sourceTree = "<group>"; };
+		FA721B221A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPatientSymptomHistoryViewController.h; sourceTree = "<group>"; };
+		FA721B231A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPatientSymptomHistoryViewController.m; sourceTree = "<group>"; };
 		FA72466919FFDAD800421B83 /* NormalUserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalUserMainViewController.h; sourceTree = "<group>"; };
 		FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalUserMainViewController.m; sourceTree = "<group>"; };
 		FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorUserMainViewController.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 			children = (
 				FA721B1F1A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.h */,
 				FA721B201A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.m */,
+				FA721B221A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.h */,
+				FA721B231A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m */,
 			);
 			name = "Manage Patient Symptom History";
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				FA3AC9E21A1BAFAD00115557 /* FindDoctorTableViewController.m in Sources */,
 				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,
 				FA71604B1A045B430042179D /* SymptomViewController.m in Sources */,
+				FA721B241A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m in Sources */,
 				FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */,
 				FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */,
 				FA721B211A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.m in Sources */,

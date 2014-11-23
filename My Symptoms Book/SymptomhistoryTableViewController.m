@@ -12,6 +12,7 @@
 #import "SSKeychain.h"
 #import "SymptomhistoryViewController.h"
 #import "DoctorUser.h"
+#import "ViewPatientSymptomHistoryViewController.h"
 
 @interface SymptomhistoryTableViewController ()
 
@@ -138,11 +139,11 @@
 
 
 #pragma mark - Navigation
-
+/*
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Perform segue to symptom detail
     [self performSegueWithIdentifier:@"symptomHistoryViewSegue" sender:tableView];
-}
+}*/
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -159,6 +160,23 @@
         else
         {
             destinationController.selectedSymptomhistoryEntry = [userSymptomhistoryArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        }
+    }
+    else if ([[segue identifier] isEqualToString:@"viewUsersSymptomSegue"])
+    {
+        ViewPatientSymptomHistoryViewController *destinationController = [segue destinationViewController];
+        
+        //check if it's the filtered or the normal table view and get the symptomhistory object of the view and the user it belongs to
+        if(sender == self.searchDisplayController.searchResultsTableView)
+        {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            destinationController.thisSymptomHistory = [filteredSymptomhistoryArray objectAtIndex:[indexPath row]];
+            destinationController.thisUser = thisUser;
+        }
+        else
+        {
+            destinationController.thisSymptomHistory = [userSymptomhistoryArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+            destinationController.thisUser = thisUser;
         }
     }
 }

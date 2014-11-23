@@ -441,6 +441,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="iYe-MC-3am" kind="show" identifier="symptomHistoryViewSegue" id="c70-dw-8gB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -455,7 +458,6 @@
                         <outlet property="navigationBar" destination="5A8-CT-mLq" id="5gu-LX-RhH"/>
                         <outlet property="searchDisplayController" destination="518-bH-yU2" id="ovc-TM-qyE"/>
                         <outlet property="symptomHistorySearchBar" destination="nHb-2b-kw1" id="S1r-9I-bPz"/>
-                        <segue destination="iYe-MC-3am" kind="show" identifier="symptomHistoryViewSegue" id="Qai-v3-WwQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaQ-an-MzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1025,6 +1027,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XrR-Mx-KwO" kind="show" identifier="viewUsersSymptomSegue" id="CWh-gr-JJK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1053,6 +1058,98 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="991" y="-1047"/>
+        </scene>
+        <!--User's Symptom-->
+        <scene sceneID="sW5-9a-QnC">
+            <objects>
+                <viewController id="XrR-Mx-KwO" customClass="ViewPatientSymptomHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bmd-Eg-s3y"/>
+                        <viewControllerLayoutGuide type="bottom" id="u4B-MD-k3a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wgU-zC-FHe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symptom Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpk-ln-3CH">
+                                <rect key="frame" x="38" y="92" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date First Seen:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-dh-4gC">
+                                <rect key="frame" x="37" y="126" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Added:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L00-43-yO2">
+                                <rect key="frame" x="37" y="160" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="symtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJU-DM-3NN">
+                                <rect key="frame" x="167" y="92" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dateseen" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGy-4U-t8y">
+                                <rect key="frame" x="167" y="126" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date added" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHT-qT-dxf">
+                                <rect key="frame" x="156" y="160" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Characterization:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWu-mN-2KA">
+                                <rect key="frame" x="37" y="197" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="char label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASV-uy-VsB">
+                                <rect key="frame" x="176" y="197" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MY-ZO-LFY">
+                                <rect key="frame" x="40" y="251" width="115" height="30"/>
+                                <state key="normal" title="Select Diagnosis">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectDiagnosisPressed:" destination="XrR-Mx-KwO" eventType="touchUpInside" id="RTO-lg-Oc7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78I-yL-0j0">
+                                <rect key="frame" x="188" y="251" width="107" height="30"/>
+                                <state key="normal" title="Contact Patient">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="User's Symptom" id="8oC-7J-OR2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="D0s-Lz-8Wb"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="characterizationLabel" destination="ASV-uy-VsB" id="xev-m9-87w"/>
+                        <outlet property="dateSymptomAddedLabel" destination="gHT-qT-dxf" id="gSc-YK-U7F"/>
+                        <outlet property="dateSymptomSeenLabel" destination="yGy-4U-t8y" id="gtK-2D-J2Y"/>
+                        <outlet property="symptomTitleLabel" destination="IJU-DM-3NN" id="S6M-7W-3tY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BiZ-JC-jn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1547.5" y="-1168.5"/>
         </scene>
         <!--Manage Patients-->
         <scene sceneID="37y-AK-cXr">
