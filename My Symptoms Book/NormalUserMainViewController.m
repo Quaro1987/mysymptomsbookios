@@ -63,7 +63,7 @@
     {
         
         SymptomhistoryTableViewController *destinationController = [segue destinationViewController];
-        destinationController.currentUser = currentUser;
+        destinationController.thisUser = currentUser;
     }
     else if ([[segue identifier] isEqualToString:@"manageDoctorsSegue"])
     {

@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (strong, nonatomic) IBOutlet UISearchBar *symptomHistorySearchBar;
 
-@property (nonatomic, strong) User *currentUser;
+@property (nonatomic, strong) User *thisUser;
 
 @property (nonatomic, strong) NSMutableArray *userSymptomhistoryArray;
 @property (nonatomic, strong) NSMutableArray *filteredSymptomhistoryArray;

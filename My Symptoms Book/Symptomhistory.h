@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Symptom;
+@class Symptom, User;
 
 @interface Symptomhistory : NSObject
 
@@ -39,7 +39,7 @@
 -(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen;
 
 //get the user's symptom history
--(NSMutableArray *)getSymptomhistoryForUser: (NSString *) username andWithPassword: (NSString *) password;
+-(NSMutableArray *) getSymptomhistoryForUser: (User *)requestedUser;
 
 //get specific symptom history from server for doctor
 -(id)getSymptomhistoryTheDoctorWasAddedForByUserWithID:(NSNumber *)usrID;

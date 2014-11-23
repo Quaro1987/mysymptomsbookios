@@ -248,7 +248,7 @@
 }
 
 //return  user's symptom history
--(NSMutableArray *)getSymptomhistoryForUser: (NSString *) username andWithPassword: (NSString *) password
+-(NSMutableArray *)getSymptomhistoryForUser: (User *)requestedUser
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
@@ -259,11 +259,14 @@
         //creatue url
         NSString *serverString = [dataAndNetController serverUrlString];
         NSString *stringUrl = [serverString stringByAppendingString:@"userSymptomHistoryIOS"];
-        NSLog(stringUrl);
+        //get username and password
+        User *currentUser = [[User alloc] initWithSavedUser];
+        NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+        
         NSURL *url = [[NSURL alloc] initWithString:stringUrl];
         
         //create post data
-        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", username, password];
+        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@", currentUser.username, password, requestedUser.userID];
         
         //create request
         NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -290,7 +293,7 @@
         {
             NSInteger tempID = [(NSNumber *) [symptomhistoryObject objectForKey:@"id"] integerValue];
             int tempIDint = tempID;
-            NSString *tempUsername = username;
+            NSString *tempUsername = requestedUser.username;
             NSString *tempSymptomCode = [symptomhistoryObject objectForKey:@"symptomCode"];
             NSString *tempSymptomTitle = [symptomhistoryObject objectForKey:@"symptomTitle"];
             NSString *tempDateSymptomAdded = [symptomhistoryObject objectForKey:@"dateSearched"];
@@ -311,7 +314,7 @@
     {
         NSMutableArray *userPersonalSymptomHistory = [[NSMutableArray alloc] init];
         //get the symptoms the user has saved on his device and hasn't synced them yet
-        userPersonalSymptomHistory = [self getSavedSymptomsForUser:username];
+        userPersonalSymptomHistory = [self getSavedSymptomsForUser:requestedUser.username];
         return userPersonalSymptomHistory;
     }
     

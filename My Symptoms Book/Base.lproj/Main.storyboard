@@ -989,6 +989,120 @@
             </objects>
             <point key="canvasLocation" x="3137.5" y="1856.5"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="fA5-Pr-6vB">
+            <objects>
+                <tableViewController id="s1M-HS-RjR" customClass="SymptomhistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bse-GC-0oK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="5DF-wo-b1V">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="s1M-HS-RjR" id="CPP-2C-dyZ"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomHistoryCell" textLabel="xaN-Xx-9RT" detailTextLabel="bt1-I1-CEs" style="IBUITableViewCellStyleSubtitle" id="hao-hF-Z4O">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hao-hF-Z4O" id="IrE-de-29f">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xaN-Xx-9RT">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bt1-I1-CEs">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="s1M-HS-RjR" id="cr6-Ca-dRZ"/>
+                            <outlet property="delegate" destination="s1M-HS-RjR" id="TPg-cc-hiQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="p5g-z6-Djx">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="kQn-hY-yDP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="p5g-z6-Djx" id="BGp-1j-8Jl"/>
+                        <outlet property="searchDisplayController" destination="jvv-x0-00f" id="tmQ-Mx-gCx"/>
+                        <outlet property="symptomHistorySearchBar" destination="5DF-wo-b1V" id="3bb-36-pd4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dhK-GL-6lJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="jvv-x0-00f">
+                    <connections>
+                        <outlet property="delegate" destination="s1M-HS-RjR" id="KMm-A9-gmx"/>
+                        <outlet property="searchBar" destination="5DF-wo-b1V" id="R3C-nc-2J0"/>
+                        <outlet property="searchContentsController" destination="s1M-HS-RjR" id="SYL-TC-pDH"/>
+                        <outlet property="searchResultsDataSource" destination="s1M-HS-RjR" id="vQ9-Qa-nnT"/>
+                        <outlet property="searchResultsDelegate" destination="s1M-HS-RjR" id="bb9-9u-m9e"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="991" y="-1047"/>
+        </scene>
+        <!--Manage Patients-->
+        <scene sceneID="37y-AK-cXr">
+            <objects>
+                <tableViewController id="dKK-UM-ERU" customClass="ManagePatientSymptomHistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WqT-fw-vTS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="patientUserCell" textLabel="XgO-EA-lj5" detailTextLabel="F84-nE-feG" style="IBUITableViewCellStyleSubtitle" id="M5z-Lh-anJ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M5z-Lh-anJ" id="zeG-3O-2k6">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XgO-EA-lj5">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F84-nE-feG">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="s1M-HS-RjR" kind="show" identifier="patientSymptomHistorySegue" id="9OE-0L-P2u"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dKK-UM-ERU" id="xHe-hy-oMK"/>
+                            <outlet property="delegate" destination="dKK-UM-ERU" id="6X8-Gl-Kzc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Manage Patients" id="7vz-mA-LzQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="0xz-je-4uR"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="7vz-mA-LzQ" id="tge-oI-1L6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wK-fQ-iLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="-311"/>
+        </scene>
         <!--Your Symptom Specialties-->
         <scene sceneID="rNf-Iw-Gp8">
             <objects>
@@ -1287,10 +1401,13 @@
                                 <rect key="frame" x="177" y="267" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-6w-zKL">
-                                <rect key="frame" x="74" y="109" width="227" height="30"/>
-                                <state key="normal" title="Manage Users' Symptom History">
+                                <rect key="frame" x="74" y="109" width="231" height="30"/>
+                                <state key="normal" title="Manage Patient Symptom History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="managePatientSymptomHistoryPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="Bd2-ja-nwZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1303,6 +1420,7 @@
                         <outlet property="navigationBar" destination="opl-1H-qiM" id="L2n-Lc-iBy"/>
                         <segue destination="Njo-JI-LWy" kind="show" identifier="manageSpecialtiesSegue" id="nUV-0D-lfX"/>
                         <segue destination="Rbr-h9-VsM" kind="show" identifier="manageUserRelationsSegue" id="0j5-2J-bmO"/>
+                        <segue destination="dKK-UM-ERU" kind="show" identifier="managePatientSymptomHistorySegue" id="jrV-1M-af0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TU-Gf-5TB" userLabel="First Responder" sceneMemberID="firstResponder"/>

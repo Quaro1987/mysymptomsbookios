@@ -28,4 +28,6 @@
 
 -(NSString *)replyToRequestFromUserWithID:(NSNumber *) usrID withReply:(NSString *)reply;
 
+-(NSMutableArray *)getIDsOfPatientUsersWithNewSymptomsAdded;
+
 @end

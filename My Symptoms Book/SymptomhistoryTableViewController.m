@@ -19,20 +19,28 @@
 
 @implementation SymptomhistoryTableViewController
 
-@synthesize userSymptomhistoryArray, currentUser, filteredSymptomhistoryArray, symptomHistorySearchBar;
+@synthesize userSymptomhistoryArray, thisUser, filteredSymptomhistoryArray, symptomHistorySearchBar, navigationBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //get current user
+    User *currentUser = [[User alloc] initWithSavedUser];
+    //check for user and update title bar
+    if([currentUser.userID isEqual:thisUser.userID])
+    {
+        navigationBar.title = @"You Symptom History";
+    }
+    else
+    {
+        navigationBar.title = @"Patient Symptom History";
+    }
     
     //get the user's symptom history
     Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
-    
-    //get the users password
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
-    
+        
     //populate array with user's symptom history
-    userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:currentUser.username andWithPassword:password];
+    userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
     
     //set the filtered array's capacity
     filteredSymptomhistoryArray = [NSMutableArray arrayWithCapacity:[userSymptomhistoryArray count]];

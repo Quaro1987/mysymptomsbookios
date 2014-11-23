@@ -28,5 +28,7 @@
 
 - (IBAction)manageSymptomSpecialtiesPressed:(id)sender;
 
+- (IBAction)managePatientSymptomHistoryPressed:(id)sender;
+
 - (IBAction)manageUserRelationsPressed:(id)sender;
 @end

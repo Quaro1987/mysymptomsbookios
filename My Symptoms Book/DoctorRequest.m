@@ -9,6 +9,8 @@
 #import "DoctorRequest.h"
 #import "DataAndNetFunctions.h"
 #import "User.h"
+#import "SSKeychain.h"
+
 @implementation DoctorRequest
 
 @synthesize doctorRequestID, userID, doctorID, doctorAccepted, symptomHistoryID, newSymptomAdded;
@@ -129,6 +131,58 @@
     NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
     
     return @"SUCCESS";
+}
+
+//function to get the ids of the users with new symptoms
+-(NSMutableArray *)getIDsOfPatientUsersWithNewSymptomsAdded
+{
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    NSString *serverString = [dataAndNetController serverUrlString];
+    //creatue url
+    NSString *stringUrl = [serverString stringByAppendingString:@"getPatientIDsWithNewSymptomsIOS"];
+    
+    NSURL *url = [[NSURL alloc] initWithString:stringUrl];
+    
+    //get curent user username and password
+    User *currentUser = [[User alloc]initWithSavedUser];
+    
+    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    
+    //build post message
+    NSString *postMessage = [[NSString alloc] init];
+    postMessage = [NSString stringWithFormat:@"username=%@&password=%@", currentUser.username, password];
+    
+    //create request
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
+    
+    //error attribute
+    NSError *error = [[NSError alloc] init];
+    
+    //create response
+    NSURLResponse *response;
+    
+    //json data
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //get json response
+    NSMutableArray *jsonReponseData = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    
+    //create array that will keep the doctor patient users objects
+    NSMutableArray *patientUsersIDsArray = [[NSMutableArray alloc] init];
+    
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    //set so the formatter doesn't reutrn decimals
+    [numberFormatter setGeneratesDecimalNumbers:FALSE];
+    
+    //loop through result ids, turn them into a number and add them in the array
+    for(NSString *patientID in jsonReponseData)
+    {
+        [patientUsersIDsArray addObject:[numberFormatter numberFromString:patientID]];
+    }
+    
+    return patientUsersIDsArray;
 }
 
 @end
