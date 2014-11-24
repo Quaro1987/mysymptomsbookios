@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Symptom, User;
+@class Symptom, User, UIColor;
 
 @interface Symptomhistory : NSObject
 
@@ -43,5 +43,13 @@
 
 //get specific symptom history from server for doctor
 -(id)getSymptomhistoryTheDoctorWasAddedForByUserWithID:(NSNumber *)usrID;
+
+//characterization label functions
+-(UIColor *)getCharacterizationLabelColor;
+
+-(NSString *)getCharacterizationLabelText;
+
+//update characterization data
+-(void)updateCharacterizationByDoctor;
 
 @end

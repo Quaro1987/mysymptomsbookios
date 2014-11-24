@@ -25,5 +25,5 @@
 //butons pressed functions
 - (IBAction)selectDiagnosisPressed:(id)sender;
 
-
+-(void)actionSheet:(UIActionSheet *)actionSheetMenu clickedButtonAtIndex:(NSInteger)buttonIndex;
 @end

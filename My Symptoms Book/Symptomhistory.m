@@ -369,4 +369,96 @@
     return thisSymptomHistory;
 }
 
+#pragma mark characterization label functions
+
+//get characterization label color for this symptom history
+-(UIColor *)getCharacterizationLabelColor
+{
+    //get this symptoms characterization string
+    NSString *theSymptomCharacterization = self.symptomFlag;
+    UIColor *characterizationLabelColor = [[UIColor alloc] init];
+    //set label color and text
+    if([theSymptomCharacterization isEqualToString:@"1"])
+    {
+        characterizationLabelColor = [UIColor colorWithRed:0.631 green:0.922 blue:0.525 alpha:1];
+    }
+    else if([theSymptomCharacterization isEqualToString:@"2"])
+    {
+        characterizationLabelColor = [UIColor colorWithRed:0.8 green:0.792 blue:0.322 alpha:1];
+    }
+    else if([theSymptomCharacterization isEqualToString:@"3"])
+    {
+        characterizationLabelColor = [UIColor colorWithRed:0.949 green:0.318 blue:0.22 alpha:1];
+    }
+    else
+    {
+        characterizationLabelColor = [UIColor colorWithRed:0.2 green:0.4 blue:0.8 alpha:1];
+    }
+    
+    return characterizationLabelColor;
+}
+
+//get characterization label for this symptom history
+-(NSString *)getCharacterizationLabelText
+{
+    //get this symptoms characterization string
+    NSString *theSymptomCharacterization = self.symptomFlag;
+    NSString *characterizationLabelText = [[NSString alloc] init];
+    //set label color and text
+    if([theSymptomCharacterization isEqualToString:@"1"])
+    {
+        characterizationLabelText = @"Low Danger";
+    }
+    else if([theSymptomCharacterization isEqualToString:@"2"])
+    {
+        characterizationLabelText = @"Mild Danger";
+    }
+    else if([theSymptomCharacterization isEqualToString:@"3"])
+    {
+        characterizationLabelText = @"High Danger";
+    }
+    else
+    {
+        characterizationLabelText = @"No Characterization";
+    }
+    
+    return characterizationLabelText;
+}
+
+//update the symptom characterization by the doctor
+-(void)updateCharacterizationByDoctor
+{
+    //init dataAndNetController
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    //get logged in user's username and password
+    NSString *username = [[User alloc] initWithSavedUser].username;
+    NSString *password = [dataAndNetController getUserPassword];
+    
+    //creatue url
+    NSString *serverString = [dataAndNetController serverUrlString];
+    NSString *stringUrl = [serverString stringByAppendingString:@"updateSymptomhistoryCharacterizationIOS"];
+    
+    NSURL *url = [[NSURL alloc] initWithString:stringUrl];
+    
+    //create post data
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomHistoryID=%d&symptomFlag=%@", username, password, self.symptomHistoryID, self.symptomFlag];
+    
+    //create request
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
+    
+    //error attribute
+    NSError *error = [[NSError alloc] init];
+    
+    //create response
+    NSURLResponse *response;
+    
+    //send update to server
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    //pass reply into an NSDictionary
+    //NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+
+}
+
 @end
