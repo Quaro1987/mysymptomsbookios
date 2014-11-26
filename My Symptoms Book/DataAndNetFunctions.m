@@ -185,4 +185,40 @@
     return request;
 }
 
+#pragma mark Audio Recording functions
+
+//get audio recorder
+-(AVAudioRecorder *)getAudioRecorderForMessage
+{
+    //get an array with the files path
+    NSArray *pathsArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //copy documents path into an nstring
+    NSString *documentsPath = [pathsArray objectAtIndex:0];
+    //get path for recorded message
+    NSString *soundFilePath = [documentsPath stringByAppendingPathComponent:@"sound.caf"];
+    //create sound file url
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    //set recording settings
+    NSDictionary *recordSettings = [NSDictionary
+                                    dictionaryWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:AVAudioQualityMin],
+                                    AVEncoderAudioQualityKey,
+                                    [NSNumber numberWithInt:16],
+                                    AVEncoderBitRateKey,
+                                    [NSNumber numberWithInt: 2],
+                                    AVNumberOfChannelsKey,
+                                    [NSNumber numberWithFloat:44100.0],
+                                    AVSampleRateKey,
+                                    nil];
+    
+    NSError *error = nil;
+    //init audio recorder
+    AVAudioRecorder *audioRecorder = [[AVAudioRecorder alloc]
+                     initWithURL:soundFileURL
+                     settings:recordSettings
+                     error:&error];
+
+    return audioRecorder;
+}
+
 @end

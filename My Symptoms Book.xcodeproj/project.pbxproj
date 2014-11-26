@@ -14,6 +14,9 @@
 		FA3F149C1A1CFC9A00F643FF /* ManageRelationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */; };
 		FA3F149F1A1D46FF00F643FF /* UserDoctorRelationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */; };
 		FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */; };
+		FA5B23F81A24A38000C266C2 /* ContactPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B23F71A24A38000C266C2 /* ContactPatientViewController.m */; };
+		FA5B24011A24E2D300C266C2 /* checkBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B24001A24E2D200C266C2 /* checkBoxView.m */; };
+		FA5B24031A2529C100C266C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B24021A2529C100C266C2 /* AVFoundation.framework */; };
 		FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */; };
 		FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */; };
 		FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */; };
@@ -77,6 +80,11 @@
 		FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDoctorRelationViewController.m; sourceTree = "<group>"; };
 		FA54EB3E1A05D68C00A41602 /* PickDateSymptomSeenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDateSymptomSeenViewController.h; sourceTree = "<group>"; };
 		FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDateSymptomSeenViewController.m; sourceTree = "<group>"; };
+		FA5B23F61A24A38000C266C2 /* ContactPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactPatientViewController.h; sourceTree = "<group>"; };
+		FA5B23F71A24A38000C266C2 /* ContactPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactPatientViewController.m; sourceTree = "<group>"; };
+		FA5B23FF1A24E2D200C266C2 /* checkBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checkBoxView.h; sourceTree = "<group>"; };
+		FA5B24001A24E2D200C266C2 /* checkBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = checkBoxView.m; sourceTree = "<group>"; };
+		FA5B24021A2529C100C266C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FA6525721A154BE900F85F6C /* SymptomhistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryViewController.h; sourceTree = "<group>"; };
 		FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomhistoryViewController.m; sourceTree = "<group>"; };
 		FA6C97161A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSymptomSpecialtiesTableViewController.h; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5B24031A2529C100C266C2 /* AVFoundation.framework in Frameworks */,
 				FA7447891A0674DC005D2BFD /* SystemConfiguration.framework in Frameworks */,
 				FAEC601419FEA612004B456D /* Security.framework in Frameworks */,
 				FAEC601219FEA5F1004B456D /* libsqlite3.dylib in Frameworks */,
@@ -178,6 +187,7 @@
 		B4DC11D4EC269CE9B462C558 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA5B24021A2529C100C266C2 /* AVFoundation.framework */,
 				FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */,
 				5E3863D88E3A8EB276AAD42D /* libPods-My Symptoms Book.a */,
 			);
@@ -283,6 +293,10 @@
 				FA721B201A21F6B600320AA7 /* ManagePatientSymptomHistoryTableViewController.m */,
 				FA721B221A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.h */,
 				FA721B231A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m */,
+				FA5B23F61A24A38000C266C2 /* ContactPatientViewController.h */,
+				FA5B23F71A24A38000C266C2 /* ContactPatientViewController.m */,
+				FA5B23FF1A24E2D200C266C2 /* checkBoxView.h */,
+				FA5B24001A24E2D200C266C2 /* checkBoxView.m */,
 			);
 			name = "Manage Patient Symptom History";
 			sourceTree = "<group>";
@@ -567,6 +581,7 @@
 				FA3F14981A1CAB3400F643FF /* DoctorRequest.m in Sources */,
 				FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */,
 				FA3F149F1A1D46FF00F643FF /* UserDoctorRelationViewController.m in Sources */,
+				FA5B23F81A24A38000C266C2 /* ContactPatientViewController.m in Sources */,
 				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
 				FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */,
 				FA8D536F1A1924A700CFA9B8 /* CheckSymptomViewController.m in Sources */,
@@ -589,6 +604,7 @@
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
 				FA3AC9E51A1BF08E00115557 /* AddDoctorViewController.m in Sources */,
 				FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */,
+				FA5B24011A24E2D300C266C2 /* checkBoxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

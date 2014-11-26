@@ -1133,6 +1133,9 @@
                                 <state key="normal" title="Contact Patient">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="UIU-3r-qKR" kind="show" id="30y-db-KwZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1150,6 +1153,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiZ-JC-jn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1547.5" y="-1168.5"/>
+        </scene>
+        <!--Contact Patient-->
+        <scene sceneID="9gu-Yn-XCh">
+            <objects>
+                <viewController id="UIU-3r-qKR" customClass="ContactPatientViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zj8-uR-jsg"/>
+                        <viewControllerLayoutGuide type="bottom" id="DcM-xn-oay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MeW-cP-V9R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Insert contact message here..." translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
+                                <rect key="frame" x="30" y="101" width="315" height="145"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Krl-kf-VJV" customClass="M13Checkbox">
+                                <rect key="frame" x="100" y="280" width="184" height="44"/>
+                                <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkw-eV-dxU">
+                                <rect key="frame" x="58" y="407" width="158" height="30"/>
+                                <state key="normal" title="Record Voice Message">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordVoiceMessagePressed:" destination="UIU-3r-qKR" eventType="touchUpInside" id="Ean-sX-pg8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HH-xI-hK0">
+                                <rect key="frame" x="58" y="445" width="108" height="30"/>
+                                <state key="normal" title="Stop Recording">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopRecordingPressed:" destination="UIU-3r-qKR" eventType="touchUpInside" id="InX-Yg-1I4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FI-Zg-2nf">
+                                <rect key="frame" x="58" y="512" width="102" height="30"/>
+                                <state key="normal" title="Send Message">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMessagePressed:" destination="UIU-3r-qKR" eventType="touchUpInside" id="NJd-FG-eP9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2z-qM-fdc">
+                                <rect key="frame" x="170" y="479" width="30" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPressed:" destination="UIU-3r-qKR" eventType="touchUpInside" id="XVF-n8-VwP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contact Patient" id="RfK-WL-mvH"/>
+                    <connections>
+                        <outlet property="playButton" destination="Z2z-qM-fdc" id="b8A-hf-roZ"/>
+                        <outlet property="recordButton" destination="Jkw-eV-dxU" id="Ic8-dc-QSC"/>
+                        <outlet property="sendAsSMSCheckBox" destination="Krl-kf-VJV" id="meU-ED-ia8"/>
+                        <outlet property="stopButton" destination="0HH-xI-hK0" id="Vrp-Wo-X0v"/>
+                        <outlet property="textFieldSubView" destination="mNZ-RP-D7b" id="iW8-H4-jEc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yr3-vt-c9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2136.5" y="-1162.5"/>
         </scene>
         <!--Manage Patients-->
         <scene sceneID="37y-AK-cXr">

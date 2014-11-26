@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class User, Reachability;
 
@@ -33,5 +34,8 @@
 -(NSNumberFormatter *) getNumberFormatter;
 
 -(NSMutableURLRequest *) getURLRequestForURL:(NSURL *)requestURL andPostMessage:(NSString *)requestPostMessage;
+
+//return audio recorder
+-(AVAudioRecorder *)getAudioRecorderForMessage;
 
 @end
