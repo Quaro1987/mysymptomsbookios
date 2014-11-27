@@ -10,6 +10,7 @@
 #import "User.h"
 #import "M13Checkbox.h"
 #import "DataAndNetFunctions.h"
+#import "ContactForm.h"
 
 @interface ContactPatientViewController ()
 
@@ -37,7 +38,7 @@
     
     //disable stop and play button
     stopButton.enabled = NO;
-    playButton.enabled = NO;
+    playButton.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +58,9 @@
 
 //function to send the message to the server
 - (IBAction)sendMessagePressed:(id)sender {
+    ContactForm *contact = [[ContactForm alloc] init];
+    
+    [contact sendMessage:@"something" toUserWithID:patientUser.userID andAlsoeSendAsSMS:sendAsSMSCheckBox.selected andAlsoSendRecordedMessage:YES];
 }
 
 //record a message when it is pressed
@@ -103,5 +107,11 @@
     [messagePlayer play];
 }
 
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    //change button availabillity
+    playButton.enabled = YES;
+    stopButton.enabled = NO;
+}
 
 @end

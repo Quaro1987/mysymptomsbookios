@@ -13,6 +13,7 @@
 		FA3F14981A1CAB3400F643FF /* DoctorRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F14971A1CAB3400F643FF /* DoctorRequest.m */; };
 		FA3F149C1A1CFC9A00F643FF /* ManageRelationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */; };
 		FA3F149F1A1D46FF00F643FF /* UserDoctorRelationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */; };
+		FA4FAA5A1A269ED50048E651 /* ContactForm.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FAA591A269ED50048E651 /* ContactForm.m */; };
 		FA54EB401A05D68C00A41602 /* PickDateSymptomSeenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */; };
 		FA5B23F81A24A38000C266C2 /* ContactPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B23F71A24A38000C266C2 /* ContactPatientViewController.m */; };
 		FA5B24011A24E2D300C266C2 /* checkBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B24001A24E2D200C266C2 /* checkBoxView.m */; };
@@ -78,6 +79,8 @@
 		FA3F149B1A1CFC9A00F643FF /* ManageRelationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageRelationsTableViewController.m; sourceTree = "<group>"; };
 		FA3F149D1A1D46FF00F643FF /* UserDoctorRelationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDoctorRelationViewController.h; sourceTree = "<group>"; };
 		FA3F149E1A1D46FF00F643FF /* UserDoctorRelationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDoctorRelationViewController.m; sourceTree = "<group>"; };
+		FA4FAA581A269ED50048E651 /* ContactForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactForm.h; sourceTree = "<group>"; };
+		FA4FAA591A269ED50048E651 /* ContactForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactForm.m; sourceTree = "<group>"; };
 		FA54EB3E1A05D68C00A41602 /* PickDateSymptomSeenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDateSymptomSeenViewController.h; sourceTree = "<group>"; };
 		FA54EB3F1A05D68C00A41602 /* PickDateSymptomSeenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDateSymptomSeenViewController.m; sourceTree = "<group>"; };
 		FA5B23F61A24A38000C266C2 /* ContactPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactPatientViewController.h; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 			children = (
 				FA6DED711A1E89ED00B16DEB /* DoctorSymptomSpecialty.h */,
 				FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */,
+				FA4FAA581A269ED50048E651 /* ContactForm.h */,
+				FA4FAA591A269ED50048E651 /* ContactForm.m */,
 			);
 			name = "Doctor Models";
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4FAA5A1A269ED50048E651 /* ContactForm.m in Sources */,
 				FAB9DA8B1A20E5BD00BF78FC /* UserRequestViewController.m in Sources */,
 				FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */,
 				FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */,
