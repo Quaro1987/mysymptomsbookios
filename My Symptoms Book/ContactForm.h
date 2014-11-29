@@ -10,6 +10,7 @@
 
 @interface ContactForm : NSObject
 
--(NSString *)sendMessage:(NSString *) message toUserWithID:(NSNumber *) patientID andAlsoeSendAsSMS:(BOOL) smsBoolean andAlsoSendRecordedMessage:(BOOL) recordedMessageBoolean;
+-(NSString *)sendMessage:(NSString *) message toUserWithID:(NSNumber *) patientID andAlsoeSendAsSMS:(BOOL) smsBoolean andAlsoSendRecordedMessage:(BOOL) recordedMessageBoolean
+withFileName:(NSString *) fileNameString;
 
 @end

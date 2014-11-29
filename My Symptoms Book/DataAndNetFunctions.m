@@ -15,7 +15,7 @@
 #import "FMDB.h"
 #import "Reachability.h"
 #import "Symptomhistory.h"
-
+#import "DoctorUserMainViewController.h"
 //website to get data
 #define webServer @"http://mysymptomsbook.hol.es/index.php?r=user/user/"
 @implementation DataAndNetFunctions
@@ -32,6 +32,26 @@
     return alertView;
 }
 
+//show alert of succesful action performed and return to initial menu
+/*-(void)returnToInitialMenuAndshowAlertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                        message:alertBody
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+    
+    User *currentUser = [[User alloc] initWithSavedUser];
+    NSNumber *doctorTypeNumber = [[NSNumber alloc] initWithInt:1];
+    if(currentUser.userType==doctorTypeNumber)
+    {
+        //change controller view
+        DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorMainMenu"];
+        [self.navigationController pushViewController:destinationController animated:NO];
+    }
+}
+*/
 //return number formatter to change strings into ints
 -(NSNumberFormatter *)getNumberFormatter
 {
@@ -188,14 +208,14 @@
 #pragma mark Audio Recording functions
 
 //get audio recorder
--(AVAudioRecorder *)getAudioRecorderForMessage
+-(AVAudioRecorder *)getAudioRecorderForMessageFile:(NSString *)audioFileName
 {
     //get an array with the files path
     NSArray *pathsArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //copy documents path into an nstring
     NSString *documentsPath = [pathsArray objectAtIndex:0];
     //get path for recorded message
-    NSString *soundFilePath = [documentsPath stringByAppendingPathComponent:@"sound.caf"];
+    NSString *soundFilePath = [documentsPath stringByAppendingPathComponent:audioFileName];
     //create sound file url
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     //set recording settings
@@ -221,4 +241,19 @@
     return audioRecorder;
 }
 
+//create the name for the audio file
+-(NSString *)getContactMessageFileNameForUser:(NSString *)patientUsername
+{
+    //get current user
+    User *doctorUser = [[User alloc] initWithSavedUser];
+    
+    //create the file name by appending the doctor's username and the patient's
+    NSString *audioFileName = @"MessageFrom";
+    audioFileName = [audioFileName stringByAppendingString:doctorUser.username];
+    audioFileName = [audioFileName stringByAppendingString:@"To"];
+    audioFileName = [audioFileName stringByAppendingString:patientUsername];
+    audioFileName = [audioFileName stringByAppendingString:@".caf"];
+    
+    return audioFileName;
+}
 @end

@@ -18,6 +18,8 @@
 
 -(UIAlertView *)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
 
+//-(void)returnToInitialMenuAndshowAlertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle withStoryboard:;
+
 //data functions
 -(NSString *)getSymptomCategoriesFilePath;
 
@@ -36,6 +38,9 @@
 -(NSMutableURLRequest *) getURLRequestForURL:(NSURL *)requestURL andPostMessage:(NSString *)requestPostMessage;
 
 //return audio recorder
--(AVAudioRecorder *)getAudioRecorderForMessage;
+-(AVAudioRecorder *)getAudioRecorderForMessageFile:(NSString *)audioFileName;
+
+//get the file name for the audio recorder
+-(NSString *)getContactMessageFileNameForUser:(NSString *)patientUsername;
 
 @end

@@ -22,6 +22,8 @@
 //audio recording buttons and AVAudioRecorder and Player properties
 @property (nonatomic, strong) AVAudioRecorder *messageRecorder;
 @property (nonatomic, strong) AVAudioPlayer *messagePlayer;
+@property (nonatomic, strong) NSString *audioMessageFileName;
+@property (nonatomic) BOOL sendAudioMessage;
 
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;

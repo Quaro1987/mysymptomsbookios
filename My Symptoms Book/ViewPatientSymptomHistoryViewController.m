@@ -9,6 +9,7 @@
 #import "ViewPatientSymptomHistoryViewController.h"
 #import "User.h"
 #import "Symptomhistory.h"
+#import "ContactPatientViewController.h"
 
 @interface ViewPatientSymptomHistoryViewController ()
 
@@ -29,8 +30,6 @@
     //get label color and text
     characterizationLabel.textColor = [thisSymptomHistory getCharacterizationLabelColor];
     characterizationLabel.text = [thisSymptomHistory getCharacterizationLabelText];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,15 +37,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //if segue contactPatientSegue
+    if([[segue identifier] isEqualToString:@"contactPatientSegue"])
+    {
+        //create destination controller
+        ContactPatientViewController *destinationController = [segue destinationViewController];
+        //copy user
+        destinationController.patientUser = thisUser;
+    }
 }
-*/
+
 
 //show action sheet with diagnosis options when select d iagnosis is pressed
 - (IBAction)selectDiagnosisPressed:(id)sender {
