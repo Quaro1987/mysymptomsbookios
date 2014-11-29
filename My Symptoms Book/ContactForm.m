@@ -115,7 +115,8 @@
     //-- Getting response form server
     //send update to server
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
+    NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+   
     //pass reply into an NSDictionary
     NSDictionary *jsonReponseData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     
