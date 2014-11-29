@@ -32,6 +32,7 @@
 		FA7447891A0674DC005D2BFD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */; };
 		FA74478C1A070155005D2BFD /* Symptomhistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74478B1A070155005D2BFD /* Symptomhistory.m */; };
 		FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */; };
+		FA77244D1A2A6EFE00A45744 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA77244C1A2A6EFE00A45744 /* MobileCoreServices.framework */; };
 		FA8D536F1A1924A700CFA9B8 /* CheckSymptomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D536E1A1924A700CFA9B8 /* CheckSymptomViewController.m */; };
 		FA8D53721A192DE800CFA9B8 /* DoctorUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D53711A192DE800CFA9B8 /* DoctorUser.m */; };
 		FAB9DA8B1A20E5BD00BF78FC /* UserRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB9DA8A1A20E5BD00BF78FC /* UserRequestViewController.m */; };
@@ -121,6 +122,7 @@
 		FA74478B1A070155005D2BFD /* Symptomhistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Symptomhistory.m; sourceTree = "<group>"; };
 		FA7704921A125FA0005E19CA /* SymptomhistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryTableViewController.h; sourceTree = "<group>"; };
 		FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomhistoryTableViewController.m; sourceTree = "<group>"; };
+		FA77244C1A2A6EFE00A45744 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FA8D536D1A1924A700CFA9B8 /* CheckSymptomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckSymptomViewController.h; sourceTree = "<group>"; };
 		FA8D536E1A1924A700CFA9B8 /* CheckSymptomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckSymptomViewController.m; sourceTree = "<group>"; };
 		FA8D53701A192DE800CFA9B8 /* DoctorUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorUser.h; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA77244D1A2A6EFE00A45744 /* MobileCoreServices.framework in Frameworks */,
 				FA5B24031A2529C100C266C2 /* AVFoundation.framework in Frameworks */,
 				FA7447891A0674DC005D2BFD /* SystemConfiguration.framework in Frameworks */,
 				FAEC601419FEA612004B456D /* Security.framework in Frameworks */,
@@ -202,6 +205,7 @@
 		B4DC11D4EC269CE9B462C558 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA77244C1A2A6EFE00A45744 /* MobileCoreServices.framework */,
 				FA5B24021A2529C100C266C2 /* AVFoundation.framework */,
 				FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */,
 				5E3863D88E3A8EB276AAD42D /* libPods-My Symptoms Book.a */,

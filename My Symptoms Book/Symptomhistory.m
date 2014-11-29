@@ -454,11 +454,16 @@
     NSURLResponse *response;
     
     //send update to server
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     //pass reply into an NSDictionary
-    //NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-
+    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    
+    
+    NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
+    
+    
+    
 }
 
 @end

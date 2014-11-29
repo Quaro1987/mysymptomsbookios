@@ -74,6 +74,7 @@
     //set request http method and url
     [request setHTTPMethod:@"POST"];
     [request setURL:url];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     // Append parameters data into post url
     NSMutableData *body = [NSMutableData data];
@@ -103,14 +104,24 @@
     
    //set request's body
     [request setHTTPBody:body];
+    //post data legnth
+    NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    // create url response
+    NSURLResponse *response;
+    //set up NSerror
+    NSError *error = [[NSError alloc] init];
     
     //-- Getting response form server
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //send update to server
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //parse json response
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    //pass reply into an NSDictionary
+    NSDictionary *jsonReponseData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     
-    NSString *serverReply = [jsonReponseData objectForKey:0];
+    
+    NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
+    
     
     return @"SUCCESS";
 }
