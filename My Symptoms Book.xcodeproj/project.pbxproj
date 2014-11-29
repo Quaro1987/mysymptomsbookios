@@ -40,6 +40,12 @@
 		FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */; };
 		FACA254C1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */; };
 		FACA25541A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */; };
+		FAD2D1171A2A075300DE84EE /* playDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1111A2A075300DE84EE /* playDisabled.png */; };
+		FAD2D1181A2A075300DE84EE /* playNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1121A2A075300DE84EE /* playNormal.png */; };
+		FAD2D1191A2A075300DE84EE /* recDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1131A2A075300DE84EE /* recDisabled.png */; };
+		FAD2D11A1A2A075300DE84EE /* recNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1141A2A075300DE84EE /* recNormal.png */; };
+		FAD2D11B1A2A075300DE84EE /* stopDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1151A2A075300DE84EE /* stopDisabled.png */; };
+		FAD2D11C1A2A075300DE84EE /* stopEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1161A2A075300DE84EE /* stopEnabled.png */; };
 		FAEC5FEE19FEA5D8004B456D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FED19FEA5D8004B456D /* main.m */; };
 		FAEC5FF119FEA5D8004B456D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF019FEA5D8004B456D /* AppDelegate.m */; };
 		FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC5FF319FEA5D8004B456D /* InitialViewController.m */; };
@@ -130,6 +136,12 @@
 		FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomSpecialtyCategoryTableViewController.m; sourceTree = "<group>"; };
 		FACA25521A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagePatientRelationsTableViewController.h; sourceTree = "<group>"; };
 		FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagePatientRelationsTableViewController.m; sourceTree = "<group>"; };
+		FAD2D1111A2A075300DE84EE /* playDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playDisabled.png; path = "../../../Desktop/ios app images/playDisabled.png"; sourceTree = "<group>"; };
+		FAD2D1121A2A075300DE84EE /* playNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playNormal.png; path = "../../../Desktop/ios app images/playNormal.png"; sourceTree = "<group>"; };
+		FAD2D1131A2A075300DE84EE /* recDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = recDisabled.png; path = "../../../Desktop/ios app images/recDisabled.png"; sourceTree = "<group>"; };
+		FAD2D1141A2A075300DE84EE /* recNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = recNormal.png; path = "../../../Desktop/ios app images/recNormal.png"; sourceTree = "<group>"; };
+		FAD2D1151A2A075300DE84EE /* stopDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stopDisabled.png; path = "../../../Desktop/ios app images/stopDisabled.png"; sourceTree = "<group>"; };
+		FAD2D1161A2A075300DE84EE /* stopEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stopEnabled.png; path = "../../../Desktop/ios app images/stopEnabled.png"; sourceTree = "<group>"; };
 		FAEC5FE819FEA5D8004B456D /* My Symptoms Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Symptoms Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEC5FEC19FEA5D8004B456D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEC5FED19FEA5D8004B456D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -369,6 +381,19 @@
 			name = "Manage Patient Relations";
 			sourceTree = "<group>";
 		};
+		FAD2D1101A2A06D700DE84EE /* Button Images */ = {
+			isa = PBXGroup;
+			children = (
+				FAD2D1111A2A075300DE84EE /* playDisabled.png */,
+				FAD2D1121A2A075300DE84EE /* playNormal.png */,
+				FAD2D1131A2A075300DE84EE /* recDisabled.png */,
+				FAD2D1141A2A075300DE84EE /* recNormal.png */,
+				FAD2D1151A2A075300DE84EE /* stopDisabled.png */,
+				FAD2D1161A2A075300DE84EE /* stopEnabled.png */,
+			);
+			name = "Button Images";
+			sourceTree = "<group>";
+		};
 		FAEC5FDF19FEA5D7004B456D = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +438,7 @@
 		FAEC5FEB19FEA5D8004B456D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAD2D1101A2A06D700DE84EE /* Button Images */,
 				FAEC601B19FEEF3D004B456D /* DataAndNetFunctions.h */,
 				FAEC601C19FEEF3D004B456D /* DataAndNetFunctions.m */,
 				FAC1C9851A03036800398F0C /* symptomsList.txt */,
@@ -521,9 +547,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD2D11B1A2A075300DE84EE /* stopDisabled.png in Resources */,
+				FAD2D1191A2A075300DE84EE /* recDisabled.png in Resources */,
 				FAC1C9861A03036800398F0C /* symptomsList.txt in Resources */,
+				FAD2D11C1A2A075300DE84EE /* stopEnabled.png in Resources */,
 				FAEC5FF719FEA5D8004B456D /* Main.storyboard in Resources */,
+				FAD2D11A1A2A075300DE84EE /* recNormal.png in Resources */,
+				FAD2D1171A2A075300DE84EE /* playDisabled.png in Resources */,
 				FAEC5FFC19FEA5D8004B456D /* LaunchScreen.xib in Resources */,
+				FAD2D1181A2A075300DE84EE /* playNormal.png in Resources */,
 				FAEC5FF919FEA5D8004B456D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

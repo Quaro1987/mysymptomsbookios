@@ -38,7 +38,7 @@ audioMessageFileName, sendAudioMessage;
     
     //disable stop and play button
     stopButton.enabled = NO;
-    playButton.enabled = YES;
+    playButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +75,7 @@ audioMessageFileName, sendAudioMessage;
 //record a message when it is pressed
 - (IBAction)recordVoiceMessagePressed:(id)sender {
     //change button availabillity
-    playButton.enabled = NO;
+    recordButton.enabled = NO;
     stopButton.enabled = YES;
     //start recording
     [messageRecorder record];
@@ -87,6 +87,7 @@ audioMessageFileName, sendAudioMessage;
     //change button availabillity
     playButton.enabled = YES;
     stopButton.enabled = NO;
+    recordButton.enabled = YES;
     //check if the app is recording
     if([messageRecorder isRecording])
     {
@@ -106,7 +107,7 @@ audioMessageFileName, sendAudioMessage;
     //change button availabillity
     playButton.enabled = NO;
     stopButton.enabled = YES;
-    //recordButton.enabled = NO;
+    recordButton.enabled = NO;
     
     //init audio player
     NSError *error;
@@ -122,6 +123,7 @@ audioMessageFileName, sendAudioMessage;
     //change button availabillity
     playButton.enabled = YES;
     stopButton.enabled = NO;
+    recordButton.enabled = YES;
 }
 
 @end
