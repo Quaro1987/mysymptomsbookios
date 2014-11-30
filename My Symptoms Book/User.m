@@ -71,6 +71,18 @@
     return self;
 }
 
+-(NSString *)getEncodedUsername
+{
+    //encode for percent escapes username
+    NSString *encodedUsernameString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                                   NULL,
+                                                                                                   (CFStringRef)self.username,
+                                                                                                   NULL,
+                                                                                                   (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                   kCFStringEncodingUTF8 );
+    return encodedUsernameString;
+}
+
 #pragma mark save/get user from NSUserDefaults functions
 
 //store user object in NSUserDefaults
@@ -119,9 +131,23 @@
 //funciton to log in the user and return an error or success message
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password
 {
+    //encode for percent escapes username and password
+    NSString *encodedUsernameString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)username,
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                  kCFStringEncodingUTF8 );
+    NSString *encodedPasswrdString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                           NULL,
+                                                                                           (CFStringRef)password,
+                                                                                           NULL,
+                                                                                           (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                           kCFStringEncodingUTF8 );
+
     //create post data string
     NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@",
-                             username, password];
+                             encodedUsernameString, encodedPasswrdString];
     //log message
     NSLog(@"Postdata: %@",postMessage);
     
@@ -192,11 +218,11 @@
     //get curent user username and password
     User *currentUser = [[User alloc]initWithSavedUser];
     
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    NSString *password = [dataAndNetController getUserPassword];
     
     //build post message
     NSString *postMessage = [[NSString alloc] init];
-    postMessage = [NSString stringWithFormat:@"username=%@&password=%@&request=%@", currentUser.username, password, relationType];
+    postMessage = [NSString stringWithFormat:@"username=%@&password=%@&request=%@", [currentUser getEncodedUsername], password, relationType];
     
     //create request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];

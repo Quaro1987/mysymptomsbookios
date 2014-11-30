@@ -157,8 +157,16 @@
     User *currentUser = [[User alloc] initWithSavedUser];
     //copy his password into a string
     NSString *passwordString = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    //encode password
+    NSString *encodedPasswordString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                           NULL,
+                                                                                           (CFStringRef)passwordString,
+                                                                                           NULL,
+                                                                                           (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                           kCFStringEncodingUTF8 );
+    
     //return password
-    return passwordString;
+    return encodedPasswordString;
 }
 
 #pragma mark network functions

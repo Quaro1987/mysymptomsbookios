@@ -18,8 +18,6 @@
 
 -(UIAlertView *)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
 
-//-(void)returnToInitialMenuAndshowAlertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle withStoryboard:;
-
 //data functions
 -(NSString *)getSymptomCategoriesFilePath;
 

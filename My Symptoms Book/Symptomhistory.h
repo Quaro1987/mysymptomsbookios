@@ -27,7 +27,7 @@
 -(id)initWithUserame:(NSString *)userName andSymptomCode:(NSString *)code andSymptomTitle:(NSString *)title andDateSymptomFirstSeen:(NSString *)dateSeen andDateSymptomAdded:(NSString *)dateAdded;
 
 //manage locally stored symptom history objects
--(NSMutableArray *)getSavedSymptomsForUser:(NSString *)userName;
+-(NSMutableArray *)getSavedSymptomsForUser;
 
 -(void)clearDatabaseOfSavedSymptomsForUser:(NSString *)username;
 
@@ -36,7 +36,7 @@
 -(NSString *)getInfoOnSavedSymptomsWhileOffline;
 
 //add symptom functions
--(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen;
+-(NSString *)addForUserTheSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen;
 
 //get the user's symptom history
 -(NSMutableArray *) getSymptomhistoryForUser: (User *)requestedUser;

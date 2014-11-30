@@ -25,11 +25,11 @@
     
     DoctorUser *doctors = [[DoctorUser alloc] init];
     //get username and apssword
-    User *currentUser = [doctors initWithSavedUser];
+    User *currentUser = [[User alloc] initWithSavedUser];
     NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
     
     //populate users array
-    userDoctorsArray = [doctors getDoctorsForUser:currentUser.username andPassword:password forSymptomWithSymptomCode:@"GET DOCTORS"];
+    userDoctorsArray = [doctors getDoctorsForSymptomWithSymptomCode:@"GET DOCTORS"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -47,14 +47,10 @@
 */
 
 - (IBAction)addDoctorPressed:(id)sender {
-    
-    //get the current user
-    User *currentUser = [selectedDoctor initWithSavedUser];
-    //get user password
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+
     //send doctor request
     DoctorRequest *doctorRequestToSend = [[DoctorRequest alloc] init];
-    NSString *reply = [doctorRequestToSend sendDoctorRequestForUser:currentUser.username withPassword:password ToDoctor:selectedDoctor.userID forSymptomhistoryWithID: thisSymptomhistoryEntry.symptomHistoryID];
+    NSString *reply = [doctorRequestToSend sendDoctorRequestToDoctorWithID:selectedDoctor.userID forSymptomhistoryWithID: thisSymptomhistoryEntry.symptomHistoryID];
     NSLog(reply);
 }
 @end

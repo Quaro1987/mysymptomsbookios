@@ -63,16 +63,20 @@
 }
 
 //add symptoms function
--(NSString *)addSymptomForUser:(NSString *) username withPassword:(NSString *) password theSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen
+-(NSString *)addForUserTheSymptom:(NSString *) symptomTitle withSymptomCode:(NSString *) symptomCode andDateFirstSeen:(NSString *) theDateSymptomFirstSeen
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    //get user and password
+    User *currentUser = [[User alloc] initWithSavedUser];
+    NSString *password = [dataAndNetController getUserPassword];
     
     //if the phone has internet access
     if([dataAndNetController internetAccess])
     {
         //create post data string
-        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomCode=%@&symptomTitle=%@&dateSymptomFirstSeen=%@", username, password, symptomCode, symptomTitle, theDateSymptomFirstSeen];
+        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomCode=%@&symptomTitle=%@&dateSymptomFirstSeen=%@", [currentUser getEncodedUsername], password, symptomCode, symptomTitle, theDateSymptomFirstSeen];
         
         //log post data
         NSLog(@"Postdata: %@",postMessage);
@@ -123,7 +127,7 @@
         
         
         //insert added symptom data into database
-        [database executeUpdate:@"INSERT INTO tbl_tempSymptomhistory VALUES (?, ?, ?, ?, ?)" withArgumentsInArray:@[symptomCode, symptomTitle, dateSymptomFirstSeen, dateToday, username]];
+        [database executeUpdate:@"INSERT INTO tbl_tempSymptomhistory VALUES (?, ?, ?, ?, ?)" withArgumentsInArray:@[symptomCode, symptomTitle, dateSymptomFirstSeen, dateToday, currentUser.username]];
         
         //close database once complete
         [database close];
@@ -158,16 +162,14 @@
     //get the user
     User *currentUser = [[User alloc] initWithSavedUser];
     
-    //get the users password
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
-    NSMutableArray *savedSymptoms = [self getSavedSymptomsForUser:currentUser.username];
+    NSMutableArray *savedSymptoms = [self getSavedSymptomsForUser];
     
     int successes = 0;
     //loop through all saved symptoms for the user and post them to server
     for(int i=0;i<[savedSymptoms count];i++)
     {
         Symptomhistory *thisSymptomHistory = [savedSymptoms objectAtIndex:i];
-        NSString *result = [self addSymptomForUser:currentUser.username withPassword:password theSymptom:thisSymptomHistory.symptomTitle withSymptomCode:thisSymptomHistory.symptomCode andDateFirstSeen:thisSymptomHistory.dateSymptomFirstSeen];
+        NSString *result = [self addForUserTheSymptom:thisSymptomHistory.symptomTitle withSymptomCode:thisSymptomHistory.symptomCode andDateFirstSeen:thisSymptomHistory.dateSymptomFirstSeen];
         //if save succesfull increase by 1 successes int
         if([result isEqualToString:@"SUCCESS"])
         {
@@ -189,10 +191,13 @@
 }
 
 //get saved symptoms array
--(NSMutableArray *)getSavedSymptomsForUser:(NSString *)userName
+-(NSMutableArray *)getSavedSymptomsForUser
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    
+    //get current user
+    User *currentUser = [[User alloc] initWithSavedUser];
     
     //open database
     FMDatabase *dataBase = [FMDatabase databaseWithPath:[dataAndNetController getMySymptomsBookDatabasePath]];
@@ -204,7 +209,7 @@
     }
     
     //query string
-    NSString *querySavedSymptoms = [NSString stringWithFormat:@"SELECT * FROM tbl_tempSymptomhistory WHERE username = \"%@\"", userName];
+    NSString *querySavedSymptoms = [NSString stringWithFormat:@"SELECT * FROM tbl_tempSymptomhistory WHERE username = \"%@\"", currentUser.username];
     
     //get saved symptoms
     FMResultSet *savedSymptoms = [dataBase executeQuery:querySavedSymptoms];
@@ -261,12 +266,12 @@
         NSString *stringUrl = [serverString stringByAppendingString:@"userSymptomHistoryIOS"];
         //get username and password
         User *currentUser = [[User alloc] initWithSavedUser];
-        NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+        NSString *password = [dataAndNetController getUserPassword];
         
         NSURL *url = [[NSURL alloc] initWithString:stringUrl];
         
         //create post data
-        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@", currentUser.username, password, requestedUser.userID];
+        NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@", [currentUser getEncodedUsername], password, requestedUser.userID];
         
         //create request
         NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -314,7 +319,7 @@
     {
         NSMutableArray *userPersonalSymptomHistory = [[NSMutableArray alloc] init];
         //get the symptoms the user has saved on his device and hasn't synced them yet
-        userPersonalSymptomHistory = [self getSavedSymptomsForUser:requestedUser.username];
+        userPersonalSymptomHistory = [self getSavedSymptomsForUser];
         return userPersonalSymptomHistory;
     }
     
@@ -327,7 +332,7 @@
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     
     //get logged in user's username and password
-    NSString *username = [[User alloc] initWithSavedUser].username;
+    User *currentUser = [[User alloc] initWithSavedUser];
     NSString *password = [dataAndNetController getUserPassword];
     
     //creatue url
@@ -337,7 +342,7 @@
     NSURL *url = [[NSURL alloc] initWithString:stringUrl];
     
     //create post data
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@", username, password, usrID];
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@", [currentUser getEncodedUsername], password, usrID];
     
     //create request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -357,7 +362,7 @@
     //copy returned attributes
     NSInteger tempID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
     int tempIDint = tempID;
-    NSString *tempUsername = username;
+    NSString *tempUsername = currentUser.username;
     NSString *tempSymptomCode = [jsonReponseData objectForKey:@"symptomCode"];
     NSString *tempSymptomTitle = [jsonReponseData objectForKey:@"symptomTitle"];
     NSString *tempDateSymptomAdded = [jsonReponseData objectForKey:@"dateSearched"];
@@ -432,7 +437,7 @@
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     
     //get logged in user's username and password
-    NSString *username = [[User alloc] initWithSavedUser].username;
+    User *currentUser = [[User alloc] initWithSavedUser];
     NSString *password = [dataAndNetController getUserPassword];
     
     //creatue url
@@ -442,7 +447,7 @@
     NSURL *url = [[NSURL alloc] initWithString:stringUrl];
     
     //create post data
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomHistoryID=%d&symptomFlag=%@", username, password, self.symptomHistoryID, self.symptomFlag];
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&symptomHistoryID=%d&symptomFlag=%@", [currentUser getEncodedUsername], password, self.symptomHistoryID, self.symptomFlag];
     
     //create request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -461,8 +466,6 @@
     
     
     NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
-    
-    
     
 }
 

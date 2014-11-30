@@ -24,11 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //get saved user
-    User *currentUser = [[User alloc] initWithSavedUser];
-    //get the users password
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
-
     //change title
     NSString *titleString = @"Find Doctor for ";
     titleString = [titleString stringByAppendingString:thisSymptomhistoryRecord.symptomTitle];
@@ -36,7 +31,7 @@
     
     //populate array with doctors for this symptom
     DoctorUser *aDoctor = [[DoctorUser alloc] init];
-    doctorsArray = [aDoctor getDoctorsForUser:currentUser.username andPassword:password forSymptomWithSymptomCode:thisSymptomhistoryRecord.symptomCode];
+    doctorsArray = [aDoctor getDoctorsForSymptomWithSymptomCode:thisSymptomhistoryRecord.symptomCode];
 
 }
 

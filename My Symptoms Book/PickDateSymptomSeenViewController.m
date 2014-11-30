@@ -44,14 +44,9 @@
 
 - (IBAction)saveSymptomButtonPressed:(id)sender {
     Symptomhistory *symptomHistory = [[Symptomhistory alloc]init];
-    
-    //get the current user
-    User *currentUser = [[User alloc] initWithSavedUser];
-    //get the curent user's password
-    password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
-    
+        
     //add symptom
-    [symptomHistory addSymptomForUser:currentUser.username withPassword:password theSymptom:selectedSymptom.symptomTitle withSymptomCode:selectedSymptom.symptomCode andDateFirstSeen:[self getInputedDate]];
+    [symptomHistory addForUserTheSymptom:selectedSymptom.symptomTitle withSymptomCode:selectedSymptom.symptomCode andDateFirstSeen:[self getInputedDate]];
     
     
 }

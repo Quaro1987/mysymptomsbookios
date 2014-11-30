@@ -34,18 +34,22 @@
 }
 
 //function to send a doctor request for the current user
--(NSString *)sendDoctorRequestForUser:(NSString *)usrName withPassword:(NSString *)pssWord ToDoctor:(NSNumber *)docID forSymptomhistoryWithID:(int)symHisID
+-(NSString *)sendDoctorRequestToDoctorWithID:(NSNumber *)docID forSymptomhistoryWithID:(int)symHisID
 {
-    //create post data string
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&doctorID=%@&symptomHistoryID=%d",
-                             usrName, pssWord, docID, symHisID];
-    //log message
-    NSLog(@"Postdata: %@",postMessage);
-    
     //create url post request will be made to
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     NSString *serverString = [dataAndNetController serverUrlString];
     NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"sendDoctorRequestIOS"]];
+    
+    //get username and password encoded
+    User *currentUser = [[User alloc] initWithSavedUser];
+    NSString *password = [dataAndNetController getUserPassword];
+    
+    //create post data string
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&doctorID=%@&symptomHistoryID=%d",
+                             [currentUser getEncodedUsername], password, docID, symHisID];
+    //log message
+    NSLog(@"Postdata: %@",postMessage);
     
     //url request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -67,17 +71,21 @@
 }
 
 //function to delete doctorrequest relation between users
--(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *)usrID
+-(NSString *)deleteRelationBetweenUserAndUserWithUserID:(NSNumber *)usrID
 {
-    //create post data string
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&relationID=%@", username, password, usrID];
-    //log message
-    NSLog(@"Postdata: %@",postMessage);
-    
     //create url post request will be made to
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     NSString *serverString = [dataAndNetController serverUrlString];
     NSURL *url =[[NSURL alloc] initWithString:[serverString stringByAppendingString:@"removeContactIOS"]];
+    
+    //get username and password encoded
+    User *currentUser = [[User alloc] initWithSavedUser];
+    NSString *password = [dataAndNetController getUserPassword];
+    
+    //create post data string
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&relationID=%@", [currentUser getEncodedUsername], password, usrID];
+    //log message
+    NSLog(@"Postdata: %@",postMessage);
     
     //url request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -112,7 +120,7 @@
     NSString *password = [dataAndNetController getUserPassword];
     
     //create post data string
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@&reply=%@", currentUser.username, password, usrID, reply];
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&userID=%@&reply=%@", [currentUser getEncodedUsername], password, usrID, reply];
     //log message
 
     //url request
@@ -147,11 +155,11 @@
     //get curent user username and password
     User *currentUser = [[User alloc]initWithSavedUser];
     
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    NSString *password = [dataAndNetController getUserPassword];
     
     //build post message
     NSString *postMessage = [[NSString alloc] init];
-    postMessage = [NSString stringWithFormat:@"username=%@&password=%@", currentUser.username, password];
+    postMessage = [NSString stringWithFormat:@"username=%@&password=%@", [currentUser getEncodedUsername], password];
     
     //create request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];

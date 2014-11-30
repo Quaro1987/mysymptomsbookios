@@ -22,9 +22,9 @@
 -(id)initWithDoctorRequestID: (int) docRequestID andUserID: (int) usID andDoctorID: (int) docID andDoctorAcceptedFlag: (int) docAccepted
          andSymptomhistoryID: (int) symHistoryID andNewSymptomAddedFlag: (int) newSymAdded;
 
--(NSString *)sendDoctorRequestForUser: (NSString *) usrName withPassword: (NSString *) pssWord ToDoctor: (NSNumber *) docID forSymptomhistoryWithID: (int) symHisID;
+-(NSString *)sendDoctorRequestToDoctorWithID: (NSNumber *) docID forSymptomhistoryWithID: (int) symHisID;
 
--(NSString *)deleteRelationForUser:(NSString *)username withPassword:(NSString *)password withUserWithUserID:(NSNumber *) usrID;
+-(NSString *)deleteRelationBetweenUserAndUserWithUserID:(NSNumber *) usrID;
 
 -(NSString *)replyToRequestFromUserWithID:(NSNumber *) usrID withReply:(NSString *)reply;
 

@@ -29,6 +29,8 @@
 -(void)encodeWithCoder:(NSCoder *)encoder;
 -(id)initWithCoder:(NSCoder *)decoder;
 
+-(NSString *)getEncodedUsername;
+
 //save / init user from nsuserdefaults
 -(id)initWithSavedUser;
 

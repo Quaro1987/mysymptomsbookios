@@ -8,7 +8,7 @@
 
 #import "DoctorUser.h"
 #import "DataAndNetFunctions.h"
-
+#import "User.h"
 @implementation DoctorUser
 
 @synthesize username, userType, userID, email, status, doctorSpecialty, aboutDoctor ,firstName, lastName;
@@ -45,11 +45,13 @@
 }
 
 //function to get the doctor users
--(NSMutableArray *)getDoctorsForUser:(NSString *)userName andPassword:(NSString *)password forSymptomWithSymptomCode:(NSString *)symptomCode
+-(NSMutableArray *)getDoctorsForSymptomWithSymptomCode:(NSString *)symptomCode
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     
+    //get current user
+    User *currentUser = [[User alloc] initWithSavedUser];
     
     NSString *serverString = [dataAndNetController serverUrlString];
     //creatue url
@@ -62,11 +64,11 @@
     //create post data
     if([symptomCode isEqualToString:@"GET DOCTORS"])
     {
-        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", userName, password, symptomCode];
+        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", [currentUser getEncodedUsername], [dataAndNetController getUserPassword], symptomCode];
     }
     else
     {
-        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", userName, password, symptomCode];
+        postMessage = [NSString stringWithFormat:@"username=%@&password=%@&symptomCode=%@", [currentUser getEncodedUsername], [dataAndNetController getUserPassword], symptomCode];
     }
     
     //create request
