@@ -78,8 +78,9 @@ audioMessageFileName, sendAudioMessage;
     recordButton.enabled = NO;
     stopButton.enabled = YES;
     //start recording
-    [messageRecorder record];
+    //[messageRecorder recordForDuration:10];
     sendAudioMessage = YES;
+    [messageRecorder record];
 }
 
 //stop recording or playback when pressed

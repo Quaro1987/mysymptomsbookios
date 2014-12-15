@@ -26,15 +26,11 @@ findingDoctorViewLoadingIndicator;
     dateSymptomAddedLabel.text = selectedSymptomhistoryEntry.dateSymptomAdded;
     dateSymptomFirstSeenLabel.text = selectedSymptomhistoryEntry.dateSymptomFirstSeen;
 #warning finish implementing this
-    if([selectedSymptomhistoryEntry.symptomFlag isEqual:(id) [NSNull null]] || selectedSymptomhistoryEntry.symptomFlag.length == 0)
-    {
-        characterizationLabel.text = @"No Characterization";
-    }
-    else
-    {
-    characterizationLabel.text = selectedSymptomhistoryEntry.symptomFlag;
     
-    }
+    //update label color and text
+    characterizationLabel.textColor = [selectedSymptomhistoryEntry getCharacterizationLabelColor];
+    characterizationLabel.text = [selectedSymptomhistoryEntry getCharacterizationLabelText];
+
     [symptomButton setTitle:selectedSymptomhistoryEntry.symptomTitle forState:UIControlStateNormal];
     [super viewDidLoad];
     

@@ -12,6 +12,8 @@
 #import "DoctorRequest.h"
 #import "User.h"
 #import "SSKeychain.h"
+#import "DataAndNetFunctions.h"
+#import "NormalUserMainViewController.h"
 
 @interface AddDoctorViewController ()
 
@@ -52,5 +54,17 @@
     DoctorRequest *doctorRequestToSend = [[DoctorRequest alloc] init];
     NSString *reply = [doctorRequestToSend sendDoctorRequestToDoctorWithID:selectedDoctor.userID forSymptomhistoryWithID: thisSymptomhistoryEntry.symptomHistoryID];
     NSLog(reply);
+    
+    //get success alert view
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    UIAlertView *successAlert = [dataController alertStatus:@"Request sent to Doctor" andAlertTitle:@"Doctor Request Successfully Sent"];
+    //show alert view
+    [successAlert show];
+    
+    //redirect to main menu
+    NormalUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+    [self.navigationController pushViewController:destinationController animated:NO];
+
+    
 }
 @end

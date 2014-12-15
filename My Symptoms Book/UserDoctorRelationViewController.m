@@ -11,6 +11,9 @@
 #import "DoctorUser.h"
 #import "User.h"
 #import "SSKeychain.h"
+#import "DataAndNetFunctions.h"
+#import "NormalUserMainViewController.h"
+#import "DoctorUserMainViewController.h"
 
 @interface UserDoctorRelationViewController ()
 
@@ -48,12 +51,38 @@
 - (IBAction)removeUserRelationPressed:(id)sender {
     DoctorRequest *docRequest = [[DoctorRequest alloc] init];
     
-    //get current user name and password
+    //get current user
     User *currentUser = [thisUser initWithSavedUser];
-    NSString *password = [SSKeychain passwordForService:@"MySymptomsBook" account:currentUser.username];
+    
     //delete user relation
-    NSString *queryResultString = [docRequest deleteRelationForUser:currentUser.username withPassword:password withUserWithUserID:thisUser.userID];
+    NSString *queryResultString = [docRequest deleteRelationBetweenUserAndUserWithUserID:thisUser.userID];
     
     NSLog(queryResultString);
+    
+    if([currentUser.userType isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        //get success alert view
+        DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+        UIAlertView *successAlert = [dataController alertStatus:@"Patient Successfully Removed" andAlertTitle:@"Patient Removed"];
+        //show alert view
+        [successAlert show];
+        
+        //redirect to main menu
+        DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+        [self.navigationController pushViewController:destinationController animated:NO];
+    }
+    else
+    {
+        //get success alert view
+        DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+        UIAlertView *successAlert = [dataController alertStatus:@"Doctor Successfully Removed" andAlertTitle:@"Doctor Removed"];
+        //show alert view
+        [successAlert show];
+        
+        //redirect to main menu
+        NormalUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+        [self.navigationController pushViewController:destinationController animated:NO];
+
+    }
 }
 @end

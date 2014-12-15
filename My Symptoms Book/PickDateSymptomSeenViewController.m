@@ -12,6 +12,7 @@
 #import "User.h"
 #import "SSKeychain.h"
 #import "Symptomhistory.h"
+#import "NormalUserMainViewController.h"
 
 @interface PickDateSymptomSeenViewController ()
 
@@ -48,7 +49,16 @@
     //add symptom
     [symptomHistory addForUserTheSymptom:selectedSymptom.symptomTitle withSymptomCode:selectedSymptom.symptomCode andDateFirstSeen:[self getInputedDate]];
     
+    //get success alert view
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    UIAlertView *successAlert = [dataController alertStatus:@"Symptom Successfully added to History." andAlertTitle:@"Symptom Saved"];
+    //show alert view
+    [successAlert show];
     
+    //redirect to main menu
+    NormalUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+    [self.navigationController pushViewController:destinationController animated:NO];
+
 }
 
 //return the inputed date in the appropriate format

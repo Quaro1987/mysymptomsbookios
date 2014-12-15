@@ -10,6 +10,8 @@
 #import "User.h"
 #import "Symptomhistory.h"
 #import "DoctorRequest.h"
+#import "DataAndNetFunctions.h"
+#import "DoctorUserMainViewController.h"
 
 @interface UserRequestViewController ()
 
@@ -52,10 +54,32 @@
 - (IBAction)relationAcceptPressed:(id)sender {
     DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
     [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"ACCEPT"];
+    
+    //get success alert view
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    UIAlertView *successAlert = [dataController alertStatus:@"Patient Accepted" andAlertTitle:@"Patient Accepted"];
+    //show alert view
+    [successAlert show];
+    
+    //redirect to main menu
+    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+    [self.navigationController pushViewController:destinationController animated:NO];
+
 }
 
 - (IBAction)relationRejectPressed:(id)sender {
     DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
     [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"REJECT"];
+    
+    //get success alert view
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    UIAlertView *successAlert = [dataController alertStatus:@"Patient Rejected" andAlertTitle:@"Patient Rejected"];
+    //show alert view
+    [successAlert show];
+    
+    //redirect to main menu
+    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+    [self.navigationController pushViewController:destinationController animated:NO];
+
 }
 @end

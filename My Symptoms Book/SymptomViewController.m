@@ -10,6 +10,8 @@
 #import "Symptom.h"
 #import "PickDateSymptomSeenViewController.h"
 #import "DoctorSymptomSpecialty.h"
+#import "DoctorUserMainViewController.h"
+#import "DataAndNetFunctions.h"
 
 @interface SymptomViewController ()
 
@@ -53,5 +55,16 @@
     DoctorSymptomSpecialty *addSpecialty = [[DoctorSymptomSpecialty alloc] init];
     //add symptom specialty
     [addSpecialty addDoctorSymptomSpecialtyWithSymptomCode:thisSymptom.symptomCode];
+    
+    //get success alert view
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    UIAlertView *successAlert = [dataController alertStatus:@"Symptom Specialty Successfully Added" andAlertTitle:@"Specialty Added"];
+    //show alert view
+    [successAlert show];
+    
+    //redirect to main menu
+    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+    [self.navigationController pushViewController:destinationController animated:NO];
+
 }
 @end
