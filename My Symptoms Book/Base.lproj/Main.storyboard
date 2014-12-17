@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="417"/>
+            <point key="canvasLocation" x="280.5" y="416.5"/>
         </scene>
         <!--Log in Page-->
         <scene sceneID="pmp-T4-WJ7">
@@ -986,7 +986,9 @@
                                 <locale key="locale" localeIdentifier="el"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-10-hVy">
-                                <rect key="frame" x="135" y="388" width="105" height="30"/>
+                                <rect key="frame" x="127" y="369" width="120" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Save Symptom">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1198,12 +1200,6 @@
                                     <action selector="playPressed:" destination="UIU-3r-qKR" eventType="touchUpInside" id="XVF-n8-VwP"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Insert contact message here..." translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
-                                <rect key="frame" x="28" y="84" width="315" height="145"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkw-eV-dxU">
                                 <rect key="frame" x="68" y="368" width="78" height="70"/>
                                 <state key="normal" image="recNormal.png">
@@ -1241,19 +1237,35 @@
                                     <action selector="sendMessagePressed:" destination="UIU-3r-qKR" eventType="touchUpInside" id="NJd-FG-eP9"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tJu-45-9kw">
+                                <rect key="frame" x="187" y="317" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Insert contact message here..." translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
+                                <rect key="frame" x="28" y="84" width="315" height="145"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4G8-3I-UK2" appends="YES" id="aLP-co-WYI"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Contact Patient" id="RfK-WL-mvH"/>
                     <connections>
                         <outlet property="playButton" destination="Z2z-qM-fdc" id="b8A-hf-roZ"/>
                         <outlet property="recordButton" destination="Jkw-eV-dxU" id="Ic8-dc-QSC"/>
                         <outlet property="sendAsSMSCheckBox" destination="Krl-kf-VJV" id="meU-ED-ia8"/>
+                        <outlet property="sendingMessageActivityIndicator" destination="tJu-45-9kw" id="Lk4-PG-f0w"/>
                         <outlet property="stopButton" destination="0HH-xI-hK0" id="Vrp-Wo-X0v"/>
+                        <outlet property="tapGestureRecognizer" destination="4G8-3I-UK2" id="apG-dJ-9MJ"/>
                         <outlet property="textFieldSubView" destination="mNZ-RP-D7b" id="iW8-H4-jEc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr3-vt-c9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4G8-3I-UK2"/>
             </objects>
             <point key="canvasLocation" x="2136.5" y="-1162.5"/>
         </scene>
@@ -1537,7 +1549,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4v-9i-5gd">
-                                <rect key="frame" x="139" y="405" width="96" height="30"/>
+                                <rect key="frame" x="121" y="411" width="120" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Add Specialty">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

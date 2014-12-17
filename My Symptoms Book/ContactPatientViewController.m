@@ -19,7 +19,7 @@
 @implementation ContactPatientViewController
 
 @synthesize patientUser, textFieldSubView, sendAsSMSCheckBox, recordButton, stopButton, messageRecorder, playButton, messagePlayer,
-audioMessageFileName, sendAudioMessage;
+audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGestureRecognizer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +39,18 @@ audioMessageFileName, sendAudioMessage;
     //disable stop and play button
     stopButton.enabled = NO;
     playButton.enabled = NO;
+    
+    //set gesture recognizer
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+//dismiss keyboard from textfield
+-(void)dismissKeyboard {
+    [textFieldSubView resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +70,19 @@ audioMessageFileName, sendAudioMessage;
 
 //function to send the message to the server
 - (IBAction)sendMessagePressed:(id)sender {
+    [sendingMessageActivityIndicator startAnimating];
+    //stop the indicator from animating once the segue has been performed with a 2 second delay
+    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicator:) withObject:self.sendingMessageActivityIndicator afterDelay:2.0];
+    
+}
+
+
+//stop loading animation and send message
+- (void)stopLoadingAnimationOfActivityIndicator: (UIActivityIndicatorView *)spinner {
+    //stop loading animation
+    [spinner stopAnimating];
+    
+    //send contact information
     ContactForm *contact = [[ContactForm alloc] init];
     [contact sendMessage:textFieldSubView.text toUserWithID:patientUser.userID andAlsoeSendAsSMS:sendAsSMSCheckBox.selected andAlsoSendRecordedMessage:sendAudioMessage withFileName:audioMessageFileName];
     
