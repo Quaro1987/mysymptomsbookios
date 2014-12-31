@@ -38,7 +38,7 @@
         {
             NSLog(@"This user is a normal type user");
             NormalUserMainViewController *destinationController = [storyBoard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
-            destinationController.currentUser = currentUser;
+            //destinationController.currentUser = currentUser;
             
             [self.navigationController pushViewController:destinationController animated:NO];
         }

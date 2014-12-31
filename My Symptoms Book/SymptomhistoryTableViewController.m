@@ -30,7 +30,7 @@
     //check for user and update title bar
     if([currentUser.userID isEqual:thisUser.userID])
     {
-        navigationBar.title = @"You Symptom History";
+        navigationBar.title = @"Your Symptom History";
     }
     else
     {

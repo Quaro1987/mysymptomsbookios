@@ -25,7 +25,7 @@
 @synthesize currentUser, userSymptomhistoryActivityIndicator, segueToPerform;
 
 - (void)viewDidLoad {
-    
+    currentUser = [[User alloc] initWithSavedUser];
     
     self.navigationBar.title = @"My Symptoms Book";
     //hide back button
