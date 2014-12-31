@@ -1,0 +1,453 @@
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "0xz-je-4uR"; */
+"0xz-je-4uR.title" = "Back";
+
+/* Class = "IBUILabel"; text = "placeholderTitle"; ObjectID = "1dk-St-4Sj"; */
+"1dk-St-4Sj.text" = "placeholderTitle";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "1ru-g5-oUU"; */
+"1ru-g5-oUU.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Username:"; ObjectID = "2X1-mR-8O1"; */
+"2X1-mR-8O1.text" = "Username:";
+
+/* Class = "IBUINavigationItem"; title = "Doctor Details"; ObjectID = "2zN-dy-CpS"; */
+"2zN-dy-CpS.title" = "Doctor Details";
+
+/* Class = "IBUILabel"; text = "Password:"; ObjectID = "3m2-Rs-Vyu"; */
+"3m2-Rs-Vyu.text" = "Password:";
+
+/* Class = "IBUILabel"; text = "charLabel"; ObjectID = "3pE-JZ-Apb"; */
+"3pE-JZ-Apb.text" = "charLabel";
+
+/* Class = "IBUIBarButtonItem"; title = "Add"; ObjectID = "4z8-O9-8s9"; */
+"4z8-O9-8s9.title" = "Add";
+
+/* Class = "IBUILabel"; text = "Exclusions"; ObjectID = "51U-vV-ffw"; */
+"51U-vV-ffw.text" = "Exclusions";
+
+/* Class = "IBUINavigationItem"; title = "Your Symptom History"; ObjectID = "5A8-CT-mLq"; */
+"5A8-CT-mLq.title" = "Your Symptom History";
+
+/* Class = "IBUIButton"; normalTitle = "Reject"; ObjectID = "5FB-HF-HvW"; */
+"5FB-HF-HvW.normalTitle" = "Reject";
+
+/* Class = "IBUIButton"; normalTitle = "Send Message"; ObjectID = "5FI-Zg-2nf"; */
+"5FI-Zg-2nf.normalTitle" = "Send Message";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "6DN-iO-E1V"; */
+"6DN-iO-E1V.title" = "Back";
+
+/* Class = "IBUIButton"; normalTitle = "symptomButton"; ObjectID = "6Ob-yd-r6S"; */
+"6Ob-yd-r6S.normalTitle" = "symptomButton";
+
+/* Class = "IBUIButton"; normalTitle = "Contact Patient"; ObjectID = "78I-yL-0j0"; */
+"78I-yL-0j0.normalTitle" = "Contact Patient";
+
+/* Class = "IBUIButton"; normalTitle = "Log In"; ObjectID = "7hF-qL-eeC"; */
+"7hF-qL-eeC.normalTitle" = "Log In";
+
+/* Class = "IBUINavigationItem"; title = "Manage Patients"; ObjectID = "7vz-mA-LzQ"; */
+"7vz-mA-LzQ.title" = "Manage Patients";
+
+/* Class = "IBUILabel"; text = "Symptom:"; ObjectID = "8GO-n5-6mj"; */
+"8GO-n5-6mj.text" = "Symptom:";
+
+/* Class = "IBUINavigationItem"; title = "User's Symptom"; ObjectID = "8oC-7J-OR2"; */
+"8oC-7J-OR2.title" = "User's Symptom";
+
+/* Class = "IBUIButton"; normalTitle = "Save Symptom"; ObjectID = "9Az-10-hVy"; */
+"9Az-10-hVy.normalTitle" = "Save Symptom";
+
+/* Class = "IBUIButton"; normalTitle = "Select Diagnosis"; ObjectID = "9MY-ZO-LFY"; */
+"9MY-ZO-LFY.normalTitle" = "Select Diagnosis";
+
+/* Class = "IBUILabel"; text = "Date First Seen:"; ObjectID = "A4R-dh-4gC"; */
+"A4R-dh-4gC.text" = "Date First Seen:";
+
+/* Class = "IBUINavigationItem"; title = "specialty category select"; ObjectID = "A6V-ny-5H3"; */
+"A6V-ny-5H3.title" = "specialty category select";
+
+/* Class = "IBUIButton"; normalTitle = "Log Out"; ObjectID = "AQq-ak-RDf"; */
+"AQq-ak-RDf.normalTitle" = "Log Out";
+
+/* Class = "IBUILabel"; text = "char label"; ObjectID = "ASV-uy-VsB"; */
+"ASV-uy-VsB.text" = "char label";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "Abq-ET-uSM"; */
+"Abq-ET-uSM.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Add Symptom"; ObjectID = "AuX-GM-Cji"; */
+"AuX-GM-Cji.normalTitle" = "Add Symptom";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "BEB-dK-Mpy"; */
+"BEB-dK-Mpy.text" = "Title";
+
+/* Class = "IBUILabel"; text = "First Name:"; ObjectID = "BcX-SR-STu"; */
+"BcX-SR-STu.text" = "First Name:";
+
+/* Class = "IBUILabel"; text = "specialty"; ObjectID = "C2K-fa-zei"; */
+"C2K-fa-zei.text" = "specialty";
+
+/* Class = "IBUINavigationItem"; title = "symptom details"; ObjectID = "CJm-Wm-frc"; */
+"CJm-Wm-frc.title" = "symptom details";
+
+/* Class = "IBUILabel"; text = "Title:"; ObjectID = "CM1-Bq-ESS"; */
+"CM1-Bq-ESS.text" = "Title:";
+
+/* Class = "IBUILabel"; text = "symptomCodeLabel"; ObjectID = "CVp-VJ-qdg"; */
+"CVp-VJ-qdg.text" = "symptomCodeLabel";
+
+/* Class = "IBUILabel"; text = "000"; ObjectID = "Cgp-Sx-jfH"; */
+"Cgp-Sx-jfH.text" = "000";
+
+/* Class = "IBUILabel"; text = "inclusions label"; ObjectID = "Cwc-sL-l13"; */
+"Cwc-sL-l13.text" = "inclusions label";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "D0s-Lz-8Wb"; */
+"D0s-Lz-8Wb.title" = "Back";
+
+/* Class = "IBUIButton"; normalTitle = "Log Out"; ObjectID = "E8c-tZ-gpG"; */
+"E8c-tZ-gpG.normalTitle" = "Log Out";
+
+/* Class = "IBUILabel"; text = "fName"; ObjectID = "EMg-Qc-X7o"; */
+"EMg-Qc-X7o.text" = "fName";
+
+/* Class = "IBUINavigationItem"; title = "Your Doctors"; ObjectID = "EWR-Qh-VUN"; */
+"EWR-Qh-VUN.title" = "Your Doctors";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "F84-nE-feG"; */
+"F84-nE-feG.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "First Name:"; ObjectID = "GZl-Hc-2ze"; */
+"GZl-Hc-2ze.text" = "First Name:";
+
+/* Class = "IBUIButton"; normalTitle = "Add Doctor"; ObjectID = "Gl9-qg-9DX"; */
+"Gl9-qg-9DX.normalTitle" = "Add Doctor";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "Gqw-30-VN5"; */
+"Gqw-30-VN5.text" = "Subtitle";
+
+/* Class = "IBUINavigationItem"; title = "normal user main menu"; ObjectID = "HGH-I4-Mcd"; */
+"HGH-I4-Mcd.title" = "normal user main menu";
+
+/* Class = "IBUILabel"; text = "Symptom Title:"; ObjectID = "Hpk-ln-3CH"; */
+"Hpk-ln-3CH.text" = "Symptom Title:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "I1X-xy-Mwn"; */
+"I1X-xy-Mwn.text" = "Label";
+
+/* Class = "IBUILabel"; text = "symtitle"; ObjectID = "IJU-DM-3NN"; */
+"IJU-DM-3NN.text" = "symtitle";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "INe-2U-JcB"; */
+"INe-2U-JcB.title" = "Back";
+
+/* Class = "IBUILabel"; text = "ICPC2 Code:"; ObjectID = "IS2-ZA-cGx"; */
+"IS2-ZA-cGx.text" = "ICPC2 Code:";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "IWW-vT-lhg"; */
+"IWW-vT-lhg.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Exclusions:"; ObjectID = "IcJ-kt-EnN"; */
+"IcJ-kt-EnN.text" = "Exclusions:";
+
+/* Class = "IBUINavigationItem"; title = "User Request"; ObjectID = "Ilf-fV-pmg"; */
+"Ilf-fV-pmg.title" = "User Request";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "Iy9-Nk-z5v"; */
+"Iy9-Nk-z5v.text" = "Subtitle";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "J9Y-ee-gwx"; */
+"J9Y-ee-gwx.title" = "Back";
+
+/* Class = "IBUINavigationItem"; title = "Symptom Detailed View"; ObjectID = "JTG-jj-Y4u"; */
+"JTG-jj-Y4u.title" = "Symptom Detailed View";
+
+/* Class = "IBUILabel"; text = "Date added:"; ObjectID = "K1S-qC-47P"; */
+"K1S-qC-47P.text" = "Date added:";
+
+/* Class = "IBUILabel"; text = "Date Added:"; ObjectID = "L00-43-yO2"; */
+"L00-43-yO2.text" = "Date Added:";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "LOb-VR-ioF"; */
+"LOb-VR-ioF.title" = "Back";
+
+/* Class = "IBUILabel"; text = "placeholder exclusions"; ObjectID = "LcT-H6-6e5"; */
+"LcT-H6-6e5.text" = "placeholder exclusions";
+
+/* Class = "IBUINavigationItem"; title = "symptom select"; ObjectID = "Mgu-By-oAe"; */
+"Mgu-By-oAe.title" = "symptom select";
+
+/* Class = "IBUILabel"; text = "First Name:"; ObjectID = "Mm1-go-5zL"; */
+"Mm1-go-5zL.text" = "First Name:";
+
+/* Class = "IBUINavigationItem"; title = "select symptom"; ObjectID = "N0V-jh-0YW"; */
+"N0V-jh-0YW.title" = "select symptom";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "NFb-wH-fpa"; */
+"NFb-wH-fpa.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Your Symptom History"; ObjectID = "NRz-3i-OwW"; */
+"NRz-3i-OwW.normalTitle" = "Your Symptom History";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "Nfi-6x-B30"; */
+"Nfi-6x-B30.title" = "Back";
+
+/* Class = "IBUILabel"; text = "symptomTitleLabel"; ObjectID = "QGl-bW-6uF"; */
+"QGl-bW-6uF.text" = "symptomTitleLabel";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "QMF-Ad-9L7"; */
+"QMF-Ad-9L7.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "QmD-mP-eNZ"; */
+"QmD-mP-eNZ.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Last Name:"; ObjectID = "Rdy-mH-syR"; */
+"Rdy-mH-syR.text" = "Last Name:";
+
+/* Class = "IBUINavigationItem"; title = "Contact Patient"; ObjectID = "RfK-WL-mvH"; */
+"RfK-WL-mvH.title" = "Contact Patient";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "Rm9-8C-e5d"; */
+"Rm9-8C-e5d.title" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "find a doctor"; ObjectID = "T3r-Vh-zfl"; */
+"T3r-Vh-zfl.title" = "find a doctor";
+
+/* Class = "IBUILabel"; text = "000"; ObjectID = "T88-Tb-ePs"; */
+"T88-Tb-ePs.text" = "000";
+
+/* Class = "IBUIButton"; normalTitle = "Manage Doctors"; ObjectID = "Tgy-zE-fez"; */
+"Tgy-zE-fez.normalTitle" = "Manage Doctors";
+
+/* Class = "IBUILabel"; text = "placeholder inclusions"; ObjectID = "V1d-EB-wN3"; */
+"V1d-EB-wN3.text" = "placeholder inclusions";
+
+/* Class = "IBUILabel"; text = "fname"; ObjectID = "VAa-k6-odb"; */
+"VAa-k6-odb.text" = "fname";
+
+/* Class = "IBUILabel"; text = "placeholder exclusions"; ObjectID = "XOG-j5-sxO"; */
+"XOG-j5-sxO.text" = "placeholder exclusions";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "XUU-y6-n03"; */
+"XUU-y6-n03.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Characterization:"; ObjectID = "XWu-mN-2KA"; */
+"XWu-mN-2KA.text" = "Characterization:";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "XgO-EA-lj5"; */
+"XgO-EA-lj5.text" = "Title";
+
+/* Class = "IBUIButton"; normalTitle = "Manage User Relations"; ObjectID = "YAg-ZA-qFB"; */
+"YAg-ZA-qFB.normalTitle" = "Manage User Relations";
+
+/* Class = "IBUILabel"; text = "Symptom Title:"; ObjectID = "ZUo-di-zrU"; */
+"ZUo-di-zrU.text" = "Symptom Title:";
+
+/* Class = "IBUILabel"; text = "Specialty:"; ObjectID = "a3F-gW-o5V"; */
+"a3F-gW-o5V.text" = "Specialty:";
+
+/* Class = "IBUILabel"; text = "placeholderTitle"; ObjectID = "a9K-vm-c9A"; */
+"a9K-vm-c9A.text" = "placeholderTitle";
+
+/* Class = "IBUILabel"; text = "Title:"; ObjectID = "axK-Fh-Ebo"; */
+"axK-Fh-Ebo.text" = "Title:";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "axO-JS-ZMB"; */
+"axO-JS-ZMB.title" = "Back";
+
+/* Class = "IBUILabel"; text = "fname"; ObjectID = "be8-rj-OuV"; */
+"be8-rj-OuV.text" = "fname";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "bt1-I1-CEs"; */
+"bt1-I1-CEs.text" = "Subtitle";
+
+/* Class = "IBUIButton"; normalTitle = "Add Specialty"; ObjectID = "c4v-9i-5gd"; */
+"c4v-9i-5gd.normalTitle" = "Add Specialty";
+
+/* Class = "IBUILabel"; text = "lName"; ObjectID = "cNC-vG-6qB"; */
+"cNC-vG-6qB.text" = "lName";
+
+/* Class = "IBUIButton"; normalTitle = "Add Symptom"; ObjectID = "d2Z-HP-pwM"; */
+"d2Z-HP-pwM.normalTitle" = "Add Symptom";
+
+/* Class = "IBUINavigationItem"; title = "symptom category"; ObjectID = "dKw-4T-zx7"; */
+"dKw-4T-zx7.title" = "symptom category";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "erb-aJ-cng"; */
+"erb-aJ-cng.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "eys-mH-ahc"; */
+"eys-mH-ahc.text" = "Title";
+
+/* Class = "IBUIButton"; normalTitle = "Manage Patient Symptom History"; ObjectID = "fPX-6w-zKL"; */
+"fPX-6w-zKL.normalTitle" = "Manage Patient Symptom History";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "fmS-vy-XMh"; */
+"fmS-vy-XMh.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "ICPC2 Code:"; ObjectID = "g4c-at-y8H"; */
+"g4c-at-y8H.text" = "ICPC2 Code:";
+
+/* Class = "IBUILabel"; text = "date added"; ObjectID = "gHT-qT-dxf"; */
+"gHT-qT-dxf.text" = "date added";
+
+/* Class = "IBUINavigationItem"; title = "Add Symptom Specialty"; ObjectID = "gnD-2v-Fgh"; */
+"gnD-2v-Fgh.title" = "Add Symptom Specialty";
+
+/* Class = "IBUILabel"; text = "lname"; ObjectID = "hHw-w9-j9K"; */
+"hHw-w9-j9K.text" = "lname";
+
+/* Class = "IBUILabel"; text = "Exclusions:"; ObjectID = "iGd-wx-S85"; */
+"iGd-wx-S85.text" = "Exclusions:";
+
+/* Class = "IBUILabel"; text = "ICPC2 Code:"; ObjectID = "iHE-uu-0LB"; */
+"iHE-uu-0LB.text" = "ICPC2 Code:";
+
+/* Class = "IBUINavigationItem"; title = "Input Date Symptom First Seen"; ObjectID = "irI-rl-O9k"; */
+"irI-rl-O9k.title" = "Input Date Symptom First Seen";
+
+/* Class = "IBUIButton"; normalTitle = "Remove Patient"; ObjectID = "j7S-Ym-0XC"; */
+"j7S-Ym-0XC.normalTitle" = "Remove Patient";
+
+/* Class = "IBUINavigationItem"; title = "Your Patient Relations"; ObjectID = "jqV-3y-eSb"; */
+"jqV-3y-eSb.title" = "Your Patient Relations";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "kQn-hY-yDP"; */
+"kQn-hY-yDP.title" = "Back";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "kWw-bI-vjT"; */
+"kWw-bI-vjT.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Inclusions:"; ObjectID = "kxd-rP-xdu"; */
+"kxd-rP-xdu.text" = "Inclusions:";
+
+/* Class = "IBUIButton"; normalTitle = "Log In"; ObjectID = "l1x-Yr-Ftp"; */
+"l1x-Yr-Ftp.normalTitle" = "Log In";
+
+/* Class = "IBUINavigationItem"; title = "symptomhistorydetail View"; ObjectID = "lVX-Vn-woc"; */
+"lVX-Vn-woc.title" = "symptomhistorydetail View";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "lZq-PJ-2EO"; */
+"lZq-PJ-2EO.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "lnb-Oe-iRg"; */
+"lnb-Oe-iRg.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Date first occured:"; ObjectID = "lso-sh-s6y"; */
+"lso-sh-s6y.text" = "Date first occured:";
+
+/* Class = "IBUILabel"; text = "Inclusions:"; ObjectID = "m2a-hr-Mnq"; */
+"m2a-hr-Mnq.text" = "Inclusions:";
+
+/* Class = "IBUITextView"; text = "Insert contact message here..."; ObjectID = "mNZ-RP-D7b"; */
+"mNZ-RP-D7b.text" = "Insert contact message here...";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "mfW-h3-GyC"; */
+"mfW-h3-GyC.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "mrX-Zb-ymt"; */
+"mrX-Zb-ymt.text" = "Title";
+
+/* Class = "IBUIButton"; normalTitle = "Accept"; ObjectID = "n2G-6w-c1v"; */
+"n2G-6w-c1v.normalTitle" = "Accept";
+
+/* Class = "IBUILabel"; text = "dFOLabel"; ObjectID = "nE6-jK-3tM"; */
+"nE6-jK-3tM.text" = "dFOLabel";
+
+/* Class = "IBUISearchBar"; nHb-2b-kw1.scopeButtonTitles[0] = "All"; ObjectID = "nHb-2b-kw1"; */
+"nHb-2b-kw1.scopeButtonTitles[0]" = "All";
+
+/* Class = "IBUISearchBar"; nHb-2b-kw1.scopeButtonTitles[1] = "Today"; ObjectID = "nHb-2b-kw1"; */
+"nHb-2b-kw1.scopeButtonTitles[1]" = "Today";
+
+/* Class = "IBUISearchBar"; nHb-2b-kw1.scopeButtonTitles[2] = "This Week"; ObjectID = "nHb-2b-kw1"; */
+"nHb-2b-kw1.scopeButtonTitles[2]" = "This Week";
+
+/* Class = "IBUISearchBar"; nHb-2b-kw1.scopeButtonTitles[3] = "This Month"; ObjectID = "nHb-2b-kw1"; */
+"nHb-2b-kw1.scopeButtonTitles[3]" = "This Month";
+
+/* Class = "IBUINavigationItem"; title = "Log in Page"; ObjectID = "nS2-eK-e5Y"; */
+"nS2-eK-e5Y.title" = "Log in Page";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "ncZ-Qj-KxO"; */
+"ncZ-Qj-KxO.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Record Voice Mail:"; ObjectID = "ndf-KT-IBq"; */
+"ndf-KT-IBq.text" = "Record Voice Mail:";
+
+/* Class = "IBUIButton"; normalTitle = "Manage Symptom Specialties"; ObjectID = "oCk-Ot-cjN"; */
+"oCk-Ot-cjN.normalTitle" = "Manage Symptom Specialties";
+
+/* Class = "IBUIButton"; normalTitle = "Find a Doctor for this Symptom"; ObjectID = "oFf-o0-7Sp"; */
+"oFf-o0-7Sp.normalTitle" = "Find a Doctor for this Symptom";
+
+/* Class = "IBUINavigationItem"; title = "doctor user main menu"; ObjectID = "opl-1H-qiM"; */
+"opl-1H-qiM.title" = "doctor user main menu";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "p5g-z6-Djx"; */
+"p5g-z6-Djx.title" = "Title";
+
+/* Class = "IBUILabel"; text = "dSALabel"; ObjectID = "pHu-NV-WAz"; */
+"pHu-NV-WAz.text" = "dSALabel";
+
+/* Class = "IBUILabel"; text = "Specialty:"; ObjectID = "pWS-xd-ufw"; */
+"pWS-xd-ufw.text" = "Specialty:";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "q0k-76-sCl"; */
+"q0k-76-sCl.title" = "Back";
+
+/* Class = "IBUINavigationItem"; title = "Your Symptom Specialties"; ObjectID = "qP7-CP-6l4"; */
+"qP7-CP-6l4.title" = "Your Symptom Specialties";
+
+/* Class = "IBUILabel"; text = "Last Name:"; ObjectID = "qqN-vr-1aH"; */
+"qqN-vr-1aH.text" = "Last Name:";
+
+/* Class = "IBUILabel"; text = "Characterization:"; ObjectID = "rKQ-4A-4a4"; */
+"rKQ-4A-4a4.text" = "Characterization:";
+
+/* Class = "IBUILabel"; text = "Inclusions:"; ObjectID = "re2-xf-Ibb"; */
+"re2-xf-Ibb.text" = "Inclusions:";
+
+/* Class = "IBUILabel"; text = "placeholder inclusions"; ObjectID = "sNA-7d-vaG"; */
+"sNA-7d-vaG.text" = "placeholder inclusions";
+
+/* Class = "IBUILabel"; text = "exclusions label"; ObjectID = "t0q-Zg-hAo"; */
+"t0q-Zg-hAo.text" = "exclusions label";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "tb6-gn-uPH"; */
+"tb6-gn-uPH.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Last Name:"; ObjectID = "tpZ-o3-Bke"; */
+"tpZ-o3-Bke.text" = "Last Name:";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "tuG-Cl-sV7"; */
+"tuG-Cl-sV7.title" = "Back";
+
+/* Class = "IBUIButton"; normalTitle = "Register"; ObjectID = "ur1-c9-CZP"; */
+"ur1-c9-CZP.normalTitle" = "Register";
+
+/* Class = "IBUIButton"; normalTitle = "Remove Doctor"; ObjectID = "v4C-ol-yKx"; */
+"v4C-ol-yKx.normalTitle" = "Remove Doctor";
+
+/* Class = "IBUILabel"; text = "firstname"; ObjectID = "vPp-ys-CZZ"; */
+"vPp-ys-CZZ.text" = "firstname";
+
+/* Class = "IBUILabel"; text = "specialty"; ObjectID = "vvJ-bH-8E3"; */
+"vvJ-bH-8E3.text" = "specialty";
+
+/* Class = "IBUINavigationItem"; title = "Doctor"; ObjectID = "vz0-yY-6aj"; */
+"vz0-yY-6aj.title" = "Doctor";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "xaN-Xx-9RT"; */
+"xaN-Xx-9RT.text" = "Title";
+
+/* Class = "IBUILabel"; text = "dateseen"; ObjectID = "yGy-4U-t8y"; */
+"yGy-4U-t8y.text" = "dateseen";
+
+/* Class = "IBUINavigationItem"; title = "Patient Details"; ObjectID = "ycm-DP-ou6"; */
+"ycm-DP-ou6.title" = "Patient Details";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "zNj-1o-UWL"; */
+"zNj-1o-UWL.text" = "Label";

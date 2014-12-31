@@ -27,8 +27,6 @@
 		FA721B241A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA721B231A2261D800320AA7 /* ViewPatientSymptomHistoryViewController.m */; };
 		FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */; };
 		FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */; };
-		FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246B91A00783200421B83 /* SSKeychain.m */; };
-		FA7246BD1A00783200421B83 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7246BB1A00783200421B83 /* SSKeychainQuery.m */; };
 		FA7447891A0674DC005D2BFD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */; };
 		FA74478C1A070155005D2BFD /* Symptomhistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74478B1A070155005D2BFD /* Symptomhistory.m */; };
 		FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7704931A125FA0005E19CA /* SymptomhistoryTableViewController.m */; };
@@ -76,6 +74,8 @@
 		5E3863D88E3A8EB276AAD42D /* libPods-My Symptoms Book.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My Symptoms Book.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83332FD30E555084B95DE85 /* Pods-My Symptoms Book.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Symptoms Book.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Symptoms Book/Pods-My Symptoms Book.release.xcconfig"; sourceTree = "<group>"; };
 		DEED959EF4EF5D9FC6BA728D /* Pods-My Symptoms Book.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Symptoms Book.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Symptoms Book/Pods-My Symptoms Book.debug.xcconfig"; sourceTree = "<group>"; };
+		FA1BCA481A54606E0024A9FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		FA1BCA4A1A54607C0024A9FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA3AC9E01A1BAFAD00115557 /* FindDoctorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindDoctorTableViewController.h; sourceTree = "<group>"; };
 		FA3AC9E11A1BAFAD00115557 /* FindDoctorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindDoctorTableViewController.m; sourceTree = "<group>"; };
 		FA3AC9E31A1BF08E00115557 /* AddDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorViewController.h; sourceTree = "<group>"; };
@@ -113,10 +113,6 @@
 		FA72466A19FFDAD800421B83 /* NormalUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalUserMainViewController.m; sourceTree = "<group>"; };
 		FA72466C19FFDAF000421B83 /* DoctorUserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorUserMainViewController.h; sourceTree = "<group>"; };
 		FA72466D19FFDAF000421B83 /* DoctorUserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorUserMainViewController.m; sourceTree = "<group>"; };
-		FA7246B81A00783200421B83 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		FA7246B91A00783200421B83 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		FA7246BA1A00783200421B83 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
-		FA7246BB1A00783200421B83 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		FA7447881A0674DC005D2BFD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FA74478A1A070155005D2BFD /* Symptomhistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symptomhistory.h; sourceTree = "<group>"; };
 		FA74478B1A070155005D2BFD /* Symptomhistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Symptomhistory.m; sourceTree = "<group>"; };
@@ -322,17 +318,6 @@
 			name = "Manage Patient Symptom History";
 			sourceTree = "<group>";
 		};
-		FA7246B71A00783200421B83 /* SSKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				FA7246B81A00783200421B83 /* SSKeychain.h */,
-				FA7246B91A00783200421B83 /* SSKeychain.m */,
-				FA7246BA1A00783200421B83 /* SSKeychainQuery.h */,
-				FA7246BB1A00783200421B83 /* SSKeychainQuery.m */,
-			);
-			path = SSKeychain;
-			sourceTree = "<group>";
-		};
 		FA7704911A125F32005E19CA /* Symptom History */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,7 +408,6 @@
 		FAEC5FEA19FEA5D8004B456D /* My Symptoms Book */ = {
 			isa = PBXGroup;
 			children = (
-				FA7246B71A00783200421B83 /* SSKeychain */,
 				FAEC5FEF19FEA5D8004B456D /* AppDelegate.h */,
 				FAEC5FF019FEA5D8004B456D /* AppDelegate.m */,
 				FA694EF21A1CAA23009EA045 /* Models */,
@@ -615,7 +599,6 @@
 				FAB9DA8B1A20E5BD00BF78FC /* UserRequestViewController.m in Sources */,
 				FAEC601A19FEB1A9004B456D /* RegisterViewController.m in Sources */,
 				FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */,
-				FA7246BD1A00783200421B83 /* SSKeychainQuery.m in Sources */,
 				FA72466E19FFDAF000421B83 /* DoctorUserMainViewController.m in Sources */,
 				FAEC602019FEF8AE004B456D /* User.m in Sources */,
 				FA7160481A043DEF0042179D /* Symptom.m in Sources */,
@@ -645,7 +628,6 @@
 				FA3F149C1A1CFC9A00F643FF /* ManageRelationsTableViewController.m in Sources */,
 				FAEC5FEE19FEA5D8004B456D /* main.m in Sources */,
 				FA3AC9E51A1BF08E00115557 /* AddDoctorViewController.m in Sources */,
-				FA7246BC1A00783200421B83 /* SSKeychain.m in Sources */,
 				FA5B24011A24E2D300C266C2 /* checkBoxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +655,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FAEC5FF619FEA5D8004B456D /* Base */,
+				FA1BCA481A54606E0024A9FA /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -681,6 +664,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FAEC5FFB19FEA5D8004B456D /* Base */,
+				FA1BCA4A1A54607C0024A9FA /* en */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
