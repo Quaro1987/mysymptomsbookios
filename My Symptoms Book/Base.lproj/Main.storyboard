@@ -402,13 +402,43 @@
                     <connections>
                         <outlet property="navigationBar" destination="HGH-I4-Mcd" id="YX9-g1-hdV"/>
                         <outlet property="userSymptomhistoryActivityIndicator" destination="KqF-9D-yni" id="QhV-6r-RaS"/>
-                        <segue destination="Cog-pi-U14" kind="show" identifier="userSymptomHistorySegue" id="soV-of-uMa"/>
                         <segue destination="EC9-rJ-zMY" kind="show" identifier="manageDoctorsSegue" id="4Xp-gi-Pyq"/>
+                        <segue destination="atu-fm-A5y" kind="show" identifier="userSymptomHistorySegue" id="W2f-AX-hE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9lF-FF-haq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026.5" y="1212.5"/>
+        </scene>
+        <!--Choose Symptom Category-->
+        <scene sceneID="7Ny-vE-VG8">
+            <objects>
+                <tableViewController id="atu-fm-A5y" customClass="SymptomhistoryCategorySelectTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="y4i-Ca-Tm5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="symptomCategoryCell" id="lLG-Gi-tu9">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="symptomHistoryCategoriesArray" tableViewCell="lLG-Gi-tu9" id="8fW-jC-Jkm">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Cog-pi-U14" kind="show" id="bCm-Em-Vv7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="atu-fm-A5y" id="W94-C7-MaW"/>
+                            <outlet property="delegate" destination="atu-fm-A5y" id="frY-hR-u4T"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Symptom Category" id="aYu-bY-QeC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oq4-vZ-dP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="463.5" y="2091.5"/>
         </scene>
         <!--Your Symptom History-->
         <scene sceneID="4jh-36-bsH">
