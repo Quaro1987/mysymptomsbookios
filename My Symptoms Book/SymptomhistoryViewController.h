@@ -25,6 +25,7 @@
 
 //button property
 @property (strong, nonatomic) IBOutlet UIButton *symptomButton;
+@property (strong, nonatomic) IBOutlet UIButton *findDoctorButton;
 
 //button function
 

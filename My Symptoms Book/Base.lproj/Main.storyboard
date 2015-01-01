@@ -600,6 +600,7 @@
                         <outlet property="characterizationLabel" destination="3pE-JZ-Apb" id="lZ5-oB-dCG"/>
                         <outlet property="dateSymptomAddedLabel" destination="pHu-NV-WAz" id="Wlq-Xg-vvT"/>
                         <outlet property="dateSymptomFirstSeenLabel" destination="nE6-jK-3tM" id="Hvr-so-oEf"/>
+                        <outlet property="findDoctorButton" destination="oFf-o0-7Sp" id="IdJ-BD-WEj"/>
                         <outlet property="findingDoctorViewLoadingIndicator" destination="w0e-ai-2h5" id="2hR-QR-0dI"/>
                         <outlet property="symptomButton" destination="6Ob-yd-r6S" id="Ois-do-4xX"/>
                         <segue destination="JOX-u6-9PO" kind="show" identifier="findDoctorSegue" id="Ni5-HI-rwX"/>

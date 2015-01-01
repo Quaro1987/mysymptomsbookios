@@ -29,12 +29,8 @@
     //populate categories array with all categories
     NSArray *tempSymptomHistoryCategoriesArray = [[NSArray alloc] initWithContentsOfFile:[dataController getSymptomCategoriesFilePath]];
     NSMutableArray *anArray = [[NSMutableArray alloc] init];
-   // [symptomHistoryCategoriesArray addObject:@"All"];
-   // [anArray addObjectsFromArray:tempSymptomHistoryCategoriesArray];
-    
-    //get all the symptom history for the user
-    
-    //get the user's symptom history
+   
+        //get the user's symptom history
     Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
     
     //populate array with user's symptom history

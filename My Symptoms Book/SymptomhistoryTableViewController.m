@@ -13,6 +13,7 @@
 #import "SymptomhistoryViewController.h"
 #import "DoctorUser.h"
 #import "ViewPatientSymptomHistoryViewController.h"
+#import "DataAndNetFunctions.h"
 
 @interface SymptomhistoryTableViewController ()
 
@@ -36,6 +37,16 @@
     {
         navigationBar.title = @"Patient Symptom History";
     }
+    
+    
+    //check if there is internet access and hide the search bar if there isn't
+    /*DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    
+    if(![dataController internetAccess])
+    {
+        symptomHistorySearchBar.hidden = true;
+    }
+     */
     
     //get the user's symptom history
     //Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];

@@ -11,7 +11,7 @@
 #import "CheckSymptomViewController.h"
 #import "SSKeychain.h"
 #import "FindDoctorTableViewController.h"
-
+#import "DataAndNetFunctions.h"
 @interface SymptomhistoryViewController ()
 
 @end
@@ -19,7 +19,7 @@
 @implementation SymptomhistoryViewController
 
 @synthesize dateSymptomAddedLabel, dateSymptomFirstSeenLabel, characterizationLabel, symptomButton, selectedSymptomhistoryEntry,
-findingDoctorViewLoadingIndicator;
+findingDoctorViewLoadingIndicator, findDoctorButton;
 
 - (void)viewDidLoad {
     
@@ -32,6 +32,15 @@ findingDoctorViewLoadingIndicator;
     characterizationLabel.text = [selectedSymptomhistoryEntry getCharacterizationLabelText];
 
     [symptomButton setTitle:selectedSymptomhistoryEntry.symptomTitle forState:UIControlStateNormal];
+    
+    //check if there is internet access and hide the find doctor button if there isn't
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    
+    if(![dataController internetAccess])
+    {
+        findDoctorButton.hidden = true;
+    }
+    
     [super viewDidLoad];
     
 }

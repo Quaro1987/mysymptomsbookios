@@ -32,26 +32,6 @@
     return alertView;
 }
 
-//show alert of succesful action performed and return to initial menu
-/*-(void)returnToInitialMenuAndshowAlertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
-                                                        message:alertBody
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-    [alertView show];
-    
-    User *currentUser = [[User alloc] initWithSavedUser];
-    NSNumber *doctorTypeNumber = [[NSNumber alloc] initWithInt:1];
-    if(currentUser.userType==doctorTypeNumber)
-    {
-        //change controller view
-        DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorMainMenu"];
-        [self.navigationController pushViewController:destinationController animated:NO];
-    }
-}
-*/
 //return number formatter to change strings into ints
 -(NSNumberFormatter *)getNumberFormatter
 {
@@ -175,7 +155,7 @@
 -(BOOL)internetAccess
 {
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    NetworkStatus *networkStatus = [networkReachability currentReachabilityStatus];
     if (networkStatus == NotReachable) {
          NSLog(@"There is no internet connection");
         return NO;

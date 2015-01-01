@@ -127,7 +127,7 @@
         
         
         //insert added symptom data into database
-        [database executeUpdate:@"INSERT INTO tbl_tempSymptomhistory VALUES (?, ?, ?, ?, ?)" withArgumentsInArray:@[symptomCode, symptomTitle, dateSymptomFirstSeen, dateToday, currentUser.username]];
+        [database executeUpdate:@"INSERT INTO tbl_tempSymptomhistory VALUES (?, ?, ?, ?, ?)" withArgumentsInArray:@[symptomCode, symptomTitle, theDateSymptomFirstSeen, dateToday, currentUser.username]];
         
         //close database once complete
         [database close];
