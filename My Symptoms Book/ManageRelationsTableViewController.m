@@ -30,6 +30,7 @@
     
     //populate users array
     userDoctorsArray = [doctors getDoctorsForSymptomWithSymptomCode:@"GET DOCTORS"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
