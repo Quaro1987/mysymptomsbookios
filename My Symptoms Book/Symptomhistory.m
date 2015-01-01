@@ -469,4 +469,99 @@
     
 }
 
+//filtering method
+-(NSMutableArray *) filterArray:(NSMutableArray *)symptomHistoryArray forCategory:(NSString *)categoryShortString
+{
+    //creaet empty array
+    NSMutableArray *filteredSymptomHistoryArray = [[NSMutableArray alloc] init];
+    //create selected category code string
+    NSString *selectedCategoryCode = [[NSString alloc] init];
+    
+    //if check for the selected category to get the symptom code letter
+    if([categoryShortString isEqualToString:@"Bl"])
+    {
+            selectedCategoryCode = @"B";
+    }
+    else if([categoryShortString isEqualToString:@"Ci"])
+    {
+        selectedCategoryCode = @"K";
+    }
+    else if([categoryShortString isEqualToString:@"Di"])
+    {
+        selectedCategoryCode = @"D";
+    }
+    else if([categoryShortString isEqualToString:@"Ea"])
+    {
+        selectedCategoryCode = @"H";
+    }
+    else if([categoryShortString isEqualToString:@"Ey"])
+    {
+        selectedCategoryCode = @"F";
+    }
+    else if([categoryShortString isEqualToString:@"Fe"])
+    {
+        selectedCategoryCode = @"X";
+    }
+    else if([categoryShortString isEqualToString:@"Ge"])
+    {
+        selectedCategoryCode = @"A";
+    }
+    else if([categoryShortString isEqualToString:@"Ma"])
+    {
+        selectedCategoryCode = @"Y";
+    }
+    else if([categoryShortString isEqualToString:@"Me"])
+    {
+        selectedCategoryCode = @"T";
+    }
+    else if([categoryShortString isEqualToString:@"Mu"])
+    {
+        selectedCategoryCode = @"L";
+    }
+    else if([categoryShortString isEqualToString:@"Ne"])
+    {
+        selectedCategoryCode = @"N";
+    }
+    else if([categoryShortString isEqualToString:@"Ps"])
+    {
+        selectedCategoryCode = @"P";
+    }
+    else if([categoryShortString isEqualToString:@"Re"])
+    {
+        selectedCategoryCode = @"R";
+    }
+    else if([categoryShortString isEqualToString:@"Sk"])
+    {
+        selectedCategoryCode = @"S";
+    }
+    else if([categoryShortString isEqualToString:@"So"])
+    {
+        selectedCategoryCode = @"Z";
+    }
+    else if([categoryShortString isEqualToString:@"Ur"])
+    {
+        selectedCategoryCode = @"U";
+    }
+    else if([categoryShortString isEqualToString:@"Wo"])
+    {
+        selectedCategoryCode = @"W";
+    }
+
+    //loop through all the symptom history entries and add the ones with the selected category
+    //to the array to be returned
+    for (int i=0; i<[symptomHistoryArray count]; i++)
+    {
+        //get the first letter of the symptom code
+        Symptomhistory *thisSymptomHistoryEntry = [symptomHistoryArray objectAtIndex:i];
+        NSString *symptomCodeFirstLetter = [thisSymptomHistoryEntry.symptomCode substringToIndex:1];
+        //if the symptoms belongs in the selected category, add it to the filtered array
+        if([symptomCodeFirstLetter isEqualToString:selectedCategoryCode])
+        {
+            [filteredSymptomHistoryArray addObject:thisSymptomHistoryEntry];
+        }
+    }
+    //return filtering results
+    return filteredSymptomHistoryArray;
+}
+
 @end

@@ -52,4 +52,8 @@
 //update characterization data
 -(void)updateCharacterizationByDoctor;
 
+//filter symptom history array
+-(NSMutableArray *) filterArray: (NSMutableArray *)symptomHistoryArray forCategory: (NSString *)
+categoryShortString;
+
 @end

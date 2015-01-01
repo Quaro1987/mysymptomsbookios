@@ -38,10 +38,10 @@
     }
     
     //get the user's symptom history
-    Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
+    //Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
         
     //populate array with user's symptom history
-    userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
+   // userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
     
     //set the filtered array's capacity
     filteredSymptomhistoryArray = [NSMutableArray arrayWithCapacity:[userSymptomhistoryArray count]];

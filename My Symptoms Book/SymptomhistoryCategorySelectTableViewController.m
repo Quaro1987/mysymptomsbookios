@@ -110,15 +110,35 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //get selected table cell
+    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    
+    //create empty array to copy selected symptom history
+    NSMutableArray *userSymptomHistoryArray = [[NSMutableArray alloc] init];
+    //check if the user has selected all symptoms or a category
+    if([selectedCell.textLabel.text isEqualToString:@"All"])
+    {
+        SymptomhistoryTableViewController *destinationController = [segue destinationViewController];
+        //display all the symptom history for the selected user
+        destinationController.userSymptomhistoryArray = self.userSymptomhistoryArray;
+    }
+    else
+    {
+        //get selected category first 2 characters
+        NSString *selectedCategoryString = [selectedCell.textLabel.text substringToIndex:2];
+        SymptomhistoryTableViewController *destinationController = [segue destinationViewController];
+        //display all the symptom history for the selected user for the selected category
+        Symptomhistory *aSymptomHistoryEntry = [[Symptomhistory alloc] init];
+        destinationController.userSymptomhistoryArray = [aSymptomHistoryEntry filterArray:self.userSymptomhistoryArray forCategory:selectedCategoryString];
+
+    }
 }
-*/
+
 
 #pragma mark functions
 
