@@ -197,9 +197,9 @@
 
     if(![scope isEqualToString:@"All"])
     {
-        if([scope isEqualToString:@"Today"])
+        if([scope isEqualToString:@"Low Danger"])
         {
-            //scope bar for date symptom added
+            //scope bar for date symptom added from first version
             /*
             //get today's date
             NSTimeInterval secondsPast = -86400;
@@ -215,9 +215,9 @@
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }
-        else if([scope isEqualToString:@"This Week"])
+        else if([scope isEqualToString:@"Mild Danger"])
         {
-            //scope bar for date symptom added
+            //scope bar for date symptom added from first version
             /*
             //get past week's date
             NSTimeInterval secondsPast = -604800;
@@ -228,15 +228,17 @@
             NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", sevenDaysPast];
             */
             
-            NSString *selectedDangerString = @"1";
-            //create predicate for symptom history with low danger
+            NSString *selectedDangerString = @"2";
+            //create predicate for symptom history with mild danger
             NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.symptomFlag == %@", selectedDangerString];
 
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }
-        else if([scope isEqualToString:@"This Month"])
+        else if([scope isEqualToString:@"High Danger"])
         {
+            //scope bar for date symptom added from first version
+            /*
             //get past week's date
             NSTimeInterval secondsPast = -(2.63e+6);
             NSDate *oneMonthPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
@@ -244,7 +246,12 @@
             
             //create predicate for symptom history added 1 week ago
             NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", oneMonthPast];
+            */
             
+            NSString *selectedDangerString = @"3";
+            //create predicate for symptom history with mild danger
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.symptomFlag == %@", selectedDangerString];
+
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }

@@ -448,18 +448,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="nHb-2b-kw1">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="GVV-As-ZAe">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
                                 <string>All</string>
-                                <string>Today</string>
-                                <string>This Week</string>
-                                <string>This Month</string>
+                                <string>Low Danger</string>
+                                <string>Mild Danger</string>
+                                <string>High Danger</string>
                             </scopeButtonTitles>
                             <connections>
-                                <outlet property="delegate" destination="Cog-pi-U14" id="Qgg-cG-WrS"/>
+                                <outlet property="delegate" destination="Cog-pi-U14" id="4Kb-J3-dTK"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -497,18 +497,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="navigationBar" destination="5A8-CT-mLq" id="5gu-LX-RhH"/>
-                        <outlet property="searchDisplayController" destination="518-bH-yU2" id="ovc-TM-qyE"/>
-                        <outlet property="symptomHistorySearchBar" destination="nHb-2b-kw1" id="S1r-9I-bPz"/>
+                        <outlet property="searchDisplayController" destination="gbi-Kx-mY0" id="ys8-fv-WpE"/>
+                        <outlet property="symptomHistorySearchBar" destination="GVV-As-ZAe" id="rHI-F1-yaZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaQ-an-MzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="518-bH-yU2">
+                <searchDisplayController id="gbi-Kx-mY0">
                     <connections>
-                        <outlet property="delegate" destination="Cog-pi-U14" id="Ls3-cc-o96"/>
-                        <outlet property="searchBar" destination="nHb-2b-kw1" id="XSX-Yq-tlU"/>
-                        <outlet property="searchContentsController" destination="Cog-pi-U14" id="g51-fH-bVJ"/>
-                        <outlet property="searchResultsDataSource" destination="Cog-pi-U14" id="50C-2n-h5I"/>
-                        <outlet property="searchResultsDelegate" destination="Cog-pi-U14" id="x8z-v6-Mbv"/>
+                        <outlet property="delegate" destination="Cog-pi-U14" id="7o9-pe-STO"/>
+                        <outlet property="searchBar" destination="GVV-As-ZAe" id="U3e-LI-X6O"/>
+                        <outlet property="searchContentsController" destination="Cog-pi-U14" id="WD0-QZ-gYN"/>
+                        <outlet property="searchResultsDataSource" destination="Cog-pi-U14" id="vWS-tg-9t1"/>
+                        <outlet property="searchResultsDelegate" destination="Cog-pi-U14" id="uuH-Sf-eLR"/>
                     </connections>
                 </searchDisplayController>
             </objects>
