@@ -199,18 +199,26 @@
     {
         if([scope isEqualToString:@"Today"])
         {
+            //scope bar for date symptom added
+            /*
             //get today's date
             NSTimeInterval secondsPast = -86400;
             NSDate * oneDayPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
             
             //create predicate for symptom history added today
             NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", oneDayPast];
+            */
             
+            NSString *selectedDangerString = @"1";
+            //create predicate for symptom history with low danger
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.symptomFlag == %@", selectedDangerString];
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }
         else if([scope isEqualToString:@"This Week"])
         {
+            //scope bar for date symptom added
+            /*
             //get past week's date
             NSTimeInterval secondsPast = -604800;
             NSDate *sevenDaysPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
@@ -218,7 +226,12 @@
             
             //create predicate for symptom history added 1 week ago
             NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", sevenDaysPast];
+            */
             
+            NSString *selectedDangerString = @"1";
+            //create predicate for symptom history with low danger
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.symptomFlag == %@", selectedDangerString];
+
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }

@@ -103,13 +103,13 @@
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     //log out user function
     [currentUser logoutUser];
-    
-    //notify user
-    [[dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"] show];
- 
+     
     //change controller view
     InitialViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"initialView"];
     [self.navigationController pushViewController:destinationController animated:NO];
+    
+    //notify user
+    [[dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"] show];
 }
 
 
