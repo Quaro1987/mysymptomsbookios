@@ -83,34 +83,42 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //pass doctor user objects into an array
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
     //create array that will keep the doctor users objects
     NSMutableArray *doctorsArray = [[NSMutableArray alloc] init];
     
-    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    //set so the formatter doesn't reutrn decimals
-    [numberFormatter setGeneratesDecimalNumbers:FALSE];
-    
-    for (NSDictionary *doctorUserObject in jsonReponseData)
+    if([responseData length] == 0)
     {
-        NSString *tempDoctorFirstName = [doctorUserObject valueForKeyPath:@"jsonDataSource.relations.profile.firstname"];
-        NSString *tempDoctorLastName = [doctorUserObject valueForKeyPath:@"jsonDataSource.relations.profile.lastname"];
-        NSString *tempDoctorUsername = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.username"];
-        NSString *tempDoctorEmail = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.email"];
-        NSString *tempDoctorSpecialty = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.doctorSpecialty"];
-        NSString *tempDoctorAboutDoctor = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.aboutDoctor"];
-        NSNumber *tempDoctorUserID = [numberFormatter numberFromString:[doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.id"]];
-        NSNumber *tempDoctorUserStatus = [numberFormatter numberFromString:[doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.status"]];
-        NSNumber *tempDoctorUserType = [numberFormatter numberFromString:[doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.userType"]];
-        //create temp doctor user
-        DoctorUser *aDoctor = [[DoctorUser alloc] initWithId:tempDoctorUserID andUserName:tempDoctorUsername andUserType:tempDoctorUserType andEmail:tempDoctorEmail andStatus:tempDoctorUserStatus andFirstName:tempDoctorFirstName andLastName:tempDoctorLastName andDoctorSpecialty:tempDoctorSpecialty andAboutDoctor:tempDoctorAboutDoctor];
-        //add doctor to aray
-        [doctorsArray addObject:aDoctor];
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
     }
-    
+    else
+    {
+        //pass doctor user objects into an array
+        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+        
+        NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        //set so the formatter doesn't reutrn decimals
+        [numberFormatter setGeneratesDecimalNumbers:FALSE];
+        
+        for (NSDictionary *doctorUserObject in jsonReponseData)
+        {
+            NSString *tempDoctorFirstName = [doctorUserObject valueForKeyPath:@"jsonDataSource.relations.profile.firstname"];
+            NSString *tempDoctorLastName = [doctorUserObject valueForKeyPath:@"jsonDataSource.relations.profile.lastname"];
+            NSString *tempDoctorUsername = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.username"];
+            NSString *tempDoctorEmail = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.email"];
+            NSString *tempDoctorSpecialty = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.doctorSpecialty"];
+            NSString *tempDoctorAboutDoctor = [doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.aboutDoctor"];
+            NSNumber *tempDoctorUserID = [numberFormatter numberFromString:[doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.id"]];
+            NSNumber *tempDoctorUserStatus = [numberFormatter numberFromString:[doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.status"]];
+            NSNumber *tempDoctorUserType = [numberFormatter numberFromString:[doctorUserObject valueForKeyPath:@"jsonDataSource.attributes.userType"]];
+            //create temp doctor user
+            DoctorUser *aDoctor = [[DoctorUser alloc] initWithId:tempDoctorUserID andUserName:tempDoctorUsername andUserType:tempDoctorUserType andEmail:tempDoctorEmail andStatus:tempDoctorUserStatus andFirstName:tempDoctorFirstName andLastName:tempDoctorLastName andDoctorSpecialty:tempDoctorSpecialty andAboutDoctor:tempDoctorAboutDoctor];
+            //add doctor to aray
+            [doctorsArray addObject:aDoctor];
+        }
+    }
     return doctorsArray;
 }
 

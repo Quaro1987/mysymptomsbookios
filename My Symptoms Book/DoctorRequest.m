@@ -63,11 +63,19 @@
     //send post request to server
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //creaet NS dictionary and store result
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
+    //check if the app contacted with server
+    if([urlData length] == 0)
+    {
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
+        return @"FAILURE";
+    }
+    else
+    {
+        return @"SUCCESS";
+    }
 
-    
-    return @"SUCCESS";
 }
 
 //function to delete doctorrequest relation between users
@@ -99,12 +107,19 @@
     //send post request to server
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //creaet NS dictionary and store result
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
-    
+    //check if the app contacted with server
+    if([urlData length] == 0)
+    {
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
+        return @"FAILURE";
+    }
+    else
+    {
+        return @"SUCCESS";
+    }
 
-    
-    return @"SUCCESS";
 }
 
 //reply to request function
@@ -135,10 +150,19 @@
     //send post request to server
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //creaet NS dictionary and store result
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
-    
-    return @"SUCCESS";
+    //check if the app contacted with server
+    if([urlData length] == 0)
+    {
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
+        return @"FAILURE";
+    }
+    else
+    {
+        return @"SUCCESS";
+    }
+
 }
 
 //function to get the ids of the users with new symptoms
@@ -173,21 +197,33 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //get json response
-    NSMutableArray *jsonReponseData = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
     //create array that will keep the doctor patient users objects
     NSMutableArray *patientUsersIDsArray = [[NSMutableArray alloc] init];
     
-    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    //set so the formatter doesn't reutrn decimals
-    [numberFormatter setGeneratesDecimalNumbers:FALSE];
-    
-    //loop through result ids, turn them into a number and add them in the array
-    for(NSString *patientID in jsonReponseData)
+    //check if the app contacted with server
+    if([responseData length] == 0)
     {
-        [patientUsersIDsArray addObject:[numberFormatter numberFromString:patientID]];
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
+    }
+    else
+    {
+        //get json response
+        NSMutableArray *jsonReponseData = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+        
+        
+        
+        NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        //set so the formatter doesn't reutrn decimals
+        [numberFormatter setGeneratesDecimalNumbers:FALSE];
+        
+        //loop through result ids, turn them into a number and add them in the array
+        for(NSString *patientID in jsonReponseData)
+        {
+            [patientUsersIDsArray addObject:[numberFormatter numberFromString:patientID]];
+        }
     }
     
     return patientUsersIDsArray;

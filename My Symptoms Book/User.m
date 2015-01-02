@@ -236,32 +236,40 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //pass doctor user objects into an array
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
     //create array that will keep the doctor patient users objects
     NSMutableArray *patientsArray = [[NSMutableArray alloc] init];
     
-    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    //set so the formatter doesn't reutrn decimals
-    [numberFormatter setGeneratesDecimalNumbers:FALSE];
-    
-    for (NSDictionary *userObject in jsonReponseData)
+    if([responseData length] == 0)
     {
-        NSString *tempFirstName = [userObject valueForKeyPath:@"jsonDataSource.relations.profile.firstname"];
-        NSString *tempLastName = [userObject valueForKeyPath:@"jsonDataSource.relations.profile.lastname"];
-        NSString *tempUsername = [userObject valueForKeyPath:@"jsonDataSource.attributes.username"];
-        NSString *tempEmail = [userObject valueForKeyPath:@"jsonDataSource.attributes.email"];
-        NSNumber *tempUserID = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.id"]];
-        NSNumber *tempUserStatus = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.status"]];
-        NSNumber *tempUserType = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.userType"]];
-        //create temp user
-        User *aPatient = [[User alloc] initWithId:tempUserID andUserName:tempUsername andUserType:tempUserType andEmail:tempEmail andStatus:tempUserStatus andFirstName:tempFirstName andLastName:tempLastName];
-        //add use to aray
-        [patientsArray addObject:aPatient];
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
     }
-    
+    else
+    {
+        //pass doctor user objects into an array
+        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+            
+        NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        //set so the formatter doesn't reutrn decimals
+        [numberFormatter setGeneratesDecimalNumbers:FALSE];
+        
+        for (NSDictionary *userObject in jsonReponseData)
+        {
+            NSString *tempFirstName = [userObject valueForKeyPath:@"jsonDataSource.relations.profile.firstname"];
+            NSString *tempLastName = [userObject valueForKeyPath:@"jsonDataSource.relations.profile.lastname"];
+            NSString *tempUsername = [userObject valueForKeyPath:@"jsonDataSource.attributes.username"];
+            NSString *tempEmail = [userObject valueForKeyPath:@"jsonDataSource.attributes.email"];
+            NSNumber *tempUserID = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.id"]];
+            NSNumber *tempUserStatus = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.status"]];
+            NSNumber *tempUserType = [numberFormatter numberFromString:[userObject valueForKeyPath:@"jsonDataSource.attributes.userType"]];
+            //create temp user
+            User *aPatient = [[User alloc] initWithId:tempUserID andUserName:tempUsername andUserType:tempUserType andEmail:tempEmail andStatus:tempUserStatus andFirstName:tempFirstName andLastName:tempLastName];
+            //add use to aray
+            [patientsArray addObject:aPatient];
+        }
+    }
     return patientsArray;
 }
 
