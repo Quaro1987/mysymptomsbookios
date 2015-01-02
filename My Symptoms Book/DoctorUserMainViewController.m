@@ -22,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //get saved user
+    User *currentUser = [[User alloc] initWithSavedUser];
     // Do any additional setup after loading the view.
     navigationBar.title = @"My Symptoms Book";
     //hide back button

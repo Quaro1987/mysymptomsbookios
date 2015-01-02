@@ -37,6 +37,7 @@
 
 -(void) takeToMainMenuForNavicationController:(UINavigationController *)thisNavigationController;
 
+-(void) failedToContactServerShowAlertView;
 //return audio recorder
 -(AVAudioRecorder *)getAudioRecorderForMessageFile:(NSString *)audioFileName;
 

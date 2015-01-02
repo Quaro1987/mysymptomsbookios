@@ -15,7 +15,7 @@
 //properties
 @property (nonatomic, strong) User *thisUser;
 @property (nonatomic, strong) Symptomhistory *thisSymptomHistory;
-@property (nonatomic, strong) DataAndNetFunctions *dataController;
+@property (nonatomic, strong) DataAndNetFunctions *dataAndNetController;
 
 //label properties
 @property (weak, nonatomic) IBOutlet UILabel *symptomTitleLabel;

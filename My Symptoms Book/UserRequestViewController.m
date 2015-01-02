@@ -19,15 +19,22 @@
 
 @implementation UserRequestViewController
 
-@synthesize patientUser, patientUsersSymptomHistoryEntry, lastNameLabel, firstNameLabel, symptomTitleLabel, dateAddedLabel, dateSeenLabel;
+@synthesize patientUser, patientUsersSymptomHistoryEntry, lastNameLabel, firstNameLabel, symptomTitleLabel, dateAddedLabel, dateSeenLabel, dataController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     //get the symptom history entry for this user
     Symptomhistory *aSymptomHistoryObject = [[Symptomhistory alloc] init];
     patientUsersSymptomHistoryEntry = [aSymptomHistoryObject getSymptomhistoryTheDoctorWasAddedForByUserWithID:patientUser.userID];
+    
+    //if there is a failure to contact the server show error message
+    if([patientUsersSymptomHistoryEntry.symptomTitle isEqualToString:@"FAILURE"])
+    {
+        //and take to previous screen
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
     lastNameLabel.text = patientUser.lastName;
     firstNameLabel.text = patientUser.firstName;
@@ -56,7 +63,6 @@
     [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"ACCEPT"];
     
     //get success alert view
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     UIAlertView *successAlert = [dataController alertStatus:@"Patient Accepted" andAlertTitle:@"Patient Accepted"];
     //show alert view
     [successAlert show];
@@ -72,7 +78,6 @@
     [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"REJECT"];
     
     //get success alert view
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     UIAlertView *successAlert = [dataController alertStatus:@"Patient Rejected" andAlertTitle:@"Patient Rejected"];
     //show alert view
     [successAlert show];

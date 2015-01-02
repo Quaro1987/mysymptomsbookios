@@ -18,12 +18,12 @@
 
 @implementation ViewPatientSymptomHistoryViewController
 
-@synthesize symptomTitleLabel, dateSymptomAddedLabel, dateSymptomSeenLabel, characterizationLabel, thisSymptomHistory, thisUser, dataController;
+@synthesize symptomTitleLabel, dateSymptomAddedLabel, dateSymptomSeenLabel, characterizationLabel, thisSymptomHistory, thisUser, dataAndNetController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     //set up labels
     symptomTitleLabel.text = thisSymptomHistory.symptomTitle;
     dateSymptomSeenLabel.text = thisSymptomHistory.dateSymptomFirstSeen;
@@ -57,10 +57,10 @@
 //show action sheet with diagnosis options when select d iagnosis is pressed
 - (IBAction)selectDiagnosisPressed:(id)sender {
     //if there is no internet access go to initial menu
-    if(![dataController internetAccess])
+    if(![dataAndNetController internetAccess])
     {
         //take to main menu
-        [dataController takeToMainMenuForNavicationController:self.navigationController];
+        [dataAndNetController takeToMainMenuForNavicationController:self.navigationController];
     }
     //else if([dataController internetAccess]) //perform action
     //{

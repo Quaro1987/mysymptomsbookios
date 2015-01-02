@@ -200,11 +200,19 @@
     //take to main menu
     [thisNavigationController popToViewController:doctorMainMenuController animated:YES];
     //create and show alert message
-    UIAlertView *successAlert = [self alertStatus:@"Check Network Status and try Again Later" andAlertTitle:@"Internet Access Lost"];
+    UIAlertView *failureAlert = [self alertStatus:@"Check Network Status and Try Again Later" andAlertTitle:@"Internet Access Lost"];
     //show alert view
-    [successAlert show];
+    [failureAlert show];
 }
 
+//function to show error message if the app can't contact the server
+-(void) failedToContactServerShowAlertView
+{
+    //create and show alert message
+    UIAlertView *failureAlert = [self alertStatus:@"Please Try Again" andAlertTitle:@"Failed to Contact Server"];
+    //show alert view
+    [failureAlert show];
+}
 #pragma mark Audio Recording functions
 
 //get audio recorder

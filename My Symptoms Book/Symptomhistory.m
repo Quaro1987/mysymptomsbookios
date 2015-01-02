@@ -97,7 +97,18 @@
         //make post request to server
         NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        return @"SUCCESS";
+        //check if the app contacted with server
+        if([urlData length] == 0)
+        {
+            //log the error and show error message
+            NSLog(@"ERROR no contact with server");
+            [dataAndNetController failedToContactServerShowAlertView];
+            return @"FAILURE";
+        }
+        else
+        {
+            return @"SUCCESS";
+        }
     }
     else
     {
@@ -285,33 +296,40 @@
         //json data
         NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        //pass symptom history objects into an array
-        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-        
-        
         //create array that will keep the usert's personal symptom history
         NSMutableArray *userPersonalSymptomHistory = [[NSMutableArray alloc] init];
         
-        
-        //loop through results, and add them to userSymptomHistoryArray
-        for (NSDictionary *symptomhistoryObject in jsonReponseData)
+        if([responseData length] == 0)
         {
-            NSInteger tempID = [(NSNumber *) [symptomhistoryObject objectForKey:@"id"] integerValue];
-            int tempIDint = tempID;
-            NSString *tempUsername = requestedUser.username;
-            NSString *tempSymptomCode = [symptomhistoryObject objectForKey:@"symptomCode"];
-            NSString *tempSymptomTitle = [symptomhistoryObject objectForKey:@"symptomTitle"];
-            NSString *tempDateSymptomAdded = [symptomhistoryObject objectForKey:@"dateSearched"];
-            NSString *tempDateSymptomFirstSeen = [symptomhistoryObject objectForKey:@"dateSymptomFirstSeen"];
-            NSString *tempSymptomFlag = [symptomhistoryObject objectForKey:@"symptomFlag"];
-            
-            //create symptom history object
-            Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag andSymptomHistoryID:tempIDint];
-           
-            //add object to array
-            [userPersonalSymptomHistory addObject:symptomhistoryObject];
+            //log the error and show error message
+            NSLog(@"ERROR no contact with server");
+            [dataAndNetController failedToContactServerShowAlertView];
         }
+        else
+        {
+            //pass symptom history objects into an array
+            NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+            
+            //loop through results, and add them to userSymptomHistoryArray
+            for (NSDictionary *symptomhistoryObject in jsonReponseData)
+            {
+                NSInteger tempID = [(NSNumber *) [symptomhistoryObject objectForKey:@"id"] integerValue];
+                int tempIDint = tempID;
+                NSString *tempUsername = requestedUser.username;
+                NSString *tempSymptomCode = [symptomhistoryObject objectForKey:@"symptomCode"];
+                NSString *tempSymptomTitle = [symptomhistoryObject objectForKey:@"symptomTitle"];
+                NSString *tempDateSymptomAdded = [symptomhistoryObject objectForKey:@"dateSearched"];
+                NSString *tempDateSymptomFirstSeen = [symptomhistoryObject objectForKey:@"dateSymptomFirstSeen"];
+                NSString *tempSymptomFlag = [symptomhistoryObject objectForKey:@"symptomFlag"];
                 
+                //create symptom history object
+                Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag andSymptomHistoryID:tempIDint];
+               
+                //add object to array
+                [userPersonalSymptomHistory addObject:symptomhistoryObject];
+            }
+        }
+        
         //return user symptom history
         return userPersonalSymptomHistory;
     }
@@ -356,9 +374,21 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
+    if([responseData length] == 0)
+    {
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
+        
+        Symptomhistory *thisSymptomHistory =  [[Symptomhistory alloc] init];
+        thisSymptomHistory.symptomTitle = @"FAILURE";
+        return thisSymptomHistory;
+    }
+    else
+    {
     //pass symptom history object into an NSDictionary
     NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
+        
     //copy returned attributes
     NSInteger tempID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
     int tempIDint = tempID;
@@ -372,6 +402,7 @@
     Symptomhistory *thisSymptomHistory = [[Symptomhistory alloc] initWithUserame:tempUsername andSymptomCode:tempSymptomCode andSymptomTitle:tempSymptomTitle andDateSymptomFirstSeen:tempDateSymptomFirstSeen andDateSymptomAdded:tempDateSymptomAdded andSymptomFlag:tempSymptomFlag andSymptomHistoryID:tempIDint];
     
     return thisSymptomHistory;
+    }
 }
 
 #pragma mark characterization label functions
@@ -462,15 +493,15 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if([responseData length] == 0)
     {
+        //log the error and show error message
         NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
     }
     else
     {
     NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
     //pass reply into an NSDictionary
     NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
-    
     NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
     }
 }
