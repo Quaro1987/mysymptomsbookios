@@ -462,7 +462,7 @@
 }
 
 //update the symptom characterization by the doctor
--(void)updateCharacterizationByDoctor
+-(BOOL)updateCharacterizationByDoctor
 {
     //init dataAndNetController
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
@@ -496,13 +496,17 @@
         //log the error and show error message
         NSLog(@"ERROR no contact with server");
         [dataAndNetController failedToContactServerShowAlertView];
+        return FALSE;
     }
     else
     {
-    NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-    //pass reply into an NSDictionary
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
+        /*
+        NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+        //pass reply into an NSDictionary
+        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+        NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
+         */
+        return TRUE;
     }
 }
 

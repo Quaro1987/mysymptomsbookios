@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) User *thisUser;
 
+
 @property (nonatomic, strong) NSMutableArray *userSymptomhistoryArray;
 @property (nonatomic, strong) NSMutableArray *filteredSymptomhistoryArray;
 

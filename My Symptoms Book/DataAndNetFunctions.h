@@ -38,6 +38,9 @@
 -(void) takeToMainMenuForNavicationController:(UINavigationController *)thisNavigationController;
 
 -(void) failedToContactServerShowAlertView;
+
+-(void) showInternetRequiredErrorMessage;
+
 //return audio recorder
 -(AVAudioRecorder *)getAudioRecorderForMessageFile:(NSString *)audioFileName;
 

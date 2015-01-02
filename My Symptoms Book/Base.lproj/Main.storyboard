@@ -1177,7 +1177,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UIU-3r-qKR" kind="show" identifier="contactPatientSegue" id="30y-db-KwZ"/>
+                                    <action selector="contactPatientPressed:" destination="XrR-Mx-KwO" eventType="touchUpInside" id="1Q0-8h-4Ey"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MY-ZO-LFY">
@@ -1201,6 +1201,7 @@
                         <outlet property="dateSymptomAddedLabel" destination="gHT-qT-dxf" id="gSc-YK-U7F"/>
                         <outlet property="dateSymptomSeenLabel" destination="yGy-4U-t8y" id="gtK-2D-J2Y"/>
                         <outlet property="symptomTitleLabel" destination="IJU-DM-3NN" id="S6M-7W-3tY"/>
+                        <segue destination="UIU-3r-qKR" kind="show" identifier="contactPatientSegue" id="pTi-Wv-pFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiZ-JC-jn4" userLabel="First Responder" sceneMemberID="firstResponder"/>

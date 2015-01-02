@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class User;
+@class User, DataAndNetFunctions;
 
 @interface DoctorUserMainViewController : UIViewController
 
 //properties
 @property (nonatomic, strong) User *currentUser;
+
+@property (nonatomic, strong) DataAndNetFunctions *dataController;
 
 @property (nonatomic, strong) NSString *segueToPerform;
 

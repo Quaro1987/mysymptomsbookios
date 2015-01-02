@@ -18,11 +18,11 @@
 
 @implementation DoctorUserMainViewController
 
-@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator;
+@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    dataController = [[DataAndNetFunctions alloc] init];
     //get saved user
     User *currentUser = [[User alloc] initWithSavedUser];
     // Do any additional setup after loading the view.
@@ -62,7 +62,7 @@
 
 //if the user selects to log out, delete his details and take him to the initial page
 - (IBAction)logOutPressed:(id)sender {
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    
     //log out user function
     [currentUser logoutUser];
     
@@ -76,29 +76,53 @@
 
 //perform segue to go to the user's symptom specialties table view
 - (IBAction)manageSymptomSpecialtiesPressed:(id)sender {
-    self.segueToPerform = @"manageSpecialtiesSegue";
-    //start animating the activity indicator while the app fetches the data from the server
-    [loadingIndicator startAnimating];
-    //stop the indicator from animating once the segue has been performed with a 2 second delay
-    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
+    if([dataController internetAccess])
+    {
+        self.segueToPerform = @"manageSpecialtiesSegue";
+        //start animating the activity indicator while the app fetches the data from the server
+        [loadingIndicator startAnimating];
+        //stop the indicator from animating once the segue has been performed with a 2 second delay
+        [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
+    }
+    else //if no internet access
+    {
+        //show error message
+        [dataController showInternetRequiredErrorMessage];
+    }
 }
 
 - (IBAction)managePatientSymptomHistoryPressed:(id)sender {
-    self.segueToPerform = @"managePatientSymptomHistorySegue";
-    //start animating the activity indicator while the app fetches the data from the server
-    [loadingIndicator startAnimating];
-    //stop the indicator from animating once the segue has been performed with a 2 second delay
-    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
-
+    if([dataController internetAccess])
+    {
+        self.segueToPerform = @"managePatientSymptomHistorySegue";
+        //start animating the activity indicator while the app fetches the data from the server
+        [loadingIndicator startAnimating];
+        //stop the indicator from animating once the segue has been performed with a 2 second delay
+        [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
+    }
+    else //if no internet access
+    {
+        //show error message
+        [dataController showInternetRequiredErrorMessage];
+    }
+    
 }
 
 - (IBAction)manageUserRelationsPressed:(id)sender {
-    self.segueToPerform = @"manageUserRelationsSegue";
-    //start animating the activity indicator while the app fetches the data from the server
-    [loadingIndicator startAnimating];
-    //stop the indicator from animating once the segue has been performed with a 2 second delay
-    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
-
+    if([dataController internetAccess])
+    {
+        self.segueToPerform = @"manageUserRelationsSegue";
+        //start animating the activity indicator while the app fetches the data from the server
+        [loadingIndicator startAnimating];
+        //stop the indicator from animating once the segue has been performed with a 2 second delay
+        [self performSelector:@selector(stopLoadingAnimationOfActivityIndicatorAndPerformSegue:) withObject:self.loadingIndicator afterDelay:2.0];
+        
+    }
+    else //if no internet access
+    {
+        //show error message
+        [dataController showInternetRequiredErrorMessage];
+    }
 }
 
 

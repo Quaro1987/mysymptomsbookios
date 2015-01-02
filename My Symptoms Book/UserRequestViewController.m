@@ -19,12 +19,12 @@
 
 @implementation UserRequestViewController
 
-@synthesize patientUser, patientUsersSymptomHistoryEntry, lastNameLabel, firstNameLabel, symptomTitleLabel, dateAddedLabel, dateSeenLabel, dataController;
+@synthesize patientUser, patientUsersSymptomHistoryEntry, lastNameLabel, firstNameLabel, symptomTitleLabel, dateAddedLabel, dateSeenLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+   
     //get the symptom history entry for this user
     Symptomhistory *aSymptomHistoryObject = [[Symptomhistory alloc] init];
     patientUsersSymptomHistoryEntry = [aSymptomHistoryObject getSymptomhistoryTheDoctorWasAddedForByUserWithID:patientUser.userID];
@@ -59,32 +59,59 @@
 */
 
 - (IBAction)relationAcceptPressed:(id)sender {
-    DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
-    [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"ACCEPT"];
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     
-    //get success alert view
-    UIAlertView *successAlert = [dataController alertStatus:@"Patient Accepted" andAlertTitle:@"Patient Accepted"];
-    //show alert view
-    [successAlert show];
-    
-    //redirect to main menu
-    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
-    [self.navigationController pushViewController:destinationController animated:NO];
-
+    //if there is internet access accept user, otherwise go to main menu
+    if([dataController internetAccess])
+    {
+        DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
+        //copy reply into a string
+        NSString *resultFromReply = [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"ACCEPT"];
+        
+        if([resultFromReply isEqualToString:@"SUCCESS"])
+        {
+            //get success alert view
+            UIAlertView *successAlert = [dataController alertStatus:@"Patient Accepted" andAlertTitle:@"Patient Accepted"];
+            //show alert view
+            [successAlert show];
+            
+            //redirect to main menu
+            DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+            [self.navigationController pushViewController:destinationController animated:NO];
+        }
+    }
+    else
+    {
+        [dataController takeToMainMenuForNavicationController:self.navigationController];
+    }
 }
 
 - (IBAction)relationRejectPressed:(id)sender {
-    DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
-    [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"REJECT"];
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     
-    //get success alert view
-    UIAlertView *successAlert = [dataController alertStatus:@"Patient Rejected" andAlertTitle:@"Patient Rejected"];
-    //show alert view
-    [successAlert show];
+    //if there is internet reject accept user, otherwise go to main menu
+    if([dataController internetAccess])
+    {
+        DoctorRequest *replyToRequest = [[DoctorRequest alloc] init];
+        //copy reply into a string
+        NSString *resultFromReply = [replyToRequest replyToRequestFromUserWithID:patientUser.userID withReply:@"REJECT"];
+        
+        if([resultFromReply isEqualToString:@"SUCCESS"])
+        {
+            //get success alert view
+            UIAlertView *successAlert = [dataController alertStatus:@"Patient Rejected" andAlertTitle:@"Patient Rejected"];
+            //show alert view
+            [successAlert show];
+            
+            //redirect to main menu
+            DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+            [self.navigationController pushViewController:destinationController animated:NO];
+        }
+    }
+    else
+    {
+        [dataController takeToMainMenuForNavicationController:self.navigationController];
+    }
     
-    //redirect to main menu
-    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
-    [self.navigationController pushViewController:destinationController animated:NO];
-
 }
 @end

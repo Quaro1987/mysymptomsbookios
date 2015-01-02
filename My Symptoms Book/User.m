@@ -168,37 +168,48 @@
     //send post request to server
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //creaet NS dictionary and store result
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
-    
-    
-    //init number formatter
-    NSNumberFormatter *numberFormatter = [dataAndNetController getNumberFormatter];
-        
-    //copy the id of the returned user in an nsnumber. If it's 0 no such user exists/wrong
-    //password
-       
-    NSInteger usID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
-    //check if log in was a success or failure
-    if(usID==0)
+    if([urlData length] == 0)
     {
+        //log the error and show error message
+        NSLog(@"ERROR no contact with server");
+        [dataAndNetController failedToContactServerShowAlertView];
         //if fail, send error fail message
-        NSString *fail = @"NOUSER";
+        NSString *fail = @"NOSERVER";
         return fail;
     }
     else
     {
-        //if success, log in user
-        //create temp attributes
-        NSString *tempUserame = [jsonReponseData objectForKey:@"username"];
-        NSString *tempEmail = [jsonReponseData objectForKey:@"email"];
-        NSNumber *tempUserType = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"userType"]];
-        NSNumber *userID = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"id"]];
-        NSNumber *userStatus = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"status"]];
+        //creaet NS dictionary and store result
+        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:nil];
         
-        User *user = [[User alloc] initWithId:userID andUserName:tempUserame andUserType:tempUserType andEmail:tempEmail andStatus:userStatus andFirstName:NULL andLastName:NULL];
         
-        return user;
+        //init number formatter
+        NSNumberFormatter *numberFormatter = [dataAndNetController getNumberFormatter];
+            
+        //copy the id of the returned user in an nsnumber. If it's 0 no such user exists/wrong
+        //password
+           
+        NSInteger usID = [(NSNumber *) [jsonReponseData objectForKey:@"id"] integerValue];
+        //check if log in was a success or failure
+        if(usID==0)
+        {
+            //if fail, send error fail message
+            NSString *fail = @"NOUSER";
+            return fail;
+        }
+        else
+        {
+            //if success, log in user
+            //create temp attributes
+            NSString *tempUserame = [jsonReponseData objectForKey:@"username"];
+            NSString *tempEmail = [jsonReponseData objectForKey:@"email"];
+            NSNumber *tempUserType = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"userType"]];
+            NSNumber *userID = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"id"]];
+            NSNumber *userStatus = [numberFormatter numberFromString:[jsonReponseData objectForKey:@"status"]];
+            User *user = [[User alloc] initWithId:userID andUserName:tempUserame andUserType:tempUserType andEmail:tempEmail andStatus:userStatus andFirstName:NULL andLastName:NULL];
+            
+            return user;
+        }
     }
 }
 

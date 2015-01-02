@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //set up data and net functions controller
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    
     //get current user
     User *currentUser = [[User alloc] initWithSavedUser];
     //check for user and update title bar
@@ -37,28 +40,20 @@
     {
         navigationBar.title = @"Patient Symptom History";
         
-        //get the user's symptom history
-        Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
-        
-        //populate array with user's symptom history
-        userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
+        //if internet access still exists populate user symptom history
+        if([dataController internetAccess])
+        {
+            //get the user's symptom history
+            Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
+            
+            //populate array with user's symptom history
+            userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
+        }
+        else //else take back to main menu
+        {
+            [dataController takeToMainMenuForNavicationController:self.navigationController];
+        }
     }
-    
-    
-    //check if there is internet access and hide the search bar if there isn't
-    /*DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    
-    if(![dataController internetAccess])
-    {
-        symptomHistorySearchBar.hidden = true;
-    }
-     */
-    
-    //get the user's symptom history
-    //Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
-        
-    //populate array with user's symptom history
-   // userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
     
     //set the filtered array's capacity
     filteredSymptomhistoryArray = [NSMutableArray arrayWithCapacity:[userSymptomhistoryArray count]];
@@ -181,6 +176,8 @@
     }
     else if ([[segue identifier] isEqualToString:@"viewUsersSymptomSegue"])
     {
+        //perform segue if there is internet access
+        
         ViewPatientSymptomHistoryViewController *destinationController = [segue destinationViewController];
         
         //check if it's the filtered or the normal table view and get the symptomhistory object of the view and the user it belongs to

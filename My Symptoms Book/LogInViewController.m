@@ -49,40 +49,49 @@
     }
     else //if user has inputed a username and password atempt to log in
     {
-        id userLogInEffort = [currentUser loginUserWithUsername:_usernameField.text andPassword:_passwordField.text];
-        if([userLogInEffort isKindOfClass:[NSString class]])
+        //if there is internet access try to log in user
+        if([dataNetController internetAccess])
         {
-            NSString *errorMessage = [NSString stringWithFormat:@"%@",userLogInEffort];
-            if([errorMessage isEqualToString:@"NOUSER"])
+            id userLogInEffort = [currentUser loginUserWithUsername:_usernameField.text andPassword:_passwordField.text];
+            if([userLogInEffort isKindOfClass:[NSString class]])
             {
-                //if the username or password is wrong, inform the user with an alert message
-                [[dataNetController alertStatus:@"Failed to log in, check username, password and if you have activated your account." andAlertTitle:@"Log in Failure"] show];
+                NSString *errorMessage = [NSString stringWithFormat:@"%@",userLogInEffort];
+                if([errorMessage isEqualToString:@"NOUSER"])
+                {
+                    //if the username or password is wrong, inform the user with an alert message
+                    [[dataNetController alertStatus:@"Failed to log in, check username, password and if you have activated your account." andAlertTitle:@"Log in Failure"] show];
+                }
+            }
+            else
+            {
+                currentUser = userLogInEffort;
+                //save user data in a file
+                [currentUser saveUserData:currentUser];
+                //save user's password in keychain
+                [SSKeychain setPassword:_passwordField.text forService:@"MySymptomsBook" account:_usernameField.text];
+                
+                if([currentUser.userType integerValue] == 0)
+                {
+                    //change view to the normal user's main view
+                    NormalUserMainViewController *newViewController =
+                    [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
+                    newViewController.currentUser = currentUser;
+                    [self.navigationController pushViewController:newViewController animated:YES];
+                }
+                else
+                {
+                    //change view to the doctor user's main view
+                    DoctorUserMainViewController *newViewController =
+                    [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+                    newViewController.currentUser = currentUser;
+                    [self.navigationController pushViewController:newViewController animated:YES];
+                }
             }
         }
         else
         {
-            currentUser = userLogInEffort;
-            //save user data in a file
-            [currentUser saveUserData:currentUser];
-            //save user's password in keychain
-            [SSKeychain setPassword:_passwordField.text forService:@"MySymptomsBook" account:_usernameField.text];
-            
-            if([currentUser.userType integerValue] == 0)
-            {
-                //change view to the normal user's main view
-                NormalUserMainViewController *newViewController =
-                [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
-                newViewController.currentUser = currentUser;
-                [self.navigationController pushViewController:newViewController animated:YES];
-            }
-            else
-            {
-                //change view to the doctor user's main view
-                DoctorUserMainViewController *newViewController =
-                [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
-                newViewController.currentUser = currentUser;
-                [self.navigationController pushViewController:newViewController animated:YES];
-            }
+            //if there is no internet access show error message
+            [dataNetController showInternetRequiredErrorMessage];
         }
     }
 }

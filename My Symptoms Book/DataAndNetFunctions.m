@@ -205,6 +205,15 @@
     [failureAlert show];
 }
 
+//if there is no internet access show an error message
+-(void) showInternetRequiredErrorMessage
+{
+    //create and show alert message
+    UIAlertView *failureAlert = [self alertStatus:@"You Need Internet Access to Perform that Action" andAlertTitle:@"No Internet Access"];
+    //show alert view
+    [failureAlert show];
+}
+
 //function to show error message if the app can't contact the server
 -(void) failedToContactServerShowAlertView
 {

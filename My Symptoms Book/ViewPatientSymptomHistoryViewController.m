@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    dataAndNetController = [[DataAndNetFunctions alloc] init];
     //set up labels
     symptomTitleLabel.text = thisSymptomHistory.symptomTitle;
     dateSymptomSeenLabel.text = thisSymptomHistory.dateSymptomFirstSeen;
@@ -62,13 +62,28 @@
         //take to main menu
         [dataAndNetController takeToMainMenuForNavicationController:self.navigationController];
     }
-    //else if([dataController internetAccess]) //perform action
-    //{
+    else //perform action
+    {
         //create action sheet
         UIActionSheet *diagnosisActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Diagnosis" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:NULL otherButtonTitles:@"Low Danger", @"Mild Danger", @"High Danger", nil];
         //show aciton sheet
         [diagnosisActionSheet showInView:self.view];
-    //}
+    }
+}
+
+- (IBAction)contactPatientPressed:(id)sender {
+    //if there is no internet access go to initial menu
+    if(![dataAndNetController internetAccess])
+    {
+        //take to main menu
+        [dataAndNetController takeToMainMenuForNavicationController:self.navigationController];
+    }
+    else //perform segue
+    {
+        [self performSegueWithIdentifier:@"contactPatientSegue" sender:nil];
+    }
+
+    
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheetMenu clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -87,19 +102,21 @@
     }
     
     //if there is no internet access go to initial menu
-    /*if(![dataController internetAccess])
+    if(![dataAndNetController internetAccess])
     {
         //take to main menu
-        [dataController takeToMainMenuForNavicationController:self.navigationController];
+        [dataAndNetController takeToMainMenuForNavicationController:self.navigationController];
     }
     else //perform action
-    { */
-        //update label color and text
-        characterizationLabel.textColor = [thisSymptomHistory getCharacterizationLabelColor];
-        characterizationLabel.text = [thisSymptomHistory getCharacterizationLabelText];
+    {
         //send update to server
-        [thisSymptomHistory updateCharacterizationByDoctor];
-    //}
+        if([thisSymptomHistory updateCharacterizationByDoctor])
+        {
+            //update label color and text
+            characterizationLabel.textColor = [thisSymptomHistory getCharacterizationLabelColor];
+            characterizationLabel.text = [thisSymptomHistory getCharacterizationLabelText];
+        }
+    }
 }
 
 @end

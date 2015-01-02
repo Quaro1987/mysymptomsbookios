@@ -50,7 +50,7 @@
 -(NSString *)getCharacterizationLabelText;
 
 //update characterization data
--(void)updateCharacterizationByDoctor;
+-(BOOL)updateCharacterizationByDoctor;
 
 //filter symptom history array
 -(NSMutableArray *) filterArray: (NSMutableArray *)symptomHistoryArray forCategory: (NSString *)
