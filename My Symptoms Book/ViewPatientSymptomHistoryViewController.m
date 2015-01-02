@@ -10,6 +10,7 @@
 #import "User.h"
 #import "Symptomhistory.h"
 #import "ContactPatientViewController.h"
+#import "DataAndNetFunctions.h"
 
 @interface ViewPatientSymptomHistoryViewController ()
 
@@ -55,10 +56,20 @@
 
 //show action sheet with diagnosis options when select d iagnosis is pressed
 - (IBAction)selectDiagnosisPressed:(id)sender {
-    //create action sheet
-    UIActionSheet *diagnosisActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Diagnosis" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:NULL otherButtonTitles:@"Low Danger", @"Mild Danger", @"High Danger", nil];
-    //show aciton sheet
-    [diagnosisActionSheet showInView:self.view];
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    //if there is no internet access go to initial menu
+    if(![dataController internetAccess])
+    {
+        UIViewController *doctorMainMenuController = [self.navigationController.viewControllers objectAtIndex:1];
+        [self.navigationController popToViewController:doctorMainMenuController animated:YES];
+    }
+    else
+    {
+        //create action sheet
+        UIActionSheet *diagnosisActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Diagnosis" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:NULL otherButtonTitles:@"Low Danger", @"Mild Danger", @"High Danger", nil];
+        //show aciton sheet
+        [diagnosisActionSheet showInView:self.view];
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheetMenu clickedButtonAtIndex:(NSInteger)buttonIndex

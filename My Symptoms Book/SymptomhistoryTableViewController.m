@@ -36,6 +36,12 @@
     else
     {
         navigationBar.title = @"Patient Symptom History";
+        
+        //get the user's symptom history
+        Symptomhistory *symptomHistoryObject = [[Symptomhistory alloc] init];
+        
+        //populate array with user's symptom history
+        userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
     }
     
     
