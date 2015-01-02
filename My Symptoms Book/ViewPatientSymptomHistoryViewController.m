@@ -18,12 +18,12 @@
 
 @implementation ViewPatientSymptomHistoryViewController
 
-@synthesize symptomTitleLabel, dateSymptomAddedLabel, dateSymptomSeenLabel, characterizationLabel, thisSymptomHistory, thisUser;
+@synthesize symptomTitleLabel, dateSymptomAddedLabel, dateSymptomSeenLabel, characterizationLabel, thisSymptomHistory, thisUser, dataController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     //set up labels
     symptomTitleLabel.text = thisSymptomHistory.symptomTitle;
     dateSymptomSeenLabel.text = thisSymptomHistory.dateSymptomFirstSeen;
@@ -56,20 +56,19 @@
 
 //show action sheet with diagnosis options when select d iagnosis is pressed
 - (IBAction)selectDiagnosisPressed:(id)sender {
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     //if there is no internet access go to initial menu
     if(![dataController internetAccess])
     {
-        UIViewController *doctorMainMenuController = [self.navigationController.viewControllers objectAtIndex:1];
-        [self.navigationController popToViewController:doctorMainMenuController animated:YES];
+        //take to main menu
+        [dataController takeToMainMenuForNavicationController:self.navigationController];
     }
-    else
-    {
+    //else if([dataController internetAccess]) //perform action
+    //{
         //create action sheet
         UIActionSheet *diagnosisActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Diagnosis" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:NULL otherButtonTitles:@"Low Danger", @"Mild Danger", @"High Danger", nil];
         //show aciton sheet
         [diagnosisActionSheet showInView:self.view];
-    }
+    //}
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheetMenu clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -86,11 +85,21 @@
     {
         thisSymptomHistory.symptomFlag = @"3";
     }
-    //update label color and text
-    characterizationLabel.textColor = [thisSymptomHistory getCharacterizationLabelColor];
-    characterizationLabel.text = [thisSymptomHistory getCharacterizationLabelText];
-    //send update to server
-    [thisSymptomHistory updateCharacterizationByDoctor];
+    
+    //if there is no internet access go to initial menu
+    /*if(![dataController internetAccess])
+    {
+        //take to main menu
+        [dataController takeToMainMenuForNavicationController:self.navigationController];
+    }
+    else //perform action
+    { */
+        //update label color and text
+        characterizationLabel.textColor = [thisSymptomHistory getCharacterizationLabelColor];
+        characterizationLabel.text = [thisSymptomHistory getCharacterizationLabelText];
+        //send update to server
+        [thisSymptomHistory updateCharacterizationByDoctor];
+    //}
 }
 
 @end

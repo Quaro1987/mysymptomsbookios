@@ -460,13 +460,19 @@
     
     //send update to server
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if([responseData length] == 0)
+    {
+        NSLog(@"ERROR no contact with server");
+    }
+    else
+    {
     NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
     //pass reply into an NSDictionary
     NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
     
     
     NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
-    
+    }
 }
 
 //filtering method

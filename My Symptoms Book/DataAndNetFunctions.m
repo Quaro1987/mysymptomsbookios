@@ -193,6 +193,18 @@
     return request;
 }
 
+//function to take the user to the main menu if there is no internet access during an operation that requires it
+-(void) takeToMainMenuForNavicationController:(UINavigationController *)thisNavigationController
+{
+    UIViewController *doctorMainMenuController = [thisNavigationController.viewControllers objectAtIndex:1];
+    //take to main menu
+    [thisNavigationController popToViewController:doctorMainMenuController animated:YES];
+    //create and show alert message
+    UIAlertView *successAlert = [self alertStatus:@"Check Network Status and try Again Later" andAlertTitle:@"Internet Access Lost"];
+    //show alert view
+    [successAlert show];
+}
+
 #pragma mark Audio Recording functions
 
 //get audio recorder

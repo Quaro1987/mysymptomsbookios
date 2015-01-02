@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class User, Symptomhistory;
+@class User, Symptomhistory, DataAndNetFunctions;
 
 @interface ViewPatientSymptomHistoryViewController : UIViewController
 
 //properties
 @property (nonatomic, strong) User *thisUser;
 @property (nonatomic, strong) Symptomhistory *thisSymptomHistory;
+@property (nonatomic, strong) DataAndNetFunctions *dataController;
 
 //label properties
 @property (weak, nonatomic) IBOutlet UILabel *symptomTitleLabel;

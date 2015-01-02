@@ -35,6 +35,8 @@
 
 -(NSMutableURLRequest *) getURLRequestForURL:(NSURL *)requestURL andPostMessage:(NSString *)requestPostMessage;
 
+-(void) takeToMainMenuForNavicationController:(UINavigationController *)thisNavigationController;
+
 //return audio recorder
 -(AVAudioRecorder *)getAudioRecorderForMessageFile:(NSString *)audioFileName;
 
