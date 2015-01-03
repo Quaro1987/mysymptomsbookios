@@ -19,7 +19,7 @@
 
 @implementation DoctorUserMainViewController
 
-@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController, managePatientSymptomHistoryButton;
+@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController, managePatientSymptomHistoryButton, manageUserRelationsButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,15 +28,24 @@
     //if there is internet access  and change the text color of the manage patient symptom
     if([dataController internetAccess])
     {
-        //get the patients with new symptoms added
+        //get the patients with new symptoms added and any requests for the doctor
         DoctorRequest *aRequest = [[DoctorRequest alloc] init];
+        User *aUser = [[User alloc] init];
+        
+        NSMutableArray *patientRequestsArray = [aUser getUsersDoctorHasRelationOfType:@"requests"];
+        if([patientRequestsArray count]!=0)
+        {
+            UIColor *redColor = [UIColor colorWithRed:0.89 green:0.70 blue:0.70 alpha:1.0];
+            [manageUserRelationsButton setTitleColor:redColor forState:UIControlStateNormal];
+        }
+        
         NSMutableArray *patientUsersWithNewSymptomsAddedIDsArray = [aRequest getIDsOfPatientUsersWithNewSymptomsAdded];
         if([patientUsersWithNewSymptomsAddedIDsArray count]!=0)
         {
-            UIColor *redColor = [UIColor colorWithRed:0.91 green:0.07 blue:0.07 alpha:1.0];
+            UIColor *redColor = [UIColor colorWithRed:0.89 green:0.70 blue:0.70 alpha:1.0];
             [managePatientSymptomHistoryButton setTitleColor:redColor forState:UIControlStateNormal];
         }
-        NSLog(@"something");
+        
     }
     
     //get saved user

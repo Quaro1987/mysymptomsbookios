@@ -25,6 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *managePatientSymptomHistoryButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *manageUserRelationsButton;
+
 //functions
 
 //butons pressed

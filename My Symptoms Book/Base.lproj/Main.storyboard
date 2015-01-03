@@ -1680,6 +1680,7 @@
                     <connections>
                         <outlet property="loadingIndicator" destination="m4i-S2-6Qq" id="t4U-4s-bvB"/>
                         <outlet property="managePatientSymptomHistoryButton" destination="fPX-6w-zKL" id="L54-Bg-J7q"/>
+                        <outlet property="manageUserRelationsButton" destination="YAg-ZA-qFB" id="oKg-aW-oM9"/>
                         <outlet property="navigationBar" destination="opl-1H-qiM" id="L2n-Lc-iBy"/>
                         <segue destination="Njo-JI-LWy" kind="show" identifier="manageSpecialtiesSegue" id="nUV-0D-lfX"/>
                         <segue destination="Rbr-h9-VsM" kind="show" identifier="manageUserRelationsSegue" id="0j5-2J-bmO"/>
