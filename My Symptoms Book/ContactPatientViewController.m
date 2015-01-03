@@ -92,10 +92,19 @@ checkBoxChecked;
 
 //function to send the message to the server
 - (IBAction)sendMessagePressed:(id)sender {
-    [sendingMessageActivityIndicator startAnimating];
-    //stop the indicator from animating once the segue has been performed with a 2 second delay
-    [self performSelector:@selector(stopLoadingAnimationOfActivityIndicator:) withObject:self.sendingMessageActivityIndicator afterDelay:2.0];
-    
+    //check if device still has internet access
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    //if there is internet access, post message
+    if([dataAndNetController internetAccess])
+    {
+        [sendingMessageActivityIndicator startAnimating];
+        //stop the indicator from animating once the segue has been performed with a 2 second delay
+        [self performSelector:@selector(stopLoadingAnimationOfActivityIndicator:) withObject:self.sendingMessageActivityIndicator afterDelay:2.0];
+    }
+    else //else show error message and take back to main menu
+    {
+        [dataAndNetController takeToMainMenuForNavicationController:self.navigationController];
+    }
 }
 
 
@@ -106,17 +115,20 @@ checkBoxChecked;
     
     //send contact information
     ContactForm *contact = [[ContactForm alloc] init];
-    [contact sendMessage:textFieldSubView.text toUserWithID:patientUser.userID andAlsoeSendAsSMS:sendAsSMSCheckBox.selected andAlsoSendRecordedMessage:sendAudioMessage withFileName:audioMessageFileName];
+    NSString *reply = [contact sendMessage:textFieldSubView.text toUserWithID:patientUser.userID andAlsoeSendAsSMS:checkBoxChecked andAlsoSendRecordedMessage:sendAudioMessage withFileName:audioMessageFileName];
     
-    //get success alert view
-    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    UIAlertView *successAlert = [dataController alertStatus:@"Message Successfully sent to User" andAlertTitle:@"Message Sent"];
-    //show alert view
-    [successAlert show];
-    
-    //redirect to doctor main menu
-    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
-    [self.navigationController pushViewController:destinationController animated:NO];
+    if([reply isEqualToString:@"SUCCESS"])
+    {
+        //get success alert view
+        DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+        UIAlertView *successAlert = [dataController alertStatus:@"Message Successfully sent to User" andAlertTitle:@"Message Sent"];
+        //show alert view
+        [successAlert show];
+        
+        //redirect to doctor main menu
+        DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+        [self.navigationController pushViewController:destinationController animated:NO];
+    }
 }
 
 //record a message when it is pressed

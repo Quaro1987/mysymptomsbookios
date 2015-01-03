@@ -23,6 +23,8 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
+@property (weak, nonatomic) IBOutlet UIButton *managePatientSymptomHistoryButton;
+
 //functions
 
 //butons pressed

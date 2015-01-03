@@ -38,7 +38,6 @@
 		FAC1C9861A03036800398F0C /* symptomsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC1C9851A03036800398F0C /* symptomsList.txt */; };
 		FAC1C98A1A032DDC00398F0C /* SymptomCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */; };
 		FAC1C98D1A03341300398F0C /* SymptomSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */; };
-		FACA254C1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */; };
 		FACA25541A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */; };
 		FAD2D1171A2A075300DE84EE /* playDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1111A2A075300DE84EE /* playDisabled.png */; };
 		FAD2D1181A2A075300DE84EE /* playNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD2D1121A2A075300DE84EE /* playNormal.png */; };
@@ -133,8 +132,6 @@
 		FAC1C9891A032DDC00398F0C /* SymptomCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomCategoryTableViewController.m; sourceTree = "<group>"; };
 		FAC1C98B1A03341300398F0C /* SymptomSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomSelectTableViewController.h; sourceTree = "<group>"; };
 		FAC1C98C1A03341300398F0C /* SymptomSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomSelectTableViewController.m; sourceTree = "<group>"; };
-		FACA254A1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomSpecialtyCategoryTableViewController.h; sourceTree = "<group>"; };
-		FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomSpecialtyCategoryTableViewController.m; sourceTree = "<group>"; };
 		FACA25521A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagePatientRelationsTableViewController.h; sourceTree = "<group>"; };
 		FACA25531A1FD2F700E8BEE5 /* ManagePatientRelationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagePatientRelationsTableViewController.m; sourceTree = "<group>"; };
 		FAD2D1111A2A075300DE84EE /* playDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playDisabled.png; path = "../../../Desktop/ios app images/playDisabled.png"; sourceTree = "<group>"; };
@@ -289,8 +286,6 @@
 			children = (
 				FA6C97161A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.h */,
 				FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */,
-				FACA254A1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.h */,
-				FACA254B1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m */,
 			);
 			name = "Specialties Functions";
 			sourceTree = "<group>";
@@ -623,7 +618,6 @@
 				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
 				FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */,
 				FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */,
-				FACA254C1A1F634000E8BEE5 /* SymptomSpecialtyCategoryTableViewController.m in Sources */,
 				FA3AC9E21A1BAFAD00115557 /* FindDoctorTableViewController.m in Sources */,
 				FA72466B19FFDAD800421B83 /* NormalUserMainViewController.m in Sources */,
 				FA71604B1A045B430042179D /* SymptomViewController.m in Sources */,

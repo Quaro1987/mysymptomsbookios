@@ -199,28 +199,45 @@
         
         Symptom *symptomForDelete = [[Symptom alloc] init];
         
-        if(self.tableView == self.searchDisplayController.searchResultsTableView)
-        {
-            //delete symptom specialty
-            [symptomSpecialty deleteDoctorSymptomSpecialtyWithSymptomCode:symptomSpecialtyForDelete.symptomCode];
-            //remove symptom from table
-            [userSymptomSpecialtiesArray removeObject:symptomSpecialtyForDelete];
-            [filteredUserSymptomSpecialtiesArray removeObject:symptomSpecialtyForDelete];
-            //reload table data
-            [self.searchDisplayController.searchResultsTableView reloadData];
-            
-        }
-        else
-        {
-            //delete symptom specialty
-            [symptomSpecialty deleteDoctorSymptomSpecialtyWithSymptomCode:symptomSpecialtyForDelete.symptomCode];
-            //remove symptom fromt able
-            [userSymptomSpecialtiesArray removeObject:symptomSpecialtyForDelete];
-            //reload table data
-            [self.tableView reloadData];
-        }
+        //check if there is internet access and perform acction
+        DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
         
-        
+        if([dataController internetAccess])
+        {
+            if(self.tableView == self.searchDisplayController.searchResultsTableView)
+            {
+                //delete symptom specialty
+                NSString *reply = [symptomSpecialty deleteDoctorSymptomSpecialtyWithSymptomCode:symptomSpecialtyForDelete.symptomCode];
+                
+                //if successful, refresh list
+                if([reply isEqualToString:@"SUCCESS"])
+                {
+                    //remove symptom from table
+                    [userSymptomSpecialtiesArray removeObject:symptomSpecialtyForDelete];
+                    [filteredUserSymptomSpecialtiesArray removeObject:symptomSpecialtyForDelete];
+                    //reload table data
+                    [self.searchDisplayController.searchResultsTableView reloadData];
+                }
+            }
+            else
+            {
+                //delete symptom specialty
+                 NSString *reply = [symptomSpecialty deleteDoctorSymptomSpecialtyWithSymptomCode:symptomSpecialtyForDelete.symptomCode];
+                
+                //if successful, refresh list
+                if([reply isEqualToString:@"SUCCESS"])
+                {
+                    //remove symptom fromt able
+                    [userSymptomSpecialtiesArray removeObject:symptomSpecialtyForDelete];
+                    //reload table data
+                    [self.tableView reloadData];
+                }
+            }
+        }
+        else //take to main menu
+        {
+            [dataController takeToMainMenuForNavicationController:self.navigationController];
+        }
     }
 }
 
@@ -246,4 +263,18 @@
     [[self alertStatus:thisSymptom.symptomInclusions andAlertTitle:thisSymptom.symptomTitle] show];
 }
 
+//add symptom pressed
+- (IBAction)addSymptomSpecialtyPressed:(id)sender {
+    DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+    
+    //if there is internet access, perform action
+    if([dataController internetAccess])
+    {
+        [self performSegueWithIdentifier:@"addSymptomSpecialtySegue" sender:nil];
+    }
+    else //show error message and take to main menu
+    {
+        [dataController takeToMainMenuForNavicationController:self.navigationController];
+    }
+}
 @end

@@ -52,19 +52,31 @@
 
 //funciton to call when doctor wants to add a specialty for this symptom
 - (IBAction)addSpecialtyPressed:(id)sender {
-    DoctorSymptomSpecialty *addSpecialty = [[DoctorSymptomSpecialty alloc] init];
-    //add symptom specialty
-    [addSpecialty addDoctorSymptomSpecialtyWithSymptomCode:thisSymptom.symptomCode];
     
-    //get success alert view
+    //check if there still is internet access
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    UIAlertView *successAlert = [dataController alertStatus:@"Symptom Specialty Successfully Added" andAlertTitle:@"Specialty Added"];
-    //show alert view
-    [successAlert show];
     
-    //redirect to main menu
-    DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
-    [self.navigationController pushViewController:destinationController animated:NO];
-
+    if([dataController internetAccess]) //if there is internet access add symptom specialty
+    {
+        DoctorSymptomSpecialty *addSpecialty = [[DoctorSymptomSpecialty alloc] init];
+        //add symptom specialty
+        NSString *reply = [addSpecialty addDoctorSymptomSpecialtyWithSymptomCode:thisSymptom.symptomCode];
+        
+        if([reply isEqualToString:@"SUCCESS"]) //if the symptom specialty was added successfully take to main menu
+        {
+            //get success alert view
+            UIAlertView *successAlert = [dataController alertStatus:@"Symptom Specialty Successfully Added" andAlertTitle:@"Specialty Added"];
+            //show alert view
+            [successAlert show];
+            
+            //redirect to main menu
+            DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
+            [self.navigationController pushViewController:destinationController animated:NO];
+        }
+    }
+    else //else show error message and take to main menu
+    {
+        [dataController takeToMainMenuForNavicationController:self.navigationController];
+    }
 }
 @end

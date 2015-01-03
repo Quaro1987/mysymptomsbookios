@@ -115,16 +115,26 @@
     //-- Getting response form server
     //send update to server
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-   
-    //pass reply into an NSDictionary
-    NSDictionary *jsonReponseData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     
+    //check if there is responsdata
+    if([responseData length] == 0)
+    {
+        //if there isn't show message and return failure message
+        [dataAndNetController failedToContactServerShowAlertView];
+        return @"FAILURE";
+    }
+    else
+    {
+        NSLog(@"responseData = %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+       
+        //pass reply into an NSDictionary
+        NSDictionary *jsonReponseData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+        
+        NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
+        //return success
+        return @"SUCCESS";
+    }
     
-    NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
-    
-    
-    return @"SUCCESS";
 }
 
 - (NSString *)mimeTypeForPath:(NSString *)path

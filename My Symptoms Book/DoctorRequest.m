@@ -212,8 +212,6 @@
         //get json response
         NSMutableArray *jsonReponseData = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
         
-        
-        
         NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
         [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
         //set so the formatter doesn't reutrn decimals

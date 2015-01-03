@@ -32,6 +32,7 @@
 -(void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 //navigation function
-//- (IBAction)addSymptomSpecialtyPressed:(id)sender;
+
+- (IBAction)addSymptomSpecialtyPressed:(id)sender;
 
 @end

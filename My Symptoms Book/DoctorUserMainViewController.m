@@ -11,6 +11,7 @@
 #import "DataAndNetFunctions.h"
 #import "InitialViewController.h"
 #import "User.h"
+#import "DoctorRequest.h"
 
 @interface DoctorUserMainViewController ()
 
@@ -18,11 +19,26 @@
 
 @implementation DoctorUserMainViewController
 
-@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController;
+@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController, managePatientSymptomHistoryButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataController = [[DataAndNetFunctions alloc] init];
+    
+    //if there is internet access  and change the text color of the manage patient symptom
+    if([dataController internetAccess])
+    {
+        //get the patients with new symptoms added
+        DoctorRequest *aRequest = [[DoctorRequest alloc] init];
+        NSMutableArray *patientUsersWithNewSymptomsAddedIDsArray = [aRequest getIDsOfPatientUsersWithNewSymptomsAdded];
+        if([patientUsersWithNewSymptomsAddedIDsArray count]!=0)
+        {
+            UIColor *redColor = [UIColor colorWithRed:0.91 green:0.07 blue:0.07 alpha:1.0];
+            [managePatientSymptomHistoryButton setTitleColor:redColor forState:UIControlStateNormal];
+        }
+        NSLog(@"something");
+    }
+    
     //get saved user
     User *currentUser = [[User alloc] initWithSavedUser];
     // Do any additional setup after loading the view.

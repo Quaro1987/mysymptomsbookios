@@ -42,11 +42,17 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //pass result into dictionary
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    //if no response send error message
+    if([responseData length] == 0)
+    {
+        [dataAndNetController failedToContactServerShowAlertView];
+        return @"FAILURE";
+    }
+    else //else return success
+    {
+        return @"SUCCESS";
+    }
     
-    
-    return @"SUCCESS";
 }
 
 //function for when the user wants to add a new symptom specialty
@@ -77,11 +83,17 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //pass result into dictionary
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
-    
-    return @"SUCCESS";
+    //if no response send error message
+    if([responseData length] == 0)
+    {
+        [dataAndNetController failedToContactServerShowAlertView];
+        return @"FAILURE";
+    }
+    else //else return success
+    {
+        return @"SUCCESS";
+    }
+
 
 }
 
