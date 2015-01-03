@@ -145,36 +145,48 @@
     //json data
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    //pass symptom history objects into an array
-    NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-    
-    
     //create array that will keep the usert's personal symptom history
     NSMutableArray *doctorSymptomSpecialtiesArray = [[NSMutableArray alloc] init];
     
-    
-    //loop through results, and add them to userSymptomHistoryArray
-    for (NSDictionary *symptomSpecialtyObject in jsonReponseData)
+    //if response data is empty
+    if([responseData length] == 0)
     {
-        //copy symptom code
-        NSString *thisSymptomCode = [symptomSpecialtyObject objectForKey:@"symptomCode"];
-        //find the symptom with this symptom code
+        //display error about failing to contact the server
+        [dataAndNetController failedToContactServerShowAlertView];
+        
+        //return array with error symptom
         Symptom *thisSymptom = [[Symptom alloc] init];
-        thisSymptom = [thisSymptom getSymptomWithSymptomCode:thisSymptomCode];
-        //add symptom to array
+        thisSymptom.symptomTitle = @"ERROR";
         [doctorSymptomSpecialtiesArray addObject:thisSymptom];
     }
+    else
+    {
+        //pass symptom history objects into an array
+        NSDictionary *jsonReponseData = (NSDictionary *) [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+        
+        
+        //loop through results, and add them to userSymptomHistoryArray
+        for (NSDictionary *symptomSpecialtyObject in jsonReponseData)
+        {
+            //copy symptom code
+            NSString *thisSymptomCode = [symptomSpecialtyObject objectForKey:@"symptomCode"];
+            //find the symptom with this symptom code
+            Symptom *thisSymptom = [[Symptom alloc] init];
+            thisSymptom = [thisSymptom getSymptomWithSymptomCode:thisSymptomCode];
+            //add symptom to array
+            [doctorSymptomSpecialtiesArray addObject:thisSymptom];
+        }
 
-    //sort array
-    NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"symptomTitle"
-                                                 ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray;
-    sortedArray = [doctorSymptomSpecialtiesArray sortedArrayUsingDescriptors:sortDescriptors];
-    
-    doctorSymptomSpecialtiesArray = [NSMutableArray arrayWithArray:sortedArray];
-    
+        //sort array
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"symptomTitle"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray;
+        sortedArray = [doctorSymptomSpecialtiesArray sortedArrayUsingDescriptors:sortDescriptors];
+        
+        doctorSymptomSpecialtiesArray = [NSMutableArray arrayWithArray:sortedArray];
+    }
     return doctorSymptomSpecialtiesArray;
 }
 

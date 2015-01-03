@@ -204,8 +204,8 @@
     if([responseData length] == 0)
     {
         //log the error and show error message
-        NSLog(@"ERROR no contact with server");
-        [dataAndNetController failedToContactServerShowAlertView];
+        NSLog(@"ERROR no contact with server to check which users have new symptoms");
+        //[dataAndNetController failedToContactServerShowAlertView];
     }
     else
     {

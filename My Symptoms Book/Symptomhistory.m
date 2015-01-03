@@ -304,6 +304,13 @@
             //log the error and show error message
             NSLog(@"ERROR no contact with server");
             [dataAndNetController failedToContactServerShowAlertView];
+            
+            //create error symptom history
+            Symptomhistory *symptomhistoryObject = [[Symptomhistory alloc] init];
+            symptomhistoryObject.symptomTitle = @"ERROR";
+            
+            //add error object to array
+            [userPersonalSymptomHistory addObject:symptomhistoryObject];
         }
         else
         {

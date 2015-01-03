@@ -11,6 +11,7 @@
 #import "Symptom.h"
 #import "DoctorSymptomSpecialty.h"
 #import "SymptomCategoryTableViewController.h"
+#import "DataAndNetFunctions.h"
 
 @interface UserSymptomSpecialtiesTableViewController ()
 
@@ -27,6 +28,17 @@
     //populate array with user's symptom specialties
     userSymptomSpecialtiesArray = [aSymptom getSymptomSpecialtiesForDoctorUser:currentUser];
     
+    //check if the array isn't empty
+    if([userSymptomSpecialtiesArray count]!=0)
+    {
+        //typecast the returned array's first object
+        aSymptom = (Symptom *)[userSymptomSpecialtiesArray objectAtIndex:0];
+        //if there was an error while getting symptom specialties take back to main menu
+        if([aSymptom.symptomTitle isEqualToString:@"ERROR"])
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
     //set the filtered array's capacity
     filteredUserSymptomSpecialtiesArray = [NSMutableArray arrayWithCapacity:[userSymptomSpecialtiesArray count]];
     

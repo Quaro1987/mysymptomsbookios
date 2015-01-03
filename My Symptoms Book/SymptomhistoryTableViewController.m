@@ -48,6 +48,9 @@
             
             //populate array with user's symptom history
             userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
+            
+            //if there was an error with the server, go back to main menu
+            //if([userSymptomhistoryArray objectAtIndex:<#(NSUInteger)#>]
         }
         else //else take back to main menu
         {

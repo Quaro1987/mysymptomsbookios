@@ -255,6 +255,11 @@
         //log the error and show error message
         NSLog(@"ERROR no contact with server");
         [dataAndNetController failedToContactServerShowAlertView];
+        //create error user
+        User *aPatient = [[User alloc] init];
+        aPatient.username = @"ERROR";
+        //add error user to array
+        [patientsArray addObject:aPatient];
     }
     else
     {
