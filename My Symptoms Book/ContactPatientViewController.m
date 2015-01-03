@@ -19,12 +19,14 @@
 @implementation ContactPatientViewController
 
 @synthesize patientUser, textFieldSubView, sendAsSMSCheckBox, recordButton, stopButton, messageRecorder, playButton, messagePlayer,
-audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGestureRecognizer;
+audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGestureRecognizer,
+checkBoxChecked;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     sendAudioMessage = NO;
+    checkBoxChecked = NO;
     //set up audio recorder
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
     //get thef ile name
@@ -35,6 +37,10 @@ audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGest
     
     //set check box label
     sendAsSMSCheckBox.titleLabel.text = @"Also send as SMS:";
+    sendAsSMSCheckBox.userInteractionEnabled = YES;
+    
+    //set sms checkbox as not checked
+    [sendAsSMSCheckBox setCheckState:M13CheckboxStateUnchecked];
     
     //disable stop and play button
     stopButton.enabled = NO;
@@ -42,10 +48,13 @@ audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGest
     
     //set gesture recognizer
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                  initWithTarget:self
+                                  action:@selector(dismissKeyboard)];
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
+                                   action:@selector(changeCheckBox)];
     [self.view addGestureRecognizer:tap];
+    [sendAsSMSCheckBox addGestureRecognizer:tap2];
 }
 
 //dismiss keyboard from textfield
@@ -53,6 +62,19 @@ audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGest
     [textFieldSubView resignFirstResponder];
 }
 
+-(void)changeCheckBox
+{
+    if(checkBoxChecked)
+    {
+        checkBoxChecked = NO;
+        [sendAsSMSCheckBox setCheckState:M13CheckboxStateUnchecked];
+    }
+    else
+    {
+        checkBoxChecked = YES;
+        [sendAsSMSCheckBox setCheckState:M13CheckboxStateChecked];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

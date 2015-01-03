@@ -28,6 +28,19 @@
     
     patientUsersArray = [aPatient getUsersDoctorHasRelationOfType:@"relations"];
     patientUsersWithNewSymptomsAddedIDsArray = [aRequest getIDsOfPatientUsersWithNewSymptomsAdded];
+    
+    //if the returned array isn't empty
+    if([patientUsersArray count] != 0)
+    {
+        //first object in array to aPatient
+        aPatient = (User *) [patientUsersArray objectAtIndex:0];
+        //if error object is in array
+        if([aPatient.username isEqualToString:@"ERROR"])
+        {
+            //take back to main menu
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
     [super viewDidLoad];
     
 }

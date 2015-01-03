@@ -18,6 +18,7 @@
 //subview properties
 @property (weak, nonatomic) IBOutlet UITextView *textFieldSubView;
 @property (weak, nonatomic) IBOutlet M13Checkbox *sendAsSMSCheckBox;
+@property (nonatomic) BOOL checkBoxChecked;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 

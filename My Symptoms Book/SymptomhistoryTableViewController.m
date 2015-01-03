@@ -49,8 +49,15 @@
             //populate array with user's symptom history
             userSymptomhistoryArray = [symptomHistoryObject getSymptomhistoryForUser:thisUser];
             
-            //if there was an error with the server, go back to main menu
-            //if([userSymptomhistoryArray objectAtIndex:<#(NSUInteger)#>]
+            //if there was an error with the server, go back to the patient select menu
+            if([userSymptomhistoryArray count] != 0)
+            {
+                Symptomhistory *errorSymptomhistory = (Symptomhistory *) [userSymptomhistoryArray objectAtIndex:0];
+                if([errorSymptomhistory.symptomTitle isEqualToString:@"ERROR"])
+                {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }
         }
         else //else take back to main menu
         {

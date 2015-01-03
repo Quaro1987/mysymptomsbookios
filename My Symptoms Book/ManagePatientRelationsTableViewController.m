@@ -84,7 +84,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"patientRequestCell" forIndexPath:indexPath];
         
         //this cell's user
-        User *thisUser = [patientRequestsArray objectAtIndex:indexPath.row];
+        User *thisUser = (User *) [patientRequestsArray objectAtIndex:indexPath.row];
         
         // get full name of user
         NSString *userFullName = [[NSString alloc] initWithString:thisUser.lastName];

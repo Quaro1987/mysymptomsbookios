@@ -52,7 +52,7 @@
     NSDictionary *params = @{@"username" : currentUser.username,
                              @"password" : password,
                              @"patientID" : patientID,
-                             @"sendSMS" : @"YES",
+                             @"sendSMS" : sendSMS,
                              @"message" : message,
                              @"attachFile" : recordedMessageExists};
     
