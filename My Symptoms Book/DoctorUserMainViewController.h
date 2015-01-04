@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class User, DataAndNetFunctions;
+@class User, DataAndNetFunctions, NotificationCircleView;
 
 @interface DoctorUserMainViewController : UIViewController
 
@@ -26,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *managePatientSymptomHistoryButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *manageUserRelationsButton;
+
+@property (strong, nonatomic) IBOutlet NotificationCircleView *patientSymptomsNotification;
+
+@property (strong, nonatomic) IBOutlet NotificationCircleView *patientRequestNotification;
 
 //functions
 

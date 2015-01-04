@@ -1671,6 +1671,14 @@
                                     <action selector="manageSymptomSpecialtiesPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="755-2G-05i"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-ys-cVU" customClass="NotificationCircleView">
+                                <rect key="frame" x="270" y="94" width="23" height="24"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OqX-xO-zIb" customClass="NotificationCircleView">
+                                <rect key="frame" x="270" y="164" width="23" height="24"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1682,6 +1690,8 @@
                         <outlet property="managePatientSymptomHistoryButton" destination="fPX-6w-zKL" id="L54-Bg-J7q"/>
                         <outlet property="manageUserRelationsButton" destination="YAg-ZA-qFB" id="oKg-aW-oM9"/>
                         <outlet property="navigationBar" destination="opl-1H-qiM" id="L2n-Lc-iBy"/>
+                        <outlet property="patientRequestNotification" destination="OqX-xO-zIb" id="8n0-qN-1lJ"/>
+                        <outlet property="patientSymptomsNotification" destination="h8A-ys-cVU" id="xC4-GY-Kl9"/>
                         <segue destination="Njo-JI-LWy" kind="show" identifier="manageSpecialtiesSegue" id="nUV-0D-lfX"/>
                         <segue destination="Rbr-h9-VsM" kind="show" identifier="manageUserRelationsSegue" id="0j5-2J-bmO"/>
                         <segue destination="dKK-UM-ERU" kind="show" identifier="managePatientSymptomHistorySegue" id="jrV-1M-af0"/>
@@ -1689,7 +1699,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TU-Gf-5TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646.5" y="416.5"/>
+            <point key="canvasLocation" x="1646" y="416"/>
         </scene>
         <!--Your Patient Relations-->
         <scene sceneID="wPe-hX-avo">

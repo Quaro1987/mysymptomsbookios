@@ -12,6 +12,7 @@
 #import "InitialViewController.h"
 #import "User.h"
 #import "DoctorRequest.h"
+#import "NotificationCircleView.h"
 
 @interface DoctorUserMainViewController ()
 
@@ -19,11 +20,16 @@
 
 @implementation DoctorUserMainViewController
 
-@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController, managePatientSymptomHistoryButton, manageUserRelationsButton;
+@synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController, managePatientSymptomHistoryButton,
+manageUserRelationsButton, patientRequestNotification, patientSymptomsNotification;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataController = [[DataAndNetFunctions alloc] init];
+    
+   
+    [patientRequestNotification setBackgroundColor:[UIColor clearColor]];
+    [patientSymptomsNotification setBackgroundColor:[UIColor clearColor]];
     
     //if there is internet access  and change the text color of the manage patient symptom
     if([dataController internetAccess])

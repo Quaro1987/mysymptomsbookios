@@ -19,6 +19,7 @@
 		FA5B23F81A24A38000C266C2 /* ContactPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B23F71A24A38000C266C2 /* ContactPatientViewController.m */; };
 		FA5B24011A24E2D300C266C2 /* checkBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B24001A24E2D200C266C2 /* checkBoxView.m */; };
 		FA5B24031A2529C100C266C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B24021A2529C100C266C2 /* AVFoundation.framework */; };
+		FA5D71871A59934900A07210 /* NotificationCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D71861A59934900A07210 /* NotificationCircleView.m */; };
 		FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */; };
 		FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */; };
 		FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */; };
@@ -97,6 +98,8 @@
 		FA5B23FF1A24E2D200C266C2 /* checkBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checkBoxView.h; sourceTree = "<group>"; };
 		FA5B24001A24E2D200C266C2 /* checkBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = checkBoxView.m; sourceTree = "<group>"; };
 		FA5B24021A2529C100C266C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FA5D71851A59934900A07210 /* NotificationCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCircleView.h; sourceTree = "<group>"; };
+		FA5D71861A59934900A07210 /* NotificationCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCircleView.m; sourceTree = "<group>"; };
 		FA6525721A154BE900F85F6C /* SymptomhistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryViewController.h; sourceTree = "<group>"; };
 		FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomhistoryViewController.m; sourceTree = "<group>"; };
 		FA6C97161A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSymptomSpecialtiesTableViewController.h; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */,
 				FA4FAA581A269ED50048E651 /* ContactForm.h */,
 				FA4FAA591A269ED50048E651 /* ContactForm.m */,
+				FA5D71851A59934900A07210 /* NotificationCircleView.h */,
+				FA5D71861A59934900A07210 /* NotificationCircleView.m */,
 			);
 			name = "Doctor Models";
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				FA4918171A5470A200BF2770 /* SymptomhistoryCategorySelectTableViewController.m in Sources */,
 				FA5B23F81A24A38000C266C2 /* ContactPatientViewController.m in Sources */,
 				FAEC601D19FEEF3D004B456D /* DataAndNetFunctions.m in Sources */,
+				FA5D71871A59934900A07210 /* NotificationCircleView.m in Sources */,
 				FAEC601719FEB19A004B456D /* LogInViewController.m in Sources */,
 				FA8D536F1A1924A700CFA9B8 /* CheckSymptomViewController.m in Sources */,
 				FA74478C1A070155005D2BFD /* Symptomhistory.m in Sources */,
