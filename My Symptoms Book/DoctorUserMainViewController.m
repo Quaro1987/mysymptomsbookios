@@ -21,16 +21,14 @@
 @implementation DoctorUserMainViewController
 
 @synthesize currentUser, navigationBar, segueToPerform, loadingIndicator, dataController, managePatientSymptomHistoryButton,
-manageUserRelationsButton, patientRequestNotification, patientSymptomsNotification;
+manageUserRelationsButton, patientRequestNotification, patientSymptomsNotification,
+symptomNotificationsNumberLabel, patientRequestsNotificationNumberLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataController = [[DataAndNetFunctions alloc] init];
     
-   
-    [patientRequestNotification setBackgroundColor:[UIColor clearColor]];
-    [patientSymptomsNotification setBackgroundColor:[UIColor clearColor]];
-    
+        
     //if there is internet access  and change the text color of the manage patient symptom
     if([dataController internetAccess])
     {
@@ -41,15 +39,27 @@ manageUserRelationsButton, patientRequestNotification, patientSymptomsNotificati
         NSMutableArray *patientRequestsArray = [aUser getUsersDoctorHasRelationOfType:@"requests"];
         if([patientRequestsArray count]!=0)
         {
-            UIColor *redColor = [UIColor colorWithRed:0.89 green:0.70 blue:0.70 alpha:1.0];
-            [manageUserRelationsButton setTitleColor:redColor forState:UIControlStateNormal];
+            //set up notification view
+            [patientRequestNotification setBackgroundColor:[UIColor clearColor]];
+            //copy into a string the number of patiet requests to be added by the user
+            NSString *numberOfRequests = [[NSString alloc] initWithFormat:@"%d", [patientRequestsArray count]];
+            //copy number into label
+            patientRequestsNotificationNumberLabel.text = numberOfRequests;
+            //show notification view
+            patientRequestNotification.hidden = NO;
         }
         
         NSMutableArray *patientUsersWithNewSymptomsAddedIDsArray = [aRequest getIDsOfPatientUsersWithNewSymptomsAdded];
         if([patientUsersWithNewSymptomsAddedIDsArray count]!=0)
         {
-            UIColor *redColor = [UIColor colorWithRed:0.89 green:0.70 blue:0.70 alpha:1.0];
-            [managePatientSymptomHistoryButton setTitleColor:redColor forState:UIControlStateNormal];
+            //set up notification view
+            [patientSymptomsNotification setBackgroundColor:[UIColor clearColor]];
+            //copy into a string the number of patients with new sympmtoms
+            NSString *numberOfNewSymptoms = [[NSString alloc] initWithFormat:@"%d", [patientUsersWithNewSymptomsAddedIDsArray count]];
+            //copy number into label
+            symptomNotificationsNumberLabel.text = numberOfNewSymptoms;
+            //show notification view
+            patientSymptomsNotification.hidden = NO;
         }
         
     }

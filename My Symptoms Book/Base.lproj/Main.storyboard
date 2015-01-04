@@ -1671,12 +1671,28 @@
                                     <action selector="manageSymptomSpecialtiesPressed:" destination="DY0-0C-NWo" eventType="touchUpInside" id="755-2G-05i"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-ys-cVU" customClass="NotificationCircleView">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-ys-cVU" customClass="NotificationCircleView">
                                 <rect key="frame" x="270" y="94" width="23" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XX5-2E-COn">
+                                        <rect key="frame" x="1" y="2" width="21" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OqX-xO-zIb" customClass="NotificationCircleView">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OqX-xO-zIb" customClass="NotificationCircleView">
                                 <rect key="frame" x="270" y="164" width="23" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8F-tN-6NE">
+                                        <rect key="frame" x="1" y="2" width="21" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -1691,7 +1707,9 @@
                         <outlet property="manageUserRelationsButton" destination="YAg-ZA-qFB" id="oKg-aW-oM9"/>
                         <outlet property="navigationBar" destination="opl-1H-qiM" id="L2n-Lc-iBy"/>
                         <outlet property="patientRequestNotification" destination="OqX-xO-zIb" id="8n0-qN-1lJ"/>
+                        <outlet property="patientRequestsNotificationNumberLabel" destination="Z8F-tN-6NE" id="0Pr-WG-cvd"/>
                         <outlet property="patientSymptomsNotification" destination="h8A-ys-cVU" id="xC4-GY-Kl9"/>
+                        <outlet property="symptomNotificationsNumberLabel" destination="XX5-2E-COn" id="alR-JP-rvT"/>
                         <segue destination="Njo-JI-LWy" kind="show" identifier="manageSpecialtiesSegue" id="nUV-0D-lfX"/>
                         <segue destination="Rbr-h9-VsM" kind="show" identifier="manageUserRelationsSegue" id="0j5-2J-bmO"/>
                         <segue destination="dKK-UM-ERU" kind="show" identifier="managePatientSymptomHistorySegue" id="jrV-1M-af0"/>

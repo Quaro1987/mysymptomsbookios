@@ -27,9 +27,14 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *manageUserRelationsButton;
 
+//notification properties
 @property (strong, nonatomic) IBOutlet NotificationCircleView *patientSymptomsNotification;
 
 @property (strong, nonatomic) IBOutlet NotificationCircleView *patientRequestNotification;
+
+@property (weak, nonatomic) IBOutlet UILabel *symptomNotificationsNumberLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *patientRequestsNotificationNumberLabel;
 
 //functions
 
