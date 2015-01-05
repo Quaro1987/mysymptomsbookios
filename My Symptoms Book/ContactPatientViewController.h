@@ -28,6 +28,12 @@
 @property (nonatomic, strong) NSString *audioMessageFileName;
 @property (nonatomic) BOOL sendAudioMessage;
 
+//recording length labels
+@property (weak, nonatomic) IBOutlet UILabel *timerLengthOfMessageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *slashLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+
+//recording buttons
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;

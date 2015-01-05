@@ -238,14 +238,9 @@
     //set recording settings
     NSDictionary *recordSettings = [NSDictionary
                                     dictionaryWithObjectsAndKeys:
-                                    [NSNumber numberWithInt:AVAudioQualityMin],
-                                    AVEncoderAudioQualityKey,
-                                    [NSNumber numberWithInt:16],
-                                    AVEncoderBitRateKey,
-                                    [NSNumber numberWithInt: 2],
-                                    AVNumberOfChannelsKey,
-                                    [NSNumber numberWithFloat:44100.0],
-                                    AVSampleRateKey,
+                                    [NSNumber numberWithInt: kAudioFormatMPEG4AAC], AVFormatIDKey,
+                                    [NSNumber numberWithFloat:44100.0], AVSampleRateKey,
+                                    [NSNumber numberWithInt: 2], AVNumberOfChannelsKey,
                                     nil];
     
     NSError *error = nil;
@@ -269,7 +264,7 @@
     audioFileName = [audioFileName stringByAppendingString:doctorUser.username];
     audioFileName = [audioFileName stringByAppendingString:@"To"];
     audioFileName = [audioFileName stringByAppendingString:patientUsername];
-    audioFileName = [audioFileName stringByAppendingString:@".caf"];
+    audioFileName = [audioFileName stringByAppendingString:@".m4a"];
     
     return audioFileName;
 }

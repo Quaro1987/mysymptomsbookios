@@ -16,14 +16,20 @@
 
 @end
 
+static int numberOfSecondsRecorded;
+static int secondsDuration;
+static int anotherSecondsRecorded;
+static NSTimer *theTimer;
+
 @implementation ContactPatientViewController
 
 @synthesize patientUser, textFieldSubView, sendAsSMSCheckBox, recordButton, stopButton, messageRecorder, playButton, messagePlayer,
-audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGestureRecognizer,
+audioMessageFileName, sendAudioMessage, sendingMessageActivityIndicator, tapGestureRecognizer, totalTimeLabel, slashLabel, timerLengthOfMessageLabel,
 checkBoxChecked;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     sendAudioMessage = NO;
     checkBoxChecked = NO;
@@ -124,7 +130,6 @@ checkBoxChecked;
         UIAlertView *successAlert = [dataController alertStatus:@"Message Successfully sent to User" andAlertTitle:@"Message Sent"];
         //show alert view
         [successAlert show];
-        
         //redirect to doctor main menu
         DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
         [self.navigationController pushViewController:destinationController animated:NO];
@@ -136,14 +141,27 @@ checkBoxChecked;
     //change button availabillity
     recordButton.enabled = NO;
     stopButton.enabled = YES;
-    //start recording
+    //show labels
+    timerLengthOfMessageLabel.text = @"0";
+    timerLengthOfMessageLabel.hidden = NO;   
+    slashLabel.hidden = NO;
+    totalTimeLabel.text = @"20";
+    totalTimeLabel.hidden = NO;
     //[messageRecorder recordForDuration:10];
+    //start recording
     sendAudioMessage = YES;
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryRecord error:nil];
+    [session setActive:YES error:nil];
+    
     [messageRecorder record];
+    [self startTimerForSeconds:20];
 }
 
 //stop recording or playback when pressed
 - (IBAction)stopRecordingPressed:(id)sender {
+    //stop the timer
+    [self StopTimer];
     //change button availabillity
     playButton.enabled = YES;
     stopButton.enabled = NO;
@@ -151,15 +169,29 @@ checkBoxChecked;
     //check if the app is recording
     if([messageRecorder isRecording])
     {
+        anotherSecondsRecorded = numberOfSecondsRecorded;
         //stop recording
         [messageRecorder stop];
+        //hide the slash label
+        slashLabel.hidden = YES;
+        //copy the recorded time into the total time label
+        totalTimeLabel.text = timerLengthOfMessageLabel.text;
+        //show the length of message label
+        timerLengthOfMessageLabel.text = @"Length of Message:";
+        //stop recording session
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        int flags = AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation;
+        [session setActive:NO withOptions:flags error:nil];
     }
     else if([messagePlayer isPlaying])
     {
         //stop playback
         [messagePlayer stop];
+        //hide the slash label
+        slashLabel.hidden = YES;
+        //show the length of message label
+        timerLengthOfMessageLabel.text = @"Length of Message:";
     }
-    
 }
 
 //play recorded message
@@ -168,7 +200,12 @@ checkBoxChecked;
     playButton.enabled = NO;
     stopButton.enabled = YES;
     recordButton.enabled = NO;
-    
+    timerLengthOfMessageLabel.text = @"0";
+    timerLengthOfMessageLabel.hidden = NO;
+    slashLabel.hidden = NO;
+    NSString *secondsRecordedString = [NSString stringWithFormat:@"%d",anotherSecondsRecorded];
+    totalTimeLabel.text = secondsRecordedString;
+    [self startTimerForSeconds:anotherSecondsRecorded];
     //init audio player
     NSError *error;
     messagePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:messageRecorder.url error:&error];
@@ -184,6 +221,42 @@ checkBoxChecked;
     playButton.enabled = YES;
     stopButton.enabled = NO;
     recordButton.enabled = YES;
+    //hide the slash label
+    slashLabel.hidden = YES;
+    //copy the recorded time into the total time label
+    //totalTimeLabel.text = timerLengthOfMessageLabel.text;
+    //show the length of message label
+    timerLengthOfMessageLabel.text = @"Length of Message:";
+}
+
+#pragma mark timer functions private
+//start the timer function
+-(void) startTimerForSeconds: (int) numberOfSeconds
+{
+    secondsDuration = numberOfSeconds;
+    //set recorded seconds to 0
+    numberOfSecondsRecorded = 0;
+    //start a repeating timer to show the second progress till there are 20 secodns recorded
+    theTimer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerTickWithTimer:) userInfo:nil repeats:(numberOfSecondsRecorded!=numberOfSeconds)];
+    [[NSRunLoop currentRunLoop] addTimer:theTimer forMode:NSDefaultRunLoopMode];
+}
+//increment the second timer by 1
+-(void) timerTickWithTimer: (NSTimer *) aTimer
+{
+    //increment number of seconds recorded
+    numberOfSecondsRecorded++;
+    NSString *secondsPassedString = [NSString stringWithFormat:@"%d",numberOfSecondsRecorded];
+    timerLengthOfMessageLabel.text = secondsPassedString;
+    if(numberOfSecondsRecorded==secondsDuration)
+    {
+        [stopButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+//stop the timer
+- (void) StopTimer
+{
+    [theTimer invalidate];
 }
 
 @end
