@@ -11,7 +11,7 @@
 
 @class User, M13Checkbox;
 
-@interface ContactPatientViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface ContactPatientViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) User *patientUser;
 
