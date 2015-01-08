@@ -14,8 +14,18 @@
 
 @implementation RegisterViewController
 
+@synthesize usernameTextfield, passwordTextfield, repeatPasswordTextfield, emailTextfield, phoneNumberTextfield, firstnameTextfield, lastnameTextfield, dateOfBirthTextfield, specialtyTextfield, specialtyLabel, userType;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //if the user is registering as a normal user
+    if(userType==0)
+    {
+        //hide specialty input and label
+        specialtyLabel.hidden = YES;
+        specialtyTextfield.hidden = YES;
+    }
+    
     // Do any additional setup after loading the view.
 }
 
@@ -34,4 +44,6 @@
 }
 */
 
+- (IBAction)registerPressed:(id)sender {
+}
 @end

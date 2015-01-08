@@ -20,6 +20,7 @@
 		FA5B24011A24E2D300C266C2 /* checkBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5B24001A24E2D200C266C2 /* checkBoxView.m */; };
 		FA5B24031A2529C100C266C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B24021A2529C100C266C2 /* AVFoundation.framework */; };
 		FA5D71871A59934900A07210 /* NotificationCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D71861A59934900A07210 /* NotificationCircleView.m */; };
+		FA6109B31A5EB8F40055C132 /* RegisterAsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6109B21A5EB8F40055C132 /* RegisterAsViewController.m */; };
 		FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */; };
 		FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6C97171A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m */; };
 		FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6DED721A1E89ED00B16DEB /* DoctorSymptomSpecialty.m */; };
@@ -100,6 +101,8 @@
 		FA5B24021A2529C100C266C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FA5D71851A59934900A07210 /* NotificationCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCircleView.h; sourceTree = "<group>"; };
 		FA5D71861A59934900A07210 /* NotificationCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCircleView.m; sourceTree = "<group>"; };
+		FA6109B11A5EB8F40055C132 /* RegisterAsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAsViewController.h; sourceTree = "<group>"; };
+		FA6109B21A5EB8F40055C132 /* RegisterAsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAsViewController.m; sourceTree = "<group>"; };
 		FA6525721A154BE900F85F6C /* SymptomhistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomhistoryViewController.h; sourceTree = "<group>"; };
 		FA6525731A154BE900F85F6C /* SymptomhistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomhistoryViewController.m; sourceTree = "<group>"; };
 		FA6C97161A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSymptomSpecialtiesTableViewController.h; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				FAEC5FF319FEA5D8004B456D /* InitialViewController.m */,
 				FAEC601519FEB19A004B456D /* LogInViewController.h */,
 				FAEC601619FEB19A004B456D /* LogInViewController.m */,
+				FA6109B11A5EB8F40055C132 /* RegisterAsViewController.h */,
+				FA6109B21A5EB8F40055C132 /* RegisterAsViewController.m */,
 				FAEC601819FEB1A9004B456D /* RegisterViewController.h */,
 				FAEC601919FEB1A9004B456D /* RegisterViewController.m */,
 			);
@@ -509,9 +514,11 @@
 				TargetAttributes = {
 					FAEC5FE719FEA5D7004B456D = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9CF5Y5SBGU;
 					};
 					FAEC600019FEA5D8004B456D = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9CF5Y5SBGU;
 						TestTargetID = FAEC5FE719FEA5D7004B456D;
 					};
 				};
@@ -621,6 +628,7 @@
 				FA6525741A154BE900F85F6C /* SymptomhistoryViewController.m in Sources */,
 				FA7704941A125FA0005E19CA /* SymptomhistoryTableViewController.m in Sources */,
 				FA8D53721A192DE800CFA9B8 /* DoctorUser.m in Sources */,
+				FA6109B31A5EB8F40055C132 /* RegisterAsViewController.m in Sources */,
 				FAEC5FF419FEA5D8004B456D /* InitialViewController.m in Sources */,
 				FA6DED731A1E89ED00B16DEB /* DoctorSymptomSpecialty.m in Sources */,
 				FA6C97181A1E08BB00F05F73 /* UserSymptomSpecialtiesTableViewController.m in Sources */,
@@ -780,6 +788,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -791,6 +801,7 @@
 				INFOPLIST_FILE = "My Symptoms BookTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Symptoms Book.app/My Symptoms Book";
 			};
 			name = Debug;
@@ -799,6 +810,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -806,6 +819,7 @@
 				INFOPLIST_FILE = "My Symptoms BookTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Symptoms Book.app/My Symptoms Book";
 			};
 			name = Release;
