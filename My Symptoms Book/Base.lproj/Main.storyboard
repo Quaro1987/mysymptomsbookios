@@ -29,7 +29,7 @@
                         <viewControllerLayoutGuide type="top" id="I5w-Oz-7Oe"/>
                         <viewControllerLayoutGuide type="bottom" id="S5O-pt-S77"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dpv-17-sov">
+                    <view key="view" contentMode="scaleToFill" id="dpv-17-sov" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -115,12 +115,12 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wox-Fb-tQ1">
                                 <rect key="frame" x="165" y="166" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-sh-3Op">
                                 <rect key="frame" x="165" y="125" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PL0-dX-XbX">
                                 <rect key="frame" x="165" y="81" width="132" height="30"/>
@@ -149,6 +149,9 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundClick:" destination="tZq-TQ-meo" eventType="touchUpInside" id="ZVu-oG-gRp"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Registration Page" id="Sbl-fn-c4c"/>
                     <connections>

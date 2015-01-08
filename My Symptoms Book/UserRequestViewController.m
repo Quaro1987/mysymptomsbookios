@@ -71,9 +71,7 @@
         if([resultFromReply isEqualToString:@"SUCCESS"])
         {
             //get success alert view
-            UIAlertView *successAlert = [dataController alertStatus:@"Patient Accepted" andAlertTitle:@"Patient Accepted"];
-            //show alert view
-            [successAlert show];
+            [dataController alertStatus:@"Patient Accepted" andAlertTitle:@"Patient Accepted"];
             
             //redirect to main menu
             DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
@@ -99,10 +97,8 @@
         if([resultFromReply isEqualToString:@"SUCCESS"])
         {
             //get success alert view
-            UIAlertView *successAlert = [dataController alertStatus:@"Patient Rejected" andAlertTitle:@"Patient Rejected"];
-            //show alert view
-            [successAlert show];
-            
+            [dataController alertStatus:@"Patient Rejected" andAlertTitle:@"Patient Rejected"];
+                        
             //redirect to main menu
             DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
             [self.navigationController pushViewController:destinationController animated:NO];

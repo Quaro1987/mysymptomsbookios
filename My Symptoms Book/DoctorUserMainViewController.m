@@ -108,7 +108,7 @@ symptomNotificationsNumberLabel, patientRequestsNotificationNumberLabel;
     [currentUser logoutUser];
     
     //notify user
-    [[dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"] show];
+    [dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"];
     
     //change controller view
     InitialViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"initialView"];

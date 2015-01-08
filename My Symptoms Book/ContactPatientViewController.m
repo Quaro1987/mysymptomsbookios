@@ -127,9 +127,8 @@ checkBoxChecked;
     {
         //get success alert view
         DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-        UIAlertView *successAlert = [dataController alertStatus:@"Message Successfully sent to User" andAlertTitle:@"Message Sent"];
-        //show alert view
-        [successAlert show];
+        [dataController alertStatus:@"Message Successfully sent to User" andAlertTitle:@"Message Sent"];
+        
         //redirect to doctor main menu
         DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
         [self.navigationController pushViewController:destinationController animated:NO];

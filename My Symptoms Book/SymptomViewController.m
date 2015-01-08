@@ -65,9 +65,7 @@
         if([reply isEqualToString:@"SUCCESS"]) //if the symptom specialty was added successfully take to main menu
         {
             //get success alert view
-            UIAlertView *successAlert = [dataController alertStatus:@"Symptom Specialty Successfully Added" andAlertTitle:@"Specialty Added"];
-            //show alert view
-            [successAlert show];
+            [dataController alertStatus:@"Symptom Specialty Successfully Added" andAlertTitle:@"Specialty Added"];
             
             //redirect to main menu
             DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];

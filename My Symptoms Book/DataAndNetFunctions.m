@@ -22,15 +22,27 @@
 
 
 //alert message
--(UIAlertView *)alertStatus:(NSString *)alertBody andAlertTitle:(NSString *)alertTitle
+-(void)alertStatus:(NSString *)alertBody andAlertTitle:(NSString *)alertTitle
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
                                                          message:alertBody
                                                         delegate:self
                                                cancelButtonTitle:@"OK"
                                                otherButtonTitles:nil, nil];
+    [alertView show];
+}
+
+//return alert statues with specific message
+-(UIAlertView *)getAlertStatus:(NSString *)alertBody andAlertTitle:(NSString *)alertTitle
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                        message:alertBody
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
     return alertView;
 }
+
 
 //return number formatter to change strings into ints
 -(NSNumberFormatter *)getNumberFormatter
@@ -200,7 +212,7 @@
     //take to main menu
     [thisNavigationController popToViewController:doctorMainMenuController animated:YES];
     //create and show alert message
-    UIAlertView *failureAlert = [self alertStatus:@"Check Network Status and Try Again Later" andAlertTitle:@"Internet Access Lost"];
+    UIAlertView *failureAlert = [self getAlertStatus:@"Check Network Status and Try Again Later" andAlertTitle:@"Internet Access Lost"];
     //show alert view
     [failureAlert show];
 }
@@ -209,7 +221,7 @@
 -(void) showInternetRequiredErrorMessage
 {
     //create and show alert message
-    UIAlertView *failureAlert = [self alertStatus:@"You Need Internet Access to Perform that Action" andAlertTitle:@"No Internet Access"];
+    UIAlertView *failureAlert = [self getAlertStatus:@"You Need Internet Access to Perform that Action" andAlertTitle:@"No Internet Access"];
     //show alert view
     [failureAlert show];
 }
@@ -218,7 +230,7 @@
 -(void) failedToContactServerShowAlertView
 {
     //create and show alert message
-    UIAlertView *failureAlert = [self alertStatus:@"Please Try Again" andAlertTitle:@"Failed to Contact Server"];
+    UIAlertView *failureAlert = [self getAlertStatus:@"Please Try Again" andAlertTitle:@"Failed to Contact Server"];
     //show alert view
     [failureAlert show];
 }

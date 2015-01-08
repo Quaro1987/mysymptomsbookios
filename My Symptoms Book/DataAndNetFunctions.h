@@ -16,7 +16,7 @@
 
 //functions
 
--(UIAlertView *)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
+-(void)alertStatus: (NSString *) alertBody andAlertTitle: (NSString *) alertTitle;
 
 //data functions
 -(NSString *)getSymptomCategoriesFilePath;

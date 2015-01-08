@@ -57,9 +57,7 @@
     
     //get success alert view
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    UIAlertView *successAlert = [dataController alertStatus:@"Request sent to Doctor" andAlertTitle:@"Doctor Request Successfully Sent"];
-    //show alert view
-    [successAlert show];
+    [dataController alertStatus:@"Request sent to Doctor" andAlertTitle:@"Doctor Request Successfully Sent"];
     
     //redirect to main menu
     NormalUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];

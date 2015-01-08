@@ -10,7 +10,7 @@
 
 @interface RegisterViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextfield;
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield;
 
@@ -35,5 +35,7 @@
 
 //functions
 - (IBAction)registerPressed:(id)sender;
+
+- (IBAction)backgroundClick:(id)sender;
 
 @end

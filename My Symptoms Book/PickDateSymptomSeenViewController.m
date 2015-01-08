@@ -51,9 +51,8 @@
     
     //get success alert view
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    UIAlertView *successAlert = [dataController alertStatus:@"Symptom Successfully added to History." andAlertTitle:@"Symptom Saved"];
-    //show alert view
-    [successAlert show];
+    [dataController alertStatus:@"Symptom Successfully added to History." andAlertTitle:@"Symptom Saved"];
+    
     
     //redirect to main menu
     NormalUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];

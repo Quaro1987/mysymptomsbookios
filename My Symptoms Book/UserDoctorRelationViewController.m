@@ -71,9 +71,8 @@
             {
                 //get success alert view
                 DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-                UIAlertView *successAlert = [dataController alertStatus:@"Patient Successfully Removed" andAlertTitle:@"Patient Removed"];
-                //show alert view
-                [successAlert show];
+                [dataController alertStatus:@"Patient Successfully Removed" andAlertTitle:@"Patient Removed"];
+                
                 
                 //redirect to main menu
                 DoctorUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"doctorUserMainView"];
@@ -83,10 +82,8 @@
             {
                 //get success alert view
                 DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-                UIAlertView *successAlert = [dataController alertStatus:@"Doctor Successfully Removed" andAlertTitle:@"Doctor Removed"];
-                //show alert view
-                [successAlert show];
-                
+                [dataController alertStatus:@"Doctor Successfully Removed" andAlertTitle:@"Doctor Removed"];
+                                
                 //redirect to main menu
                 NormalUserMainViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"normalUserMainView"];
                 [self.navigationController pushViewController:destinationController animated:NO];

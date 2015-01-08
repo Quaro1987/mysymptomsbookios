@@ -109,7 +109,7 @@
     [self.navigationController pushViewController:destinationController animated:NO];
     
     //notify user
-    [[dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"] show];
+    [dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"];
 }
 
 

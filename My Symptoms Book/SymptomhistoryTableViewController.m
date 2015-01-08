@@ -31,8 +31,9 @@
     
     //get current user
     User *currentUser = [[User alloc] initWithSavedUser];
+    NSNumber *normalUserTypeNumber  = [[NSNumber alloc] initWithInt:0];
     //check for user and update title bar
-    if([currentUser.userID isEqual:thisUser.userID])
+    if([currentUser.userType isEqualToNumber: normalUserTypeNumber])
     {
         navigationBar.title = @"Your Symptom History";
     }
