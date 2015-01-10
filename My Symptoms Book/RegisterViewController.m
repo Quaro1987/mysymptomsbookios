@@ -8,14 +8,14 @@
 
 #import "RegisterViewController.h"
 #import "DataAndNetFunctions.h"
-
+#import "User.h"
 @interface RegisterViewController ()
 
 @end
 
 @implementation RegisterViewController
 
-@synthesize usernameTextfield, passwordTextfield, repeatPasswordTextfield, emailTextfield, phoneNumberTextfield, firstnameTextfield, lastnameTextfield, dateOfBirthTextfield, specialtyTextfield, specialtyLabel, userType;
+@synthesize usernameTextfield, passwordTextfield, repeatPasswordTextfield, emailTextfield, phoneNumberTextfield, firstnameTextfield, lastnameTextfield, dateOfBirthTextfield, specialtyTextfield, specialtyLabel, userType, datePicker, dateSelectView, specialtiesArray, specialtySelectView, specialtyPicker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +26,13 @@
         specialtyLabel.hidden = YES;
         specialtyTextfield.hidden = YES;
     }
+    else
+    {
+        specialtiesArray = @[@"Cardiologist", @"Dentist", @"Dermatologist", @"Pathologist"];
+    }
+    //set the maximum date the user can input to today's date
+    [datePicker setMaximumDate:[NSDate date]];
+    
     
     // Do any additional setup after loading the view.
 }
@@ -56,35 +63,63 @@
     }
     else if ([passwordTextfield.text length] < 4)
     {
-        [dataController alertStatus:@"Password must be at least 4 characters long." andAlertTitle:@"Username error"];
+        [dataController alertStatus:@"Password must be at least 4 characters long." andAlertTitle:@"Password error"];
 
     }
     else if (![passwordTextfield.text isEqualToString:repeatPasswordTextfield.text])
     {
-        [dataController alertStatus:@"Password fields must match." andAlertTitle:@"Username error"];
+        [dataController alertStatus:@"Password fields must match." andAlertTitle:@"Password error"];
 
     }
     else if (![self validateEmail:emailTextfield.text])
     {
-        [dataController alertStatus:@"Email field must contain a valid email." andAlertTitle:@"Username error"];
+        [dataController alertStatus:@"Email field must contain a valid email." andAlertTitle:@"Email error"];
 
     }
     else if (![self validatePhoneNumber:phoneNumberTextfield.text])
     {
-        [dataController alertStatus:@"Phone number field can only contain digits." andAlertTitle:@"Username error"];
+        [dataController alertStatus:@"Phone number field can only contain digits." andAlertTitle:@"Phone Number error"];
 
     }
     else if ([firstnameTextfield.text length] == 0)
     {
-        [dataController alertStatus:@"First name field can't be empty." andAlertTitle:@"Username error"];
+        [dataController alertStatus:@"First name field can't be empty." andAlertTitle:@"First Name error"];
 
     }
     else if ([lastnameTextfield.text length] == 0)
     {
-        [dataController alertStatus:@"Last name field can't be empty." andAlertTitle:@"Username error"];
+        [dataController alertStatus:@"Last name field can't be empty." andAlertTitle:@"Last Name error"];
 
     }
+    else if (userType==1 && [specialtyTextfield.text length]==0)
+    {
+        [dataController alertStatus:@"Specialty field can't be empty." andAlertTitle:@"Specialty error"];
+    }
+    else
+    {
+        //create temp string for specialty
+        NSString *tempSpecialty = [[NSString alloc] init];
+        //create an nsnumber for usertype
+        NSNumber *userTypeNumber = [[NSNumber alloc] initWithInt:userType];
+        
+        //if it's a user registering as a normal user then input a space as specialty
+        if(userType==0)
+        {
+            tempSpecialty = @" ";
+        }
+        else
+        {
+            tempSpecialty = specialtyTextfield.text;
+        }
+        
+        //create temp user
+        User *tempUser = [[User alloc] init];
+        NSString *aString = [tempUser registerNewUserWithUsername:usernameTextfield.text andPassword:passwordTextfield.text andFirstName:firstnameTextfield.text andLastName:lastnameTextfield.text andEmail:emailTextfield.text andBirthdate:dateOfBirthTextfield.text andPhoneNumber:phoneNumberTextfield.text andSpecialty:tempSpecialty andUserType:userTypeNumber];
+        NSLog(aString);
+    }
 }
+
+#pragma mark UI press functions
 
 //resign keyboard when clicking on the background
 - (IBAction)backgroundClick:(id)sender {
@@ -99,7 +134,57 @@
     [dateOfBirthTextfield resignFirstResponder];
     [specialtyTextfield resignFirstResponder];
 }
-    
+
+- (IBAction)clickingOnBirthDateTextField:(id)sender {
+    dateSelectView.hidden = NO;
+    [dateOfBirthTextfield resignFirstResponder];
+}
+
+- (IBAction)clickingOnSpecialtyTextField:(id)sender {
+    specialtySelectView.hidden = NO;
+    [specialtyTextfield resignFirstResponder];
+    self.specialtyPicker.dataSource = self;
+    self.specialtyPicker.delegate = self;
+}
+
+- (IBAction)specialtyPickDonePressed:(id)sender {
+    //copy the selection to the textfield
+    NSInteger selectionInt = [specialtyPicker selectedRowInComponent:0];
+    specialtyTextfield.text = [specialtiesArray objectAtIndex:selectionInt];
+    [specialtyTextfield resignFirstResponder];
+    specialtySelectView.hidden = YES;
+
+}
+
+- (IBAction)datePickDonePressed:(id)sender {
+    //copy the inputed date in the correct format to the textfield
+    dateOfBirthTextfield.text = [self getInputedDate];
+    [dateOfBirthTextfield resignFirstResponder];
+    dateSelectView.hidden = YES;
+}
+
+#pragma mark picker delegate functions
+
+// The number of columns of data
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return specialtiesArray.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return specialtiesArray[row];
+}
+
+
+#pragma mark validator and format functions
 //validate if inputed text is an email
 - (BOOL)validateEmail:(NSString *)emailString
 {
@@ -118,6 +203,19 @@
     NSPredicate *phoneNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneNumberRegularExpresisonString];
     //return result of evaluation
     return [phoneNumberTest evaluateWithObject:numberString];
+}
+
+//return the inputed date in the appropriate format
+-(NSString *)getInputedDate
+{
+    NSDate *selectedDate = [datePicker date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //set date format
+    [dateFormatter setDateFormat:@"yyyy/MM/d"];
+    //turnd ate into string
+    NSString *inputedDateString = [dateFormatter stringFromDate:selectedDate];
+    
+    return inputedDateString;
 }
 
 @end

@@ -102,51 +102,97 @@
                                     <action selector="registerPressed:" destination="tZq-TQ-meo" eventType="touchUpInside" id="Xsm-c6-iBr"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQI-oH-Dua">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQI-oH-Dua" userLabel="phone number text field">
                                 <rect key="frame" x="165" y="259" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVY-c0-GkT">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVY-c0-GkT" userLabel="email Text Field">
                                 <rect key="frame" x="165" y="210" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wox-Fb-tQ1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wox-Fb-tQ1" userLabel="repeat password Text Field">
                                 <rect key="frame" x="165" y="166" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-sh-3Op">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-sh-3Op" userLabel="password Text Field">
                                 <rect key="frame" x="165" y="125" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PL0-dX-XbX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PL0-dX-XbX" userLabel="username Text Field">
                                 <rect key="frame" x="165" y="81" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ndf-ci-Bxn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ndf-ci-Bxn" userLabel="first name Text Field">
                                 <rect key="frame" x="165" y="303" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WTk-Jh-4Va">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WTk-Jh-4Va" userLabel="last name Text Field">
                                 <rect key="frame" x="165" y="346" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVX-la-5r6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVX-la-5r6" userLabel="date of bith Text Field">
                                 <rect key="frame" x="165" y="391" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="clickingOnBirthDateTextField:" destination="tZq-TQ-meo" eventType="editingDidBegin" id="IkQ-nW-JYD"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-ob-X8s">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-ob-X8s" userLabel="specialtyText Field">
                                 <rect key="frame" x="165" y="435" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="clickingOnSpecialtyTextField:" destination="tZq-TQ-meo" eventType="editingDidBegin" id="xfs-IX-pvT"/>
+                                </connections>
                             </textField>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y7m-TQ-j1H" userLabel="datePickView">
+                                <rect key="frame" x="35" y="137" width="251" height="284"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZH-JR-Qah" userLabel="Done date">
+                                        <rect key="frame" x="102" y="233" width="37" height="30"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="datePickDonePressed:" destination="tZq-TQ-meo" eventType="touchUpInside" id="akg-OR-PXM"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcE-FG-Poc">
+                                        <rect key="frame" x="2" y="0.0" width="246" height="162"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="-504878575.94210052">
+                                            <!--1985-01-01 11:57:04 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="en_150"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-oc-OfX" userLabel="SpecialtyPickView">
+                                <rect key="frame" x="35" y="87" width="251" height="284"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mT-9T-hAs" userLabel="done specialty">
+                                        <rect key="frame" x="102" y="233" width="37" height="30"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="specialtyPickDonePressed:" destination="tZq-TQ-meo" eventType="touchUpInside" id="G21-Vu-kQm"/>
+                                        </connections>
+                                    </button>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-Ez-ac6">
+                                        <rect key="frame" x="-40" y="-13" width="320" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -156,6 +202,8 @@
                     <navigationItem key="navigationItem" title="Registration Page" id="Sbl-fn-c4c"/>
                     <connections>
                         <outlet property="dateOfBirthTextfield" destination="BVX-la-5r6" id="Rog-ic-hCP"/>
+                        <outlet property="datePicker" destination="NcE-FG-Poc" id="OSs-ho-51x"/>
+                        <outlet property="dateSelectView" destination="Y7m-TQ-j1H" id="PcT-2U-zug"/>
                         <outlet property="emailTextfield" destination="vVY-c0-GkT" id="nhO-W1-ju4"/>
                         <outlet property="firstnameTextfield" destination="Ndf-ci-Bxn" id="W1o-cI-X2e"/>
                         <outlet property="lastnameTextfield" destination="WTk-Jh-4Va" id="R4t-5i-nBP"/>
@@ -163,13 +211,15 @@
                         <outlet property="phoneNumberTextfield" destination="eQI-oH-Dua" id="lxr-5U-FeT"/>
                         <outlet property="repeatPasswordTextfield" destination="wox-Fb-tQ1" id="Rr5-nM-ghE"/>
                         <outlet property="specialtyLabel" destination="gdf-N4-LR2" id="hYZ-Zq-fLR"/>
+                        <outlet property="specialtyPicker" destination="vS5-Ez-ac6" id="ZQ0-Um-scE"/>
+                        <outlet property="specialtySelectView" destination="EbV-oc-OfX" id="dJm-DK-1jw"/>
                         <outlet property="specialtyTextfield" destination="ZwF-ob-X8s" id="TLU-HW-tkU"/>
                         <outlet property="usernameTextfield" destination="PL0-dX-XbX" id="xlm-hL-ZXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3em-eS-AXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260" y="-932"/>
+            <point key="canvasLocation" x="260" y="-939"/>
         </scene>
         <!--Register As-->
         <scene sceneID="nqU-8L-IeJ">
@@ -233,7 +283,9 @@
                             <constraint firstItem="Axp-0c-6lp" firstAttribute="centerX" secondItem="w1Z-oa-7sb" secondAttribute="centerX" id="eOO-ov-TfN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Register As" id="IeX-TX-0tR"/>
+                    <navigationItem key="navigationItem" title="Register As" id="IeX-TX-0tR">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="vDY-OX-rhD"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="tZq-TQ-meo" kind="show" identifier="registerSegue" id="bba-GG-dcO"/>
                     </connections>
@@ -1503,7 +1555,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="demo" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
                                 <rect key="frame" x="16" y="109" width="289" height="120"/>
                                 <color key="backgroundColor" red="1" green="0.99262111183345936" blue="0.77115524651157452" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

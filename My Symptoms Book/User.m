@@ -213,6 +213,56 @@
     }
 }
 
+-(NSString *)registerNewUserWithUsername:(NSString *)registerUsername andPassword:(NSString *)registerPassword andFirstName:(NSString *)registerFirstName andLastName:(NSString *)registerLastName andEmail:(NSString *)registerEmail andBirthdate:(NSString *)registerBirthDate andPhoneNumber:(NSString *)registerPhoneNumber andSpecialty:(NSString *)registerSpecialty andUserType:(NSNumber *)registerUserType
+{
+    //encode for percent escapes username and password
+    NSString *encodedUsernameString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                                   NULL,
+                                                                                                   (CFStringRef)registerUsername,
+                                                                                                   NULL,
+                                                                                                   (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                   kCFStringEncodingUTF8 );
+    NSString *encodedPasswrdString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)registerPassword,
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                  kCFStringEncodingUTF8 );
+    NSString *encodedEmailString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)registerEmail,
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                  kCFStringEncodingUTF8 );
+
+    //create post data string
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&email=%@&phoneNumber=%@&doctorSpecialty=%@&lastname=%@&firstname=%@&birthday=%@userType=%@",
+                             encodedUsernameString, encodedPasswrdString, registerEmail, registerPhoneNumber, registerSpecialty, registerLastName, registerFirstName,
+                             registerBirthDate, registerUserType];
+    //log message
+    NSLog(@"Postdata: %@",postMessage);
+    
+    //create url post request will be made to
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
+    NSString *serverString = @"http://mysymptomsbook.hol.es/index.php?r=user/registration/";
+    NSURL *url =[[NSURL alloc] initWithString:serverString];
+    
+    //url request
+    NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
+    
+    //set up NSerror
+    NSError *error = [[NSError alloc] init];
+    
+    // create url response
+    NSURLResponse *response;
+    
+    //send post request to server
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+    
+    return @"WHATEVER";
+}
+
 -(NSMutableArray *)getUsersDoctorHasRelationOfType:(NSString *)relationType
 {
     /* relationType can be one of 2 strings, @"relations" or @"requests" */

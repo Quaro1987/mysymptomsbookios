@@ -36,11 +36,15 @@
 
 -(void)saveUserData:(User *) loggedUser;
 
-//log in user functions
+//log in / register user functions
 
 -(void)logoutUser;
 
 -(id)loginUserWithUsername:(NSString *) username andPassword:(NSString *) password;
+
+-(NSString *)registerNewUserWithUsername:(NSString *) registerUsername andPassword:(NSString *) registerPassword andFirstName: (NSString *) registerFirstName
+                             andLastName: (NSString *) registerLastName andEmail:(NSString *) registerEmail andBirthdate:(NSString *) registerBirthDate
+                          andPhoneNumber: (NSString *) registerPhoneNumber andSpecialty:(NSString *) registerSpecialty andUserType:(NSNumber *) registerUserType;
 
 //user requests data
 -(NSMutableArray *)getUsersDoctorHasRelationOfType:(NSString *)relationType;

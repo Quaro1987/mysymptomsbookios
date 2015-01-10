@@ -1,4 +1,4 @@
-//
+
 //  RegisterViewController.h
 //  My Symptoms Book
 //
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController
+@interface RegisterViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
 
@@ -30,12 +30,28 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *specialtyLabel;
 
-//usertype property
+//variable properties
 @property (nonatomic) int userType;
+
+@property (nonatomic, strong) NSArray *specialtiesArray;
+
+//date and specialty picker properties
+@property (strong, nonatomic) IBOutlet UIView *dateSelectView;
+@property (weak, nonatomic) IBOutlet UIView *specialtySelectView;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *specialtyPicker;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 //functions
 - (IBAction)registerPressed:(id)sender;
 
 - (IBAction)backgroundClick:(id)sender;
 
+- (IBAction)clickingOnBirthDateTextField:(id)sender;
+
+- (IBAction)clickingOnSpecialtyTextField:(id)sender;
+
+- (IBAction)specialtyPickDonePressed:(id)sender;
+
+- (IBAction)datePickDonePressed:(id)sender;
 @end
