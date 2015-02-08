@@ -212,6 +212,10 @@ checkBoxChecked;
     [self startTimerForSeconds:anotherSecondsRecorded];
     //init audio player
     NSError *error;
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
+
     messagePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:messageRecorder.url error:&error];
     messagePlayer.delegate = self;
     
