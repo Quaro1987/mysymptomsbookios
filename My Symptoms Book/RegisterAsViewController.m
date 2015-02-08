@@ -59,4 +59,10 @@ static int userType;
     [self performSegueWithIdentifier:@"registerSegue" sender:self];
 
 }
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

@@ -35,7 +35,7 @@ checkBoxChecked;
     checkBoxChecked = NO;
     //set up audio recorder
     DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
-    //get thef ile name
+    //get the file name
     audioMessageFileName = [dataController getContactMessageFileNameForUser:patientUser.username];
     messageRecorder = [dataController getAudioRecorderForMessageFile:audioMessageFileName];
     messageRecorder.delegate = self;
@@ -121,6 +121,11 @@ checkBoxChecked;
     
     //send contact information
     ContactForm *contact = [[ContactForm alloc] init];
+    //if the user hasn't inputed a text message, input an auto generated one
+    if([textFieldSubView.text length] == 0)
+    {
+        textFieldSubView.text = @"This is a message sent by one of your Doctors on the My Symptoms Book Service";
+    }
     NSString *reply = [contact sendMessage:textFieldSubView.text toUserWithID:patientUser.userID andAlsoeSendAsSMS:checkBoxChecked andAlsoSendRecordedMessage:sendAudioMessage withFileName:audioMessageFileName];
     
     if([reply isEqualToString:@"SUCCESS"])
@@ -258,6 +263,10 @@ checkBoxChecked;
     [theTimer invalidate];
 }
 
-
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 @end

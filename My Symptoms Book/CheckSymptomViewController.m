@@ -53,6 +53,10 @@
     selectedSymptom = [newSymptom getSymptomWithSymptomCode:symptomCode];
 }
 
-
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 @end

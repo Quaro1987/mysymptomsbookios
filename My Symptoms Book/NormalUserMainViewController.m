@@ -35,8 +35,14 @@
     if([dataController internetAccess])
     {
         Symptomhistory *symptomHistory = [[Symptomhistory alloc] init];
-        NSString *result = [symptomHistory batchPostSavedSymptoms];
-        NSLog(result);
+        //get the saved symptoms
+        NSMutableArray *savedSymptoms = [symptomHistory getSavedSymptomsForUser];
+        //if there are saved symptoms then send them to the server
+        if([savedSymptoms count]!=0)
+        {
+            NSString *result = [symptomHistory batchPostSavedSymptoms];
+            NSLog(result);
+        }
     }
     
     [super viewDidLoad];
@@ -112,5 +118,9 @@
     [dataController alertStatus:@"You have been logged out from My Symptoms Book" andAlertTitle:@"Log Out Succesful"];
 }
 
-
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

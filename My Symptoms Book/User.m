@@ -234,18 +234,21 @@
                                                                                                   NULL,
                                                                                                   (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                                                                                   kCFStringEncodingUTF8 );
-
+    int userTypeInt = [registerUserType intValue];
     //create post data string
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&email=%@&phoneNumber=%@&doctorSpecialty=%@&lastname=%@&firstname=%@&birthday=%@userType=%@",
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@&email=%@&phoneNumber=%@&doctorSpecialty=%@&lastname=%@&firstname=%@&birthday=%@&userType=%d",
                              encodedUsernameString, encodedPasswrdString, registerEmail, registerPhoneNumber, registerSpecialty, registerLastName, registerFirstName,
-                             registerBirthDate, registerUserType];
+                             registerBirthDate, userTypeInt];
     //log message
     NSLog(@"Postdata: %@",postMessage);
     
     //create url post request will be made to
     DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
-    NSString *serverString = @"http://mysymptomsbook.hol.es/index.php?r=user/registration/";
-    NSURL *url =[[NSURL alloc] initWithString:serverString];
+    NSString *serverString = [dataAndNetController serverUrlString];
+    //creatue url
+    NSString *stringUrl = [serverString stringByAppendingString:@"registerIOS"];
+
+    NSURL *url =[[NSURL alloc] initWithString:stringUrl];
     
     //url request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];
@@ -258,9 +261,25 @@
     
     //send post request to server
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-
     
-    return @"WHATEVER";
+    //pass reply into an NSDictionary
+    NSDictionary *jsonReponseData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:&error];
+    
+    NSString *stringReply =  (NSString *)[jsonReponseData objectForKey:@"thisReply"];
+    
+    if([urlData length] == 0)
+    {
+           //log the error and show error message
+           NSLog(@"ERROR no contact with server");
+           [dataAndNetController failedToContactServerShowAlertView];
+           //if fail, send error fail message
+           NSString *fail = @"NOSERVER";
+           return fail;
+    }
+    else
+    {
+        return @"SUCCESS";
+    }
 }
 
 -(NSMutableArray *)getUsersDoctorHasRelationOfType:(NSString *)relationType

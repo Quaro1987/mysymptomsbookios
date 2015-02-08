@@ -172,7 +172,11 @@
 {
     //get the user
     User *currentUser = [[User alloc] initWithSavedUser];
+    //init dataAndNetController
+    DataAndNetFunctions *dataAndNetController = [[DataAndNetFunctions alloc] init];
     
+    //open database
+    FMDatabase *database = [FMDatabase databaseWithPath:[dataAndNetController getMySymptomsBookDatabasePath]];
     NSMutableArray *savedSymptoms = [self getSavedSymptomsForUser];
     
     int successes = 0;
@@ -180,10 +184,15 @@
     for(int i=0;i<[savedSymptoms count];i++)
     {
         Symptomhistory *thisSymptomHistory = [savedSymptoms objectAtIndex:i];
+        //save this symptom history entry
         NSString *result = [self addForUserTheSymptom:thisSymptomHistory.symptomTitle withSymptomCode:thisSymptomHistory.symptomCode andDateFirstSeen:thisSymptomHistory.dateSymptomFirstSeen];
         //if save succesfull increase by 1 successes int
         if([result isEqualToString:@"SUCCESS"])
         {
+            //delete symptoms string
+            NSString *deleteQueryString = [NSString stringWithFormat:@"DELETE FROM tbl_tempSymptomhistory WHERE username = \"%@\" AND title =  \"%@\" AND dateSymptomFirstSeen = \"%@\"", currentUser.username, thisSymptomHistory.symptomTitle, thisSymptomHistory.dateSymptomFirstSeen];
+            [database executeUpdate:deleteQueryString];
+
             successes++;
         }
     }
@@ -191,7 +200,7 @@
     //check if all the symptoms have been posted to the server. if they have, empty the table from the user's saved symptoms
     if(successes==[savedSymptoms count])
     {
-        [self clearDatabaseOfSavedSymptomsForUser:currentUser.username];
+        //[self clearDatabaseOfSavedSymptomsForUser:currentUser.username];
         return @"Symptoms sent to server";
         
     }

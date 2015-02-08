@@ -19,13 +19,15 @@
 @implementation SymptomhistoryViewController
 
 @synthesize dateSymptomAddedLabel, dateSymptomFirstSeenLabel, characterizationLabel, symptomButton, selectedSymptomhistoryEntry,
-findingDoctorViewLoadingIndicator, findDoctorButton;
+findingDoctorViewLoadingIndicator, findDoctorButton, navigationBar;
 
 - (void)viewDidLoad {
     
     dateSymptomAddedLabel.text = selectedSymptomhistoryEntry.dateSymptomAdded;
     dateSymptomFirstSeenLabel.text = selectedSymptomhistoryEntry.dateSymptomFirstSeen;
-#warning finish implementing this
+    
+    //set the navigation bars title when the view loads
+    navigationBar.title = @"Symptom History Details";
     
     //update label color and text
     characterizationLabel.textColor = [selectedSymptomhistoryEntry getCharacterizationLabelColor];
@@ -83,5 +85,11 @@ findingDoctorViewLoadingIndicator, findDoctorButton;
     [spinner stopAnimating];
     //perform findDoctorSegue
     [self performSegueWithIdentifier:@"findDoctorSegue" sender:nil];
+}
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 @end

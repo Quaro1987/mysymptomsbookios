@@ -187,8 +187,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"viewUsersSymptomSegue"])
     {
-        //perform segue if there is internet access
-        
+                
         ViewPatientSymptomHistoryViewController *destinationController = [segue destinationViewController];
         
         //check if it's the filtered or the normal table view and get the symptomhistory object of the view and the user it belongs to
@@ -280,6 +279,26 @@
             //filter temp array with scope
             filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
         }
+        else if([scope isEqualToString:@"No Characterization"])
+        {
+            //scope bar for date symptom added from first version
+            /*
+             //get past week's date
+             NSTimeInterval secondsPast = -(2.63e+6);
+             NSDate *oneMonthPast = [NSDate dateWithTimeInterval:secondsPast sinceDate:[NSDate date]];
+             
+             
+             //create predicate for symptom history added 1 week ago
+             NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.datedAddedInNSDateFormat >= %@", oneMonthPast];
+             */
+            
+            NSString *selectedDangerString = @"0";
+            //create predicate for symptom history with mild danger
+            NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SELF.symptomFlag == %@", selectedDangerString];
+            
+            //filter temp array with scope
+            filteredSymptomhistoryArray = [NSMutableArray arrayWithArray:[filteredSymptomhistoryArray filteredArrayUsingPredicate:scopePredicate ]];
+        }
     }
 }
 
@@ -293,6 +312,12 @@
                                                      selectedScopeButtonIndex]]];
     //return yes to update search table view
     return YES;
+}
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

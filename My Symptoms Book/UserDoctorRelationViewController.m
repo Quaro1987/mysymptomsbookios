@@ -96,4 +96,10 @@
         [dataController takeToMainMenuForNavicationController:self.navigationController];
     }
 }
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

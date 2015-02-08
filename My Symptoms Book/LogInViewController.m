@@ -101,4 +101,10 @@
     [_usernameField resignFirstResponder];
     [_passwordField resignFirstResponder];
 }
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

@@ -19,5 +19,6 @@
 
 //functions
 - (IBAction)loginButtonPressed:(id)sender;
+
 - (IBAction)backgroundClick:(id)sender;
 @end

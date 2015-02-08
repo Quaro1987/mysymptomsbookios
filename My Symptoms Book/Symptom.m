@@ -131,7 +131,8 @@
     NSString *password = [dataAndNetController getUserPassword];
     
     //create post data
-    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", docUser.username, password];
+    User *aUser = [[User alloc] initWithSavedUser];
+    NSString *postMessage = [[NSString alloc] initWithFormat:@"username=%@&password=%@", aUser.username, password];
         
     //create request
     NSMutableURLRequest *request = [dataAndNetController getURLRequestForURL:url andPostMessage:postMessage];

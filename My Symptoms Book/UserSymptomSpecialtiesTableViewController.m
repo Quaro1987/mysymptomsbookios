@@ -25,8 +25,9 @@
     [super viewDidLoad];
     
     Symptom *aSymptom = [[Symptom alloc] init];
+    User *aUser = [[User alloc] init];
     //populate array with user's symptom specialties
-    userSymptomSpecialtiesArray = [aSymptom getSymptomSpecialtiesForDoctorUser:currentUser];
+    userSymptomSpecialtiesArray = [aSymptom getSymptomSpecialtiesForDoctorUser:aUser];
     
     //check if the array isn't empty
     if([userSymptomSpecialtiesArray count]!=0)
@@ -276,5 +277,10 @@
     {
         [dataController takeToMainMenuForNavicationController:self.navigationController];
     }
+}
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 @end

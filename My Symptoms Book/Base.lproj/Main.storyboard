@@ -409,7 +409,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="T6h-K0-Ldj" eventType="touchUpInside" id="M8f-HJ-9fv"/>
+                                    <action selector="loginButtonPressed:" destination="T6h-K0-Ldj" eventType="touchUpInside" id="RxT-M1-Lu1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m2-Rs-Vyu">
@@ -469,7 +469,7 @@
                         <outlet property="passwordField" destination="WNT-Ea-VQk" id="kCp-5g-zbT"/>
                         <outlet property="usernameField" destination="LwE-u9-2pN" id="73U-8Z-Q0m"/>
                         <segue destination="LPL-d2-49J" kind="show" id="t0v-gV-MPB"/>
-                        <segue destination="DY0-0C-NWo" kind="show" identifier="registerAsSegue" id="LGF-LS-0u5"/>
+                        <segue destination="DY0-0C-NWo" kind="show" identifier="" id="LGF-LS-0u5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVK-gB-V7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -768,7 +768,7 @@
             </objects>
             <point key="canvasLocation" x="1026.5" y="2091.5"/>
         </scene>
-        <!--symptomhistorydetail View-->
+        <!--Symptom History Details-->
         <scene sceneID="xF5-tO-QSn">
             <objects>
                 <viewController id="iYe-MC-3am" customClass="SymptomhistoryViewController" sceneMemberID="viewController">
@@ -847,7 +847,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97588820679999999" green="0.97588820679999999" blue="0.97588820679999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="symptomhistorydetail View" id="lVX-Vn-woc">
+                    <navigationItem key="navigationItem" title="Symptom History Details" id="lVX-Vn-woc">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6DN-iO-E1V"/>
                     </navigationItem>
                     <connections>
@@ -856,6 +856,7 @@
                         <outlet property="dateSymptomFirstSeenLabel" destination="nE6-jK-3tM" id="Hvr-so-oEf"/>
                         <outlet property="findDoctorButton" destination="oFf-o0-7Sp" id="IdJ-BD-WEj"/>
                         <outlet property="findingDoctorViewLoadingIndicator" destination="w0e-ai-2h5" id="2hR-QR-0dI"/>
+                        <outlet property="navigationBar" destination="lVX-Vn-woc" id="OAo-8F-Qtr"/>
                         <outlet property="symptomButton" destination="6Ob-yd-r6S" id="Ois-do-4xX"/>
                         <segue destination="JOX-u6-9PO" kind="show" identifier="findDoctorSegue" id="Ni5-HI-rwX"/>
                     </connections>
@@ -1270,7 +1271,7 @@
                                 <date key="date" timeIntervalSinceReferenceDate="436590856.51270801">
                                     <!--2014-11-02 03:14:16 +0000-->
                                 </date>
-                                <locale key="locale" localeIdentifier="el"/>
+                                <locale key="locale" localeIdentifier="en_150"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-10-hVy">
                                 <rect key="frame" x="100" y="380" width="120" height="50"/>
@@ -1307,6 +1308,10 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>All</string>
+                                <string>No Characterization</string>
+                            </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="s1M-HS-RjR" id="CPP-2C-dyZ"/>
                             </connections>
@@ -1555,7 +1560,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="demo" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-RP-D7b">
                                 <rect key="frame" x="16" y="109" width="289" height="120"/>
                                 <color key="backgroundColor" red="1" green="0.99262111183345936" blue="0.77115524651157452" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1576,7 +1581,7 @@
                         <outlet property="sendingMessageActivityIndicator" destination="tJu-45-9kw" id="Lk4-PG-f0w"/>
                         <outlet property="slashLabel" destination="FMp-Uv-cdA" id="L6S-TF-CZv"/>
                         <outlet property="stopButton" destination="0HH-xI-hK0" id="Vrp-Wo-X0v"/>
-                        <outlet property="tapGestureRecognizer" destination="4G8-3I-UK2" id="9o8-0a-6yN"/>
+                        <outlet property="tapGestureRecognizer" destination="4G8-3I-UK2" id="5Wa-ne-mQr"/>
                         <outlet property="textFieldSubView" destination="mNZ-RP-D7b" id="iW8-H4-jEc"/>
                         <outlet property="timerLengthOfMessageLabel" destination="hkE-Ef-fec" id="NXC-5J-4nw"/>
                         <outlet property="totalTimeLabel" destination="Gk6-00-g0G" id="bDq-pK-UCd"/>

@@ -13,6 +13,7 @@
 @interface SymptomhistoryViewController : UIViewController
 
 @property (nonatomic, strong) Symptomhistory *selectedSymptomhistoryEntry;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 //label properties
 @property (strong, nonatomic) IBOutlet UILabel *dateSymptomAddedLabel;

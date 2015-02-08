@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 #import "DataAndNetFunctions.h"
 #import "User.h"
+#import "InitialViewController.h"
 @interface RegisterViewController ()
 
 @end
@@ -116,6 +117,17 @@
         User *tempUser = [[User alloc] init];
         NSString *aString = [tempUser registerNewUserWithUsername:usernameTextfield.text andPassword:passwordTextfield.text andFirstName:firstnameTextfield.text andLastName:lastnameTextfield.text andEmail:emailTextfield.text andBirthdate:dateOfBirthTextfield.text andPhoneNumber:phoneNumberTextfield.text andSpecialty:tempSpecialty andUserType:userTypeNumber];
         NSLog(aString);
+        if([aString isEqualToString:@"SUCCESS"])
+        {
+            //get success alert view
+            DataAndNetFunctions *dataController = [[DataAndNetFunctions alloc] init];
+            [dataController alertStatus:@"Check your Email for the Activation Link" andAlertTitle:@"Registration Successful"];
+            
+            //redirect to doctor main menu
+            InitialViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"initialView"];
+            [self.navigationController pushViewController:destinationController animated:NO];
+        }
+
     }
 }
 
@@ -218,4 +230,9 @@
     return inputedDateString;
 }
 
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

@@ -172,4 +172,10 @@
     //return yes to update search table view
     return YES;
 }
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

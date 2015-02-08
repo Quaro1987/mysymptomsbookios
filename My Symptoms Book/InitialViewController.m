@@ -79,4 +79,10 @@
         RegisterViewController *destinationController = [segue destinationViewController];
     }
 }
+
+//force view on portrait
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end
