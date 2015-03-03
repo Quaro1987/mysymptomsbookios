@@ -64,7 +64,7 @@ checkBoxChecked;
 }
 
 //dismiss keyboard from textfield
--(void)dismissKeyboard {
+-(IBAction)dismissKeyboard {
     [textFieldSubView resignFirstResponder];
 }
 

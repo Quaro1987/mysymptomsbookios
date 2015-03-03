@@ -46,6 +46,7 @@
 - (IBAction)stopRecordingPressed:(id)sender;
 - (IBAction)playPressed:(id)sender;
 
-
+//background click function to dismiss the keyboard
+-(IBAction)dismissKeyboard;
 
 @end
